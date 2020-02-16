@@ -25,8 +25,6 @@ public class ZombieShooterGame extends Game{
 	private GameScreen game;
 
 	private B2dAssetManager assetManager;
-	private TilesetToSprite tilesetToSprite;
-
 	private PlayerEntity player;
 
 	@Override
@@ -35,10 +33,9 @@ public class ZombieShooterGame extends Game{
 		changeScreen(ScreenEnum.SPLASH);
 
 		appPreferences = new AppPreferences();
-		tilesetToSprite = new TilesetToSprite(new Texture("0x72_16x16DungeonTilesetTogether.png"));
 
 		assetManager = new B2dAssetManager(this);
-		assetManager.loadMap();
+		assetManager.load();
 	}
 
 	public void setPlayer(PlayerEntity player) {
@@ -59,10 +56,6 @@ public class ZombieShooterGame extends Game{
 
 	public GameScreen getGameScreen(){
 		return game;
-	}
-
-	public TilesetToSprite getTilesetToSprite() {
-		return tilesetToSprite;
 	}
 
 	public void changeScreen(ScreenEnum screen) {

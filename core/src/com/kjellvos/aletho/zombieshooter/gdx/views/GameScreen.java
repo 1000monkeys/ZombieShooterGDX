@@ -7,6 +7,7 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -17,6 +18,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.kjellvos.aletho.zombieshooter.gdx.TextureEnum;
+import com.kjellvos.aletho.zombieshooter.gdx.TilesetToSprite;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.Box2dContactListener;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
@@ -28,7 +31,6 @@ import com.kjellvos.aletho.zombieshooter.gdx.systems.RenderSystem;
 
 public class GameScreen implements Screen, InputProcessor {
     private ZombieShooterGame parent;
-    private TiledMap map;
     private OrthographicCamera camera;
     private Stage stage;
     private TiledMapRenderer tiledMapRenderer;
@@ -37,6 +39,9 @@ public class GameScreen implements Screen, InputProcessor {
     private SpriteBatch batch;
     private Engine engine;
     private Box2DDebugRenderer debugRenderer;
+
+    private TiledMap map;
+    private Texture tileset;
 
     public boolean leftPressed = false, rightPressed = false, upPressed = false, downPressed = false;
 
@@ -48,6 +53,7 @@ public class GameScreen implements Screen, InputProcessor {
     public void show() {
         parent.getAssetManager().getAssetManager().finishLoading();
         map = parent.getAssetManager().getAssetManager().get("testmap.tmx", TiledMap.class);
+        tileset = parent.getAssetManager().getAssetManager().get("0x72_16x16DungeonTilesetTogether.png", Texture.class);
 
         tiledMapRenderer = new OrthogonalTiledMapRenderer(map);
 
@@ -77,7 +83,7 @@ public class GameScreen implements Screen, InputProcessor {
 
     public void createPlayerEntity(){
         PlayerEntity entity = new PlayerEntity();
-        TextureRegion playerTextureRegion = parent.getTilesetToSprite().getPlayer();
+        TextureRegion playerTextureRegion = TilesetToSprite.getTextureRegionById(tileset, TextureEnum.PLAYER.getId());
 
         BodyDef bodyDef = new BodyDef();
         FixtureDef fixtureDef = new FixtureDef();
@@ -90,7 +96,7 @@ public class GameScreen implements Screen, InputProcessor {
         fixtureDef.shape = shape;
         body.createFixture(fixtureDef).setUserData("player");
 
-        entity.add(new BodyComponent(body)).add(new TextureRegionComponent(parent.getTilesetToSprite().getPlayer())).add(new PlayerSteerableComponent(49 * ZombieShooterGame.PPM, 49 * ZombieShooterGame.PPM));
+        entity.add(new BodyComponent(body)).add(new TextureRegionComponent(TilesetToSprite.getTextureRegionById(tileset, TextureEnum.PLAYER.getId()))).add(new PlayerSteerableComponent(49 * ZombieShooterGame.PPM, 49 * ZombieShooterGame.PPM));
         engine.addEntity(entity);
         parent.setPlayer(entity);
     }
