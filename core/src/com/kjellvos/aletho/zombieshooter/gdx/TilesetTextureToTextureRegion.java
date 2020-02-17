@@ -3,7 +3,7 @@ package com.kjellvos.aletho.zombieshooter.gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-public class TilesetToSprite {
+public class TilesetTextureToTextureRegion {
     public static final int PPT = 16; //pixels per tile
 
     public static TextureRegion getTextureRegionById(Texture tileSet, int id) {

@@ -13,15 +13,14 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.kjellvos.aletho.zombieshooter.gdx.TextureEnum;
-import com.kjellvos.aletho.zombieshooter.gdx.TilesetToSprite;
+import com.kjellvos.aletho.zombieshooter.gdx.TilesetTextureToTextureRegion;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.Box2dContactListener;
+import com.kjellvos.aletho.zombieshooter.gdx.b2d.MapBodyBuilder;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
@@ -32,7 +31,6 @@ import com.kjellvos.aletho.zombieshooter.gdx.systems.RenderSystem;
 public class GameScreen implements Screen, InputProcessor {
     private ZombieShooterGame parent;
     private OrthographicCamera camera;
-    private Stage stage;
     private TiledMapRenderer tiledMapRenderer;
     private World world;
     private FitViewport viewport;
@@ -54,21 +52,21 @@ public class GameScreen implements Screen, InputProcessor {
         parent.getAssetManager().getAssetManager().finishLoading();
         map = parent.getAssetManager().getAssetManager().get("testmap.tmx", TiledMap.class);
         tileset = parent.getAssetManager().getAssetManager().get("0x72_16x16DungeonTilesetTogether.png", Texture.class);
+        parent.getAssetManager().getAssetManager().finishLoading();
 
         tiledMapRenderer = new OrthogonalTiledMapRenderer(map);
 
         camera = new OrthographicCamera();
-        camera.setToOrtho(false,25 * 16, 25 * 16);
-
-        viewport = new FitViewport(ZombieShooterGame.WIDTH, ZombieShooterGame.HEIGHT, camera);
-        viewport.apply();
+        camera.setToOrtho(false, ZombieShooterGame.PPM * 10, ZombieShooterGame.PPM * 8);
+        viewport = new FitViewport(10 * ZombieShooterGame.PPM, 8 * ZombieShooterGame.PPM, camera);
+        camera.update();
+        tiledMapRenderer.setView(camera);
 
         Box2D.init();
         world = new World(new Vector2(0, 0), true);
         world.setContactListener(new Box2dContactListener());
 
         batch = new SpriteBatch();
-        stage = new Stage();
 
         engine = new Engine();
         engine.addSystem(new RenderSystem(this, batch));
@@ -76,27 +74,30 @@ public class GameScreen implements Screen, InputProcessor {
 
         Gdx.input.setInputProcessor(this);
 
-        debugRenderer = new Box2DDebugRenderer();
+        if (ZombieShooterGame.DEBUG) {
+            debugRenderer = new Box2DDebugRenderer();
+        }
 
+        MapBodyBuilder.buildShapes(map, world);
         createPlayerEntity();
     }
 
     public void createPlayerEntity(){
         PlayerEntity entity = new PlayerEntity();
-        TextureRegion playerTextureRegion = TilesetToSprite.getTextureRegionById(tileset, TextureEnum.PLAYER.getId());
+        TextureRegion playerTextureRegion = TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.PLAYER.getId());
 
         BodyDef bodyDef = new BodyDef();
         FixtureDef fixtureDef = new FixtureDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
-        bodyDef.position.set(49 * ZombieShooterGame.PPM, 49 * ZombieShooterGame.PPM);
+        bodyDef.position.set((50 * ZombieShooterGame.PPM + playerTextureRegion.getRegionWidth() / 2F) / ZombieShooterGame.PPM, (50 * ZombieShooterGame.PPM + playerTextureRegion.getRegionWidth() / 2F) / ZombieShooterGame.PPM);
 
         Body body = world.createBody(bodyDef);
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(playerTextureRegion.getTexture().getWidth() / 2 / ZombieShooterGame.PPM / 2 - 0.05f, playerTextureRegion.getTexture().getHeight() / 2 / ZombieShooterGame.PPM  / 2- 0.05f);
+        shape.setAsBox(playerTextureRegion.getRegionHeight() / 2F / ZombieShooterGame.PPM, playerTextureRegion.getRegionWidth() / 2F / ZombieShooterGame.PPM);
         fixtureDef.shape = shape;
         body.createFixture(fixtureDef).setUserData("player");
 
-        entity.add(new BodyComponent(body)).add(new TextureRegionComponent(TilesetToSprite.getTextureRegionById(tileset, TextureEnum.PLAYER.getId()))).add(new PlayerSteerableComponent(49 * ZombieShooterGame.PPM, 49 * ZombieShooterGame.PPM));
+        entity.add(new BodyComponent(body)).add(new TextureRegionComponent(TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.PLAYER.getId()))).add(new PlayerSteerableComponent(50 * ZombieShooterGame.PPM, 50 * ZombieShooterGame.PPM));
         engine.addEntity(entity);
         parent.setPlayer(entity);
     }
@@ -109,27 +110,26 @@ public class GameScreen implements Screen, InputProcessor {
         BodyComponent bodyComp = parent.getPlayer().getComponent(BodyComponent.class);
 
         world.step(1f/30f, 3, 3);
-        camera.position.set(bodyComp.body.getPosition().x, bodyComp.body.getPosition().y, 0);
+        camera.position.set(bodyComp.body.getPosition().x * ZombieShooterGame.PPM, bodyComp.body.getPosition().y * ZombieShooterGame.PPM, 0);
         camera.update();
 
         tiledMapRenderer.setView(camera);
         tiledMapRenderer.render();
 
-        stage.act(delta);
-        stage.draw();
-
+        batch.setProjectionMatrix(camera.combined);
         batch.begin();
         engine.update(delta);
         batch.end();
 
         if (ZombieShooterGame.DEBUG) {
-            debugRenderer.render(world, camera.combined);
+            debugRenderer.render(world, camera.combined.cpy().scale(ZombieShooterGame.PPM, ZombieShooterGame.PPM, 0F));
         }
     }
 
     @Override
     public void resize(int width, int height) {
-
+        viewport.update(width, height);
+        camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, 0);
     }
 
     @Override
@@ -149,7 +149,13 @@ public class GameScreen implements Screen, InputProcessor {
 
     @Override
     public void dispose() {
-
+        world.dispose();
+        batch.dispose();
+        if (ZombieShooterGame.DEBUG) {
+            debugRenderer.dispose();
+        }
+        map.dispose();
+        tileset.dispose();
     }
 
     public OrthographicCamera getCamera() {
@@ -218,16 +224,6 @@ public class GameScreen implements Screen, InputProcessor {
                 break;
         }
         return keyPressed;
-        /*
-        if(keycode == Input.Keys.A || keycode == Input.Keys.LEFT)
-            camera.translate(-32,0);
-        if(keycode == Input.Keys.D || keycode == Input.Keys.RIGHT)
-            camera.translate(32,0);
-        if(keycode == Input.Keys.W || keycode == Input.Keys.UP)
-            camera.translate(0,32);
-        if(keycode == Input.Keys.S || keycode == Input.Keys.DOWN)
-            camera.translate(0,-32);
-         */
     }
 
     @Override

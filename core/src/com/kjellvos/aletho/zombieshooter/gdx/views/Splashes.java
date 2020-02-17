@@ -73,5 +73,6 @@ public class Splashes implements Screen {
     public void dispose() {
         batch.dispose();
         stage.dispose();
+        texture.dispose();
     }
 }

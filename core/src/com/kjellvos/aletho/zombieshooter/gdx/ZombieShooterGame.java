@@ -1,7 +1,6 @@
 package com.kjellvos.aletho.zombieshooter.gdx;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.graphics.Texture;
 import com.kjellvos.aletho.zombieshooter.gdx.entities.PlayerEntity;
 import com.kjellvos.aletho.zombieshooter.gdx.loader.B2dAssetManager;
 import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;

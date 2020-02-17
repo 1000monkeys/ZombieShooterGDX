@@ -2,7 +2,6 @@ package com.kjellvos.aletho.zombieshooter.gdx.systems;
 
 import com.badlogic.ashley.core.*;
 import com.badlogic.ashley.utils.ImmutableArray;
-import com.badlogic.gdx.math.Vector3;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
@@ -16,7 +15,6 @@ public class PlayerMovementSystem extends EntitySystem {
 
     private ComponentMapper<PlayerSteerableComponent> ComMapPlayerSteerableComponent = ComponentMapper.getFor(PlayerSteerableComponent.class);
     private ComponentMapper<BodyComponent> ComMapBodyComponent = ComponentMapper.getFor(BodyComponent.class);
-    private ComponentMapper<TextureRegionComponent> ComMapTextureRegionComponent = ComponentMapper.getFor(TextureRegionComponent.class);
 
     public PlayerMovementSystem(GameScreen gameScreen) {
         this.gameScreen = gameScreen;
@@ -36,20 +34,19 @@ public class PlayerMovementSystem extends EntitySystem {
 
             PlayerSteerableComponent playerSteerComp = ComMapPlayerSteerableComponent.get(entity);
             BodyComponent bodyComp = ComMapBodyComponent.get(entity);
-            TextureRegionComponent textureRegionComp = ComMapTextureRegionComponent.get(entity);
 
             int horizontalForce = 0, verticalForce = 0;
             if (gameScreen.leftPressed) {
-                horizontalForce -= 16;
+                horizontalForce -= 4;
             }
             if (gameScreen.rightPressed) {
-                horizontalForce += 16;
+                horizontalForce += 4;
             }
             if (gameScreen.upPressed) {
-                verticalForce += 16;
+                verticalForce += 4;
             }
             if (gameScreen.downPressed) {
-                verticalForce -= 16;
+                verticalForce -= 4;
             }
 
             bodyComp.body.setLinearVelocity(horizontalForce, verticalForce);
