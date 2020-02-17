@@ -1,36 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3dae99bb-f850-4e65-96fa-f780e7f4f2c0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/components/AnimationComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/components/LightComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/assets/testmap.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/core/assets/testmap.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/MobBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/MobBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ScreenEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/enums/ScreenEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/TextureEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/enums/TextureEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/TilesetTextureToTextureRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/TilesetTextureToTextureRegion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ZombieShooterGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ZombieShooterGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/b2d/MapBodyBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/b2d/MapBodyBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/systems/PlayerMovementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/systems/PlayerMovementSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/systems/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/systems/RenderSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/views/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/views/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/views/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/views/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/views/PreferencesMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/views/PreferencesMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/views/Splashes.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/views/Splashes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/testmap.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/build/resources/main/testmap.tmx" afterDir="false" />
-    </list>
+    <list default="true" id="3dae99bb-f850-4e65-96fa-f780e7f4f2c0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,26 +112,26 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="420" y="460" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1581719562525" />
-    <state width="2517" height="349" key="GridCell.Tab.0.bottom" timestamp="1581980888340">
+    <state width="1235" height="349" key="GridCell.Tab.0.bottom" timestamp="1581981150685">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1860" height="113" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581702624905" />
-    <state width="2517" height="349" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1581980888340" />
-    <state width="2517" height="349" key="GridCell.Tab.0.center" timestamp="1581980888340">
+    <state width="1235" height="349" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1581981150685" />
+    <state width="1235" height="349" key="GridCell.Tab.0.center" timestamp="1581981150685">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1860" height="113" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581702624905" />
-    <state width="2517" height="349" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1581980888340" />
-    <state width="2517" height="349" key="GridCell.Tab.0.left" timestamp="1581980888339">
+    <state width="1235" height="349" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1581981150685" />
+    <state width="1235" height="349" key="GridCell.Tab.0.left" timestamp="1581981150685">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1860" height="113" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581702624905" />
-    <state width="2517" height="349" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1581980888339" />
-    <state width="2517" height="349" key="GridCell.Tab.0.right" timestamp="1581980888340">
+    <state width="1235" height="349" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1581981150685" />
+    <state width="1235" height="349" key="GridCell.Tab.0.right" timestamp="1581981150685">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1860" height="113" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581702624905" />
-    <state width="2517" height="349" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1581980888340" />
+    <state width="1235" height="349" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1581981150685" />
     <state width="2517" height="491" key="GridCell.Tab.1.bottom" timestamp="1581972293449">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
