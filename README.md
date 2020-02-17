@@ -49,9 +49,9 @@ This is the settings menu.
 
 
 
-The game, Barebones still.
+The game, less barebones. But no gameplay yet.
 
-![](https://i.imgur.com/JAWhCkI.png)
+![](https://i.imgur.com/zhRoAeB.png)
 
 ------
 
@@ -64,6 +64,23 @@ The game, Barebones still.
 ##### **40**% Done
 
 1. Have walls working, Slowdown of mobs/items who are pushed.
+
+
+
+#### Box2dlights
+
+##### 25% Done
+
+1. Have lights working, Animated too.
+
+
+
+#### Animation
+
+5% Done
+
+1. Have animation for lights.
+2. Laid the groundwork for more animation.
 
 
 
@@ -92,6 +109,7 @@ The game, Barebones still.
 - Combat
 - Building
 - Inventory
+- More animation
 - More item textures
 - And more....
 

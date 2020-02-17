@@ -11,4 +11,16 @@ public class TilesetTextureToTextureRegion {
         int row = (int)(Math.floor(id / 32D));
         return new TextureRegion(tileSet, column * PPT, row * PPT, PPT, PPT);
     }
+
+    public static TextureRegion getTextureRegionById(Texture tileSet, int id, float rowWidth, float columnHeight) {
+        int column = id % 32;
+        int row = (int)(Math.floor(id / 32D));
+        return new TextureRegion(tileSet, column * PPT, row * PPT, (int)(PPT * rowWidth), (int)(PPT * columnHeight));
+    }
+
+    public static TextureRegion getTextureRegionById(Texture tileSet, int id, float rowWidth, float columnHeight, int offsetX, int offsetY) {
+        int column = id % 32;
+        int row = (int)(Math.floor(id / 32D));
+        return new TextureRegion(tileSet, offsetX + column * PPT, offsetY + row * PPT, (int)(PPT * rowWidth), (int)(PPT * columnHeight));
+    }
 }

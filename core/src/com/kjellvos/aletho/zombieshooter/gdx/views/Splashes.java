@@ -9,8 +9,9 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.kjellvos.aletho.zombieshooter.gdx.inputprocessors.SplashesInputProcessor;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
+import com.kjellvos.aletho.zombieshooter.gdx.inputprocessors.SplashesInputProcessor;
+import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
 public class Splashes implements Screen {
     private ZombieShooterGame parent;
@@ -32,9 +33,9 @@ public class Splashes implements Screen {
         texture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 
         image = new Image(texture);
-        image.setSize(ZombieShooterGame.WIDTH, ZombieShooterGame.HEIGHT);
+        image.setSize(Constants.WIDTH, Constants.HEIGHT);
 
-        stage = new Stage(new FitViewport(ZombieShooterGame.WIDTH, ZombieShooterGame.HEIGHT));
+        stage = new Stage(new FitViewport(Constants.WIDTH, Constants.HEIGHT));
         stage.addActor(image);
 
         image.addAction(Actions.sequence(Actions.alpha(0.0F), Actions.fadeIn(1.25F), Actions.delay(1F)));

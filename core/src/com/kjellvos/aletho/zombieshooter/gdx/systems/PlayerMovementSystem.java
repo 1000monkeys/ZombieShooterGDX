@@ -2,7 +2,7 @@ package com.kjellvos.aletho.zombieshooter.gdx.systems;
 
 import com.badlogic.ashley.core.*;
 import com.badlogic.ashley.utils.ImmutableArray;
-import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
+import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
@@ -50,8 +50,8 @@ public class PlayerMovementSystem extends EntitySystem {
             }
 
             bodyComp.body.setLinearVelocity(horizontalForce, verticalForce);
-            playerSteerComp.x = bodyComp.body.getPosition().x * ZombieShooterGame.PPM;
-            playerSteerComp.y = bodyComp.body.getPosition().y * ZombieShooterGame.PPM;
+            playerSteerComp.x = bodyComp.body.getPosition().x * Constants.PPM;
+            playerSteerComp.y = bodyComp.body.getPosition().y * Constants.PPM;
         }
     }
 }

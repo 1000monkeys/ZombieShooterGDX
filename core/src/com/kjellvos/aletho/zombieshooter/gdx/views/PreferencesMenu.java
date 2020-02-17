@@ -11,8 +11,9 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.kjellvos.aletho.zombieshooter.gdx.ScreenEnum;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
+import com.kjellvos.aletho.zombieshooter.gdx.enums.ScreenEnum;
+import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
 public class PreferencesMenu implements Screen {
     private ZombieShooterGame parent;
@@ -27,9 +28,9 @@ public class PreferencesMenu implements Screen {
     @Override
     public void show() {
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, ZombieShooterGame.WIDTH, ZombieShooterGame.HEIGHT);
+        camera.setToOrtho(false, Constants.WIDTH, Constants.HEIGHT);
 
-        FitViewport viewport = new FitViewport(ZombieShooterGame.WIDTH, ZombieShooterGame.HEIGHT, camera);
+        FitViewport viewport = new FitViewport(Constants.WIDTH, Constants.HEIGHT, camera);
         viewport.apply();
 
         stage = new Stage(viewport);
@@ -101,7 +102,7 @@ public class PreferencesMenu implements Screen {
         Label volumeSoundLabel = new Label("Sound Volume", skin);
         Label soundOnOffLabel = new Label("Sound on/off", skin);
 
-        if (ZombieShooterGame.DEBUG) {
+        if (Constants.DEBUG) {
            settingsTable.setDebug(true);
         }
 

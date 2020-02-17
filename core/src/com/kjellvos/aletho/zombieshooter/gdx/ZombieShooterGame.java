@@ -2,6 +2,7 @@ package com.kjellvos.aletho.zombieshooter.gdx;
 
 import com.badlogic.gdx.Game;
 import com.kjellvos.aletho.zombieshooter.gdx.entities.PlayerEntity;
+import com.kjellvos.aletho.zombieshooter.gdx.enums.ScreenEnum;
 import com.kjellvos.aletho.zombieshooter.gdx.loader.B2dAssetManager;
 import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
 import com.kjellvos.aletho.zombieshooter.gdx.views.MainMenu;
@@ -9,15 +10,6 @@ import com.kjellvos.aletho.zombieshooter.gdx.views.PreferencesMenu;
 import com.kjellvos.aletho.zombieshooter.gdx.views.Splashes;
 
 public class ZombieShooterGame extends Game{
-	public static boolean DEBUG = true;
-
-	public static int WIDTH = 1024, HEIGHT = 786;
-
-	public static float commodoreBlueR = 0.25882354F, commodoreBlueG = 0.25882354F, commodoreBlueB = 0.90588236F;
-
-	public static final int PPM = 16;
-	public static final int viewWidthInTiles = 20, viewHeightInTiles = 16;
-
 	private Splashes splashes;
 	private MainMenu mainMenu;
 	private PreferencesMenu preferences;

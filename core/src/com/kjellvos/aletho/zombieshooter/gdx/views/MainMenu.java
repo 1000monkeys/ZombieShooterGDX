@@ -12,8 +12,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.kjellvos.aletho.zombieshooter.gdx.ScreenEnum;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
+import com.kjellvos.aletho.zombieshooter.gdx.enums.ScreenEnum;
+import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
 public class MainMenu implements Screen {
     private ZombieShooterGame parent;
@@ -27,9 +28,9 @@ public class MainMenu implements Screen {
     @Override
     public void show() {
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, ZombieShooterGame.WIDTH, ZombieShooterGame.HEIGHT);
+        camera.setToOrtho(false, Constants.WIDTH, Constants.HEIGHT);
 
-        FitViewport viewport = new FitViewport(ZombieShooterGame.WIDTH, ZombieShooterGame.HEIGHT, camera);
+        FitViewport viewport = new FitViewport(Constants.WIDTH, Constants.HEIGHT, camera);
         viewport.apply();
 
         stage = new Stage(viewport);
@@ -41,7 +42,7 @@ public class MainMenu implements Screen {
         menuTable.background("window");
         menuTable.setFillParent(true);
 
-        if (ZombieShooterGame.DEBUG) {
+        if (Constants.DEBUG) {
             menuTable.setDebug(true);
         }
 
