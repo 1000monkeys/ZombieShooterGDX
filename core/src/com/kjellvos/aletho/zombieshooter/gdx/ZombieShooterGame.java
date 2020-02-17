@@ -16,6 +16,7 @@ public class ZombieShooterGame extends Game{
 	public static float commodoreBlueR = 0.25882354F, commodoreBlueG = 0.25882354F, commodoreBlueB = 0.90588236F;
 
 	public static final int PPM = 16;
+	public static final int viewWidthInTiles = 20, viewHeightInTiles = 16;
 
 	private Splashes splashes;
 	private MainMenu mainMenu;

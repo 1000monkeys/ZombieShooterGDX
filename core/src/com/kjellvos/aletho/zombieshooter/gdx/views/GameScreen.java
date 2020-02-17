@@ -40,6 +40,7 @@ public class GameScreen implements Screen, InputProcessor {
 
     private TiledMap map;
     private Texture tileset;
+    private TextureRegion player;
 
     public boolean leftPressed = false, rightPressed = false, upPressed = false, downPressed = false;
 
@@ -54,11 +55,13 @@ public class GameScreen implements Screen, InputProcessor {
         tileset = parent.getAssetManager().getAssetManager().get("0x72_16x16DungeonTilesetTogether.png", Texture.class);
         parent.getAssetManager().getAssetManager().finishLoading();
 
+        player = TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.PLAYER.getId());
+
         tiledMapRenderer = new OrthogonalTiledMapRenderer(map);
 
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, ZombieShooterGame.PPM * 10, ZombieShooterGame.PPM * 8);
-        viewport = new FitViewport(10 * ZombieShooterGame.PPM, 8 * ZombieShooterGame.PPM, camera);
+        camera.setToOrtho(false, ZombieShooterGame.PPM * ZombieShooterGame.viewWidthInTiles, ZombieShooterGame.PPM * ZombieShooterGame.viewHeightInTiles);
+        viewport = new FitViewport(ZombieShooterGame.viewWidthInTiles * ZombieShooterGame.PPM, ZombieShooterGame.viewHeightInTiles * ZombieShooterGame.PPM, camera);
         camera.update();
         tiledMapRenderer.setView(camera);
 
@@ -119,6 +122,7 @@ public class GameScreen implements Screen, InputProcessor {
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
         engine.update(delta);
+        batch.draw(player, bodyComp.body.getPosition().x * ZombieShooterGame.PPM - player.getRegionWidth() / 2, bodyComp.body.getPosition().y * ZombieShooterGame.PPM - player.getRegionHeight() / 2);
         batch.end();
 
         if (ZombieShooterGame.DEBUG) {
