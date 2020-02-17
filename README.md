@@ -59,27 +59,39 @@ The game, Barebones still.
 
 ## **Done**
 
-Box2d 						**40**% Done
-					-Have walls working, Slowdown of mobs/items who are pushed.
+#### Box2d
 
-Mobs & items			**20**% Done
-					-Loading of appropriate skin, rendering and generation of physics body done.
+##### **40**% Done
 
-Ashley Entity 			**10**% Done
+1. Have walls working, Slowdown of mobs/items who are pushed.
 
-​					-Render system implemented
-​					-Player movement system implemented
+
+
+#### Mobs & items
+
+##### **20**% Done
+
+1. Loading of appropriate skin, rendering and generation of physics body done.
+
+
+
+#### Ashley Entity 
+
+##### **10**% Done
+
+1. Render system implemented
+2. Player movement system implemented
 
 
 
 ## **TODO**:
 
-Doors
-Chests
-Items
-Combat
-Building
-Inventory
-More item textures
-And more....
+- Doors
+- Chests
+- Items
+- Combat
+- Building
+- Inventory
+- More item textures
+- And more....
 
