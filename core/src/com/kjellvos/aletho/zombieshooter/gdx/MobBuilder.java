@@ -18,6 +18,7 @@ public class MobBuilder {
 
         for(MapObject object : objects) {
             int id = Integer.parseInt(object.getProperties().get("gid").toString());
+            id--; //the gid is always 1 too high
 
             Entity mob = new Entity();
 

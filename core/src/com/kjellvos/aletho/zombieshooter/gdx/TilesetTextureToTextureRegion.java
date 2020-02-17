@@ -7,7 +7,7 @@ public class TilesetTextureToTextureRegion {
     public static final int PPT = 16; //pixels per tile
 
     public static TextureRegion getTextureRegionById(Texture tileSet, int id) {
-        int column = id % 32 - 1;
+        int column = id % 32;
         int row = (int)(Math.floor(id / 32D));
         return new TextureRegion(tileSet, column * PPT, row * PPT, PPT, PPT);
     }
