@@ -8,14 +8,11 @@ import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
-import com.badlogic.gdx.utils.Array;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 
 public class MapBodyBuilder {
-    public static Array<Body> buildShapes(Map map, World world) {
-        MapObjects objects = map.getLayers().get("Objects").getObjects();
-
-        Array<Body> bodies = new Array<Body>();
+    public static void buildShapes(Map map, World world) {
+        MapObjects objects = map.getLayers().get("Walls").getObjects();
 
         for(MapObject object : objects) {
 
@@ -46,11 +43,8 @@ public class MapBodyBuilder {
             Body body = world.createBody(bd);
             body.createFixture(shape, 1);
 
-            bodies.add(body);
-
             shape.dispose();
         }
-        return bodies;
     }
 
     private static PolygonShape getRectangle(RectangleMapObject rectangleObject) {

@@ -16,6 +16,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.kjellvos.aletho.zombieshooter.gdx.MobBuilder;
 import com.kjellvos.aletho.zombieshooter.gdx.TextureEnum;
 import com.kjellvos.aletho.zombieshooter.gdx.TilesetTextureToTextureRegion;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
@@ -83,6 +84,7 @@ public class GameScreen implements Screen, InputProcessor {
 
         MapBodyBuilder.buildShapes(map, world);
         createPlayerEntity();
+        MobBuilder.buildMobs(map, tileset, world, engine);
     }
 
     public void createPlayerEntity(){
