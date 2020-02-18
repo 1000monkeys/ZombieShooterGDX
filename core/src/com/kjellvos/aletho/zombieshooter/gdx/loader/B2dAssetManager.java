@@ -2,6 +2,7 @@ package com.kjellvos.aletho.zombieshooter.gdx.loader;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -25,5 +26,9 @@ public class B2dAssetManager {
         assetManager.load("testmap.tmx", TiledMap.class);
 
         assetManager.load("0x72_16x16DungeonTilesetTogether.png", Texture.class);
+
+        assetManager.load("music_scott_lawlor_strange_lullaby.mp3", Music.class);
+        assetManager.load("music_zapsplat_hallowdream.mp3", Music.class);
+        assetManager.load("music_zapsplat_night_stalker.mp3", Music.class);
     }
 }

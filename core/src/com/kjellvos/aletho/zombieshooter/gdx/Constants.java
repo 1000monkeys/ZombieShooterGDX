@@ -16,4 +16,6 @@ public class Constants {
 
     public static final int BACKGROUND_LAYER = 0;
     public static final int FOREGROUND_LAYER = 1;
+
+    public static final int AMOUNT_MUSIC_FILES = 3;
 }

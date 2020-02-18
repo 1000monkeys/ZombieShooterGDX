@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -31,6 +32,8 @@ import com.kjellvos.aletho.zombieshooter.gdx.entities.PlayerEntity;
 import com.kjellvos.aletho.zombieshooter.gdx.systems.PlayerMovementSystem;
 import com.kjellvos.aletho.zombieshooter.gdx.systems.RenderSystem;
 
+import java.util.Random;
+
 public class GameScreen implements Screen, InputProcessor {
     private ZombieShooterGame parent;
     private OrthographicCamera camera;
@@ -41,6 +44,7 @@ public class GameScreen implements Screen, InputProcessor {
     private Engine engine;
     private Box2DDebugRenderer debugRenderer;
     private RayHandler rayHandler;
+    private Music[] music;
 
     private TiledMap map;
     private Texture tileset;
@@ -79,7 +83,6 @@ public class GameScreen implements Screen, InputProcessor {
         rayHandler.setAmbientLight(0f, 0f, 0f, 0.5f);
         rayHandler.setBlurNum(3);
 
-
         batch = new SpriteBatch();
 
         engine = new Engine();
@@ -95,6 +98,36 @@ public class GameScreen implements Screen, InputProcessor {
         MapBodyBuilder.buildShapes(map, world);
         createPlayerEntity();
         MobBuilder.buildMobs(map, tileset, world, engine, rayHandler);
+
+        /**
+         * Should go into some sort of music manager class
+         */
+        music = new Music[Constants.AMOUNT_MUSIC_FILES];
+        music[0] = parent.getAssetManager().getAssetManager().get("music_zapsplat_night_stalker.mp3");
+        music[0].setVolume(parent.getPreferences().getMusicVolume());
+        music[1] = parent.getAssetManager().getAssetManager().get("music_scott_lawlor_strange_lullaby.mp3");
+        music[1].setVolume(parent.getPreferences().getMusicVolume());
+        music[2] = parent.getAssetManager().getAssetManager().get("music_zapsplat_hallowdream.mp3");
+        music[2].setVolume(parent.getPreferences().getMusicVolume());
+
+        music[0].setOnCompletionListener(new Music.OnCompletionListener() {
+            @Override
+            public void onCompletion(Music musicPlaying) {
+                music[new Random().nextInt(Constants.AMOUNT_MUSIC_FILES)].play();
+            }
+        });
+        music[0].setOnCompletionListener(new Music.OnCompletionListener() {
+            @Override
+            public void onCompletion(Music musicPlaying) {
+                music[new Random().nextInt(Constants.AMOUNT_MUSIC_FILES)].play();
+            }
+        });
+        music[0].setOnCompletionListener(new Music.OnCompletionListener() {
+            @Override
+            public void onCompletion(Music musicPlaying) {
+                music[new Random().nextInt(Constants.AMOUNT_MUSIC_FILES)].play();
+            }
+        });
     }
 
     public void createPlayerEntity(){
@@ -145,6 +178,19 @@ public class GameScreen implements Screen, InputProcessor {
 
         if (Constants.DEBUG) {
             debugRenderer.render(world, camera.combined.cpy().scale(Constants.PPM, Constants.PPM, 0F));
+        }
+
+        if (music != null) {
+            boolean musicBeingPlayed = false;
+            for (int i = 0; i < Constants.AMOUNT_MUSIC_FILES; i++) {
+                if (music[i].isPlaying()) {
+                    musicBeingPlayed = true;
+                    break;
+                }
+            }
+            if (!musicBeingPlayed) {
+                music[new Random().nextInt(Constants.AMOUNT_MUSIC_FILES)].play();
+            }
         }
     }
 
