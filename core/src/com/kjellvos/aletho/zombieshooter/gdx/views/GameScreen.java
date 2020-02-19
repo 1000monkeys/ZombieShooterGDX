@@ -15,6 +15,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -71,6 +72,7 @@ public class GameScreen implements Screen, InputProcessor {
         camera.setToOrtho(false, Constants.PPM * Constants.viewWidthInTiles, Constants.PPM * Constants.viewHeightInTiles);
         viewport = new FitViewport(Constants.viewWidthInTiles * Constants.PPM, Constants.viewHeightInTiles * Constants.PPM, camera);
         camera.update();
+        viewport.apply();
         tiledMapRenderer.setView(camera);
 
         Box2D.init();
@@ -143,6 +145,8 @@ public class GameScreen implements Screen, InputProcessor {
         PolygonShape shape = new PolygonShape();
         shape.setAsBox(playerTextureRegion.getRegionHeight() / 2F / Constants.PPM, playerTextureRegion.getRegionWidth() / 2F / Constants.PPM);
         fixtureDef.shape = shape;
+        fixtureDef.filter.categoryBits = Constants.CATEGORY_PLAYER;
+        fixtureDef.filter.maskBits = Constants.MASK_PLAYER;
         body.createFixture(fixtureDef).setUserData("player");
 
         entity.add(new BodyComponent(body)).add(new TextureRegionComponent(TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.PLAYER.getId()))).add(new PlayerSteerableComponent(50 * Constants.PPM, 50 * Constants.PPM));
@@ -171,13 +175,13 @@ public class GameScreen implements Screen, InputProcessor {
         batch.end();
 
         tiledMapRenderer.render(new int[]{Constants.FOREGROUND_LAYER});
-
-        rayHandler.setCombinedMatrix(camera);
-        rayHandler.update();
-        rayHandler.render();
+        Matrix4 matrixScaled = camera.combined;
+        matrixScaled.scl(Constants.PPM);
+        rayHandler.setCombinedMatrix(matrixScaled, viewport.getScreenX(), viewport.getScreenY(), viewport.getScreenWidth(), viewport.getScreenHeight());
+        rayHandler.updateAndRender();
 
         if (Constants.DEBUG) {
-            debugRenderer.render(world, camera.combined.cpy().scale(Constants.PPM, Constants.PPM, 0F));
+            debugRenderer.render(world, matrixScaled);
         }
 
         if (music != null) {

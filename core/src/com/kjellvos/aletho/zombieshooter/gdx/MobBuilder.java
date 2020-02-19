@@ -30,14 +30,14 @@ public class MobBuilder {
                 Entity light = new Entity();
 
                 TextureRegion[] textureAnimationRegion = new TextureRegion[Constants.LIGHT_ANIMATION_TEXTURE_COUNT];
-                textureAnimationRegion[0] = TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.LIGHT_ANIMATION_0_TOP.getId(), 1F, 1.5F, 0, Constants.PPM / 2);
-                textureAnimationRegion[1] = TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.LIGHT_ANIMATION_1_TOP.getId(), 1F, 1.5F, 0, Constants.PPM / 2);
-                textureAnimationRegion[2] = TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.LIGHT_ANIMATION_2_TOP.getId(), 1F, 1.5F, 0, Constants.PPM / 2);
-                textureAnimationRegion[3] = TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.LIGHT_ANIMATION_3_TOP.getId(), 1F, 1.5F, 0, Constants.PPM / 2);
-                textureAnimationRegion[4] = TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.LIGHT_ANIMATION_4_TOP.getId(), 1F, 1.5F, 0, Constants.PPM / 2);
-                textureAnimationRegion[5] = TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.LIGHT_ANIMATION_5_TOP.getId(), 1F, 1.5F, 0, Constants.PPM / 2);
-                textureAnimationRegion[6] = TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.LIGHT_ANIMATION_6_TOP.getId(), 1F, 1.5F, 0, Constants.PPM / 2);
-                textureAnimationRegion[7] = TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.LIGHT_ANIMATION_7_TOP.getId(), 1F, 1.5F, 0, Constants.PPM / 2);
+                textureAnimationRegion[0] = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.LIGHT_ANIMATION_0);
+                textureAnimationRegion[1] = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.LIGHT_ANIMATION_1);
+                textureAnimationRegion[2] = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.LIGHT_ANIMATION_2);
+                textureAnimationRegion[3] = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.LIGHT_ANIMATION_3);
+                textureAnimationRegion[4] = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.LIGHT_ANIMATION_4);
+                textureAnimationRegion[5] = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.LIGHT_ANIMATION_5);
+                textureAnimationRegion[6] = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.LIGHT_ANIMATION_6);
+                textureAnimationRegion[7] = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.LIGHT_ANIMATION_7);
 
                 BodyDef bodyDef = new BodyDef();
                 bodyDef.type = BodyDef.BodyType.StaticBody;
@@ -48,16 +48,25 @@ public class MobBuilder {
                 Body body = world.createBody(bodyDef);
                 PolygonShape shape = new PolygonShape();
                 shape.setAsBox( textureAnimationRegion[0].getRegionWidth() / 2F / Constants.PPM, textureAnimationRegion[0].getRegionHeight() / 2F / Constants.PPM);
-                body.createFixture(shape, 0F).setUserData("mob");
+                FixtureDef fixtureDef = new FixtureDef();
+                fixtureDef.shape = shape;
+                fixtureDef.filter.categoryBits = Constants.CATEGORY_BUILDING;
+                fixtureDef.filter.maskBits = Constants.MASK_BUILDING;
+                body.createFixture(fixtureDef).setUserData("light");
 
-                PointLight pointLight = new PointLight(rayHandler, Constants.LIGHT_NUM_RAYS, new Color(1,1,1,1), Constants.LIGHT_DISTANCE, x * Constants.PPM,  y * Constants.PPM);
+                PointLight pointLight = new PointLight(rayHandler, Constants.LIGHT_NUM_RAYS, new Color(1,256,1,1), Constants.LIGHT_DISTANCE, x * Constants.PPM,  y * Constants.PPM);
+                pointLight.attachToBody(body);
+                fixtureDef = new FixtureDef();
+                fixtureDef.filter.categoryBits = Constants.CATEGORY_LIGHT;
+                fixtureDef.filter.maskBits = Constants.MASK_LIGHT;
+                pointLight.setContactFilter(fixtureDef.filter);
 
                 light.add(new AnimationComponent(textureAnimationRegion)).add(new BodyComponent(body)).add(new LightComponent(pointLight));
                 engine.addEntity(light);
-            }else {
-                Entity mob = new Entity();
+            }else if(TextureEnum.findById(id).isItem()) {
+                Entity item = new Entity();
 
-                TextureRegion textureRegion = TilesetTextureToTextureRegion.getTextureRegionById(tileset, id);
+                TextureRegion textureRegion = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.findById(id));
 
                 BodyDef bodyDef = new BodyDef();
                 bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -69,6 +78,29 @@ public class MobBuilder {
                 shape.setAsBox(textureRegion.getRegionWidth() / 2F / Constants.PPM, textureRegion.getRegionHeight() / 2F / Constants.PPM);
                 FixtureDef fixtureDef = new FixtureDef();
                 fixtureDef.shape = shape;
+                fixtureDef.filter.categoryBits = Constants.CATEGORY_ITEM;
+                fixtureDef.filter.maskBits = Constants.MASK_ITEM;
+                body.createFixture(fixtureDef).setUserData("item");
+
+                item.add(new BodyComponent(body)).add(new TextureRegionComponent(textureRegion));
+                engine.addEntity(item);
+            }else {
+                Entity mob = new Entity();
+
+                TextureRegion textureRegion = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.findById(id));
+
+                BodyDef bodyDef = new BodyDef();
+                bodyDef.type = BodyDef.BodyType.DynamicBody;
+                bodyDef.position.set(Float.parseFloat(object.getProperties().get("x").toString()) / Constants.PPM, Float.parseFloat(object.getProperties().get("y").toString()) / Constants.PPM);
+
+                Body body = world.createBody(bodyDef);
+                body.setLinearDamping(5);
+                PolygonShape shape = new PolygonShape();
+                shape.setAsBox(textureRegion.getRegionWidth() / 2F / Constants.PPM, textureRegion.getRegionHeight() / 2F / Constants.PPM);
+                FixtureDef fixtureDef = new FixtureDef();
+                fixtureDef.shape = shape;
+                fixtureDef.filter.categoryBits = Constants.CATEGORY_MOB;
+                fixtureDef.filter.maskBits = Constants.MASK_MOB;
                 body.createFixture(fixtureDef).setUserData("mob");
 
                 mob.add(new BodyComponent(body)).add(new TextureRegionComponent(textureRegion));

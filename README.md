@@ -51,7 +51,7 @@ This is the settings menu.
 
 The game, less barebones. But no gameplay yet.
 
-![](https://i.imgur.com/zhRoAeB.png)
+![](https://i.imgur.com/9Toc2oV.png)
 
 ------
 
@@ -71,7 +71,8 @@ The game, less barebones. But no gameplay yet.
 
 ##### 25% Done
 
-1. Have lights working, Animated too.
+1. Have lights working.
+2. Set bitmasks
 
 
 

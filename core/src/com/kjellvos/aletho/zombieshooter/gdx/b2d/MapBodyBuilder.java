@@ -41,7 +41,11 @@ public class MapBodyBuilder {
             BodyDef bd = new BodyDef();
             bd.type = BodyDef.BodyType.StaticBody;
             Body body = world.createBody(bd);
-            body.createFixture(shape, 1);
+            FixtureDef fixtureDef = new FixtureDef();
+            fixtureDef.shape = shape;
+            fixtureDef.filter.categoryBits = Constants.CATEGORY_WALL;
+            fixtureDef.filter.maskBits = Constants.MASK_WALL;
+            body.createFixture(fixtureDef);
 
             shape.dispose();
         }
