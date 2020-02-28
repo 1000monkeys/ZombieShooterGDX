@@ -69,8 +69,8 @@ public class GameScreen implements Screen, InputProcessor {
         tiledMapRenderer = new OrthogonalTiledMapRenderer(map);
 
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, Constants.PPM * Constants.viewWidthInTiles, Constants.PPM * Constants.viewHeightInTiles);
-        viewport = new FitViewport(Constants.viewWidthInTiles * Constants.PPM, Constants.viewHeightInTiles * Constants.PPM, camera);
+        camera.setToOrtho(false, Constants.PPT * Constants.viewWidthInTiles, Constants.PPT * Constants.viewHeightInTiles);
+        viewport = new FitViewport(Constants.viewWidthInTiles * Constants.PPT, Constants.viewHeightInTiles * Constants.PPT, camera);
         camera.update();
         viewport.apply();
         tiledMapRenderer.setView(camera);
@@ -83,7 +83,8 @@ public class GameScreen implements Screen, InputProcessor {
         RayHandler.useDiffuseLight(true);
         rayHandler = new RayHandler(world);
         rayHandler.setAmbientLight(0.5F, 0.5F, 0.5F, 0.75F);
-        rayHandler.setBlurNum(3);
+        rayHandler.setBlurNum(16);
+        rayHandler.setCulling(true);
 
         batch = new SpriteBatch();
 
@@ -139,7 +140,7 @@ public class GameScreen implements Screen, InputProcessor {
         BodyDef bodyDef = new BodyDef();
         FixtureDef fixtureDef = new FixtureDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
-        bodyDef.position.set((50 * Constants.PPM + playerTextureRegion.getRegionWidth() / 2F) / Constants.PPM, (50 * Constants.PPM + playerTextureRegion.getRegionWidth() / 2F) / Constants.PPM);
+        bodyDef.position.set((50 * Constants.PPT + playerTextureRegion.getRegionWidth() / 2F) / Constants.PPM, (50 * Constants.PPT + playerTextureRegion.getRegionWidth() / 2F) / Constants.PPM);
 
         Body body = world.createBody(bodyDef);
         PolygonShape shape = new PolygonShape();
@@ -175,13 +176,11 @@ public class GameScreen implements Screen, InputProcessor {
         batch.end();
 
         tiledMapRenderer.render(new int[]{Constants.FOREGROUND_LAYER});
-        Matrix4 matrixScaled = camera.combined;
-        matrixScaled.scl(Constants.PPM);
-        rayHandler.setCombinedMatrix(matrixScaled, viewport.getScreenX(), viewport.getScreenY(), viewport.getScreenWidth(), viewport.getScreenHeight());
+        rayHandler.setCombinedMatrix(camera);
         rayHandler.updateAndRender();
 
         if (Constants.DEBUG) {
-            debugRenderer.render(world, matrixScaled);
+            debugRenderer.render(world, camera.combined);
         }
 
         if (music != null) {

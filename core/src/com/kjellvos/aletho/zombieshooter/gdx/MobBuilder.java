@@ -55,6 +55,7 @@ public class MobBuilder {
                 body.createFixture(fixtureDef).setUserData("light");
 
                 PointLight pointLight = new PointLight(rayHandler, Constants.LIGHT_NUM_RAYS, new Color(1,256,1,1), Constants.LIGHT_DISTANCE, x * Constants.PPM,  y * Constants.PPM);
+                pointLight.setSoftnessLength(Constants.LIGHT_SOFTNESS_LENGTH);
                 pointLight.attachToBody(body);
                 fixtureDef = new FixtureDef();
                 fixtureDef.filter.categoryBits = Constants.CATEGORY_LIGHT;

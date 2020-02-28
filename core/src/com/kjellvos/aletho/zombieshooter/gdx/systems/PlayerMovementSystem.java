@@ -37,16 +37,16 @@ public class PlayerMovementSystem extends EntitySystem {
 
             int horizontalForce = 0, verticalForce = 0;
             if (gameScreen.leftPressed) {
-                horizontalForce -= 4;
+                horizontalForce -= 64;
             }
             if (gameScreen.rightPressed) {
-                horizontalForce += 4;
+                horizontalForce += 64;
             }
             if (gameScreen.upPressed) {
-                verticalForce += 4;
+                verticalForce += 64;
             }
             if (gameScreen.downPressed) {
-                verticalForce -= 4;
+                verticalForce -= 64;
             }
 
             bodyComp.body.setLinearVelocity(horizontalForce, verticalForce);

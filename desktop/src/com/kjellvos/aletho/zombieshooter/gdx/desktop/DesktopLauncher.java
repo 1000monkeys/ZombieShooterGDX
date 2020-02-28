@@ -9,6 +9,9 @@ public class DesktopLauncher {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		config.width = 1024;
 		config.height = 786;
+		config.vSyncEnabled = true;
+		config.backgroundFPS = 15;
+		config.foregroundFPS = 60;
 		new LwjglApplication(new ZombieShooterGame(), config);
 	}
 }

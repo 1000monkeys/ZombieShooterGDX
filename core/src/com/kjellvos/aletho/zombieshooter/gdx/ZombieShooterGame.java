@@ -1,7 +1,7 @@
 package com.kjellvos.aletho.zombieshooter.gdx;
 
+import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Game;
-import com.kjellvos.aletho.zombieshooter.gdx.entities.PlayerEntity;
 import com.kjellvos.aletho.zombieshooter.gdx.enums.ScreenEnum;
 import com.kjellvos.aletho.zombieshooter.gdx.loader.B2dAssetManager;
 import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
@@ -9,6 +9,13 @@ import com.kjellvos.aletho.zombieshooter.gdx.views.MainMenu;
 import com.kjellvos.aletho.zombieshooter.gdx.views.PreferencesMenu;
 import com.kjellvos.aletho.zombieshooter.gdx.views.Splashes;
 
+/**
+ * This program is built with the LibGDX library, The idea is to combine a tower defense and RPG.
+ *
+ * @author Kjell Vos
+ * @version 0.1
+ * @since 2020-02-28
+ */
 public class ZombieShooterGame extends Game{
 	private Splashes splashes;
 	private MainMenu mainMenu;
@@ -17,8 +24,11 @@ public class ZombieShooterGame extends Game{
 	private GameScreen game;
 
 	private B2dAssetManager assetManager;
-	private PlayerEntity player;
+	private Entity player;
 
+	/**
+	 * This is the method that runs once them game starts, Shows splashes and loads assets.
+	 */
 	@Override
 	public void create () {
 		splashes = new Splashes(this);
@@ -30,26 +40,50 @@ public class ZombieShooterGame extends Game{
 		assetManager.load();
 	}
 
-	public void setPlayer(PlayerEntity player) {
+	/**
+	 * This is a function used to set the player variable. Is set in the GameScreen class.
+	 * @param player PlayerEntity for updating inventory etc.
+	 */
+	public void setPlayer(Entity player) {
 		this.player = player;
 	}
 
-	public PlayerEntity getPlayer(){
+	/**
+	 * This is a function to get the player entity. Might be null if used before GameScreen class is started.
+	 * @return PlayerEntity, For adding to inventory/updating
+	 */
+	public Entity getPlayer(){
 		return player;
 	}
 
+	/**
+	 * A getter for the asset manager variable used to load the game assets.
+	 * @return B2dAssetManager containing the loaded assets.
+	 */
 	public B2dAssetManager getAssetManager(){
 		return assetManager;
 	}
 
+	/**
+	 * A getter for the AppPreferences class, used for storing the sound/volume and other preferences.
+	 * @return AppPreferences containing settings for music/sound volume.
+	 */
 	public AppPreferences getPreferences() {
 		return appPreferences;
 	}
 
+	/**
+	 * Returns the gameScreen class, can be used to set the screen to this one.
+	 * @return GameScreen The screen extended class used for the game
+	 */
 	public GameScreen getGameScreen(){
 		return game;
 	}
 
+	/**
+	 * This is a function to be used to change the current screen from one to another.
+	 * @param screen ScreenEum used for the different screen classes.
+	 */
 	public void changeScreen(ScreenEnum screen) {
 		switch (screen) {
 			case SPLASH:
