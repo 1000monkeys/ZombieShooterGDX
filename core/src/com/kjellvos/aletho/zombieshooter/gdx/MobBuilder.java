@@ -15,6 +15,7 @@ import com.kjellvos.aletho.zombieshooter.gdx.components.AnimationComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.LightComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.enums.AnimationEnum;
 import com.kjellvos.aletho.zombieshooter.gdx.enums.TextureEnum;
 
 public class MobBuilder {
@@ -29,15 +30,8 @@ public class MobBuilder {
             if (id == TextureEnum.LIGHT_OFF.getId()) {
                 Entity light = new Entity();
 
-                TextureRegion[] textureAnimationRegion = new TextureRegion[Constants.LIGHT_ANIMATION_TEXTURE_COUNT];
-                textureAnimationRegion[0] = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.LIGHT_ANIMATION_0);
-                textureAnimationRegion[1] = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.LIGHT_ANIMATION_1);
-                textureAnimationRegion[2] = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.LIGHT_ANIMATION_2);
-                textureAnimationRegion[3] = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.LIGHT_ANIMATION_3);
-                textureAnimationRegion[4] = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.LIGHT_ANIMATION_4);
-                textureAnimationRegion[5] = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.LIGHT_ANIMATION_5);
-                textureAnimationRegion[6] = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.LIGHT_ANIMATION_6);
-                textureAnimationRegion[7] = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, TextureEnum.LIGHT_ANIMATION_7);
+                TextureEnum[] textureEnums = AnimationEnum.LIGHT.getTextureEnums();
+                TextureRegion[] textureRegions = TilesetTextureToTextureRegion.getAnimationTextureRegionsByTextureEnums(tileset, textureEnums);
 
                 BodyDef bodyDef = new BodyDef();
                 bodyDef.type = BodyDef.BodyType.StaticBody;
@@ -47,7 +41,7 @@ public class MobBuilder {
 
                 Body body = world.createBody(bodyDef);
                 PolygonShape shape = new PolygonShape();
-                shape.setAsBox( textureAnimationRegion[0].getRegionWidth() / 2F, textureAnimationRegion[0].getRegionHeight() / 2F);
+                shape.setAsBox( textureRegions[0].getRegionWidth() / 2F, textureRegions[0].getRegionHeight() / 2F);
                 FixtureDef fixtureDef = new FixtureDef();
                 fixtureDef.shape = shape;
                 fixtureDef.filter.categoryBits = Constants.CATEGORY_BUILDING;
@@ -62,7 +56,7 @@ public class MobBuilder {
                 fixtureDef.filter.maskBits = Constants.MASK_LIGHT;
                 pointLight.setContactFilter(fixtureDef.filter);
 
-                light.add(new AnimationComponent(textureAnimationRegion)).add(new BodyComponent(body)).add(new LightComponent(pointLight));
+                light.add(new AnimationComponent(textureRegions)).add(new BodyComponent(body)).add(new LightComponent(pointLight));
                 engine.addEntity(light);
             }else if(TextureEnum.findById(id).isItem()) {
                 Entity item = new Entity();
