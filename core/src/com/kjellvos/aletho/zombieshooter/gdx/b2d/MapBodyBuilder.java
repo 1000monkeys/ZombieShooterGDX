@@ -54,10 +54,10 @@ public class MapBodyBuilder {
     private static PolygonShape getRectangle(RectangleMapObject rectangleObject) {
         Rectangle rectangle = rectangleObject.getRectangle();
         PolygonShape polygon = new PolygonShape();
-        Vector2 size = new Vector2((rectangle.x + rectangle.width * 0.5f) / Constants.PPM,
-                (rectangle.y + rectangle.height * 0.5f ) / Constants.PPM);
-        polygon.setAsBox(rectangle.width * 0.5f / Constants.PPM,
-                rectangle.height * 0.5f / Constants.PPM,
+        Vector2 size = new Vector2((rectangle.x + rectangle.width * 0.5f),
+                (rectangle.y + rectangle.height * 0.5f ));
+        polygon.setAsBox(rectangle.width * 0.5f,
+                rectangle.height * 0.5f,
                 size,
                 0.0f);
         return polygon;
@@ -66,8 +66,8 @@ public class MapBodyBuilder {
     private static CircleShape getCircle(CircleMapObject circleObject) {
         Circle circle = circleObject.getCircle();
         CircleShape circleShape = new CircleShape();
-        circleShape.setRadius(circle.radius / Constants.PPM);
-        circleShape.setPosition(new Vector2(circle.x / Constants.PPM, circle.y / Constants.PPM));
+        circleShape.setRadius(circle.radius);
+        circleShape.setPosition(new Vector2(circle.x, circle.y));
         return circleShape;
     }
 
@@ -79,7 +79,7 @@ public class MapBodyBuilder {
 
         for (int i = 0; i < vertices.length; ++i) {
             System.out.println(vertices[i]);
-            worldVertices[i] = vertices[i] / Constants.PPM;
+            worldVertices[i] = vertices[i];
         }
 
         polygon.set(worldVertices);
@@ -92,8 +92,8 @@ public class MapBodyBuilder {
 
         for (int i = 0; i < vertices.length / 2; ++i) {
             worldVertices[i] = new Vector2();
-            worldVertices[i].x = vertices[i * 2] / Constants.PPM;
-            worldVertices[i].y = vertices[i * 2 + 1] / Constants.PPM;
+            worldVertices[i].x = vertices[i * 2];
+            worldVertices[i].y = vertices[i * 2 + 1];
         }
 
         ChainShape chain = new ChainShape();

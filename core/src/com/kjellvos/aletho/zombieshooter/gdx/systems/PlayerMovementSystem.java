@@ -50,8 +50,8 @@ public class PlayerMovementSystem extends EntitySystem {
             }
 
             bodyComp.body.setLinearVelocity(horizontalForce, verticalForce);
-            playerSteerComp.x = bodyComp.body.getPosition().x * Constants.PPM;
-            playerSteerComp.y = bodyComp.body.getPosition().y * Constants.PPM;
+            playerSteerComp.x = bodyComp.body.getPosition().x;
+            playerSteerComp.y = bodyComp.body.getPosition().y;
         }
     }
 }

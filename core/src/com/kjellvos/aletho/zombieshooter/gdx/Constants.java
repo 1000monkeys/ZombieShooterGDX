@@ -7,7 +7,6 @@ public class Constants {
 
     public static float commodoreBlueR = 0.25882354F, commodoreBlueG = 0.25882354F, commodoreBlueB = 0.90588236F;
 
-    public static final int PPM = 1;
     public static final int PPT = 16;
     public static final int viewWidthInTiles = 20, viewHeightInTiles = 16;
 

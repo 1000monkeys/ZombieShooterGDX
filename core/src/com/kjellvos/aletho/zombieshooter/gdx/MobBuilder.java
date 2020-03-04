@@ -41,20 +41,20 @@ public class MobBuilder {
 
                 BodyDef bodyDef = new BodyDef();
                 bodyDef.type = BodyDef.BodyType.StaticBody;
-                float x = Float.parseFloat(object.getProperties().get("x").toString()) / Constants.PPM;
-                float y = Float.parseFloat(object.getProperties().get("y").toString()) / Constants.PPM;
+                float x = Float.parseFloat(object.getProperties().get("x").toString());
+                float y = Float.parseFloat(object.getProperties().get("y").toString());
                 bodyDef.position.set(x, y);
 
                 Body body = world.createBody(bodyDef);
                 PolygonShape shape = new PolygonShape();
-                shape.setAsBox( textureAnimationRegion[0].getRegionWidth() / 2F / Constants.PPM, textureAnimationRegion[0].getRegionHeight() / 2F / Constants.PPM);
+                shape.setAsBox( textureAnimationRegion[0].getRegionWidth() / 2F, textureAnimationRegion[0].getRegionHeight() / 2F);
                 FixtureDef fixtureDef = new FixtureDef();
                 fixtureDef.shape = shape;
                 fixtureDef.filter.categoryBits = Constants.CATEGORY_BUILDING;
                 fixtureDef.filter.maskBits = Constants.MASK_BUILDING;
                 body.createFixture(fixtureDef).setUserData("light");
 
-                PointLight pointLight = new PointLight(rayHandler, Constants.LIGHT_NUM_RAYS, new Color(1,256,1,1), Constants.LIGHT_DISTANCE, x * Constants.PPM,  y * Constants.PPM);
+                PointLight pointLight = new PointLight(rayHandler, Constants.LIGHT_NUM_RAYS, new Color(1,256,1,1), Constants.LIGHT_DISTANCE, x,  y);
                 pointLight.setSoftnessLength(Constants.LIGHT_SOFTNESS_LENGTH);
                 pointLight.attachToBody(body);
                 fixtureDef = new FixtureDef();
@@ -71,12 +71,12 @@ public class MobBuilder {
 
                 BodyDef bodyDef = new BodyDef();
                 bodyDef.type = BodyDef.BodyType.DynamicBody;
-                bodyDef.position.set(Float.parseFloat(object.getProperties().get("x").toString()) / Constants.PPM, Float.parseFloat(object.getProperties().get("y").toString()) / Constants.PPM);
+                bodyDef.position.set(Float.parseFloat(object.getProperties().get("x").toString()), Float.parseFloat(object.getProperties().get("y").toString()));
 
                 Body body = world.createBody(bodyDef);
                 body.setLinearDamping(5);
                 PolygonShape shape = new PolygonShape();
-                shape.setAsBox(textureRegion.getRegionWidth() / 2F / Constants.PPM, textureRegion.getRegionHeight() / 2F / Constants.PPM);
+                shape.setAsBox(textureRegion.getRegionWidth() / 2F, textureRegion.getRegionHeight() / 2F);
                 FixtureDef fixtureDef = new FixtureDef();
                 fixtureDef.shape = shape;
                 fixtureDef.filter.categoryBits = Constants.CATEGORY_ITEM;
@@ -92,12 +92,12 @@ public class MobBuilder {
 
                 BodyDef bodyDef = new BodyDef();
                 bodyDef.type = BodyDef.BodyType.DynamicBody;
-                bodyDef.position.set(Float.parseFloat(object.getProperties().get("x").toString()) / Constants.PPM, Float.parseFloat(object.getProperties().get("y").toString()) / Constants.PPM);
+                bodyDef.position.set(Float.parseFloat(object.getProperties().get("x").toString()), Float.parseFloat(object.getProperties().get("y").toString()));
 
                 Body body = world.createBody(bodyDef);
                 body.setLinearDamping(5);
                 PolygonShape shape = new PolygonShape();
-                shape.setAsBox(textureRegion.getRegionWidth() / 2F / Constants.PPM, textureRegion.getRegionHeight() / 2F / Constants.PPM);
+                shape.setAsBox(textureRegion.getRegionWidth() / 2F, textureRegion.getRegionHeight() / 2F);
                 FixtureDef fixtureDef = new FixtureDef();
                 fixtureDef.shape = shape;
                 fixtureDef.filter.categoryBits = Constants.CATEGORY_MOB;

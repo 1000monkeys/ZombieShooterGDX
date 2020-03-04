@@ -35,13 +35,13 @@ public class RenderSystem extends EntitySystem {
             TextureRegion textureRegion = entity.getComponent(TextureRegionComponent.class).textureRegion;
             Body body = entity.getComponent(BodyComponent.class).body;
 
-            batch.draw(textureRegion, body.getPosition().x * Constants.PPM - textureRegion.getRegionWidth() / 2, body.getPosition().y * Constants.PPM - textureRegion.getRegionHeight() / 2);
+            batch.draw(textureRegion, body.getPosition().x - textureRegion.getRegionWidth() / 2, body.getPosition().y - textureRegion.getRegionHeight() / 2);
         }
         for (Entity entity : lights) {
             TextureRegion currentFrame = entity.getComponent(AnimationComponent.class).fireAnimation.getKeyFrame(stateTime, true);
 
             Body body = entity.getComponent(BodyComponent.class).body;
-            batch.draw(currentFrame, body.getPosition().x * Constants.PPM - currentFrame.getRegionWidth() / 2, body.getPosition().y * Constants.PPM - currentFrame.getRegionHeight() / 2);
+            batch.draw(currentFrame, body.getPosition().x - (currentFrame.getRegionWidth() / 2), body.getPosition().y  - (currentFrame.getRegionHeight() / 2));
             stateTime += deltaTime;
         }
     }

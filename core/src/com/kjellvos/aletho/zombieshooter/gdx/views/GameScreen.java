@@ -2,6 +2,7 @@ package com.kjellvos.aletho.zombieshooter.gdx.views;
 
 import box2dLight.RayHandler;
 import com.badlogic.ashley.core.Engine;
+import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
@@ -15,21 +16,19 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.kjellvos.aletho.zombieshooter.gdx.MobBuilder;
-import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
-import com.kjellvos.aletho.zombieshooter.gdx.enums.TextureEnum;
-import com.kjellvos.aletho.zombieshooter.gdx.TilesetTextureToTextureRegion;
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
+import com.kjellvos.aletho.zombieshooter.gdx.MobBuilder;
+import com.kjellvos.aletho.zombieshooter.gdx.TilesetTextureToTextureRegion;
+import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.Box2dContactListener;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.MapBodyBuilder;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.entities.PlayerEntity;
+import com.kjellvos.aletho.zombieshooter.gdx.enums.TextureEnum;
 import com.kjellvos.aletho.zombieshooter.gdx.systems.PlayerMovementSystem;
 import com.kjellvos.aletho.zombieshooter.gdx.systems.RenderSystem;
 
@@ -134,23 +133,23 @@ public class GameScreen implements Screen, InputProcessor {
     }
 
     public void createPlayerEntity(){
-        PlayerEntity entity = new PlayerEntity();
+        Entity entity = new Entity();
         TextureRegion playerTextureRegion = TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.PLAYER.getId());
 
         BodyDef bodyDef = new BodyDef();
         FixtureDef fixtureDef = new FixtureDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
-        bodyDef.position.set((50 * Constants.PPT + playerTextureRegion.getRegionWidth() / 2F) / Constants.PPM, (50 * Constants.PPT + playerTextureRegion.getRegionWidth() / 2F) / Constants.PPM);
+        bodyDef.position.set((50 * Constants.PPT + playerTextureRegion.getRegionWidth() / 2F), (50 * Constants.PPT + playerTextureRegion.getRegionWidth() / 2F));
 
         Body body = world.createBody(bodyDef);
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(playerTextureRegion.getRegionHeight() / 2F / Constants.PPM, playerTextureRegion.getRegionWidth() / 2F / Constants.PPM);
+        shape.setAsBox(playerTextureRegion.getRegionHeight() / 2F, playerTextureRegion.getRegionWidth() / 2F);
         fixtureDef.shape = shape;
         fixtureDef.filter.categoryBits = Constants.CATEGORY_PLAYER;
         fixtureDef.filter.maskBits = Constants.MASK_PLAYER;
         body.createFixture(fixtureDef).setUserData("player");
 
-        entity.add(new BodyComponent(body)).add(new TextureRegionComponent(TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.PLAYER.getId()))).add(new PlayerSteerableComponent(50 * Constants.PPM, 50 * Constants.PPM));
+        entity.add(new BodyComponent(body)).add(new TextureRegionComponent(TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.PLAYER.getId()))).add(new PlayerSteerableComponent(50 * Constants.PPT, 50 * Constants.PPT));
         engine.addEntity(entity);
         parent.setPlayer(entity);
     }
@@ -163,7 +162,7 @@ public class GameScreen implements Screen, InputProcessor {
         BodyComponent bodyComp = parent.getPlayer().getComponent(BodyComponent.class);
 
         world.step(1f/30f, 3, 3);
-        camera.position.set(bodyComp.body.getPosition().x * Constants.PPM, bodyComp.body.getPosition().y * Constants.PPM, 0);
+        camera.position.set(bodyComp.body.getPosition().x, bodyComp.body.getPosition().y, 0);
         camera.update();
 
         tiledMapRenderer.setView(camera);
@@ -172,7 +171,7 @@ public class GameScreen implements Screen, InputProcessor {
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
         engine.update(delta);
-        batch.draw(player, bodyComp.body.getPosition().x * Constants.PPM - player.getRegionWidth() / 2, bodyComp.body.getPosition().y * Constants.PPM - player.getRegionHeight() / 2);
+        batch.draw(player, bodyComp.body.getPosition().x - player.getRegionWidth() / 2, bodyComp.body.getPosition().y - player.getRegionHeight() / 2);
         batch.end();
 
         tiledMapRenderer.render(new int[]{Constants.FOREGROUND_LAYER});
