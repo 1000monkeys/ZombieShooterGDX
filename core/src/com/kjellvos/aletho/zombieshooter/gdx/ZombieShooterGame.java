@@ -17,14 +17,43 @@ import com.kjellvos.aletho.zombieshooter.gdx.views.Splashes;
  * @since 2020-02-28
  */
 public class ZombieShooterGame extends Game{
+	/**
+	 * The Splashes class, The splashes are what you see immediately after starting the game.
+	 */
 	private Splashes splashes;
+
+	/**
+	 * The main menu class
+	 */
 	private MainMenu mainMenu;
+
+	/**
+	 * The preferences menu screen, Hosts the input(i.e. players can change the sound volume and such
+	 * for the AppPreferences class.
+	 */
 	private PreferencesMenu preferences;
+
+	/**
+	 * Applicaton preferences such as sound/effect volume.
+	 */
 	private AppPreferences appPreferences;
+
+	/**
+	 * The game screen implementation houses most of the game code.
+	 */
 	private GameScreen game;
 
+	/**
+	 * Assetmanager used for loading asset
+	 */
 	private B2dAssetManager assetManager;
+
+	/**
+	 * The player entity used in the Ashley entity system.
+	 */
 	private Entity player;
+
+
 
 	/**
 	 * This is the method that runs once them game starts, Shows splashes and loads assets.

@@ -14,17 +14,35 @@ import com.kjellvos.aletho.zombieshooter.gdx.inputprocessors.SplashesInputProces
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
 public class Splashes implements Screen {
+    /**
+     * The Main class of the game.
+     */
     private ZombieShooterGame parent;
 
+    /**
+     * The stage. Used for rendering of the splashes.
+     */
     private Stage stage;
-    private SpriteBatch batch;
+    /**
+     * The splash texture variable.
+     */
     private Texture texture;
+    /**
+     * The splash image variable, Made with {@link Splashes#texture}.
+     */
     private Image image;
 
+    /**
+     * This constructor is used to pass the main class of the program to this class.
+     * @param zombieShooterGame the parent {@link ZombieShooterGame} class.
+     */
     public Splashes(ZombieShooterGame zombieShooterGame) {
         this.parent = zombieShooterGame;
     }
 
+    /**
+     * The show function, Called by the LibGDX library once the screen gets shown.
+     */
     @Override
     public void show() {
         Gdx.input.setInputProcessor(new SplashesInputProcessor(parent));
@@ -41,8 +59,13 @@ public class Splashes implements Screen {
         image.addAction(Actions.sequence(Actions.alpha(0.0F), Actions.fadeIn(1.25F), Actions.delay(1F)));
     }
 
+    /**
+     * The render method called every time a new frame gets made.
+     * @param delta time since last frame.
+     */
     @Override
     public void render(float delta) {
+        System.out.println(delta);
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
@@ -50,6 +73,11 @@ public class Splashes implements Screen {
         stage.draw();
     }
 
+    /**
+     * The resize function gets called once the container is resized and should be used to resize the screen and it's assets.
+     * @param width the new width of the container.
+     * @param height the new height of the container.
+     */
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
@@ -72,7 +100,6 @@ public class Splashes implements Screen {
 
     @Override
     public void dispose() {
-        batch.dispose();
         stage.dispose();
         texture.dispose();
     }

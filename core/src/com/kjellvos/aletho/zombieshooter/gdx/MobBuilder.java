@@ -103,4 +103,9 @@ public class MobBuilder {
             }
         }
     }
+
+    //TODO
+    public static void buildLight(TiledMap map, Texture tileset, World world, Engine engine, RayHandler rayHandler){
+
+    }
 }
