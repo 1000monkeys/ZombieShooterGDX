@@ -15,7 +15,7 @@ import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
 public class Splashes implements Screen {
     /**
-     * The Main class of the game.
+     * @see GameScreen#parent
      */
     private ZombieShooterGame parent;
 
@@ -33,15 +33,14 @@ public class Splashes implements Screen {
     private Image image;
 
     /**
-     * This constructor is used to pass the main class of the program to this class.
-     * @param zombieShooterGame the parent {@link ZombieShooterGame} class.
+     * See {@link GameScreen#GameScreen(ZombieShooterGame)}
      */
     public Splashes(ZombieShooterGame zombieShooterGame) {
         this.parent = zombieShooterGame;
     }
 
     /**
-     * The show function, Called by the LibGDX library once the screen gets shown.
+     * See {@link GameScreen#show()}
      */
     @Override
     public void show() {
@@ -60,8 +59,7 @@ public class Splashes implements Screen {
     }
 
     /**
-     * The render method called every time a new frame gets made.
-     * @param delta time since last frame.
+     * See {@link GameScreen#render(float)}
      */
     @Override
     public void render(float delta) {
@@ -74,9 +72,7 @@ public class Splashes implements Screen {
     }
 
     /**
-     * The resize function gets called once the container is resized and should be used to resize the screen and it's assets.
-     * @param width the new width of the container.
-     * @param height the new height of the container.
+     * See {@link GameScreen#resize(int, int)}
      */
     @Override
     public void resize(int width, int height) {

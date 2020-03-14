@@ -35,12 +35,18 @@ import com.kjellvos.aletho.zombieshooter.gdx.systems.RenderSystem;
 import java.util.Random;
 
 public class GameScreen implements Screen, InputProcessor {
+    /**
+     * The Main class of the game.
+     */
     private ZombieShooterGame parent;
+
     private OrthographicCamera camera;
     private TiledMapRenderer tiledMapRenderer;
     private World world;
     private FitViewport viewport;
+
     private SpriteBatch batch;
+
     private Engine engine;
     private Box2DDebugRenderer debugRenderer;
     private RayHandler rayHandler;
@@ -52,10 +58,17 @@ public class GameScreen implements Screen, InputProcessor {
 
     public boolean leftPressed = false, rightPressed = false, upPressed = false, downPressed = false;
 
+    /**
+     * The constructor of this class, Passes the main parent as a argument.
+     * @param zombieShooterGame {@link ZombieShooterGame}
+     */
     public GameScreen(ZombieShooterGame zombieShooterGame){
         parent = zombieShooterGame;
     }
 
+    /**
+     * The show function, Called by the LibGDX library once the screen gets shown.
+     */
     @Override
     public void show() {
         parent.getAssetManager().getAssetManager().finishLoading();
@@ -154,6 +167,10 @@ public class GameScreen implements Screen, InputProcessor {
         parent.setPlayer(entity);
     }
 
+    /**
+     * The render method called every time a new frame gets made.
+     * @param delta time since last frame.
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -196,6 +213,11 @@ public class GameScreen implements Screen, InputProcessor {
         }
     }
 
+    /**
+     * The resize function gets called once the container is resized and should be used to resize the screen and it's assets.
+     * @param width the new width of the container.
+     * @param height the new height of the container.
+     */
     @Override
     public void resize(int width, int height) {
         viewport.update(width, height);

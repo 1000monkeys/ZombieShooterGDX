@@ -28,8 +28,7 @@ public class ZombieShooterGame extends Game{
 	private MainMenu mainMenu;
 
 	/**
-	 * The preferences menu screen, Hosts the input(i.e. players can change the sound volume and such
-	 * for the AppPreferences class.
+	 * The preferences menu screen, Hosts the input(i.e. players can change the sound volume and such for the AppPreferences class.
 	 */
 	private PreferencesMenu preferences;
 

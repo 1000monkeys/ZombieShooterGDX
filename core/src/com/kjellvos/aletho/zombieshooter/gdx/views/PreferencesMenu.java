@@ -16,6 +16,9 @@ import com.kjellvos.aletho.zombieshooter.gdx.enums.ScreenEnum;
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
 public class PreferencesMenu implements Screen {
+    /**
+     * The Main class of the game.
+     */
     private ZombieShooterGame parent;
 
     private Stage stage;
@@ -25,6 +28,9 @@ public class PreferencesMenu implements Screen {
         parent = zombieShooterGame;
     }
 
+    /**
+     * See {@link GameScreen#show()}
+     */
     @Override
     public void show() {
         camera = new OrthographicCamera();
@@ -125,6 +131,9 @@ public class PreferencesMenu implements Screen {
         stage.addActor(settingsTable);
     }
 
+    /**
+     * See {@link GameScreen#render(float)}
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -134,6 +143,9 @@ public class PreferencesMenu implements Screen {
         stage.draw();
     }
 
+    /**
+     * See {@link GameScreen#resize(int, int)}
+     */
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
