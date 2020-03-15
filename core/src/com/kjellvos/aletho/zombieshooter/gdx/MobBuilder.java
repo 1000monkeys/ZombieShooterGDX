@@ -20,7 +20,7 @@ import com.kjellvos.aletho.zombieshooter.gdx.enums.TextureEnum;
 
 public class MobBuilder {
 
-    public static void buildMobs(TiledMap map, Texture tileset, World world, Engine engine, RayHandler rayHandler) {
+    public static void buildObjects(TiledMap map, Texture tileset, World world, Engine engine, RayHandler rayHandler) {
         MapObjects objects = map.getLayers().get("Mobs").getObjects();
 
         for(MapObject object : objects) {
@@ -28,36 +28,7 @@ public class MobBuilder {
             id--; //the gid is always 1 too high
 
             if (id == TextureEnum.LIGHT_OFF.getId()) {
-                Entity light = new Entity();
-
-                TextureEnum[] textureEnums = AnimationEnum.LIGHT.getTextureEnums();
-                TextureRegion[] textureRegions = TilesetTextureToTextureRegion.getAnimationTextureRegionsByTextureEnums(tileset, textureEnums);
-
-                BodyDef bodyDef = new BodyDef();
-                bodyDef.type = BodyDef.BodyType.StaticBody;
-                float x = Float.parseFloat(object.getProperties().get("x").toString());
-                float y = Float.parseFloat(object.getProperties().get("y").toString());
-                bodyDef.position.set(x, y);
-
-                Body body = world.createBody(bodyDef);
-                PolygonShape shape = new PolygonShape();
-                shape.setAsBox( textureRegions[0].getRegionWidth() / 2F, textureRegions[0].getRegionHeight() / 2F);
-                FixtureDef fixtureDef = new FixtureDef();
-                fixtureDef.shape = shape;
-                fixtureDef.filter.categoryBits = Constants.CATEGORY_BUILDING;
-                fixtureDef.filter.maskBits = Constants.MASK_BUILDING;
-                body.createFixture(fixtureDef).setUserData("light");
-
-                PointLight pointLight = new PointLight(rayHandler, Constants.LIGHT_NUM_RAYS, new Color(1,256,1,1), Constants.LIGHT_DISTANCE, x,  y);
-                pointLight.setSoftnessLength(Constants.LIGHT_SOFTNESS_LENGTH);
-                pointLight.attachToBody(body);
-                fixtureDef = new FixtureDef();
-                fixtureDef.filter.categoryBits = Constants.CATEGORY_LIGHT;
-                fixtureDef.filter.maskBits = Constants.MASK_LIGHT;
-                pointLight.setContactFilter(fixtureDef.filter);
-
-                light.add(new AnimationComponent(textureRegions)).add(new BodyComponent(body)).add(new LightComponent(pointLight));
-                engine.addEntity(light);
+                buildLight(object, tileset, world, engine, rayHandler);
             }else if(TextureEnum.findById(id).isItem()) {
                 Entity item = new Entity();
 
@@ -104,8 +75,44 @@ public class MobBuilder {
         }
     }
 
-    //TODO
-    public static void buildLight(TiledMap map, Texture tileset, World world, Engine engine, RayHandler rayHandler){
+    /**
+     * Build's the lights in the world, Runs after/during loading the map
+     * @param object the object(the light)
+     * @param tileset the tileset used for the object
+     * @param world the box2D world in which the light should be
+     * @param engine the ashley entity system engine
+     * @param rayHandler The ray handler, used to create the light
+     */
+    public static void buildLight(MapObject object, Texture tileset, World world, Engine engine, RayHandler rayHandler){
+        Entity light = new Entity();
 
+        TextureEnum[] textureEnums = AnimationEnum.LIGHT.getTextureEnums();
+        TextureRegion[] textureRegions = TilesetTextureToTextureRegion.getAnimationTextureRegionsByTextureEnums(tileset, textureEnums);
+
+        BodyDef bodyDef = new BodyDef();
+        bodyDef.type = BodyDef.BodyType.StaticBody;
+        float x = Float.parseFloat(object.getProperties().get("x").toString());
+        float y = Float.parseFloat(object.getProperties().get("y").toString());
+        bodyDef.position.set(x, y);
+
+        Body body = world.createBody(bodyDef);
+        PolygonShape shape = new PolygonShape();
+        shape.setAsBox( textureRegions[0].getRegionWidth() / 2F, textureRegions[0].getRegionHeight() / 2F);
+        FixtureDef fixtureDef = new FixtureDef();
+        fixtureDef.shape = shape;
+        fixtureDef.filter.categoryBits = Constants.CATEGORY_BUILDING;
+        fixtureDef.filter.maskBits = Constants.MASK_BUILDING;
+        body.createFixture(fixtureDef).setUserData("light");
+
+        PointLight pointLight = new PointLight(rayHandler, Constants.LIGHT_NUM_RAYS, new Color(1,256,1,1), Constants.LIGHT_DISTANCE, x,  y);
+        pointLight.setSoftnessLength(Constants.LIGHT_SOFTNESS_LENGTH);
+        pointLight.attachToBody(body);
+        fixtureDef = new FixtureDef();
+        fixtureDef.filter.categoryBits = Constants.CATEGORY_LIGHT;
+        fixtureDef.filter.maskBits = Constants.MASK_LIGHT;
+        pointLight.setContactFilter(fixtureDef.filter);
+
+        light.add(new AnimationComponent(textureRegions)).add(new BodyComponent(body)).add(new LightComponent(pointLight));
+        engine.addEntity(light);
     }
 }

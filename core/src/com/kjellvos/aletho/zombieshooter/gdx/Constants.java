@@ -38,7 +38,7 @@ public class Constants {
     /**
      * The distance from which lights go from lighting to darkness.
      */
-    public static final float LIGHT_SOFTNESS_LENGTH = 125F;
+    public static final float LIGHT_SOFTNESS_LENGTH = 62.5F;
 
     /**
      * The background layer id number. Should be 0.
@@ -70,7 +70,7 @@ public class Constants {
     public static final short CATEGORY_BUILDING = 32;
 
     /**
-     * Masks are used for collision. Both masks need to ha ve each other as a value to collide.
+     * Masks are used for collision. Both masks need to have each other as a value to collide.
      */
     public static final short MASK_LIGHT = CATEGORY_WALL | CATEGORY_MOB | CATEGORY_PLAYER;
     public static final short MASK_WALL = CATEGORY_LIGHT | CATEGORY_WALL | CATEGORY_MOB | CATEGORY_PLAYER | CATEGORY_ITEM;

@@ -105,7 +105,7 @@ The game, less barebones. But no gameplay yet.
 ## **TODO**:
 
 - Inventory system
-- Loot pickup
+- Loot
 - Doors
 - Chests
 - Items

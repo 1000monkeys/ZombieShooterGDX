@@ -167,6 +167,9 @@ public class PreferencesMenu implements Screen {
 
     }
 
+    /**
+     * See {@link GameScreen#dispose()}
+     */
     @Override
     public void dispose() {
         stage.dispose();

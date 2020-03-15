@@ -23,7 +23,6 @@ import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 import com.kjellvos.aletho.zombieshooter.gdx.MobBuilder;
 import com.kjellvos.aletho.zombieshooter.gdx.TilesetTextureToTextureRegion;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
-import com.kjellvos.aletho.zombieshooter.gdx.b2d.Box2dContactListener;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.MapBodyBuilder;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
@@ -89,7 +88,7 @@ public class GameScreen implements Screen, InputProcessor {
 
         Box2D.init();
         world = new World(new Vector2(0, 0), true);
-        world.setContactListener(new Box2dContactListener());
+        //world.setContactListener(new Box2dContactListener());
 
         RayHandler.setGammaCorrection(true);
         RayHandler.useDiffuseLight(true);
@@ -101,7 +100,7 @@ public class GameScreen implements Screen, InputProcessor {
         batch = new SpriteBatch();
 
         engine = new Engine();
-        engine.addSystem(new RenderSystem(this, batch));
+        engine.addSystem(new RenderSystem(batch));
         engine.addSystem(new PlayerMovementSystem(this));
 
         Gdx.input.setInputProcessor(this);
@@ -112,9 +111,9 @@ public class GameScreen implements Screen, InputProcessor {
 
         MapBodyBuilder.buildShapes(map, world);
         createPlayerEntity();
-        MobBuilder.buildMobs(map, tileset, world, engine, rayHandler);
+        MobBuilder.buildObjects(map, tileset, world, engine, rayHandler);
 
-        /**
+        /*
          * Should go into some sort of music manager class
          */
         music = new Music[Constants.AMOUNT_MUSIC_FILES];
@@ -145,6 +144,9 @@ public class GameScreen implements Screen, InputProcessor {
         });
     }
 
+    /**
+     * Creates the player entity on the current map.
+     */
     public void createPlayerEntity(){
         Entity entity = new Entity();
         TextureRegion playerTextureRegion = TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.PLAYER.getId());
@@ -239,6 +241,9 @@ public class GameScreen implements Screen, InputProcessor {
 
     }
 
+    /**
+     * The dispose function runs once before the class becomes garbage.
+     */
     @Override
     public void dispose() {
         world.dispose();
@@ -251,10 +256,11 @@ public class GameScreen implements Screen, InputProcessor {
         rayHandler.dispose();
     }
 
-    public OrthographicCamera getCamera() {
-        return camera;
-    }
-
+    /**
+     * This function is part of the LibGDX library, Gets called once the key is pressed down. (Only when the class this is in is set as the input processor)
+     * @param keycode the keycode of the pressed key
+     * @return boolean on whether the input is processed
+     */
     @Override
     public boolean keyDown(int keycode) {
         boolean keyPressed = false;
@@ -287,6 +293,11 @@ public class GameScreen implements Screen, InputProcessor {
         return keyPressed;
     }
 
+    /**
+     * This function is part of the LibGDX library, Gets called once the key is released from being pressed. (Only when the class this is in is set as the input processor)
+     * @param keycode the keycode of the released key
+     * @return boolean on whether the input is processed
+     */
     @Override
     public boolean keyUp(int keycode) {
         boolean keyPressed = false;

@@ -85,7 +85,7 @@ public class MapBodyBuilder {
         polygon.set(worldVertices);
         return polygon;
     }
-
+    
     private static ChainShape getPolyline(PolylineMapObject polylineObject) {
         float[] vertices = polylineObject.getPolyline().getTransformedVertices();
         Vector2[] worldVertices = new Vector2[vertices.length / 2];
