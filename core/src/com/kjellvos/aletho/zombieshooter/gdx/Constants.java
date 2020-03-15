@@ -2,13 +2,13 @@ package com.kjellvos.aletho.zombieshooter.gdx;
 
 public class Constants {
     /**
-     * The debug variable, used in certain areas of the code to make debugging easier.
+     * The debug variable, used in certain areas of the code to make debugging easier,
      * For release this variable should always be false.
      */
     public static boolean DEBUG = true;
 
     /**
-     * The standard width/height of the game screen.
+     * The standard width/height of the game screen,
      * Used at startup.
      */
     public static int WIDTH = 1024, HEIGHT = 786;
@@ -23,7 +23,7 @@ public class Constants {
      */
     public static final int PPT = 16;
     /**
-     * The width/height in tiles. To get the real width/height multiply with PPT.
+     * The width/height in tiles, To get the real width/height multiply with PPT.
      */
     public static final int viewWidthInTiles = 20, viewHeightInTiles = 16;
 
@@ -32,7 +32,7 @@ public class Constants {
      */
     public static final float LIGHT_DISTANCE = 250F;
     /**
-     * The amount of rays used per light. More is smoother shadows but slower performance.
+     * The amount of rays used per light, More is smoother shadows but slower performance.
      */
     public static final int LIGHT_NUM_RAYS = 64;
     /**
@@ -41,16 +41,16 @@ public class Constants {
     public static final float LIGHT_SOFTNESS_LENGTH = 62.5F;
 
     /**
-     * The background layer id number. Should be 0.
+     * The background layer id number, Should be 0.
      */
     public static final int BACKGROUND_LAYER = 0;
     /**
-     * The foreground layer id number. Should be 1.
+     * The foreground layer id number, Should be 1.
      */
     public static final int FOREGROUND_LAYER = 1;
 
     /**
-     * The amound of different music files to uses.
+     * The amount of different music files to uses.
      */
     public static final int AMOUNT_MUSIC_FILES = 3;
 
@@ -60,7 +60,7 @@ public class Constants {
     public static final short GROUP_WALL = 2;
 
     /**
-     * Category bits. Always double the value for a new category.
+     * Category bits, Always double the value for a new category.
      */
     public static final short CATEGORY_LIGHT = 1;
     public static final short CATEGORY_WALL = 2;
@@ -70,7 +70,7 @@ public class Constants {
     public static final short CATEGORY_BUILDING = 32;
 
     /**
-     * Masks are used for collision. Both masks need to have each other as a value to collide.
+     * Masks are used for collision, Both masks need to have each other as a value to collide.
      */
     public static final short MASK_LIGHT = CATEGORY_WALL | CATEGORY_MOB | CATEGORY_PLAYER;
     public static final short MASK_WALL = CATEGORY_LIGHT | CATEGORY_WALL | CATEGORY_MOB | CATEGORY_PLAYER | CATEGORY_ITEM;
