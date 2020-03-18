@@ -12,7 +12,7 @@ import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
 public class MapBodyBuilder {
     /**
-     * Builds the walls of the map from the right map layer
+     * Builds the walls and objects of the map from the right map layer
      * @param map the tiled map containing the map objects
      * @param world the Box2D world in which the map objects should be placed
      */

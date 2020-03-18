@@ -17,7 +17,7 @@ import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
 public class PreferencesMenu implements Screen {
     /**
-     * The Main class of the game.
+     * See {@link GameScreen#parent}
      */
     private ZombieShooterGame parent;
 

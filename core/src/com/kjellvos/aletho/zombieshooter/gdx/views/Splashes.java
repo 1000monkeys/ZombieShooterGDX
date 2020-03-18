@@ -15,7 +15,7 @@ import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
 public class Splashes implements Screen {
     /**
-     * @see GameScreen#parent
+     * See {@link GameScreen#parent}
      */
     private ZombieShooterGame parent;
 

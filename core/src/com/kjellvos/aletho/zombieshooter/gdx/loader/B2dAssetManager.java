@@ -7,9 +7,14 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
+import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
 
 public class B2dAssetManager {
+    /**
+     * See {@link GameScreen#parent}
+     */
     private ZombieShooterGame parent;
+
     private AssetManager assetManager;
 
     public B2dAssetManager(ZombieShooterGame zombieShooterGame){

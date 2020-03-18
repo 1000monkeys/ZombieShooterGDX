@@ -2,9 +2,13 @@ package com.kjellvos.aletho.zombieshooter.gdx.inputprocessors;
 
 import com.badlogic.gdx.InputProcessor;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
+import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
 import com.kjellvos.aletho.zombieshooter.gdx.views.MainMenu;
 
 public class SplashesInputProcessor implements InputProcessor {
+    /**
+     * See {@link GameScreen#parent}
+     */
     private ZombieShooterGame parent;
 
     public SplashesInputProcessor(ZombieShooterGame zombieShooterGame) {

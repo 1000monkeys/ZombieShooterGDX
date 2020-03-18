@@ -5,7 +5,6 @@ import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 import com.kjellvos.aletho.zombieshooter.gdx.components.AnimationComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.LightComponent;
@@ -13,7 +12,6 @@ import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
 
 public class RenderSystem extends EntitySystem {
-    private GameScreen gameScreen;
     private ImmutableArray<Entity> entities, lights;
 
     private SpriteBatch batch;

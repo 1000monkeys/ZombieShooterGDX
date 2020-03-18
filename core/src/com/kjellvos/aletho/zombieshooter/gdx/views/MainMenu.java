@@ -17,7 +17,11 @@ import com.kjellvos.aletho.zombieshooter.gdx.enums.ScreenEnum;
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
 public class MainMenu implements Screen {
+    /**
+     * See {@link GameScreen#parent}
+     */
     private ZombieShooterGame parent;
+
     private Stage stage;
     private OrthographicCamera camera;
 
