@@ -25,6 +25,9 @@ public class MainMenu implements Screen {
         parent = zombieShooterGame;
     }
 
+    /**
+     * See {@link GameScreen#show()}
+     */
     @Override
     public void show() {
         camera = new OrthographicCamera();
@@ -82,6 +85,10 @@ public class MainMenu implements Screen {
         stage.addActor(menuTable);
     }
 
+    /**
+     * See {@link GameScreen#render(float)}
+     * @param delta time since this function was last ran
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -91,6 +98,11 @@ public class MainMenu implements Screen {
         stage.draw();
     }
 
+    /**
+     * See {@link GameScreen#resize(int, int)}
+     * @param width the new width of the container
+     * @param height the new height of the container
+     */
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
@@ -112,6 +124,9 @@ public class MainMenu implements Screen {
 
     }
 
+    /**
+     * See {@link GameScreen#dispose()}
+     */
     @Override
     public void dispose() {
         stage.dispose();

@@ -11,6 +11,11 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
 public class MapBodyBuilder {
+    /**
+     * Builds the walls of the map from the right map layer
+     * @param map the tiled map containing the map objects
+     * @param world the Box2D world in which the map objects should be placed
+     */
     public static void buildShapes(Map map, World world) {
         MapObjects objects = map.getLayers().get("Walls").getObjects();
 
@@ -51,6 +56,11 @@ public class MapBodyBuilder {
         }
     }
 
+    /**
+     * Used in buildShapes, This builds the rectangle map objects
+     * @param rectangleObject the map object
+     * @return the initialised map object ready to be added to the world
+     */
     private static PolygonShape getRectangle(RectangleMapObject rectangleObject) {
         Rectangle rectangle = rectangleObject.getRectangle();
         PolygonShape polygon = new PolygonShape();
@@ -63,6 +73,12 @@ public class MapBodyBuilder {
         return polygon;
     }
 
+
+    /**
+     * Used in buildShapes, This builds the circular map objects
+     * @param circleObject the map object
+     * @return the initialised map object ready to be added to the world
+     */
     private static CircleShape getCircle(CircleMapObject circleObject) {
         Circle circle = circleObject.getCircle();
         CircleShape circleShape = new CircleShape();
@@ -71,6 +87,11 @@ public class MapBodyBuilder {
         return circleShape;
     }
 
+    /**
+     *  Used in buildShapes, This builds the polygon map objects
+     * @param polygonObject the map object
+     * @return the initialised map object ready to be added to the world
+     */
     private static PolygonShape getPolygon(PolygonMapObject polygonObject) {
         PolygonShape polygon = new PolygonShape();
         float[] vertices = polygonObject.getPolygon().getTransformedVertices();
@@ -85,7 +106,12 @@ public class MapBodyBuilder {
         polygon.set(worldVertices);
         return polygon;
     }
-    
+
+    /**
+     *  Used in buildShapes, This builds the polygon(line) map objects
+     * @param polylineObject the map object
+     * @return the initialised map object ready to be added to the world
+     */
     private static ChainShape getPolyline(PolylineMapObject polylineObject) {
         float[] vertices = polylineObject.getPolyline().getTransformedVertices();
         Vector2[] worldVertices = new Vector2[vertices.length / 2];

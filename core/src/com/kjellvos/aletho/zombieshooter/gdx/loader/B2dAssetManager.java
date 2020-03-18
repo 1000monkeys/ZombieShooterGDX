@@ -17,10 +17,17 @@ public class B2dAssetManager {
         assetManager = new AssetManager();
     }
 
+    /**
+     * returns the assetmanager, for getting the assets.
+     * @return AssetManager containing the loaded/loading assets.
+     */
     public AssetManager getAssetManager() {
         return assetManager;
     }
 
+    /**
+     * function containing all the assets to be loaded.
+     */
     public void load(){
         assetManager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
         assetManager.load("testmap.tmx", TiledMap.class);
