@@ -31,6 +31,7 @@ public class PlayerMovementSystem extends EntitySystem {
 
     /**
      * See {@link RenderSystem#update(float)}
+     * Good place to update the player steerable component for the ai steering behaviour
      */
     @Override
     public void update(float deltaTime) {

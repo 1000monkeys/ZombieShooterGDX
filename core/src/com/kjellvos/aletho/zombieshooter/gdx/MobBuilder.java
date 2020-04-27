@@ -11,10 +11,7 @@ import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.physics.box2d.*;
-import com.kjellvos.aletho.zombieshooter.gdx.components.AnimationComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.components.LightComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.components.*;
 import com.kjellvos.aletho.zombieshooter.gdx.enums.AnimationEnum;
 import com.kjellvos.aletho.zombieshooter.gdx.enums.TextureEnum;
 
@@ -48,7 +45,7 @@ public class MobBuilder {
                 fixtureDef.filter.maskBits = Constants.MASK_ITEM;
                 body.createFixture(fixtureDef).setUserData("item");
 
-                item.add(new BodyComponent(body)).add(new TextureRegionComponent(textureRegion));
+                item.add(new BodyComponent(body)).add(new TextureRegionComponent(textureRegion)).add(new ItemComponent(id));
                 engine.addEntity(item);
             }else {
                 Entity mob = new Entity();

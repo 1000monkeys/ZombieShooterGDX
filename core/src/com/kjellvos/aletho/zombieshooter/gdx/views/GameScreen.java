@@ -28,6 +28,7 @@ import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.enums.TextureEnum;
+import com.kjellvos.aletho.zombieshooter.gdx.systems.ItemPickUpSystem;
 import com.kjellvos.aletho.zombieshooter.gdx.systems.PlayerMovementSystem;
 import com.kjellvos.aletho.zombieshooter.gdx.systems.RenderSystem;
 
@@ -102,6 +103,7 @@ public class GameScreen implements Screen, InputProcessor {
         engine = new Engine();
         engine.addSystem(new RenderSystem(batch));
         engine.addSystem(new PlayerMovementSystem(this));
+        engine.addSystem(new ItemPickUpSystem());
 
         Gdx.input.setInputProcessor(this);
 
