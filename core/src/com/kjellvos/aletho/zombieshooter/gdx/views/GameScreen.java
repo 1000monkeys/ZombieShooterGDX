@@ -19,10 +19,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.kjellvos.aletho.zombieshooter.gdx.Constants;
-import com.kjellvos.aletho.zombieshooter.gdx.MobBuilder;
-import com.kjellvos.aletho.zombieshooter.gdx.TilesetTextureToTextureRegion;
-import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
+import com.kjellvos.aletho.zombieshooter.gdx.*;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.MapBodyBuilder;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
@@ -54,9 +51,10 @@ public class GameScreen implements Screen, InputProcessor {
 
     private TiledMap map;
     private Texture tileset;
-    private TextureRegion player;
+    private PlayerEntity player;
 
     public boolean leftPressed = false, rightPressed = false, upPressed = false, downPressed = false;
+    public boolean inventory = false;
 
     /**
      * The constructor of this class, Passes the main parent as a argument.
@@ -75,8 +73,6 @@ public class GameScreen implements Screen, InputProcessor {
         map = parent.getAssetManager().getAssetManager().get("testmap.tmx", TiledMap.class);
         tileset = parent.getAssetManager().getAssetManager().get("0x72_16x16DungeonTilesetTogether.png", Texture.class);
         parent.getAssetManager().getAssetManager().finishLoading();
-
-        player = TilesetTextureToTextureRegion.getTextureRegionById(tileset, TextureEnum.PLAYER.getId());
 
         tiledMapRenderer = new OrthogonalTiledMapRenderer(map);
 
@@ -103,7 +99,7 @@ public class GameScreen implements Screen, InputProcessor {
         engine = new Engine();
         engine.addSystem(new RenderSystem(batch));
         engine.addSystem(new PlayerMovementSystem(this));
-        engine.addSystem(new ItemPickUpSystem());
+        engine.addSystem(new ItemPickUpSystem(parent));
 
         Gdx.input.setInputProcessor(this);
 
@@ -112,7 +108,7 @@ public class GameScreen implements Screen, InputProcessor {
         }
 
         MapBodyBuilder.buildShapes(map, world);
-        createPlayerEntity();
+        player = new PlayerEntity(parent);
         MobBuilder.buildObjects(map, tileset, world, engine, rayHandler);
 
         /*
@@ -144,6 +140,38 @@ public class GameScreen implements Screen, InputProcessor {
                 music[new Random().nextInt(Constants.AMOUNT_MUSIC_FILES)].play();
             }
         });
+    }
+
+    /**
+     * returns the box2d world for use in other classes
+     * @return World the box2d world
+     */
+    public World getWorld() {
+        return world;
+    }
+
+    /**
+     * returns the ashley entity system engine
+     * @return Engine the engine used by the ashley entity system
+     */
+    public Engine getEngine() {
+        return engine;
+    }
+
+    /**
+     * Returns the tileset
+     * @return tileset currently in use for rendering
+     */
+    public Texture getTileSet() {
+        return tileset;
+    }
+
+    /**
+     * Returns the payer entity
+     * @return PlayerEntity the main player
+     */
+    public PlayerEntity getPlayer() {
+        return player;
     }
 
     /**
@@ -192,7 +220,7 @@ public class GameScreen implements Screen, InputProcessor {
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
         engine.update(delta);
-        batch.draw(player, bodyComp.body.getPosition().x - player.getRegionWidth() / 2, bodyComp.body.getPosition().y - player.getRegionHeight() / 2);
+        batch.draw(player.getPlayerTextureRegion(), bodyComp.body.getPosition().x - player.getPlayerTextureRegion().getRegionWidth() / 2, bodyComp.body.getPosition().y - player.getPlayerTextureRegion().getRegionHeight() / 2);
         batch.end();
 
         tiledMapRenderer.render(new int[]{Constants.FOREGROUND_LAYER});
@@ -328,6 +356,18 @@ public class GameScreen implements Screen, InputProcessor {
                 downPressed = false;
                 keyPressed = true;
                 break;
+
+            case Input.Keys.I:
+                if (inventory) {
+                    inventory = false;
+                }else{
+                    inventory = true;
+                }
+                keyPressed = true;
+
+                parent.getGameScreen().getPlayer().getInventory().print();
+                break;
+
         }
         return keyPressed;
     }

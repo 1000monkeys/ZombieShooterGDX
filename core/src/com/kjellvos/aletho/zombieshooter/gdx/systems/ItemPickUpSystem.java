@@ -6,13 +6,22 @@ import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.ItemComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
 
 public class ItemPickUpSystem extends EntitySystem {
+    private ZombieShooterGame parent;
     private ImmutableArray<Entity> entities, player;
+
+    /**
+     * Pass the parent for use in this class
+     * @param parent the ZombieShooterGame class
+     */
+    public ItemPickUpSystem(ZombieShooterGame parent) {
+        this.parent = parent;
+    }
 
     /**
      * See {@link RenderSystem#addedToEngine(Engine)}
@@ -20,8 +29,8 @@ public class ItemPickUpSystem extends EntitySystem {
     @Override
     public void addedToEngine(Engine engine) {
         super.addedToEngine(engine);
-        entities = engine.getEntitiesFor(Family.all(ItemComponent.class).get());
-        player = engine.getEntitiesFor(Family.all(PlayerSteerableComponent.class).get());
+        entities = engine.getEntitiesFor(Family.all(ItemComponent.class, BodyComponent.class).get());
+        player = engine.getEntitiesFor(Family.all(PlayerSteerableComponent.class, BodyComponent.class).get());
     }
 
     /**
@@ -40,6 +49,12 @@ public class ItemPickUpSystem extends EntitySystem {
                 (playerBody.getPosition().y + 64) > itemBody.getPosition().y && (playerBody.getPosition().y - 64) < itemBody.getPosition().y ) {
 
                 int id = entities.get(i).getComponent(ItemComponent.class).id;
+
+                ItemComponent itemComponent = entities.get(i).getComponent(ItemComponent.class);
+                parent.getGameScreen().getPlayer().getInventory().addItem(itemComponent);
+
+                parent.getGameScreen().getWorld().destroyBody(entities.get(i).getComponent(BodyComponent.class).body);
+                parent.getGameScreen().getEngine().removeEntity(entities.get(i));
 
                 System.out.println("Picking up item: ");
                 System.out.println(id);
