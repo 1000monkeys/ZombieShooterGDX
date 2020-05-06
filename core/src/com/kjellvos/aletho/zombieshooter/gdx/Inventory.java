@@ -17,24 +17,19 @@ public class Inventory {
     }
 
     public void addItem(ItemComponent newItem) {
-        boolean present = false;
-        boolean added = false;
-        for (int i = 0; i < entities.size(); i++) {
-            if (!added && !present) {
-                InventoryItem item = entities.get(i);
-                if (item.getItemComponent().id == newItem.id) {
-                    present = true;
-                    if (TextureEnum.findById(item.getItemComponent().id).isStackable() && item.getCount() < Constants.STACK_SIZE_LIMIT) {
-                        item.addToCount(1);
-                        added = true;
-                    } else {
-                        entities.add(new InventoryItem(newItem));
-                        added = true;
-                    }
+        TextureEnum newItemTextureEnum = TextureEnum.findById(newItem.id);
+        if (newItemTextureEnum.isStackable()) {
+            boolean added = false;
+            for (int i = 0; i < entities.size() && !added; i++) {
+                if (entities.get(i).getItemComponent().id == newItem.id && entities.get(i).getCount() < Constants.STACK_SIZE_LIMIT) {
+                    entities.get(i).addToCount(1);
+                    added = true;
                 }
             }
-        }
-        if (!present) {
+            if (!added) {
+                entities.add(new InventoryItem(newItem));
+            }
+        }else{
             entities.add(new InventoryItem(newItem));
         }
     }
