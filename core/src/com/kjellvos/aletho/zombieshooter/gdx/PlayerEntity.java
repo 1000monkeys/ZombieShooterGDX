@@ -7,10 +7,12 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.components.ItemComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.enums.TextureEnum;
-import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
+
+import java.util.HashMap;
 
 public class PlayerEntity {
     private ZombieShooterGame parent;
@@ -19,6 +21,7 @@ public class PlayerEntity {
     private TextureRegion playerTextureRegion;
 
     private Inventory inventory;
+    private HashMap<Integer, Ability> abilities;
 
     public PlayerEntity(ZombieShooterGame parent) {
         this.parent = parent;
@@ -46,6 +49,7 @@ public class PlayerEntity {
         playerEntity = entity;
         playerBody = body;
         inventory = new Inventory();
+        abilities = new HashMap<Integer, Ability>();
     }
 
     public Body getPlayerBody() {

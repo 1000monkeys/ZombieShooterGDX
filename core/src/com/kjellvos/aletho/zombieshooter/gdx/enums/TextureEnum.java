@@ -24,7 +24,7 @@ public enum TextureEnum {
     MARMER_SHORT_SWORD(76, true, false, "A marmer short sword.", 1F, 2F, 0, 0),
     MARMER_SHORT_SWORD_UPGRADED(77, true, false, "A marmer short sword, It is upgraded", 1F, 2F, 0, 0),
     THE_YELLOW_SWORD(78, true, false, "The yellow sword. The very best.", 1F, 2F, 0, 0),
-    BOMB(111, true, false, "A bomb", 1F, 1F, 0, 0),
+    BOMB(111, true, false, true,"A bomb", 1F, 1F, 0, 0),
 
     LIGHT_ANIMATION_0(296, false, false, "Top of the fire, Very hot!", 1F, 1.5F, 0, Constants.PPT / 2),
     LIGHT_ANIMATION_1(297, false, false, "Top of the fire, Very hot!", 1F, 1.5F,0, Constants.PPT / 2),
@@ -53,12 +53,13 @@ public enum TextureEnum {
     private final String description;
     private final float rowWidth, columnHeight;
     private final int offsetX, offsetY;
-    private final boolean isItem, isMob;
+    private final boolean isItem, isMob, stackable;
 
     TextureEnum(int id, boolean isItem, boolean isMob, String description, float rowWidth, float columnHeight, int offsetX, int offsetY) {
         this.id = id;
         this.isItem = isItem;
         this.isMob = isMob;
+        this.stackable = false;
         this.description = description;
         this.rowWidth = rowWidth;
         this.columnHeight = columnHeight;
@@ -66,6 +67,17 @@ public enum TextureEnum {
         this.offsetY = offsetY;
     }
 
+    TextureEnum(int id, boolean isItem, boolean isMob, boolean stackable, String description, float rowWidth, float columnHeight, int offsetX, int offsetY) {
+        this.id = id;
+        this.isItem = isItem;
+        this.isMob = isMob;
+        this.stackable = stackable;
+        this.description = description;
+        this.rowWidth = rowWidth;
+        this.columnHeight = columnHeight;
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
+    }
     public boolean isItem() {
         return isItem;
     }
@@ -105,5 +117,9 @@ public enum TextureEnum {
             }
         }
         return null;
+    }
+
+    public boolean isStackable() {
+        return stackable;
     }
 }

@@ -53,6 +53,7 @@ public class Constants {
      * The amount of different music files to uses.
      */
     public static final int AMOUNT_MUSIC_FILES = 3;
+    public static final int STACK_SIZE_LIMIT = 64;
 
     public static final short GROUP_ITEM = -2;
     public static final short GROUP_MOB = -1;
