@@ -69,7 +69,7 @@ The game, less barebones. But no gameplay yet.
 
 #### Box2dlights
 
-##### 25% Done
+##### **25**% Done
 
 1. Have lights working.
 2. Set bitmasks
@@ -78,7 +78,7 @@ The game, less barebones. But no gameplay yet.
 
 #### Animation
 
-5% Done
+##### **5**% Done
 
 1. Have animation for lights.
 2. Laid the groundwork for more animation.
@@ -103,6 +103,10 @@ The game, less barebones. But no gameplay yet.
 
 
 ## **TODO**:
+
+Program butten press to pickup closest item.
+With text like:
+Press G to pick up |Item Description|
 
 - Inventory system
 - Loot
