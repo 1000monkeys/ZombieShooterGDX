@@ -13,7 +13,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.physics.box2d.*;
 import com.kjellvos.aletho.zombieshooter.gdx.components.*;
 import com.kjellvos.aletho.zombieshooter.gdx.enums.AnimationEnum;
-import com.kjellvos.aletho.zombieshooter.gdx.enums.ItemEnum;
+import com.kjellvos.aletho.zombieshooter.gdx.enums.SpriteEnum;
 
 public class MobBuilder {
 
@@ -24,12 +24,12 @@ public class MobBuilder {
             int id = Integer.parseInt(object.getProperties().get("gid").toString());
             id--; //the gid is always 1 too high
 
-            if (id == ItemEnum.LIGHT_OFF.getId()) {
+            if (id == SpriteEnum.LIGHT_OFF.getId()) {
                 buildLight(object, tileset, world, engine, rayHandler);
-            }else if(ItemEnum.findById(id).isItem()) {
+            }else if(SpriteEnum.findById(id).isItem()) {
                 Entity item = new Entity();
 
-                TextureRegion textureRegion = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, ItemEnum.findById(id));
+                TextureRegion textureRegion = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, SpriteEnum.findById(id));
 
                 BodyDef bodyDef = new BodyDef();
                 bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -50,7 +50,7 @@ public class MobBuilder {
             }else {
                 Entity mob = new Entity();
 
-                TextureRegion textureRegion = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, ItemEnum.findById(id));
+                TextureRegion textureRegion = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, SpriteEnum.findById(id));
 
                 BodyDef bodyDef = new BodyDef();
                 bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -83,8 +83,8 @@ public class MobBuilder {
     public static void buildLight(MapObject object, Texture tileset, World world, Engine engine, RayHandler rayHandler){
         Entity light = new Entity();
 
-        ItemEnum[] itemEnums = AnimationEnum.LIGHT.getTextureEnums();
-        TextureRegion[] textureRegions = TilesetTextureToTextureRegion.getAnimationTextureRegionsByTextureEnums(tileset, itemEnums);
+        SpriteEnum[] spriteEnums = AnimationEnum.LIGHT.getTextureEnums();
+        TextureRegion[] textureRegions = TilesetTextureToTextureRegion.getAnimationTextureRegionsByTextureEnums(tileset, spriteEnums);
 
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.StaticBody;

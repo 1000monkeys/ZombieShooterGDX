@@ -2,7 +2,7 @@ package com.kjellvos.aletho.zombieshooter.gdx.enums;
 
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
-public enum ItemEnum {
+public enum SpriteEnum {
     WALL_TOP_1(0, false, false, "The top of a wall, Mostly empty.", 1F, 1F, 0, 0),
     WALL_TOP_2(1, false, false, "Another wall top, mostly empty.", 1F, 1F, 0, 0),
     WALL_TOP_3(2, false, false, "Another wall top, mostly empty.", 1F, 1F, 0, 0),
@@ -55,7 +55,7 @@ public enum ItemEnum {
     private final int offsetX, offsetY;
     private final boolean isItem, isMob, stackable;
 
-    ItemEnum(int id, boolean isItem, boolean isMob, String description, float rowWidth, float columnHeight, int offsetX, int offsetY) {
+    SpriteEnum(int id, boolean isItem, boolean isMob, String description, float rowWidth, float columnHeight, int offsetX, int offsetY) {
         this.id = id;
         this.isItem = isItem;
         this.isMob = isMob;
@@ -67,7 +67,7 @@ public enum ItemEnum {
         this.offsetY = offsetY;
     }
 
-    ItemEnum(int id, boolean isItem, boolean isMob, boolean stackable, String description, float rowWidth, float columnHeight, int offsetX, int offsetY) {
+    SpriteEnum(int id, boolean isItem, boolean isMob, boolean stackable, String description, float rowWidth, float columnHeight, int offsetX, int offsetY) {
         this.id = id;
         this.isItem = isItem;
         this.isMob = isMob;
@@ -110,10 +110,10 @@ public enum ItemEnum {
         return description;
     }
 
-    public static ItemEnum findById(int id){
-        for(ItemEnum itemEnum : values()){
-            if( itemEnum.getId() == id){
-                return itemEnum;
+    public static SpriteEnum findById(int id){
+        for(SpriteEnum spriteEnum : values()){
+            if( spriteEnum.getId() == id){
+                return spriteEnum;
             }
         }
         return null;

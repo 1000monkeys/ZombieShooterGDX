@@ -1,24 +1,24 @@
 package com.kjellvos.aletho.zombieshooter.gdx.enums;
 
 public enum AnimationEnum {
-    LIGHT(new ItemEnum[]{
-                    ItemEnum.LIGHT_ANIMATION_0,
-                    ItemEnum.LIGHT_ANIMATION_1,
-                    ItemEnum.LIGHT_ANIMATION_2,
-                    ItemEnum.LIGHT_ANIMATION_3,
-                    ItemEnum.LIGHT_ANIMATION_4,
-                    ItemEnum.LIGHT_ANIMATION_5,
-                    ItemEnum.LIGHT_ANIMATION_6,
-                    ItemEnum.LIGHT_ANIMATION_7,
+    LIGHT(new SpriteEnum[]{
+                    SpriteEnum.LIGHT_ANIMATION_0,
+                    SpriteEnum.LIGHT_ANIMATION_1,
+                    SpriteEnum.LIGHT_ANIMATION_2,
+                    SpriteEnum.LIGHT_ANIMATION_3,
+                    SpriteEnum.LIGHT_ANIMATION_4,
+                    SpriteEnum.LIGHT_ANIMATION_5,
+                    SpriteEnum.LIGHT_ANIMATION_6,
+                    SpriteEnum.LIGHT_ANIMATION_7,
     });
 
-    private final ItemEnum[] textures;
+    private final SpriteEnum[] textures;
 
-    AnimationEnum(ItemEnum[] textures) {
+    AnimationEnum(SpriteEnum[] textures) {
         this.textures = textures;
     }
 
-    public ItemEnum[] getTextureEnums() {
+    public SpriteEnum[] getTextureEnums() {
         return textures;
     }
 }
