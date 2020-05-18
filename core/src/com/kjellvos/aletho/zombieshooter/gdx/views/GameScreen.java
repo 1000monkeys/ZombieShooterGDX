@@ -11,6 +11,8 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -22,6 +24,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.kjellvos.aletho.zombieshooter.gdx.*;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.MapBodyBuilder;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.components.ItemComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.enums.SpriteEnum;
@@ -48,6 +51,7 @@ public class GameScreen implements Screen, InputProcessor {
     private Box2DDebugRenderer debugRenderer;
     private RayHandler rayHandler;
     private Music[] music;
+    private GlyphLayout layout;
 
     private TiledMap map;
     private Texture tileset;
@@ -55,6 +59,8 @@ public class GameScreen implements Screen, InputProcessor {
 
     public boolean leftPressed = false, rightPressed = false, upPressed = false, downPressed = false;
     public boolean inventory = false;
+    public Entity closestItem = null;
+    private String itemText = null;
 
     /**
      * The constructor of this class, Passes the main parent as a argument.
@@ -69,6 +75,8 @@ public class GameScreen implements Screen, InputProcessor {
      */
     @Override
     public void show() {
+        layout = new GlyphLayout();
+
         parent.getAssetManager().getAssetManager().finishLoading();
         map = parent.getAssetManager().getAssetManager().get("testmap.tmx", TiledMap.class);
         tileset = parent.getAssetManager().getAssetManager().get("0x72_16x16DungeonTilesetTogether.png", Texture.class);
@@ -210,7 +218,7 @@ public class GameScreen implements Screen, InputProcessor {
 
         BodyComponent bodyComp = parent.getPlayer().getComponent(BodyComponent.class);
 
-        world.step(1f/30f, 3, 3);
+        world.step(1f / 30f, 3, 3);
         camera.position.set(bodyComp.body.getPosition().x, bodyComp.body.getPosition().y, 0);
         camera.update();
 
@@ -229,6 +237,19 @@ public class GameScreen implements Screen, InputProcessor {
 
         if (Constants.DEBUG) {
             debugRenderer.render(world, camera.combined);
+        }
+
+        if (itemText != null && (parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().x + 64) > closestItem.getComponent(BodyComponent.class).body.getPosition().x && (parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().x - 64) < closestItem.getComponent(BodyComponent.class).body.getPosition().x &&
+                                (parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().y + 64) > closestItem.getComponent(BodyComponent.class).body.getPosition().y && (parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().y - 64) < closestItem.getComponent(BodyComponent.class).body.getPosition().y) {
+            BitmapFont font = new BitmapFont();
+            font.getData().setScale(0.7F);
+
+            String pickUpString = "Press G to pick up: " +SpriteEnum.findById(closestItem.getComponent(ItemComponent.class).id).getDescription();
+            layout.setText(font, pickUpString);
+
+            batch.begin();
+            font.draw(batch, pickUpString, parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().x - layout.width / 2, parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().y - 20);
+            batch.end();
         }
 
         if (music != null) {
@@ -368,6 +389,17 @@ public class GameScreen implements Screen, InputProcessor {
                 parent.getGameScreen().getPlayer().getInventory().print();
                 break;
 
+            case Input.Keys.G:
+                if (closestItem != null) {
+                    parent.getGameScreen().getPlayer().getInventory().addItem(closestItem.getComponent(ItemComponent.class));
+
+                    parent.getGameScreen().getWorld().destroyBody(closestItem.getComponent(BodyComponent.class).body);
+                    parent.getGameScreen().getEngine().removeEntity(closestItem);
+
+                    closestItem = null;
+                    itemText = null;
+                }
+                break;
         }
         return keyPressed;
     }
@@ -400,5 +432,13 @@ public class GameScreen implements Screen, InputProcessor {
     @Override
     public boolean scrolled(int amount) {
         return false;
+    }
+
+    public void setClosestItem(Entity closestItem) {
+        this.closestItem = closestItem;
+    }
+
+    public void setItemText(String itemText) {
+        this.itemText = itemText;
     }
 }

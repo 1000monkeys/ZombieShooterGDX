@@ -6,10 +6,12 @@ import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.ItemComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.enums.SpriteEnum;
 
 public class ItemPickUpSystem extends EntitySystem {
     private ZombieShooterGame parent;
@@ -48,16 +50,27 @@ public class ItemPickUpSystem extends EntitySystem {
             if ((playerBody.getPosition().x + 64) > itemBody.getPosition().x && (playerBody.getPosition().x - 64) < itemBody.getPosition().x &&
                 (playerBody.getPosition().y + 64) > itemBody.getPosition().y && (playerBody.getPosition().y - 64) < itemBody.getPosition().y ) {
 
+                //display pickuptext if item requires it
+
                 int id = entities.get(i).getComponent(ItemComponent.class).id;
 
                 ItemComponent itemComponent = entities.get(i).getComponent(ItemComponent.class);
-                parent.getGameScreen().getPlayer().getInventory().addItem(itemComponent);
+                if (SpriteEnum.findById(id).isPickUpText()) {
+                    parent.getGameScreen().setClosestItem(entities.get(i));
 
-                parent.getGameScreen().getWorld().destroyBody(entities.get(i).getComponent(BodyComponent.class).body);
-                parent.getGameScreen().getEngine().removeEntity(entities.get(i));
+                    parent.getGameScreen().setItemText(SpriteEnum.findById(id).getDescription() + "[Press G to Pickup.]");
+                    System.out.println("PICK UP TEXT " + id );
+                } else {
+                    parent.getGameScreen().getPlayer().getInventory().addItem(itemComponent);
 
-                System.out.println("Picking up item: ");
-                System.out.println(id);
+                    parent.getGameScreen().getWorld().destroyBody(entities.get(i).getComponent(BodyComponent.class).body);
+                    parent.getGameScreen().getEngine().removeEntity(entities.get(i));
+
+                    if (Constants.DEBUG) {
+                        System.out.println("Picking up item: ");
+                        System.out.println(id);
+                    }
+                }
             }
         }
     }

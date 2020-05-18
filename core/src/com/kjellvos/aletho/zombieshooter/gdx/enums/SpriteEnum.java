@@ -9,22 +9,23 @@ public enum SpriteEnum {
     WALL_PIPE_LOW(3, false, false, "A piece of wall with a piece of pipe in it at the bottom.", 1F, 1F, 0, 0),
     WALL_PIPE_HIGH(4, false, false, "A piece of wall with a piece of pipe in it at the top.", 1F, 1F, 0, 0),
 
-    BRONZE_SWORD(9, true, false, "A crude bronze sword.", 1F, 1.5F, 0, Constants.PPT / 2),
-    HYBRID_SWORD(10, true, false, "A sword crudely made out of iron and bronze.", 1F, 1.5F, 0, Constants.PPT / 2),
-    IRON_SWORD(11, true, false, "An iron sword, seems pretty sharp.", 1F, 1.5F, 0, Constants.PPT / 2),
-    IRON_GEM_SWORD(12, true, false, "An iron sword, Has a gem on the hilt.", 1F, 1.5F, 0, Constants.PPT / 2),
-    IRON_BROAD_SWORD(13, true, false, "An board sword.", 1F, 1.5F, 0, Constants.PPT / 3),
-    IRON_LONG_SWORD(14, true, false, "AN iron long sword, It has pretty good reach.", 1F, 2F, 0, 0),
-    IRON_HAMMER(15, true, false, "A long iron hammer, has very good reach.", 1F, 2.5F, 0, Constants.PPT / 2),
-    IRON_SHORT_SWORD(71, true, false, "An iron short sword, You could really do some damage with this", 1F, 1.5F, 0, Constants.PPT / 2),
-    IRON_CLEAVER(72, true, false, "An iron cleaver, it is heavy.", 1F, 1.5F, 0, Constants.PPT / 2),
-    GOLD_SHORT_SWORD(73, true, false, "A very pretty gold short sword.", 1F, 1.5F, 0, Constants.PPT / 2),
-    GOLD_LONG_SWORD(74, true, false, "A gold long sword. worth a lot.", 1F, 2F, 0, 0),
-    MARMER_FENCING_SWORD(75, true, false, "A marmer fencing sword, Sturdy.", 1F, 2F, 0, 0),
-    MARMER_SHORT_SWORD(76, true, false, "A marmer short sword.", 1F, 2F, 0, 0),
-    MARMER_SHORT_SWORD_UPGRADED(77, true, false, "A marmer short sword, It is upgraded", 1F, 2F, 0, 0),
-    THE_YELLOW_SWORD(78, true, false, "The yellow sword. The very best.", 1F, 2F, 0, 0),
-    BOMB(111, true, false, true,"A bomb", 1F, 1F, 0, 0),
+    BRONZE_SWORD(9, true, false, false, true, "A crude bronze sword.", 1F, 1.5F, 0, Constants.PPT / 2),
+    HYBRID_SWORD(10, true, false, false, true, "A sword crudely made out of iron and bronze.", 1F, 1.5F, 0, Constants.PPT / 2),
+    IRON_SWORD(11, true, false, false, true, "An iron sword, seems pretty sharp.", 1F, 1.5F, 0, Constants.PPT / 2),
+    IRON_GEM_SWORD(12, true, false, false, true, "An iron sword, Has a gem on the hilt.", 1F, 1.5F, 0, Constants.PPT / 2),
+    IRON_BROAD_SWORD(13, true, false, false, true, "An board sword.", 1F, 1.5F, 0, Constants.PPT / 3),
+    IRON_LONG_SWORD(14, true, false, false, true, "AN iron long sword, It has pretty good reach.", 1F, 2F, 0, 0),
+    IRON_HAMMER(15, true, false, false, true, "A long iron hammer, has very good reach.", 1F, 2.5F, 0, Constants.PPT / 2),
+    IRON_SHORT_SWORD(71, true, false, false, true, "An iron short sword, You could really do some damage with this", 1F, 1.5F, 0, Constants.PPT / 2),
+    IRON_CLEAVER(72, true, false, false, true, "An iron cleaver, it is heavy.", 1F, 1.5F, 0, Constants.PPT / 2),
+    GOLD_SHORT_SWORD(73, true, false, false, true, "A very pretty gold short sword.", 1F, 1.5F, 0, Constants.PPT / 2),
+    GOLD_LONG_SWORD(74, true, false, false, true, "A gold long sword. worth a lot.", 1F, 2F, 0, 0),
+    MARMER_FENCING_SWORD(75, true, false, false, true, "A marmer fencing sword, Sturdy.", 1F, 2F, 0, 0),
+    MARMER_SHORT_SWORD(76, true, false, false, true, "A marmer short sword.", 1F, 2F, 0, 0),
+    MARMER_SHORT_SWORD_UPGRADED(77, true, false, false, true, "A marmer short sword, It is upgraded", 1F, 2F, 0, 0),
+    THE_YELLOW_SWORD(78, true, false, false, true, "The yellow sword. The very best.", 1F, 2F, 0, 0),
+
+    BOMB(111, true, false, true, false,"A bomb", 1F, 1F, 0, 0),
 
     LIGHT_ANIMATION_0(296, false, false, "Top of the fire, Very hot!", 1F, 1.5F, 0, Constants.PPT / 2),
     LIGHT_ANIMATION_1(297, false, false, "Top of the fire, Very hot!", 1F, 1.5F,0, Constants.PPT / 2),
@@ -53,13 +54,14 @@ public enum SpriteEnum {
     private final String description;
     private final float rowWidth, columnHeight;
     private final int offsetX, offsetY;
-    private final boolean isItem, isMob, stackable;
+    private final boolean isItem, isMob, stackable, pickUpText;
 
     SpriteEnum(int id, boolean isItem, boolean isMob, String description, float rowWidth, float columnHeight, int offsetX, int offsetY) {
         this.id = id;
         this.isItem = isItem;
         this.isMob = isMob;
         this.stackable = false;
+        this.pickUpText = false;
         this.description = description;
         this.rowWidth = rowWidth;
         this.columnHeight = columnHeight;
@@ -72,12 +74,31 @@ public enum SpriteEnum {
         this.isItem = isItem;
         this.isMob = isMob;
         this.stackable = stackable;
+        this.pickUpText = false;
         this.description = description;
         this.rowWidth = rowWidth;
         this.columnHeight = columnHeight;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
     }
+
+    SpriteEnum(int id, boolean isItem, boolean isMob, boolean stackable, boolean pickUpText, String description, float rowWidth, float columnHeight, int offsetX, int offsetY) {
+        this.id = id;
+        this.isItem = isItem;
+        this.isMob = isMob;
+        this.stackable = stackable;
+        this.pickUpText = pickUpText;
+        this.description = description;
+        this.rowWidth = rowWidth;
+        this.columnHeight = columnHeight;
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
+    }
+
+    public boolean isPickUpText() {
+        return pickUpText;
+    }
+
     public boolean isItem() {
         return isItem;
     }
