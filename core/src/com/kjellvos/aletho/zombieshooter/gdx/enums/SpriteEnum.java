@@ -2,7 +2,7 @@ package com.kjellvos.aletho.zombieshooter.gdx.enums;
 
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
-public enum TextureEnum {
+public enum ItemEnum {
     WALL_TOP_1(0, false, false, "The top of a wall, Mostly empty.", 1F, 1F, 0, 0),
     WALL_TOP_2(1, false, false, "Another wall top, mostly empty.", 1F, 1F, 0, 0),
     WALL_TOP_3(2, false, false, "Another wall top, mostly empty.", 1F, 1F, 0, 0),
@@ -55,7 +55,7 @@ public enum TextureEnum {
     private final int offsetX, offsetY;
     private final boolean isItem, isMob, stackable;
 
-    TextureEnum(int id, boolean isItem, boolean isMob, String description, float rowWidth, float columnHeight, int offsetX, int offsetY) {
+    ItemEnum(int id, boolean isItem, boolean isMob, String description, float rowWidth, float columnHeight, int offsetX, int offsetY) {
         this.id = id;
         this.isItem = isItem;
         this.isMob = isMob;
@@ -67,7 +67,7 @@ public enum TextureEnum {
         this.offsetY = offsetY;
     }
 
-    TextureEnum(int id, boolean isItem, boolean isMob, boolean stackable, String description, float rowWidth, float columnHeight, int offsetX, int offsetY) {
+    ItemEnum(int id, boolean isItem, boolean isMob, boolean stackable, String description, float rowWidth, float columnHeight, int offsetX, int offsetY) {
         this.id = id;
         this.isItem = isItem;
         this.isMob = isMob;
@@ -110,10 +110,10 @@ public enum TextureEnum {
         return description;
     }
 
-    public static TextureEnum findById(int id){
-        for(TextureEnum textureEnum : values()){
-            if( textureEnum.getId() == id){
-                return textureEnum;
+    public static ItemEnum findById(int id){
+        for(ItemEnum itemEnum : values()){
+            if( itemEnum.getId() == id){
+                return itemEnum;
             }
         }
         return null;

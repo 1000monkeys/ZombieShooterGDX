@@ -2,7 +2,7 @@ package com.kjellvos.aletho.zombieshooter.gdx;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.kjellvos.aletho.zombieshooter.gdx.enums.TextureEnum;
+import com.kjellvos.aletho.zombieshooter.gdx.enums.ItemEnum;
 
 import static com.kjellvos.aletho.zombieshooter.gdx.Constants.PPT;
 
@@ -10,28 +10,28 @@ public class TilesetTextureToTextureRegion {
     /**
      * This function gets the texture region from the texture enumeration.
      * @param tileSet The tileset texture to be divided into a region.
-     * @param textureEnum The texture enum of the texture you are trying to get.
+     * @param itemEnum The texture enum of the texture you are trying to get.
      * @return TextureRegion To be used to render on the screen.
      */
-    public static TextureRegion getTextureRegionByTextureEnum(Texture tileSet, TextureEnum textureEnum) {
-        int column = textureEnum.getId() % 32;
-        int row = (int)(Math.floor(textureEnum.getId() / 32D));
-        return new TextureRegion(tileSet, (textureEnum.getOffsetX() + (column * PPT)), (textureEnum.getOffsetY() + (row * PPT)), (int)(PPT * textureEnum.getRowWidth()), (int)(PPT * textureEnum.getColumnHeight()));
+    public static TextureRegion getTextureRegionByTextureEnum(Texture tileSet, ItemEnum itemEnum) {
+        int column = itemEnum.getId() % 32;
+        int row = (int)(Math.floor(itemEnum.getId() / 32D));
+        return new TextureRegion(tileSet, (itemEnum.getOffsetX() + (column * PPT)), (itemEnum.getOffsetY() + (row * PPT)), (int)(PPT * itemEnum.getRowWidth()), (int)(PPT * itemEnum.getColumnHeight()));
     }
 
     /**
      * This function gets the texture regions from the texture enumerations and puts them into an array to be used for animation.
      * @param tileSet The tileset texture to be divided into a region.
-     * @param textureEnums The texture enum of the texture you are trying to get.
+     * @param itemEnums The texture enum of the texture you are trying to get.
      * @return TextureRegion To be used to render on the screen.
      */
-    public static TextureRegion[] getAnimationTextureRegionsByTextureEnums(Texture tileSet, TextureEnum[] textureEnums) {
-        TextureRegion[] textureRegions = new TextureRegion[textureEnums.length];
-        for (int i = 0; i < textureEnums.length; i++) {
-            int column = textureEnums[i].getId() % 32;
-            int row = (int) (Math.floor(textureEnums[i].getId() / 32D));
+    public static TextureRegion[] getAnimationTextureRegionsByTextureEnums(Texture tileSet, ItemEnum[] itemEnums) {
+        TextureRegion[] textureRegions = new TextureRegion[itemEnums.length];
+        for (int i = 0; i < itemEnums.length; i++) {
+            int column = itemEnums[i].getId() % 32;
+            int row = (int) (Math.floor(itemEnums[i].getId() / 32D));
 
-            textureRegions[i] = new TextureRegion(tileSet, (textureEnums[i].getOffsetX() + (column * PPT)), (textureEnums[i].getOffsetY() + (row * PPT)), (int)(PPT * textureEnums[i].getRowWidth()), (int)(PPT * textureEnums[i].getColumnHeight()));
+            textureRegions[i] = new TextureRegion(tileSet, (itemEnums[i].getOffsetX() + (column * PPT)), (itemEnums[i].getOffsetY() + (row * PPT)), (int)(PPT * itemEnums[i].getRowWidth()), (int)(PPT * itemEnums[i].getColumnHeight()));
         }
         return textureRegions;
     }

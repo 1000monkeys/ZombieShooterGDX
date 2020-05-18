@@ -7,10 +7,9 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.components.ItemComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.enums.TextureEnum;
+import com.kjellvos.aletho.zombieshooter.gdx.enums.ItemEnum;
 
 import java.util.HashMap;
 
@@ -27,7 +26,7 @@ public class PlayerEntity {
         this.parent = parent;
 
         Entity entity = new Entity();
-        playerTextureRegion = TilesetTextureToTextureRegion.getTextureRegionById(parent.getGameScreen().getTileSet(), TextureEnum.PLAYER.getId());
+        playerTextureRegion = TilesetTextureToTextureRegion.getTextureRegionById(parent.getGameScreen().getTileSet(), ItemEnum.PLAYER.getId());
 
         BodyDef bodyDef = new BodyDef();
         FixtureDef fixtureDef = new FixtureDef();
@@ -42,7 +41,7 @@ public class PlayerEntity {
         fixtureDef.filter.maskBits = Constants.MASK_PLAYER;
         body.createFixture(fixtureDef).setUserData("player");
 
-        entity.add(new BodyComponent(body)).add(new TextureRegionComponent(TilesetTextureToTextureRegion.getTextureRegionById(parent.getGameScreen().getTileSet(), TextureEnum.PLAYER.getId()))).add(new PlayerSteerableComponent(50 * Constants.PPT, 50 * Constants.PPT));
+        entity.add(new BodyComponent(body)).add(new TextureRegionComponent(TilesetTextureToTextureRegion.getTextureRegionById(parent.getGameScreen().getTileSet(), ItemEnum.PLAYER.getId()))).add(new PlayerSteerableComponent(50 * Constants.PPT, 50 * Constants.PPT));
         parent.getGameScreen().getEngine().addEntity(entity);
         parent.setPlayer(entity);
 
