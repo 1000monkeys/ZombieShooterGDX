@@ -58,7 +58,7 @@ public class GameScreen implements Screen, InputProcessor {
     private PlayerEntity player;
 
     public boolean leftPressed = false, rightPressed = false, upPressed = false, downPressed = false;
-    public boolean inventory = false;
+
     public Entity closestItem = null;
     private String itemText = null;
 
@@ -378,18 +378,18 @@ public class GameScreen implements Screen, InputProcessor {
                 keyPressed = true;
                 break;
 
+                /*
+                Moet deze I en G even beter doen
+                 */
             case Input.Keys.I:
-                if (inventory) {
-                    inventory = false;
-                }else{
-                    inventory = true;
-                }
                 keyPressed = true;
 
                 parent.getGameScreen().getPlayer().getInventory().print();
                 break;
 
             case Input.Keys.G:
+                keyPressed = true;
+
                 if (closestItem != null) {
                     parent.getGameScreen().getPlayer().getInventory().addItem(closestItem.getComponent(ItemComponent.class));
 
