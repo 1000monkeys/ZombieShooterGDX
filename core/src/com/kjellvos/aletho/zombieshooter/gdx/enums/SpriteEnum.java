@@ -14,7 +14,7 @@ public enum SpriteEnum {
     IRON_SWORD(11, true, false, false, true, "An iron sword, seems pretty sharp.", 1F, 1.5F, 0, Constants.PPT / 2),
     IRON_GEM_SWORD(12, true, false, false, true, "An iron sword, Has a gem on the hilt.", 1F, 1.5F, 0, Constants.PPT / 2),
     IRON_BROAD_SWORD(13, true, false, false, true, "An board sword.", 1F, 1.5F, 0, Constants.PPT / 3),
-    IRON_LONG_SWORD(14, true, false, false, true, "AN iron long sword, It has pretty good reach.", 1F, 2F, 0, 0),
+    IRON_LONG_SWORD(14, true, false, false, true, "An iron long sword, It has pretty good reach.", 1F, 2F, 0, 0),
     IRON_HAMMER(15, true, false, false, true, "A long iron hammer, has very good reach.", 1F, 2.5F, 0, Constants.PPT / 2),
     IRON_SHORT_SWORD(71, true, false, false, true, "An iron short sword, You could really do some damage with this", 1F, 1.5F, 0, Constants.PPT / 2),
     IRON_CLEAVER(72, true, false, false, true, "An iron cleaver, it is heavy.", 1F, 1.5F, 0, Constants.PPT / 2),
