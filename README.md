@@ -104,9 +104,7 @@ The game, less barebones. But no gameplay yet.
 
 ## **TODO**:
 
-Program butten press to pickup closest item.
-With text like:
-Press G to pick up |Item Description|
+import json and read item data etc improve the current json files
 
 - Inventory system
 - Loot

@@ -1,0 +1,93 @@
+/* FULL EXAMPLE
+[
+  {
+    "id": 11,
+    "spriteData": {
+      "spriteSheet": "0x72_16x16DungeonTilesetTogether.png",
+      "rowWidth": 1,
+      "columnHeight": 1.5,
+      "offsetX": 0,
+      "offsetY": 0.5
+    },
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false,
+      "description": "An iron sword, seems pretty sharp."
+    }
+  },
+
+  .....more json objects
+]
+*/
+//  WALL_TOP_1(0, false, false, "The top of a wall, Mostly empty.", 1F, 1F, 0, 0),
+
+[
+  {
+    "id": 0,
+    "spriteData": {
+      "spriteSheet": "0x72_16x16DungeonTilesetTogether.png",
+      "rowWidth": 1,
+      "columnHeight": 1,
+      "offsetX": 0,
+      "offsetY": 0
+    }
+  },
+  {
+    "id": 1,
+    "spriteData": {
+      "spriteSheet": "0x72_16x16DungeonTilesetTogether.png",
+      "rowWidth": 1,
+      "columnHeight": 1,
+      "offsetX": 0,
+      "offsetY": 0
+    }
+  },
+  {
+    "id": 2,
+    "spriteData": {
+      "spriteSheet": "0x72_16x16DungeonTilesetTogether.png",
+      "rowWidth": 1,
+      "columnHeight": 1,
+      "offsetX": 0,
+      "offsetY": 0
+    }
+  },
+  {
+    "id": 3,
+    "spriteData": {
+      "spriteSheet": "0x72_16x16DungeonTilesetTogether.png",
+      "rowWidth": 1,
+      "columnHeight": 1,
+      "offsetX": 0,
+      "offsetY": 0
+    }
+  },
+  {
+    "id": 4,
+    "spriteData": {
+      "spriteSheet": "0x72_16x16DungeonTilesetTogether.png",
+      "rowWidth": 1,
+      "columnHeight": 1,
+      "offsetX": 0,
+      "offsetY": 0
+    }
+  },
+  },
+
+
+  {
+    "id": 11,
+    "spriteData": {
+      "spriteSheet": "0x72_16x16DungeonTilesetTogether.png",
+      "rowWidth": 1,
+      "columnHeight": 1.5,
+      "offsetX": 0,
+      "offsetY": 0.5
+    },
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false,
+      "description": "An iron sword, seems pretty sharp."
+    }
+  }
+]

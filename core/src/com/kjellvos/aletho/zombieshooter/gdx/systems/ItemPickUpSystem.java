@@ -11,7 +11,6 @@ import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.ItemComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.enums.SpriteEnum;
 
 public class ItemPickUpSystem extends EntitySystem {
     private ZombieShooterGame parent;

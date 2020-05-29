@@ -9,7 +9,6 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.enums.SpriteEnum;
 
 import java.util.HashMap;
 

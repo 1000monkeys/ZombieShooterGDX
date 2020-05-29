@@ -2,7 +2,6 @@ package com.kjellvos.aletho.zombieshooter.gdx;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.kjellvos.aletho.zombieshooter.gdx.enums.SpriteEnum;
 
 import static com.kjellvos.aletho.zombieshooter.gdx.Constants.PPT;
 

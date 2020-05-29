@@ -1,7 +1,6 @@
 package com.kjellvos.aletho.zombieshooter.gdx;
 
 import com.kjellvos.aletho.zombieshooter.gdx.components.ItemComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.enums.SpriteEnum;
 
 import java.util.ArrayList;
 

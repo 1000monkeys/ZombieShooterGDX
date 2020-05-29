@@ -13,7 +13,6 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.physics.box2d.*;
 import com.kjellvos.aletho.zombieshooter.gdx.components.*;
 import com.kjellvos.aletho.zombieshooter.gdx.enums.AnimationEnum;
-import com.kjellvos.aletho.zombieshooter.gdx.enums.SpriteEnum;
 
 public class MobBuilder {
 

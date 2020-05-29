@@ -27,7 +27,6 @@ import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.ItemComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.enums.SpriteEnum;
 import com.kjellvos.aletho.zombieshooter.gdx.systems.ItemPickUpSystem;
 import com.kjellvos.aletho.zombieshooter.gdx.systems.PlayerMovementSystem;
 import com.kjellvos.aletho.zombieshooter.gdx.systems.RenderSystem;
