@@ -2,6 +2,7 @@ package com.kjellvos.aletho.zombieshooter.gdx;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.kjellvos.aletho.zombieshooter.gdx.enums.ScreenEnum;
 import com.kjellvos.aletho.zombieshooter.gdx.loader.B2dAssetManager;
 import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
@@ -52,7 +53,10 @@ public class ZombieShooterGame extends Game{
 	 */
 	private Entity player;
 
-
+	/**
+	 * The JSON parser
+	 */
+	private ReadJsonGameFiles readJsonGameFiles;
 
 	/**
 	 * This is the method that runs once them game starts, Shows splashes and loads assets.
@@ -66,6 +70,18 @@ public class ZombieShooterGame extends Game{
 
 		assetManager = new B2dAssetManager(this);
 		assetManager.load();
+		assetManager.getAssetManager().finishLoading();
+
+		String gameDataJSON = Gdx.files.internal(Constants.GAMEDATA_JSON).readString();
+		String spriteSheetsJSON = Gdx.files.internal(Constants.SPRITESHEET_JSON).readString();
+		String spritesJSON = Gdx.files.internal(Constants.SPRITES_JSON).readString();
+		String animationsJSON = Gdx.files.internal(Constants.ANIMATIONS_JSON).readString();
+
+		readJsonGameFiles = new ReadJsonGameFiles(gameDataJSON, spriteSheetsJSON, spritesJSON, animationsJSON);
+	}
+
+	public ReadJsonGameFiles getReadJsonGameFiles() {
+		return readJsonGameFiles;
 	}
 
 	/**
@@ -107,6 +123,7 @@ public class ZombieShooterGame extends Game{
 	public GameScreen getGameScreen(){
 		return game;
 	}
+
 
 	/**
 	 * This is a function to be used to change the current screen from one to another.

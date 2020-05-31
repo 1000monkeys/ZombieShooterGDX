@@ -8,6 +8,42 @@ public class Constants {
     public static boolean DEBUG = true;
 
     /**
+     *
+     * JSON PLACEMENT CONSTANTS!
+     *
+     */
+    public static int
+        JSON_GAME_DATA = 0,
+            JSON_GAME_DATA_PLAYER_SPRITE_ID = 0,
+            JSON_GAME_DATA_PLAYER_SPRITE_SHEET = 1,
+            JSON_GAME_DATA_LIGHT_OFF_SPRITE_ID =2,
+
+        JSON_ANIMATION_ID = 0,
+        JSON_ANIMATION_DESCRIPTION = 1,
+        JSON_ANIMATION_SPRITE_IDS = 2,
+
+        JSON_SPRITESHEET_NAME = 0,
+        JSON_SPRITESHEET_ID = 1,
+        JSON_SPRITESHEET_DATA = 2,
+            JSON_SPRITESHEET_DATA_PIXELS_PER_TILE = 0,
+            JSON_SPRITESHEET_DATA_WIDTH_IN_PIXELS = 1,
+            JSON_SPRITESHEET_DATA_HEIGHT_IN_PIXELS = 2,
+
+
+        JSON_SPRITE_ID = 0,
+        JSON_SPRITE_DATA = 1,
+            JSON_SPRITE_DATA_SPRITE_SHEET = 0,
+            JSON_SPRITE_DATA_WIDTH_IN_PIXELS = 1,
+            JSON_SPRITE_DATA_HEIGHT_IN_PIXELS = 2,
+            JSON_SPRITE_DATA_OFFSET_X = 3,
+            JSON_SPRITE_DATA_OFFSET_Y = 4,
+        JSON_ITEM_DATA = 2,
+            JSON_ITEM_DATA_IS_ITEM = 0,
+            JSON_ITEM_DATA_PICK_UP_TEXT = 1,
+            JSON_ITEM_DATA_STACKABLE = 2,
+        JSON_DESCRIPTION = 3;
+
+    /**
      * The standard width/height of the game screen,
      * Used at startup.
      */
@@ -17,6 +53,12 @@ public class Constants {
      * The RGB(Red, Green, Blue) value of the very recognizable commodore blue color.
      */
     public static float commodoreBlueR = 0.25882354F, commodoreBlueG = 0.25882354F, commodoreBlueB = 0.90588236F;
+
+    public static final String SPRITESHEET_JSON = "spritesheets.json";
+    public static final String SPRITES_JSON = "sprites.json";
+    public static final String ANIMATIONS_JSON = "animations.json";
+    public static final String GAMEDATA_JSON = "gamedata.json";
+
 
     /**
      * The pixels per tile.

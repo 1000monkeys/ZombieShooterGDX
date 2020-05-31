@@ -6,29 +6,32 @@ import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.physics.box2d.*;
 import com.kjellvos.aletho.zombieshooter.gdx.components.*;
-import com.kjellvos.aletho.zombieshooter.gdx.enums.AnimationEnum;
+import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteObj;
+
+import java.util.List;
 
 public class MobBuilder {
 
-    public static void buildObjects(TiledMap map, Texture tileset, World world, Engine engine, RayHandler rayHandler) {
+    public static void buildObjects(TiledMap map, Texture tileset, ReadJsonGameFiles readJsonGameFiles, World world, Engine engine, RayHandler rayHandler) {
         MapObjects objects = map.getLayers().get("Mobs").getObjects();
 
         for(MapObject object : objects) {
             int id = Integer.parseInt(object.getProperties().get("gid").toString());
             id--; //the gid is always 1 too high
 
-            if (id == SpriteEnum.LIGHT_OFF.getId()) {
-                buildLight(object, tileset, world, engine, rayHandler);
-            }else if(SpriteEnum.findById(id).isItem()) {
+            if (id == readJsonGameFiles.getGameData().getLightOffSpriteId()) {
+                buildLight(object, readJsonGameFiles, tileset, world, engine, rayHandler);
+            }else if(readJsonGameFiles.getSpriteObj(id).isItem()) {
                 Entity item = new Entity();
 
-                TextureRegion textureRegion = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, SpriteEnum.findById(id));
+                TextureRegion textureRegion = readJsonGameFiles.getSpriteObj(id).getSprite();
 
                 BodyDef bodyDef = new BodyDef();
                 bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -49,7 +52,7 @@ public class MobBuilder {
             }else {
                 Entity mob = new Entity();
 
-                TextureRegion textureRegion = TilesetTextureToTextureRegion.getTextureRegionByTextureEnum(tileset, SpriteEnum.findById(id));
+                TextureRegion textureRegion = readJsonGameFiles.getSpriteObj(id).getSprite();
 
                 BodyDef bodyDef = new BodyDef();
                 bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -79,11 +82,10 @@ public class MobBuilder {
      * @param engine the ashley entity system engine
      * @param rayHandler The ray handler, used to create the light
      */
-    public static void buildLight(MapObject object, Texture tileset, World world, Engine engine, RayHandler rayHandler){
+    public static void buildLight(MapObject object, ReadJsonGameFiles readJsonGameFiles, Texture tileset, World world, Engine engine, RayHandler rayHandler){
         Entity light = new Entity();
 
-        SpriteEnum[] spriteEnums = AnimationEnum.LIGHT.getTextureEnums();
-        TextureRegion[] textureRegions = TilesetTextureToTextureRegion.getAnimationTextureRegionsByTextureEnums(tileset, spriteEnums);
+        TextureRegion[] textureRegions = readJsonGameFiles.getAnimationTextures(0);
 
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.StaticBody;

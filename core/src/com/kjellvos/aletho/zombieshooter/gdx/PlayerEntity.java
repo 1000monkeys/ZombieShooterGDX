@@ -21,11 +21,11 @@ public class PlayerEntity {
     private Inventory inventory;
     private HashMap<Integer, Ability> abilities;
 
-    public PlayerEntity(ZombieShooterGame parent) {
+    public PlayerEntity(ZombieShooterGame parent, TextureRegion playerTextureRegion) {
         this.parent = parent;
+        this.playerTextureRegion = playerTextureRegion;
 
         Entity entity = new Entity();
-        playerTextureRegion = TilesetTextureToTextureRegion.getTextureRegionById(parent.getGameScreen().getTileSet(), SpriteEnum.PLAYER.getId());
 
         BodyDef bodyDef = new BodyDef();
         FixtureDef fixtureDef = new FixtureDef();
@@ -40,14 +40,18 @@ public class PlayerEntity {
         fixtureDef.filter.maskBits = Constants.MASK_PLAYER;
         body.createFixture(fixtureDef).setUserData("player");
 
-        entity.add(new BodyComponent(body)).add(new TextureRegionComponent(TilesetTextureToTextureRegion.getTextureRegionById(parent.getGameScreen().getTileSet(), SpriteEnum.PLAYER.getId()))).add(new PlayerSteerableComponent(50 * Constants.PPT, 50 * Constants.PPT));
+        entity.add(new BodyComponent(body)).add(new TextureRegionComponent(playerTextureRegion)).add(new PlayerSteerableComponent(50 * Constants.PPT, 50 * Constants.PPT));
         parent.getGameScreen().getEngine().addEntity(entity);
         parent.setPlayer(entity);
 
         playerEntity = entity;
         playerBody = body;
-        inventory = new Inventory();
+        inventory = new Inventory(parent);
         abilities = new HashMap<Integer, Ability>();
+    }
+
+    public TextureRegion getPlayerTextureRegion() {
+        return playerTextureRegion;
     }
 
     public Body getPlayerBody() {
@@ -60,9 +64,5 @@ public class PlayerEntity {
 
     public Inventory getInventory() {
         return inventory;
-    }
-
-    public TextureRegion getPlayerTextureRegion() {
-        return playerTextureRegion;
     }
 }

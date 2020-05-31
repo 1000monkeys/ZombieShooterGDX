@@ -1,13 +1,16 @@
 package com.kjellvos.aletho.zombieshooter.gdx;
 
 import com.kjellvos.aletho.zombieshooter.gdx.components.ItemComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteObj;
 
 import java.util.ArrayList;
 
 public class Inventory {
+    private ZombieShooterGame parent;
     private ArrayList<InventoryItem> entities;
 
-    public Inventory(){
+    public Inventory(ZombieShooterGame parent){
+        this.parent = parent;
         entities = new ArrayList<>();
     }
 
@@ -16,8 +19,8 @@ public class Inventory {
     }
 
     public void addItem(ItemComponent newItem) {
-        SpriteEnum newItemSpriteEnum = SpriteEnum.findById(newItem.id);
-        if (newItemSpriteEnum.isStackable()) {
+        SpriteObj spriteObj = parent.getReadJsonGameFiles().getSpriteObj(newItem.id);
+        if (spriteObj.isStackable()) {
             boolean added = false;
             for (int i = 0; i < entities.size() && !added; i++) {
                 if (entities.get(i).getItemComponent().id == newItem.id && entities.get(i).getCount() < Constants.STACK_SIZE_LIMIT) {
@@ -39,7 +42,7 @@ public class Inventory {
         for(int i = 0 ; i < entities.size(); i++){
             InventoryItem inventoryItem = entities.get(i);
             ItemComponent ic = inventoryItem.getItemComponent();
-            System.out.println("* ["+i+"] " + "[ID:" + ic.id + "][COUNT:" + inventoryItem.getCount() + "]" + SpriteEnum.findById(ic.id).getDescription());
+            System.out.println("* ["+i+"] " + "[ID:" + ic.id + "][COUNT:" + inventoryItem.getCount() + "]" + parent.getReadJsonGameFiles().getSpriteObj(ic.id).getDescription());
         }
         System.out.println("*****************");
     }

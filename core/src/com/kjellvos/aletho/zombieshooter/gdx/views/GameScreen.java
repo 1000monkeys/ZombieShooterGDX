@@ -27,10 +27,15 @@ import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.ItemComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.gson.Animation;
+import com.kjellvos.aletho.zombieshooter.gdx.gson.GameData;
+import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteObj;
+import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteSheet;
 import com.kjellvos.aletho.zombieshooter.gdx.systems.ItemPickUpSystem;
 import com.kjellvos.aletho.zombieshooter.gdx.systems.PlayerMovementSystem;
 import com.kjellvos.aletho.zombieshooter.gdx.systems.RenderSystem;
 
+import java.util.List;
 import java.util.Random;
 
 public class GameScreen implements Screen, InputProcessor {
@@ -53,8 +58,13 @@ public class GameScreen implements Screen, InputProcessor {
     private GlyphLayout layout;
 
     private TiledMap map;
-    private Texture tileset;
     private PlayerEntity player;
+
+    private String gamedataJSON, spriteSheetJSON, spritesJSON, animationsJSON;
+    private GameData gameData;
+    private List<SpriteSheet> spriteSheets;
+    private List<SpriteObj> spriteObjs;
+    private List<Animation> animations;
 
     public boolean leftPressed = false, rightPressed = false, upPressed = false, downPressed = false;
 
@@ -78,8 +88,11 @@ public class GameScreen implements Screen, InputProcessor {
 
         parent.getAssetManager().getAssetManager().finishLoading();
         map = parent.getAssetManager().getAssetManager().get("testmap.tmx", TiledMap.class);
-        tileset = parent.getAssetManager().getAssetManager().get("0x72_16x16DungeonTilesetTogether.png", Texture.class);
-        parent.getAssetManager().getAssetManager().finishLoading();
+
+        gameData = parent.getReadJsonGameFiles().getGameData();
+        spriteSheets = parent.getReadJsonGameFiles().getSpriteSheets();
+        spriteObjs = parent.getReadJsonGameFiles().getSprites();
+        animations = parent.getReadJsonGameFiles().getAnimations();
 
         tiledMapRenderer = new OrthogonalTiledMapRenderer(map);
 
@@ -115,8 +128,9 @@ public class GameScreen implements Screen, InputProcessor {
         }
 
         MapBodyBuilder.buildShapes(map, world);
-        player = new PlayerEntity(parent);
-        MobBuilder.buildObjects(map, tileset, world, engine, rayHandler);
+        player = new PlayerEntity(parent, parent.getReadJsonGameFiles().getSpriteObj(gameData.getPlayerSpriteId()).getSprite());
+        Texture spriteSheet = parent.getReadJsonGameFiles().getSpriteSheets().get(parent.getReadJsonGameFiles().getGameData().getMainSpriteSheet()).getSpriteSheet();
+        MobBuilder.buildObjects(map, spriteSheet, parent.getReadJsonGameFiles(), world, engine, rayHandler);
 
         /*
          * Should go into some sort of music manager class
@@ -166,14 +180,6 @@ public class GameScreen implements Screen, InputProcessor {
     }
 
     /**
-     * Returns the tileset
-     * @return tileset currently in use for rendering
-     */
-    public Texture getTileSet() {
-        return tileset;
-    }
-
-    /**
      * Returns the payer entity
      * @return PlayerEntity the main player
      */
@@ -186,7 +192,8 @@ public class GameScreen implements Screen, InputProcessor {
      */
     public void createPlayerEntity(){
         Entity entity = new Entity();
-        TextureRegion playerTextureRegion = TilesetTextureToTextureRegion.getTextureRegionById(tileset, SpriteEnum.PLAYER.getId());
+
+        TextureRegion playerTextureRegion = spriteObjs.get(gameData.getPlayerSpriteId()).getSprite();
 
         BodyDef bodyDef = new BodyDef();
         FixtureDef fixtureDef = new FixtureDef();
@@ -201,7 +208,7 @@ public class GameScreen implements Screen, InputProcessor {
         fixtureDef.filter.maskBits = Constants.MASK_PLAYER;
         body.createFixture(fixtureDef).setUserData("player");
 
-        entity.add(new BodyComponent(body)).add(new TextureRegionComponent(TilesetTextureToTextureRegion.getTextureRegionById(tileset, SpriteEnum.PLAYER.getId()))).add(new PlayerSteerableComponent(50 * Constants.PPT, 50 * Constants.PPT));
+        entity.add(new BodyComponent(body)).add(new TextureRegionComponent(playerTextureRegion)).add(new PlayerSteerableComponent(50 * Constants.PPT, 50 * Constants.PPT));
         engine.addEntity(entity);
         parent.setPlayer(entity);
     }
@@ -243,7 +250,7 @@ public class GameScreen implements Screen, InputProcessor {
             BitmapFont font = new BitmapFont();
             font.getData().setScale(0.7F);
 
-            String pickUpString = "Press G to pick up: " +SpriteEnum.findById(closestItem.getComponent(ItemComponent.class).id).getDescription();
+            String pickUpString = "Press G to pick up: " + parent.getReadJsonGameFiles().getSpriteObj(closestItem.getComponent(ItemComponent.class).id).getDescription();
             layout.setText(font, pickUpString);
 
             batch.begin();
@@ -302,7 +309,6 @@ public class GameScreen implements Screen, InputProcessor {
             debugRenderer.dispose();
         }
         map.dispose();
-        tileset.dispose();
         rayHandler.dispose();
     }
 

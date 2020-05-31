@@ -6,6 +6,7 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
 
@@ -39,8 +40,10 @@ public class B2dAssetManager {
 
         assetManager.load("0x72_16x16DungeonTilesetTogether.png", Texture.class);
 
+
         assetManager.load("music_scott_lawlor_strange_lullaby.mp3", Music.class);
         assetManager.load("music_zapsplat_hallowdream.mp3", Music.class);
         assetManager.load("music_zapsplat_night_stalker.mp3", Music.class);
+        assetManager.finishLoading();
     }
 }
