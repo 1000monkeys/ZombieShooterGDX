@@ -7,20 +7,50 @@
   },
   {
     "id": 1,
-    "description": "player walking down animation",
+    "description": "zombie sage walking down animation",
     "spriteIds": [1000, 1001, 1002, 1003],
-    "timer": 0.2
+    "timer": 0.3
   },
   {
     "id": 2,
-    "description": "player walking up animation",
+    "description": "zombie sage walking up animation",
     "spriteIds": [1004, 1005, 1006, 1007],
-    "timer": 0.2
+    "timer": 0.3
   },
   {
     "id": 3,
-    "description": "player right animation",
+    "description": "zombie sage right animation",
     "spriteIds": [1008, 1009, 1010, 1011],
-    "timer": 0.2
+    "timer": 0.3
+  },
+  {
+    "id": 4,
+    "description": "player walk down animation",
+    "spriteIds": [1012, 1013, 1014, 1015],
+    "timer": 0.3
+  },
+  {
+    "id": 5,
+    "description": "player walk up animation",
+    "spriteIds": [1016, 1017, 1018, 1019],
+    "timer": 0.3
+  },
+  {
+    "id": 6,
+    "description": "player walk right animation",
+    "spriteIds": [1020, 1021, 1022, 1023],
+    "timer": 0.3
+  },
+  {
+    "id": 7,
+    "description": "player idle animation",
+    "spriteIds": [1024, 1025],
+    "timer": 0.3
+  },
+  {
+    "id": 8,
+    "description": "player left animation",
+    "spriteIds": [1026, 1027, 1028, 1029],
+    "timer": 0.3
   }
 ]

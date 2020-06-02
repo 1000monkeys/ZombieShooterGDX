@@ -10,7 +10,6 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerAnimationComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
 
 import java.util.HashMap;
 
@@ -47,9 +46,11 @@ public class PlayerEntity {
 
         Animation<TextureRegion> upAnimation = new Animation<TextureRegion>(readJsonGameFiles.getAnimationGson(Constants.ANIMATION_PLAYER_UP).getTimer(), readJsonGameFiles.getAnimationTextures(Constants.ANIMATION_PLAYER_UP));
         Animation<TextureRegion> downAnimation = new Animation<TextureRegion>(readJsonGameFiles.getAnimationGson(Constants.ANIMATION_PLAYER_DOWN).getTimer(), readJsonGameFiles.getAnimationTextures(Constants.ANIMATION_PLAYER_DOWN));
-        Animation<TextureRegion> rightAnimation = new Animation<TextureRegion>(readJsonGameFiles.getAnimationGson(Constants.ANIMATION_PLAYER_LEFTRIGHT).getTimer(), readJsonGameFiles.getAnimationTextures(Constants.ANIMATION_PLAYER_LEFTRIGHT));
+        Animation<TextureRegion> rightAnimation = new Animation<TextureRegion>(readJsonGameFiles.getAnimationGson(Constants.ANIMATION_PLAYER_RIGHT).getTimer(), readJsonGameFiles.getAnimationTextures(Constants.ANIMATION_PLAYER_RIGHT));
+        Animation<TextureRegion> leftAnimation = new Animation<TextureRegion>(readJsonGameFiles.getAnimationGson(Constants.ANIMATION_PLAYER_LEFT).getTimer(), readJsonGameFiles.getAnimationTextures(Constants.ANIMATION_PLAYER_LEFT));
+        Animation<TextureRegion> idleAnimation = new Animation<TextureRegion>(readJsonGameFiles.getAnimationGson(Constants.ANIMATION_PLAYER_IDLE).getTimer(), readJsonGameFiles.getAnimationTextures(Constants.ANIMATION_PLAYER_IDLE));
 
-        playerAnimationComponent = new PlayerAnimationComponent(parent, upAnimation, downAnimation, rightAnimation);
+        playerAnimationComponent = new PlayerAnimationComponent(parent, upAnimation, downAnimation, rightAnimation, leftAnimation, idleAnimation);
 
         entity.add(playerAnimationComponent).add(new BodyComponent(body)).add(new PlayerSteerableComponent(50 * Constants.PPT, 50 * Constants.PPT));
         parent.getGameScreen().getEngine().addEntity(entity);

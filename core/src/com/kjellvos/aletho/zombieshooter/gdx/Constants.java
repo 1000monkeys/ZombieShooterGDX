@@ -12,36 +12,7 @@ public class Constants {
      * JSON PLACEMENT CONSTANTS!
      *
      */
-    public static int
-        JSON_GAME_DATA = 0,
-            JSON_GAME_DATA_PLAYER_SPRITE_ID = 0,
-            JSON_GAME_DATA_PLAYER_SPRITE_SHEET = 1,
-            JSON_GAME_DATA_LIGHT_OFF_SPRITE_ID =2,
-
-        JSON_ANIMATION_ID = 0,
-        JSON_ANIMATION_DESCRIPTION = 1,
-        JSON_ANIMATION_SPRITE_IDS = 2,
-
-        JSON_SPRITESHEET_NAME = 0,
-        JSON_SPRITESHEET_ID = 1,
-        JSON_SPRITESHEET_DATA = 2,
-            JSON_SPRITESHEET_DATA_PIXELS_PER_TILE = 0,
-            JSON_SPRITESHEET_DATA_WIDTH_IN_PIXELS = 1,
-            JSON_SPRITESHEET_DATA_HEIGHT_IN_PIXELS = 2,
-
-
-        JSON_SPRITE_ID = 0,
-        JSON_SPRITE_DATA = 1,
-            JSON_SPRITE_DATA_SPRITE_SHEET = 0,
-            JSON_SPRITE_DATA_WIDTH_IN_PIXELS = 1,
-            JSON_SPRITE_DATA_HEIGHT_IN_PIXELS = 2,
-            JSON_SPRITE_DATA_OFFSET_X = 3,
-            JSON_SPRITE_DATA_OFFSET_Y = 4,
-        JSON_ITEM_DATA = 2,
-            JSON_ITEM_DATA_IS_ITEM = 0,
-            JSON_ITEM_DATA_PICK_UP_TEXT = 1,
-            JSON_ITEM_DATA_STACKABLE = 2,
-        JSON_DESCRIPTION = 3;
+    public static int JSON_GAME_DATA = 0;
 
     /**
      * The standard width/height of the game screen,
@@ -60,9 +31,11 @@ public class Constants {
     public static final String GAMEDATA_JSON = "gamedata.json";
 
 
-    public static final int ANIMATION_PLAYER_DOWN = 1;
-    public static final int ANIMATION_PLAYER_UP = 2;
-    public static final int ANIMATION_PLAYER_LEFTRIGHT = 3;
+    public static final int ANIMATION_PLAYER_DOWN = 4;
+    public static final int ANIMATION_PLAYER_UP = 5;
+    public static final int ANIMATION_PLAYER_RIGHT = 6;
+    public static final int ANIMATION_PLAYER_LEFT = 8;
+    public static final int ANIMATION_PLAYER_IDLE = 7;
 
     /**
      * The pixels per tile.

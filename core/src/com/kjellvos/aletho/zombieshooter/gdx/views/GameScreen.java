@@ -205,11 +205,9 @@ public class GameScreen implements Screen, InputProcessor {
         tiledMapRenderer.setView(camera);
         tiledMapRenderer.render(new int[]{Constants.BACKGROUND_LAYER});
 
-        TextureRegion currentPlayerFrame = player.getPlayerAnimationComponent().getAnimation().getKeyFrame(stateTime, true);
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
         engine.update(delta);
-        batch.draw(currentPlayerFrame, bodyComp.body.getPosition().x - currentPlayerFrame.getRegionWidth() / 2, bodyComp.body.getPosition().y - currentPlayerFrame.getRegionHeight() / 2);
         batch.end();
 
         tiledMapRenderer.render(new int[]{Constants.FOREGROUND_LAYER});

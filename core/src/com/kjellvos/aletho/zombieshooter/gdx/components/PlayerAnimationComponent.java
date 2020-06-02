@@ -7,20 +7,17 @@ import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 
 public class PlayerAnimationComponent implements Component {
     private ZombieShooterGame parent;
-    public Animation<TextureRegion> upAnimation, downAnimation, rightAnimation, idleAnimation;
+    public Animation<TextureRegion> upAnimation, downAnimation, rightAnimation, leftAnimation, idleAnimation;
 
-    public PlayerAnimationComponent(ZombieShooterGame parent, Animation<TextureRegion> upAnimation, Animation<TextureRegion> downAnimation, Animation<TextureRegion> rightAnimation, Animation<TextureRegion> idleAnimation) {
+    public PlayerAnimationComponent(ZombieShooterGame parent, Animation<TextureRegion> upAnimation, Animation<TextureRegion> downAnimation, Animation<TextureRegion> rightAnimation, Animation<TextureRegion> leftAnimation, Animation<TextureRegion> idleAnimation) {
         this.parent = parent;
+
         this.upAnimation = upAnimation;
         this.downAnimation = downAnimation;
         this.rightAnimation = rightAnimation;
+        this.leftAnimation = leftAnimation;
 
         this.idleAnimation = idleAnimation;
-
-        //leftAnimation = rightAnimation;
-
-        //leftAnimation = new Animation<TextureRegion>(rightAnimation.getFrameDuration(), rightAnimation.getKeyFrames());
-        //leftAnimation.getKeyFrame(0F).flip(true, false);
     }
 
     public Animation<TextureRegion> getAnimation() {
@@ -29,7 +26,7 @@ public class PlayerAnimationComponent implements Component {
         }else if (parent.getGameScreen().isDownPressed()){
             return downAnimation;
         }else if (parent.getGameScreen().isLeftPressed()) {
-            return rightAnimation;
+            return leftAnimation;
         }else if (parent.getGameScreen().isRightPressed()) {
             return rightAnimation;
         }else{

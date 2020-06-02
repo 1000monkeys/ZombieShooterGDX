@@ -606,7 +606,7 @@
       "heightInPixels": 16
     },
     "isItem": false,
-    "description": "The player, down animation 1."
+    "description": "The zombie sage, down animation 1."
   },
   {
     "id": 1001,
@@ -618,7 +618,7 @@
       "heightInPixels": 16
     },
     "isItem": false,
-    "description": "The player, down animation 2."
+    "description": "The zombie sage, down animation 2."
   },
   {
     "id": 1002,
@@ -630,7 +630,7 @@
       "heightInPixels": 16
     },
     "isItem": false,
-    "description": "The player, down animation 3."
+    "description": "The zombie sage, down animation 3."
   },
   {
     "id": 1003,
@@ -642,7 +642,7 @@
       "heightInPixels": 16
     },
     "isItem": false,
-    "description": "The player, down animation 4."
+    "description": "The zombie sage, down animation 4."
   },
 
 
@@ -656,7 +656,7 @@
       "heightInPixels": 16
     },
     "isItem": false,
-    "description": "The player, up animation 1."
+    "description": "The zombie sage, up animation 1."
   },
   {
     "id": 1005,
@@ -668,7 +668,7 @@
       "heightInPixels": 16
     },
     "isItem": false,
-    "description": "The player, up animation 2."
+    "description": "The zombie sage, up animation 2."
   },
   {
     "id": 1006,
@@ -680,7 +680,7 @@
       "heightInPixels": 16
     },
     "isItem": false,
-    "description": "The player, up animation 3."
+    "description": "The zombie sage, up animation 3."
   },
   {
     "id": 1007,
@@ -692,7 +692,7 @@
       "heightInPixels": 16
     },
     "isItem": false,
-    "description": "The player, up animation 4."
+    "description": "The zombie sage, up animation 4."
   },
 
 
@@ -706,7 +706,7 @@
       "heightInPixels": 16
     },
     "isItem": false,
-    "description": "The player, left/right animation 1."
+    "description": "The zombie sage, left/right animation 1."
   },
   {
     "id": 1009,
@@ -718,7 +718,7 @@
       "heightInPixels": 16
     },
     "isItem": false,
-    "description": "The player, left/right animation 2."
+    "description": "The zombie sage, left/right animation 2."
   },
   {
     "id": 1010,
@@ -730,7 +730,7 @@
       "heightInPixels": 16
     },
     "isItem": false,
-    "description": "The player, left/right animation 3."
+    "description": "The zombie sage, left/right animation 3."
   },
   {
     "id": 1011,
@@ -742,6 +742,227 @@
       "heightInPixels": 16
     },
     "isItem": false,
-    "description": "The player, left/right animation 4."
+    "description": "The zombie sage, left/right animation 4."
+  },
+
+  {
+    "id": 1012,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 32,
+      "positionY": 256,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, down animation 1."
+  },
+  {
+    "id": 1013,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 49,
+      "positionY": 256,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, down animation 2."
+  },
+  {
+    "id": 1014,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 66,
+      "positionY": 256,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, down animation 3."
+  },
+  {
+    "id": 1015,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 83,
+      "positionY": 256,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, down animation 4."
+  },
+  {
+    "id": 1016,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 32,
+      "positionY": 290,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, up animation 1."
+  },
+  {
+    "id": 1017,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 49,
+      "positionY": 290,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, up animation 2."
+  },
+  {
+    "id": 1018,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 66,
+      "positionY": 290,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, up animation 3."
+  },
+  {
+    "id": 1019,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 83,
+      "positionY": 290,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, up animation 4."
+  },
+
+  {
+    "id": 1020,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 32,
+      "positionY": 324,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, right animation 1."
+  },
+  {
+    "id": 1021,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 49,
+      "positionY": 324,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, right animation 2."
+  },
+  {
+    "id": 1022,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 66,
+      "positionY": 324,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, right animation 3."
+  },
+  {
+    "id": 1023,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 83,
+      "positionY": 324,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, right animation 4."
+  },
+
+  {
+    "id": 1024,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 142,
+      "positionY": 256,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, idle animation 1."
+  },
+  {
+    "id": 1025,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 159,
+      "positionY": 256,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, idle animation 2."
+  },
+
+
+  {
+    "id": 1026,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 32,
+      "positionY": 341,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, left animation 1."
+  },
+  {
+    "id": 1027,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 49,
+      "positionY": 341,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, left animation 2."
+  },
+  {
+    "id": 1028,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 66,
+      "positionY": 341,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, left animation 3."
+  },
+  {
+    "id": 1029,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 83,
+      "positionY": 341,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, right animation 4."
   }
 ]
