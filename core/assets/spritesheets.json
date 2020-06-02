@@ -3,5 +3,10 @@
     "spriteSheetName": "0x72_16x16DungeonTilesetTogether.png",
     "spriteSheetId": 0,
     "spriteSheetData": [16, 512, 512] 
+  },
+  {
+    "spriteSheetName": "HeroKnightEnZombieSageSpriteSheet.png",
+    "spriteSheetId": 1,
+    "SpriteSheetData": [16, 500, 500]
   }
 ]

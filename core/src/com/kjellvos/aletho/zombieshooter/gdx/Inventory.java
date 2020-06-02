@@ -20,7 +20,8 @@ public class Inventory {
 
     public void addItem(ItemComponent newItem) {
         SpriteObj spriteObj = parent.getReadJsonGameFiles().getSpriteObj(newItem.id);
-        if (spriteObj.isStackable()) {
+
+        if (spriteObj.getItemData().isStackable()) {
             boolean added = false;
             for (int i = 0; i < entities.size() && !added; i++) {
                 if (entities.get(i).getItemComponent().id == newItem.id && entities.get(i).getCount() < Constants.STACK_SIZE_LIMIT) {

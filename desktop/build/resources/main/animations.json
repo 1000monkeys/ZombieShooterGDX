@@ -3,5 +3,20 @@
     "id": 0,
     "description": "fire animation",
     "spriteIds": [296, 297, 298, 299, 300, 301, 302, 303]
+  },
+  {
+    "id": 1,
+    "description": "player walking down animation",
+    "spriteIds": [100, 1001, 1002, 1003]
+  },
+  {
+    "id": 2,
+    "description": "player walking up animation",
+    "spriteIds": [1004, 1005, 1006, 1007]
+  },
+  {
+    "id": 3,
+    "description": "player left/right animation",
+    "spriteIds": [1008, 1009, 1010, 1011]
   }
 ]

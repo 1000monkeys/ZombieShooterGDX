@@ -234,6 +234,7 @@ public class GameScreen implements Screen, InputProcessor {
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
         engine.update(delta);
+
         batch.draw(player.getPlayerTextureRegion(), bodyComp.body.getPosition().x - player.getPlayerTextureRegion().getRegionWidth() / 2, bodyComp.body.getPosition().y - player.getPlayerTextureRegion().getRegionHeight() / 2);
         batch.end();
 

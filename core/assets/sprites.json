@@ -1,32 +1,62 @@
 [
   {
     "id": 0,
-    "spriteData": [0,  16,  16,   0,    0],
-    "itemData": [false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 0,
+      "positionY": 0,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
     "description": "Top of a wall."
   },
   {
     "id": 1,
-    "spriteData": [0,  16,  16,   0,    0],
-    "itemData": [false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 16,
+      "positionY": 0,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
     "description": "Top of a wall."
   },
   {
     "id": 2,
-    "spriteData": [0,  16,  16,   0,    0],
-    "itemData": [false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 32,
+      "positionY": 0,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
     "description": "Top of a waaaall."
   },
   {
     "id": 3,
-    "spriteData": [0,  16,  16,   0,    0],
-    "itemData": [false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 48,
+      "positionY": 0,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
     "description": "Top of a wall."
   },
   {
     "id": 4,
-    "spriteData": [0,  16,  16,   0,    0],
-    "itemData": [false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 64,
+      "positionY": 0,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
     "description": "Top of a wall."
   },
 
@@ -34,44 +64,114 @@
 
   {
     "id": 9,
-    "spriteData": [0,  16,  24,   0,    8],
-    "itemData": [true, true, false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 144,
+      "positionY": 8,
+      "widthInPixels": 16,
+      "heightInPixels": 24
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false
+    },
     "description": "A crude bronze sword."
   },
   {
     "id": 10,
-    "spriteData": [0,  16,  24,   0,    8],
-    "itemData": [true, true, false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 160,
+      "positionY": 8,
+      "widthInPixels": 16,
+      "heightInPixels": 24
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false
+    },
     "description": "A sword crudely made out of iron and bronze."
   },
   {
     "id": 11,
-    "spriteData": [0,  16,  24,   0,    8],
-    "itemData": [true, true, false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 176,
+      "positionY": 8,
+      "widthInPixels": 16,
+      "heightInPixels": 24
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false
+    },
     "description": "An iron sword, seems pretty sharp."
   },
   {
     "id": 12,
-    "spriteData": [0,  16,  24,   0,    8],
-    "itemData": [true, true, false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 192,
+      "positionY": 8,
+      "widthInPixels": 16,
+      "heightInPixels": 24
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false
+    },
     "description": "An iron sword, Has a gem on the hilt."
   },
   {
     "id": 13,
-    "spriteData": [0,  16,  24,   0,    6],
-    "itemData": [true, true, false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 208,
+      "positionY": 6,
+      "widthInPixels": 16,
+      "heightInPixels": 24
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false
+    },
     "description": "A broad sword."
   },
   {
     "id": 14,
-    "spriteData": [0,  16,  32,   0,    0],
-    "itemData": [true, true, false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX":  224,
+      "positionY": 0,
+      "widthInPixels": 16,
+      "heightInPixels": 32
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false
+    },
     "description": "An iron long sword, It has pretty good reach."
   },
   {
     "id": 15,
-    "spriteData": [0,  16,  40,   0,    8],
-    "itemData": [true, true, false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 240,
+      "positionY": 8,
+      "widthInPixels": 16,
+      "heightInPixels": 40
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false
+    },
     "description": "A long iron hammer, has very good reach."
   },
 
@@ -79,114 +179,246 @@
 
   {
     "id": 71,
-    "spriteData": [0,  16,  24,   0,    8],
-    "itemData": [true, true, false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 112,
+      "positionY": 40,
+      "widthInPixels": 16,
+      "heightInPixels": 24
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false
+    },
     "description": "An iron short sword, You could really do some damage with this."
   },
   {
     "id": 72,
-    "spriteData": [0,  16,  24,   0,    8],
-    "itemData": [true, true, false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 128,
+      "positionY": 40,
+      "widthInPixels": 16,
+      "heightInPixels": 24
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false
+    },
     "description": "An iron cleaver, it is heavy."
   },
   {
     "id": 73,
-    "spriteData": [0,  16,  24,   0,    8],
-    "itemData": [true, true, false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 144,
+      "positionY": 40,
+      "widthInPixels": 16,
+      "heightInPixels": 24
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false
+    },
     "description": "A very pretty gold short sword."
   },
   {
     "id": 74,
-    "spriteData": [0,  16,  32,   0,    0],
-    "itemData": [true, true, false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 160,
+      "positionY": 32,
+      "widthInPixels": 16,
+      "heightInPixels": 32
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false
+    },
     "description": "A gold long sword. Worth a lot."
   },
   {
     "id": 75,
-    "spriteData": [0,  16,  32,   0,    0],
-    "itemData": [true, true, false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 176,
+      "positionY": 32,
+      "widthInPixels": 16,
+      "heightInPixels": 32
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false
+    },
     "description": "A marmer fencing sword, Sturdy."
   },
   {
     "id": 76,
-    "spriteData": [0,  16,  32,   0,    0],
-    "itemData": [true, true, false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 192,
+      "positionY": 32,
+      "widthInPixels": 16,
+      "heightInPixels": 32
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false
+    },
     "description": "A marmer short sword."
   },
   {
     "id": 77,
-    "spriteData": [0,  16,  32,   0,    0],
-    "itemData": [true, true, false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 208,
+      "positionY": 32,
+      "widthInPixels": 16,
+      "heightInPixels": 32
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false
+    },
     "description": "A marmer short sword, It is upgraded"
   },
   {
     "id": 78,
-    "spriteData": [0,  16,  32,   0,    0],
-    "itemData": [true, true, false],
-    "description": "The yellow sword. The very best."
-  },
-  {
-    "id": 78,
-    "spriteData": [0,  16,  32,   0,    0],
-    "itemData": [true, true, false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 224,
+      "positionY": 32,
+      "widthInPixels": 16,
+      "heightInPixels": 32
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": true,
+      "stackable": false
+    },
     "description": "The yellow sword. The very best."
   },
 
 
   {
     "id": 111,
-    "spriteData": [0,  16,  16,   0,    0],
-    "itemData": [true, false, true],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 240,
+      "positionY": 48,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": false,
+      "stackable": true
+    },
     "description": "A bomb."
   },
 
 
   {
     "id": 296,
-    "spriteData": [0,  16,  24,   0,    8],
-    "itemData":[false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 128,
+      "positionY": 152,
+      "widthInPixels": 16,
+      "heightInPixels": 24
+    },
+    "isItem": false,
     "description": "Top of the fire."
   },
   {
     "id": 297,
-    "spriteData": [0,  16,  24,   0,    8],
-    "itemData": [false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 144,
+      "positionY": 152,
+      "widthInPixels": 16,
+      "heightInPixels": 24
+    },
+    "isItem": false,
     "description": "Top of the fire."
   },
   {
     "id": 298,
-    "spriteData": [0,  16,  24,   0,    8],
-    "itemData": [false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 160,
+      "positionY": 152,
+      "widthInPixels": 16,
+      "heightInPixels": 24
+    },
+    "isItem": false,
     "description": "Top of the fire."
   },
   {
     "id": 299,
-    "spriteData": [0,  16,  24,   0,    8],
-    "itemData": [false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 1760,
+      "positionY": 152,
+      "widthInPixels": 16,
+      "heightInPixels": 24
+    },
+    "isItem": false,
     "description": "Top of the fire."
   },
   {
     "id": 300,
-    "spriteData": [0,  16,  24,   0,    8],
-    "itemData": [false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 192,
+      "positionY": 152,
+      "widthInPixels": 16,
+      "heightInPixels": 24
+    },
+    "isItem": false,
     "description": "Top of the fire."
   },
   {
     "id": 301,
-    "spriteData": [0,  16,  24,   0,    8],
-    "itemData": [false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 208,
+      "positionY": 152,
+      "widthInPixels": 16,
+      "heightInPixels": 24
+    },
+    "isItem": false,
     "description": "Top of the fire."
   },
   {
     "id": 302,
-    "spriteData": [0,  16,  24,   0,    8],
-    "itemData": [false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 224,
+      "positionY": 152,
+      "widthInPixels": 16,
+      "heightInPixels": 24
+    },
+    "isItem": false,
     "description": "Top of the fire."
   },
   {
     "id": 303,
-    "spriteData": [0,  16,  24,   0,    8],
-    "itemData": [false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 240,
+      "positionY": 152,
+      "widthInPixels": 16,
+      "heightInPixels": 24
+    },
+    "isItem": false,
     "description": "Top of the fire."
   },
 
@@ -195,16 +427,36 @@
 
   {
     "id": 327,
-    "spriteData": [0,  16,  16,   0,    0],
-    "itemData": [true, false, true],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 112,
+      "positionY": 160,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": false,
+      "stackable": true
+    },
     "description": "You can light a fire on this pillard."
   },
 
 
   {
     "id": 364,
-    "spriteData": [0,  16,  16,   0,    0],
-    "itemData": [true, false, true],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 192,
+      "positionY": 176,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": false,
+      "stackable": true
+    },
     "description": "A Large health potion."
   },
 
@@ -212,8 +464,18 @@
 
   {
     "id": 396,
-    "spriteData": [0,  16,  16,   0,    0],
-    "itemData": [true, false, true],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 192,
+      "positionY": 192,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": false,
+      "stackable": true
+    },
     "description": "A large lifeblood potion."
   },
 
@@ -221,46 +483,265 @@
 
   {
     "id": 423,
-    "spriteData": [0,  16,  16,   0,    0],
-    "itemData": [true, false, true],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 112,
+      "positionY": 208,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": false,
+      "stackable": true
+    },
     "description": "A small health potion."
   },
   {
     "id": 424,
-    "spriteData": [0,  16,  16,   0,    0],
-    "itemData": [true, false, true],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 128,
+      "positionY": 208,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": false,
+      "stackable": true
+    },
     "description": "A small lifeblood potion."
   },
   {
     "id": 425,
-    "spriteData": [0,  16,  16,   0,    0],
-    "itemData": [true, false, true],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 144,
+      "positionY": 208,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": false,
+      "stackable": true
+    },
     "description": "A small mana potion."
   },
   {
     "id": 426,
-    "spriteData": [0,  16,  16,   0,    0],
-    "itemData": [true, false, true],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 160,
+      "positionY": 208,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": false,
+      "stackable": true
+    },
     "description": "A small damage potion."
   },
   {
     "id": 427,
-    "spriteData": [0,  16,  16,   0,    0],
-    "itemData": [true, false, true],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 176,
+      "positionY": 208,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": false,
+      "stackable": true
+    },
     "description": "A large damage potion."
   },
   {
     "id": 428,
-    "spriteData": [0,  16, 16, 0, 0],
-    "itemData": [true, false, true],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 192,
+      "positionY": 208,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": true,
+    "itemData": {
+      "pickUpText": false,
+      "stackable": true
+    },
     "description": "A large mana potion."
   },
 
 
   {
     "id": 455,
-    "spriteData": [0, 16, 16, 0, 0],
-    "itemData": [false],
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 112,
+      "positionY": 224,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
     "description": "The player."
+  },
+
+
+
+
+
+  {
+    "id": 1000,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 32,
+      "positionY": 80,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, down animation 1."
+  },
+  {
+    "id": 1001,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 49,
+      "positionY": 80,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, down animation 2."
+  },
+  {
+    "id": 1002,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 66,
+      "positionY": 80,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, down animation 3."
+  },
+  {
+    "id": 1003,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 83,
+      "positionY": 80,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, down animation 4."
+  },
+
+
+  {
+    "id": 1004,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 32,
+      "positionY": 114,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, up animation 1."
+  },
+  {
+    "id": 1005,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 49,
+      "positionY": 114,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, up animation 2."
+  },
+  {
+    "id": 1006,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 66,
+      "positionY": 114,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, up animation 3."
+  },
+  {
+    "id": 1007,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 83,
+      "positionY": 114,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, up animation 4."
+  },
+
+
+  {
+    "id": 1008,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 32,
+      "positionY": 149,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, left/right animation 1."
+  },
+  {
+    "id": 1009,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 49,
+      "positionY": 149,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, left/right animation 2."
+  },
+  {
+    "id": 1010,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 66,
+      "positionY": 149,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, left/right animation 3."
+  },
+  {
+    "id": 1011,
+    "spriteData": {
+      "spriteSheetId": 1,
+      "positionX": 83,
+      "positionY": 149,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isItem": false,
+    "description": "The player, left/right animation 4."
   }
 ]

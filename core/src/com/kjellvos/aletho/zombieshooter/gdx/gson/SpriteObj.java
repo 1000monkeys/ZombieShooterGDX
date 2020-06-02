@@ -5,18 +5,39 @@ import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
 public class SpriteObj {
     private int id;
-    private int[] spriteData;
-    private boolean[] itemData;
+    private NestedSpriteData spriteData;
+    private boolean isItem;
+    private NestedItemData itemData;
     private String description;
 
     private SpriteSheet spriteSheet;
     private TextureRegion sprite = null;
 
-    public SpriteObj(int id, int[] spriteData, boolean[] itemData, String description) {
+    public SpriteObj(int id, NestedSpriteData spriteData, boolean isItem, NestedItemData itemData, String description) {
         this.id = id;
         this.spriteData = spriteData;
+        this.isItem = isItem;
         this.itemData = itemData;
         this.description = description;
+    }
+
+    public SpriteObj(int id, NestedSpriteData spriteData, boolean isItem, String description){
+        this.id = id;
+        this.spriteData = spriteData;
+        this.isItem = isItem;
+        this.description = description;
+    }
+
+    public boolean isItem() {
+        return isItem;
+    }
+
+    public NestedSpriteData getSpriteData() {
+        return spriteData;
+    }
+
+    public NestedItemData getItemData() {
+        return itemData;
     }
 
     public void setSprite(TextureRegion sprite) {
@@ -25,34 +46,6 @@ public class SpriteObj {
 
     public void setSpriteSheet(SpriteSheet spriteSheet) {
         this.spriteSheet = spriteSheet;
-    }
-
-    public boolean isItem(){
-        return itemData[Constants.JSON_ITEM_DATA_IS_ITEM];
-    }
-
-    public boolean hasPickUpText(){
-        return itemData[Constants.JSON_ITEM_DATA_PICK_UP_TEXT];
-    }
-
-    public boolean isStackable(){
-        return itemData[Constants.JSON_ITEM_DATA_STACKABLE];
-    }
-
-    public int getWidthInPixels(){
-        return spriteData[Constants.JSON_SPRITE_DATA_WIDTH_IN_PIXELS];
-    }
-
-    public int getHeightInPixels(){
-        return spriteData[Constants.JSON_SPRITE_DATA_HEIGHT_IN_PIXELS];
-    }
-
-    public int getOffsetX(){
-        return spriteData[Constants.JSON_SPRITE_DATA_OFFSET_X];
-    }
-
-    public int getOffsetY(){
-        return spriteData[Constants.JSON_SPRITE_DATA_OFFSET_Y];
     }
 
     public TextureRegion getSprite() {

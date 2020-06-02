@@ -11,7 +11,7 @@ public class SpriteSheet {
     private int[] spriteSheetData;
     private TextureRegion sprite = null;
 
-    private Texture spriteSheet;
+    private Texture spriteSheet = null;
 
     public SpriteSheet(String spriteSheetName, int spriteSheetId, int[] spriteSheetData){
         this.spriteSheetName = spriteSheetName;
@@ -19,20 +19,15 @@ public class SpriteSheet {
         this.spriteSheetData = spriteSheetData; }
 
     public TextureRegion getSprite(SpriteObj spriteObj) {
-        spriteSheet = new Texture(Gdx.files.internal(spriteSheetName));
-
-
-        int column = spriteObj.getId() % (spriteSheetData[Constants.JSON_SPRITESHEET_DATA_WIDTH_IN_PIXELS] / spriteSheetData[Constants.JSON_SPRITESHEET_DATA_PIXELS_PER_TILE]);
-        int row = (int) (Math.floor(spriteObj.getId() / (spriteSheetData[Constants.JSON_SPRITESHEET_DATA_HEIGHT_IN_PIXELS] / spriteSheetData[Constants.JSON_SPRITESHEET_DATA_PIXELS_PER_TILE])));
-
-        System.out.println(spriteSheet);
-        System.out.println(spriteSheet);System.out.println(spriteSheet);System.out.println(spriteSheet);System.out.println(spriteSheet);
+        if (spriteSheet == null) {
+            spriteSheet = new Texture(Gdx.files.internal(spriteSheetName));
+        }
 
         return new TextureRegion(spriteSheet,
-            spriteObj.getOffsetX() + (column * spriteSheetData[Constants.JSON_SPRITESHEET_DATA_PIXELS_PER_TILE]),
-            spriteObj.getOffsetY() + (row * spriteSheetData[Constants.JSON_SPRITESHEET_DATA_PIXELS_PER_TILE]),
-            spriteObj.getWidthInPixels(),
-            spriteObj.getHeightInPixels());
+            spriteObj.getSpriteData().getPositionX(),
+            spriteObj.getSpriteData().getPositionY(),
+            spriteObj.getSpriteData().getWidthInPixels(),
+            spriteObj.getSpriteData().getHeightInPixels());
     }
 
     public Texture getSpriteSheet() {
@@ -49,17 +44,5 @@ public class SpriteSheet {
 
     public String getSpriteSheetName() {
         return spriteSheetName;
-    }
-
-    public void setSpriteSheetData(int[] spriteSheetData) {
-        this.spriteSheetData = spriteSheetData;
-    }
-
-    public void setSpriteSheetId(int spriteSheetId) {
-
-    }
-
-    public void setSpriteSheetName(String spriteSheetName) {
-        this.spriteSheetName = spriteSheetName;
     }
 }

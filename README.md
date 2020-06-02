@@ -104,8 +104,6 @@ The game, less barebones. But no gameplay yet.
 
 ## **TODO**:
 
-import json and read item data etc improve the current json files
-
 - Inventory system
 - Loot
 - Doors

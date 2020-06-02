@@ -23,15 +23,7 @@ public class Animation {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public int[] getSpriteIds() {
         return spriteIds;
-    }
-
-    public void setSpriteIds(int[] spriteIds) {
-        this.spriteIds = spriteIds;
     }
 }
