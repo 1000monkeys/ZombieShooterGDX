@@ -25,10 +25,10 @@ public class Constants {
      */
     public static float commodoreBlueR = 0.25882354F, commodoreBlueG = 0.25882354F, commodoreBlueB = 0.90588236F;
 
-    public static final String SPRITESHEET_JSON = "spritesheets.json";
-    public static final String SPRITES_JSON = "sprites.json";
-    public static final String ANIMATIONS_JSON = "animations.json";
-    public static final String GAMEDATA_JSON = "gamedata.json";
+    public static final String SPRITESHEET_JSON = "json/spritesheets.json";
+    public static final String SPRITES_JSON = "json/sprites.json";
+    public static final String ANIMATIONS_JSON = "json/animations.json";
+    public static final String GAMEDATA_JSON = "json/gamedata.json";
 
 
     public static final int ANIMATION_PLAYER_DOWN = 4;
