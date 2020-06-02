@@ -20,43 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dae99bb-f850-4e65-96fa-f780e7f4f2c0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/assets/animations.json" beforeDir="false" afterPath="$PROJECT_DIR$/core/assets/json/animations.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/assets/gamedata.json" beforeDir="false" afterPath="$PROJECT_DIR$/core/assets/json/gamedata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/assets/sprites.json" beforeDir="false" afterPath="$PROJECT_DIR$/core/assets/json/sprites.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/assets/spritesheets.json" beforeDir="false" afterPath="$PROJECT_DIR$/core/assets/json/spritesheets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/0x72_16x16DungeonTilesetTogether.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/0x72_16x16DungeonTilesetTogether.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/0x72_16x16DungeonTilesetTogether.xcf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/HeroKnightEnZombieSageSpriteSheet.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/HeroKnightEnZombieSageSpriteSheet.xcf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/animations.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/button UI.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/crafting_materials/preview.aseprite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/crafting_materials/preview.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/crafting_materials/resources.ase" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/crafting_materials/resources_basic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/crafting_materials/resources_blue_bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/crafting_materials/resources_neutral_bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/crafting_materials/resources_neutral_bg_outlined.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/crafting_materials/resources_outlined.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/crafting_materials/resources_red_bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/gamedata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/music_zapsplat_hallowdream.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/music_zapsplat_night_stalker.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/skin/commodore-64.fnt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/skin/uiskin.atlas" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/skin/uiskin.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/skin/uiskin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/sprites.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/spritesheets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/resources/main/testmap.tmx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +136,7 @@
       <workItem from="1591095837763" duration="4097000" />
       <workItem from="1591100731943" duration="4735000" />
       <workItem from="1591120761998" duration="8885000" />
-      <workItem from="1591131895130" duration="33000" />
+      <workItem from="1591131895130" duration="863000" />
     </task>
     <servers />
   </component>
@@ -205,7 +171,6 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="95" y="360" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1590789389703" />
-    <state x="72" y="268" width="890" height="568" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1582489946666" />
     <state x="1101" y="583" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591124324368">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -222,19 +187,11 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="370" y="489" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1590789380699" />
-    <state x="805" y="421" width="305" height="230" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1582489201445">
-      <screen x="0" y="25" width="1920" height="1055" />
-    </state>
-    <state x="805" y="421" width="305" height="230" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1582489201445" />
     <state x="709" y="260" width="923" height="814" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1591100667438">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="709" y="260" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591100667438" />
     <state x="1064" y="390" width="923" height="814" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.3840.2098@0.0.3840.2098" timestamp="1584211860915" />
-    <state x="544" y="202" width="824" height="698" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor" timestamp="1582484466107">
-      <screen x="0" y="25" width="1920" height="1055" />
-    </state>
-    <state x="544" y="202" width="824" height="698" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/0.25.1920.1055@0.25.1920.1055" timestamp="1582484466107" />
     <state x="895" y="460" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1590863508904">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -270,29 +227,28 @@
     </state>
     <state x="420" y="432" width="723" height="333" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1590862027348" />
     <state x="630" y="648" key="FileChooserDialogImpl/0.0.3840.2098@0.0.3840.2098" timestamp="1584288024060" />
-    <state x="315" y="351" width="424" height="498" key="FileChooserDialogImpl/0.25.1920.1055@0.25.1920.1055" timestamp="1582489843908" />
-    <state width="1235" height="231" key="GridCell.Tab.0.bottom" timestamp="1591131882872">
+    <state width="1236" height="229" key="GridCell.Tab.0.bottom" timestamp="1591132820609">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1235" height="231" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1591131882872" />
+    <state width="1236" height="229" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1591132820609" />
     <state width="2981" height="431" key="GridCell.Tab.0.bottom/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707816" />
     <state width="914" height="217" key="GridCell.Tab.0.bottom/0.25.1920.1055@0.25.1920.1055" timestamp="1582493069061" />
-    <state width="1235" height="231" key="GridCell.Tab.0.center" timestamp="1591131882872">
+    <state width="1236" height="229" key="GridCell.Tab.0.center" timestamp="1591132820609">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1235" height="231" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1591131882872" />
+    <state width="1236" height="229" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1591132820609" />
     <state width="2981" height="431" key="GridCell.Tab.0.center/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
     <state width="914" height="217" key="GridCell.Tab.0.center/0.25.1920.1055@0.25.1920.1055" timestamp="1582493069061" />
-    <state width="1235" height="231" key="GridCell.Tab.0.left" timestamp="1591131882872">
+    <state width="1236" height="229" key="GridCell.Tab.0.left" timestamp="1591132820609">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1235" height="231" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1591131882872" />
+    <state width="1236" height="229" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1591132820609" />
     <state width="2981" height="431" key="GridCell.Tab.0.left/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
     <state width="914" height="217" key="GridCell.Tab.0.left/0.25.1920.1055@0.25.1920.1055" timestamp="1582493069061" />
-    <state width="1235" height="231" key="GridCell.Tab.0.right" timestamp="1591131882872">
+    <state width="1236" height="229" key="GridCell.Tab.0.right" timestamp="1591132820609">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1235" height="231" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1591131882872" />
+    <state width="1236" height="229" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1591132820609" />
     <state width="2981" height="431" key="GridCell.Tab.0.right/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
     <state width="914" height="217" key="GridCell.Tab.0.right/0.25.1920.1055@0.25.1920.1055" timestamp="1582493069061" />
     <state width="2517" height="492" key="GridCell.Tab.1.bottom" timestamp="1591125172054">
@@ -319,7 +275,6 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="343" y="324" width="1442" height="850" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1591130668852" />
-    <state x="87" y="107" width="900" height="804" key="SettingsEditor/0.25.1920.1055@0.25.1920.1055" timestamp="1582490113353" />
     <state x="451" y="482" key="chooseDestDirectoryDialog" timestamp="1590862458010">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -329,7 +284,6 @@
     </state>
     <state x="257" y="391" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582499764326" />
     <state x="514" y="802" key="com.intellij.ide.util.TipDialog/0.0.3840.2098@0.0.3840.2098" timestamp="1584537556274" />
-    <state x="258" y="381" key="com.intellij.ide.util.TipDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1582491142646" />
     <state x="943" y="317" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1590941169819">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

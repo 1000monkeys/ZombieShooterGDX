@@ -57,7 +57,7 @@ public class Constants {
     /**
      * The distance from which lights go from lighting to darkness.
      */
-    public static final float LIGHT_SOFTNESS_LENGTH = 62.5F;
+    public static final float LIGHT_SOFTNESS_LENGTH = 22.5F;
 
     /**
      * The background layer id number, Should be 0.
