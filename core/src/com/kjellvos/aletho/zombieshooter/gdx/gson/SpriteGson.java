@@ -1,19 +1,18 @@
 package com.kjellvos.aletho.zombieshooter.gdx.gson;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
-public class SpriteObj {
+public class SpriteGson {
     private int id;
     private NestedSpriteData spriteData;
     private boolean isItem;
     private NestedItemData itemData;
     private String description;
 
-    private SpriteSheet spriteSheet;
+    private SpriteSheetGson spriteSheetGson;
     private TextureRegion sprite = null;
 
-    public SpriteObj(int id, NestedSpriteData spriteData, boolean isItem, NestedItemData itemData, String description) {
+    public SpriteGson(int id, NestedSpriteData spriteData, boolean isItem, NestedItemData itemData, String description) {
         this.id = id;
         this.spriteData = spriteData;
         this.isItem = isItem;
@@ -21,7 +20,7 @@ public class SpriteObj {
         this.description = description;
     }
 
-    public SpriteObj(int id, NestedSpriteData spriteData, boolean isItem, String description){
+    public SpriteGson(int id, NestedSpriteData spriteData, boolean isItem, String description){
         this.id = id;
         this.spriteData = spriteData;
         this.isItem = isItem;
@@ -44,8 +43,8 @@ public class SpriteObj {
         this.sprite = sprite;
     }
 
-    public void setSpriteSheet(SpriteSheet spriteSheet) {
-        this.spriteSheet = spriteSheet;
+    public void setSpriteSheetGson(SpriteSheetGson spriteSheetGson) {
+        this.spriteSheetGson = spriteSheetGson;
     }
 
     public TextureRegion getSprite() {
@@ -56,8 +55,8 @@ public class SpriteObj {
         return id;
     }
 
-    public SpriteSheet getSpriteSheet() {
-        return spriteSheet;
+    public SpriteSheetGson getSpriteSheetGson() {
+        return spriteSheetGson;
     }
 
     public String getDescription() {

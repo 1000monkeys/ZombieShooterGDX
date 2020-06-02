@@ -6,16 +6,12 @@ import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.physics.box2d.*;
 import com.kjellvos.aletho.zombieshooter.gdx.components.*;
-import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteObj;
-
-import java.util.List;
 
 public class MobBuilder {
 
@@ -26,7 +22,7 @@ public class MobBuilder {
             int id = Integer.parseInt(object.getProperties().get("gid").toString());
             id--; //the gid is always 1 too high
 
-            if (id == readJsonGameFiles.getGameData().getLightOffSpriteId()) {
+            if (id == readJsonGameFiles.getGameDataGson().getLightOffSpriteId()) {
                 buildLight(object, readJsonGameFiles, tileset, world, engine, rayHandler);
             }else if(readJsonGameFiles.getSpriteObj(id).isItem()) {
                 Entity item = new Entity();

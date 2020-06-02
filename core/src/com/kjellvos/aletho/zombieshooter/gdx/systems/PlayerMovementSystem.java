@@ -26,7 +26,8 @@ public class PlayerMovementSystem extends EntitySystem {
     @Override
     public void addedToEngine(Engine engine) {
         super.addedToEngine(engine);
-        entities = engine.getEntitiesFor(Family.all(PlayerSteerableComponent.class, BodyComponent.class, TextureRegionComponent.class).get());
+        //TODO add animation component ot player
+        entities = engine.getEntitiesFor(Family.all(PlayerSteerableComponent.class, BodyComponent.class).get());
     }
 
     /**

@@ -1,60 +1,58 @@
 package com.kjellvos.aletho.zombieshooter.gdx;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.google.gson.Gson;
-import com.kjellvos.aletho.zombieshooter.gdx.gson.Animation;
-import com.kjellvos.aletho.zombieshooter.gdx.gson.GameData;
-import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteObj;
-import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteSheet;
+import com.kjellvos.aletho.zombieshooter.gdx.gson.AnimationGson;
+import com.kjellvos.aletho.zombieshooter.gdx.gson.GameDataGson;
+import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteGson;
+import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteSheetGson;
 
-import javax.xml.soap.Text;
 import java.util.Arrays;
 import java.util.List;
 
 public class ReadJsonGameFiles {
-    private List<SpriteSheet> spriteSheets;
-    private List<SpriteObj> sprites;
-    private List<Animation> animations;
-    private GameData gameData;
+    private List<SpriteSheetGson> spriteSheetGsons;
+    private List<SpriteGson> sprites;
+    private List<AnimationGson> animationGsons;
+    private GameDataGson gameDataGson;
 
     public ReadJsonGameFiles(String gameDataJSON, String spriteSheetsJSON, String spritesJSON, String animatonsJSON){
         Gson g = new Gson();
 
-        gameData = g.fromJson(gameDataJSON, GameData[].class)[Constants.JSON_GAME_DATA];
-        System.out.println(gameData.getPlayerSpriteId() + " : " + gameData.getMainSpriteSheet() + " : " + gameData.getLightOffSpriteId());
+        gameDataGson = g.fromJson(gameDataJSON, GameDataGson[].class)[Constants.JSON_GAME_DATA];
+        System.out.println(gameDataGson.getPlayerSpriteId() + " : " + gameDataGson.getMainSpriteSheet() + " : " + gameDataGson.getLightOffSpriteId());
 
-        sprites = Arrays.asList(g.fromJson(spritesJSON, SpriteObj[].class));
+        sprites = Arrays.asList(g.fromJson(spritesJSON, SpriteGson[].class));
         System.out.println(sprites.size());
 
-        spriteSheets = Arrays.asList(g.fromJson(spriteSheetsJSON, SpriteSheet[].class));
-        System.out.println(spriteSheets.size());
-        for (int i = 0; i < spriteSheets.size(); i++) {
-            System.out.println(spriteSheets.get(i).getSpriteSheetName());
+        spriteSheetGsons = Arrays.asList(g.fromJson(spriteSheetsJSON, SpriteSheetGson[].class));
+        System.out.println(spriteSheetGsons.size());
+        for (int i = 0; i < spriteSheetGsons.size(); i++) {
+            System.out.println(spriteSheetGsons.get(i).getSpriteSheetName());
         }
 
         for (int i = 0; i < sprites.size(); i++){
-            sprites.get(i).setSprite(spriteSheets.get(gameData.getMainSpriteSheet()).getSprite(sprites.get(i)));
+            sprites.get(i).setSprite(spriteSheetGsons.get(sprites.get(i).getSpriteData().getSpriteSheetId()).getSprite(sprites.get(i)));
+            System.out.println("SETUP SPRITE: " + sprites.get(i).getDescription());
         }
 
-        animations = Arrays.asList(g.fromJson(animatonsJSON, Animation[].class));
-        System.out.println(animations.size());
+        animationGsons = Arrays.asList(g.fromJson(animatonsJSON, AnimationGson[].class));
+        System.out.println(animationGsons.size());
     }
 
-    public List<SpriteSheet> getSpriteSheets() {
-        return spriteSheets;
+    public List<SpriteSheetGson> getSpriteSheetGsons() {
+        return spriteSheetGsons;
     }
 
-    public List<Animation> getAnimations() {
-        return animations;
+    public List<AnimationGson> getAnimationGsons() {
+        return animationGsons;
     }
 
-    public List<SpriteObj> getSprites() {
+    public List<SpriteGson> getSprites() {
         return sprites;
     }
 
-    public SpriteObj getSpriteObj(int id){
+    public SpriteGson getSpriteObj(int id){
         for(int i = 0; i < sprites.size(); i++){
             if (sprites.get(i).getId() == id) {
                 return sprites.get(i);
@@ -63,26 +61,28 @@ public class ReadJsonGameFiles {
         return null; //TODO
     }
 
-    public SpriteObj[] getAnimation(int id){
-        int[] spriteIds = animations.get(id).getSpriteIds();
-        SpriteObj[] spriteObjs = new SpriteObj[spriteIds.length];
+    public SpriteGson[] getAnimation(int id){
+        int[] spriteIds = animationGsons.get(id).getSpriteIds();
+        SpriteGson[] spriteGsons = new SpriteGson[spriteIds.length];
         for (int i = 0; i < spriteIds.length; i++) {
-            spriteObjs[i] = getSpriteObj(spriteIds[i]);
+            spriteGsons[i] = getSpriteObj(spriteIds[i]);
         }
 
-        return spriteObjs;
+        return spriteGsons;
     }
 
     public TextureRegion[] getAnimationTextures(int id) {
-        SpriteObj[] spriteObjs = getAnimation(id);
-        TextureRegion[] textureRegions = new TextureRegion[spriteObjs.length];
-        for (int i = 0; i < spriteObjs.length; i++){
-            textureRegions[i] = spriteObjs[i].getSprite();
+        SpriteGson[] spriteGsons = getAnimation(id);
+        TextureRegion[] textureRegions = new TextureRegion[spriteGsons.length];
+        System.out.println(id + " ANIMATION ID ");
+        for (int i = 0; i < spriteGsons.length; i++){
+            System.out.println(i + " + GOT HERE + ");
+            textureRegions[i] = spriteGsons[i].getSprite();
         }
         return textureRegions;
     }
 
-    public GameData getGameData() {
-        return gameData;
+    public GameDataGson getGameDataGson() {
+        return gameDataGson;
     }
 }

@@ -1,7 +1,7 @@
 package com.kjellvos.aletho.zombieshooter.gdx;
 
 import com.kjellvos.aletho.zombieshooter.gdx.components.ItemComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteObj;
+import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteGson;
 
 import java.util.ArrayList;
 
@@ -19,9 +19,9 @@ public class Inventory {
     }
 
     public void addItem(ItemComponent newItem) {
-        SpriteObj spriteObj = parent.getReadJsonGameFiles().getSpriteObj(newItem.id);
+        SpriteGson spriteGson = parent.getReadJsonGameFiles().getSpriteObj(newItem.id);
 
-        if (spriteObj.getItemData().isStackable()) {
+        if (spriteGson.getItemData().isStackable()) {
             boolean added = false;
             for (int i = 0; i < entities.size() && !added; i++) {
                 if (entities.get(i).getItemComponent().id == newItem.id && entities.get(i).getCount() < Constants.STACK_SIZE_LIMIT) {

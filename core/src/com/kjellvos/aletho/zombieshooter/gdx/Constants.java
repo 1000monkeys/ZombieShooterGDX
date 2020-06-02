@@ -60,6 +60,10 @@ public class Constants {
     public static final String GAMEDATA_JSON = "gamedata.json";
 
 
+    public static final int ANIMATION_PLAYER_DOWN = 1;
+    public static final int ANIMATION_PLAYER_UP = 2;
+    public static final int ANIMATION_PLAYER_LEFTRIGHT = 3;
+
     /**
      * The pixels per tile.
      */

@@ -1,11 +1,11 @@
 package com.kjellvos.aletho.zombieshooter.gdx.gson;
 
-public class GameData {
+public class GameDataGson {
     private int playerSpriteId;
     private int mainSpriteSheet;
     private int lightOffSpriteId;
 
-    public GameData(int playerSpriteId, int playerSpriteSheet, int lightOffSpriteId){
+    public GameDataGson(int playerSpriteId, int playerSpriteSheet, int lightOffSpriteId){
         this.playerSpriteId = playerSpriteId;
         this.mainSpriteSheet = playerSpriteSheet;
         this.lightOffSpriteId = lightOffSpriteId;

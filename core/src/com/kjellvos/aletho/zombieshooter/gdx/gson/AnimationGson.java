@@ -1,11 +1,11 @@
 package com.kjellvos.aletho.zombieshooter.gdx.gson;
 
-public class Animation {
+public class AnimationGson {
     private int id;
     private String description;
     private int[] spriteIds;
 
-    public Animation(int id, String description, int[] spriteIds) {
+    public AnimationGson(int id, String description, int[] spriteIds) {
         this.id = id;
         this.description = description;
         this.spriteIds = spriteIds;

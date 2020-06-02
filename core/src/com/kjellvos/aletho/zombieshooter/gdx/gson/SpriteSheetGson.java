@@ -3,9 +3,8 @@ package com.kjellvos.aletho.zombieshooter.gdx.gson;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
-public class SpriteSheet {
+public class SpriteSheetGson {
     private String spriteSheetName;
     private int spriteSheetId;
     private int[] spriteSheetData;
@@ -13,21 +12,21 @@ public class SpriteSheet {
 
     private Texture spriteSheet = null;
 
-    public SpriteSheet(String spriteSheetName, int spriteSheetId, int[] spriteSheetData){
+    public SpriteSheetGson(String spriteSheetName, int spriteSheetId, int[] spriteSheetData){
         this.spriteSheetName = spriteSheetName;
         this.spriteSheetId = spriteSheetId;
         this.spriteSheetData = spriteSheetData; }
 
-    public TextureRegion getSprite(SpriteObj spriteObj) {
+    public TextureRegion getSprite(SpriteGson spriteGson) {
         if (spriteSheet == null) {
             spriteSheet = new Texture(Gdx.files.internal(spriteSheetName));
         }
 
         return new TextureRegion(spriteSheet,
-            spriteObj.getSpriteData().getPositionX(),
-            spriteObj.getSpriteData().getPositionY(),
-            spriteObj.getSpriteData().getWidthInPixels(),
-            spriteObj.getSpriteData().getHeightInPixels());
+            spriteGson.getSpriteData().getPositionX(),
+            spriteGson.getSpriteData().getPositionY(),
+            spriteGson.getSpriteData().getWidthInPixels(),
+            spriteGson.getSpriteData().getHeightInPixels());
     }
 
     public Texture getSpriteSheet() {

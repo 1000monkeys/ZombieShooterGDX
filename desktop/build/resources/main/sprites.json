@@ -701,7 +701,7 @@
     "spriteData": {
       "spriteSheetId": 1,
       "positionX": 32,
-      "positionY": 149,
+      "positionY": 148,
       "widthInPixels": 16,
       "heightInPixels": 16
     },
@@ -713,7 +713,7 @@
     "spriteData": {
       "spriteSheetId": 1,
       "positionX": 49,
-      "positionY": 149,
+      "positionY": 148,
       "widthInPixels": 16,
       "heightInPixels": 16
     },
@@ -725,7 +725,7 @@
     "spriteData": {
       "spriteSheetId": 1,
       "positionX": 66,
-      "positionY": 149,
+      "positionY": 148,
       "widthInPixels": 16,
       "heightInPixels": 16
     },
@@ -737,7 +737,7 @@
     "spriteData": {
       "spriteSheetId": 1,
       "positionX": 83,
-      "positionY": 149,
+      "positionY": 148,
       "widthInPixels": 16,
       "heightInPixels": 16
     },
