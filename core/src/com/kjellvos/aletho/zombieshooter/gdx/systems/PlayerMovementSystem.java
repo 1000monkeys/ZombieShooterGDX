@@ -44,16 +44,16 @@ public class PlayerMovementSystem extends EntitySystem {
             BodyComponent bodyComp = ComMapBodyComponent.get(entity);
 
             int horizontalForce = 0, verticalForce = 0;
-            if (gameScreen.leftPressed) {
+            if (gameScreen.isLeftPressed()) {
                 horizontalForce -= 64;
             }
-            if (gameScreen.rightPressed) {
+            if (gameScreen.isRightPressed()) {
                 horizontalForce += 64;
             }
-            if (gameScreen.upPressed) {
+            if (gameScreen.isUpPressed()) {
                 verticalForce += 64;
             }
-            if (gameScreen.downPressed) {
+            if (gameScreen.isDownPressed()) {
                 verticalForce -= 64;
             }
 

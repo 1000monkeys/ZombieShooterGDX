@@ -19,7 +19,7 @@ public class Inventory {
     }
 
     public void addItem(ItemComponent newItem) {
-        SpriteGson spriteGson = parent.getReadJsonGameFiles().getSpriteObj(newItem.id);
+        SpriteGson spriteGson = parent.getReadJsonGameFiles().getSpriteGson(newItem.id);
 
         if (spriteGson.getItemData().isStackable()) {
             boolean added = false;
@@ -43,7 +43,7 @@ public class Inventory {
         for(int i = 0 ; i < entities.size(); i++){
             InventoryItem inventoryItem = entities.get(i);
             ItemComponent ic = inventoryItem.getItemComponent();
-            System.out.println("* ["+i+"] " + "[ID:" + ic.id + "][COUNT:" + inventoryItem.getCount() + "]" + parent.getReadJsonGameFiles().getSpriteObj(ic.id).getDescription());
+            System.out.println("* ["+i+"] " + "[ID:" + ic.id + "][COUNT:" + inventoryItem.getCount() + "]" + parent.getReadJsonGameFiles().getSpriteGson(ic.id).getDescription());
         }
         System.out.println("*****************");
     }

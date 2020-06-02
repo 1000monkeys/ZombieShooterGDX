@@ -54,10 +54,10 @@ public class ItemPickUpSystem extends EntitySystem {
                 int id = entities.get(i).getComponent(ItemComponent.class).id;
 
                 ItemComponent itemComponent = entities.get(i).getComponent(ItemComponent.class);
-                if (parent.getReadJsonGameFiles().getSpriteObj(id).getItemData().hasPickUpText()) {
+                if (parent.getReadJsonGameFiles().getSpriteGson(id).getItemData().hasPickUpText()) {
                     parent.getGameScreen().setClosestItem(entities.get(i));
 
-                    parent.getGameScreen().setItemText(parent.getReadJsonGameFiles().getSpriteObj(id).getDescription() + "[Press G to Pickup.]");
+                    parent.getGameScreen().setItemText(parent.getReadJsonGameFiles().getSpriteGson(id).getDescription() + "[Press G to Pickup.]");
                 } else {
                     parent.getGameScreen().getPlayer().getInventory().addItem(itemComponent);
 

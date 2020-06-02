@@ -1,5 +1,6 @@
 package com.kjellvos.aletho.zombieshooter.gdx;
 
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.google.gson.Gson;
 import com.kjellvos.aletho.zombieshooter.gdx.gson.AnimationGson;
@@ -52,7 +53,7 @@ public class ReadJsonGameFiles {
         return sprites;
     }
 
-    public SpriteGson getSpriteObj(int id){
+    public SpriteGson getSpriteGson(int id){
         for(int i = 0; i < sprites.size(); i++){
             if (sprites.get(i).getId() == id) {
                 return sprites.get(i);
@@ -61,18 +62,27 @@ public class ReadJsonGameFiles {
         return null; //TODO
     }
 
-    public SpriteGson[] getAnimation(int id){
+    public AnimationGson getAnimationGson(int id){
+        for(int i = 0; i < animationGsons.size(); i++){
+            if (animationGsons.get(i).getId() == id) {
+                return animationGsons.get(i);
+            }
+        }
+        return null; //TODO
+    }
+
+    public SpriteGson[] getAnimationSpriteGson(int id){
         int[] spriteIds = animationGsons.get(id).getSpriteIds();
         SpriteGson[] spriteGsons = new SpriteGson[spriteIds.length];
         for (int i = 0; i < spriteIds.length; i++) {
-            spriteGsons[i] = getSpriteObj(spriteIds[i]);
+            spriteGsons[i] = getSpriteGson(spriteIds[i]);
         }
 
         return spriteGsons;
     }
 
     public TextureRegion[] getAnimationTextures(int id) {
-        SpriteGson[] spriteGsons = getAnimation(id);
+        SpriteGson[] spriteGsons = getAnimationSpriteGson(id);
         TextureRegion[] textureRegions = new TextureRegion[spriteGsons.length];
         System.out.println(id + " ANIMATION ID ");
         for (int i = 0; i < spriteGsons.length; i++){

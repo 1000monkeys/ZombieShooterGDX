@@ -1,4 +1,4 @@
-package com.kjellvos.aletho.zombieshooter.gdx;
+package com.kjellvos.aletho.zombieshooter.gdx.b2d;
 
 import box2dLight.PointLight;
 import box2dLight.RayHandler;
@@ -6,11 +6,14 @@ import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.physics.box2d.*;
+import com.kjellvos.aletho.zombieshooter.gdx.Constants;
+import com.kjellvos.aletho.zombieshooter.gdx.ReadJsonGameFiles;
 import com.kjellvos.aletho.zombieshooter.gdx.components.*;
 
 public class MobBuilder {
@@ -24,10 +27,10 @@ public class MobBuilder {
 
             if (id == readJsonGameFiles.getGameDataGson().getLightOffSpriteId()) {
                 buildLight(object, readJsonGameFiles, tileset, world, engine, rayHandler);
-            }else if(readJsonGameFiles.getSpriteObj(id).isItem()) {
+            }else if(readJsonGameFiles.getSpriteGson(id).isItem()) {
                 Entity item = new Entity();
 
-                TextureRegion textureRegion = readJsonGameFiles.getSpriteObj(id).getSprite();
+                TextureRegion textureRegion = readJsonGameFiles.getSpriteGson(id).getSprite();
 
                 BodyDef bodyDef = new BodyDef();
                 bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -48,7 +51,7 @@ public class MobBuilder {
             }else {
                 Entity mob = new Entity();
 
-                TextureRegion textureRegion = readJsonGameFiles.getSpriteObj(id).getSprite();
+                TextureRegion textureRegion = readJsonGameFiles.getSpriteGson(id).getSprite();
 
                 BodyDef bodyDef = new BodyDef();
                 bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -106,7 +109,9 @@ public class MobBuilder {
         fixtureDef.filter.maskBits = Constants.MASK_LIGHT;
         pointLight.setContactFilter(fixtureDef.filter);
 
-        light.add(new AnimationComponent(textureRegions)).add(new BodyComponent(body)).add(new LightComponent(pointLight));
+        Animation animation = new Animation<TextureRegion>(0.2F, textureRegions);
+
+        light.add(new SimpleAnimationComponent(animation)).add(new BodyComponent(body)).add(new LightComponent(pointLight));
         engine.addEntity(light);
     }
 }

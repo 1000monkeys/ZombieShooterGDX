@@ -20,6 +20,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.kjellvos.aletho.zombieshooter.gdx.*;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.MapBodyBuilder;
+import com.kjellvos.aletho.zombieshooter.gdx.b2d.MobBuilder;
 import com.kjellvos.aletho.zombieshooter.gdx.components.*;
 import com.kjellvos.aletho.zombieshooter.gdx.gson.AnimationGson;
 import com.kjellvos.aletho.zombieshooter.gdx.gson.GameDataGson;
@@ -51,8 +52,6 @@ public class GameScreen implements Screen, InputProcessor {
     private Music[] music;
     private GlyphLayout layout;
 
-    private Animation upAnimation, downAnimation, leftRightAnimation;
-
     private TiledMap map;
     private PlayerEntity player;
 
@@ -61,8 +60,8 @@ public class GameScreen implements Screen, InputProcessor {
     private List<SpriteGson> spriteGsons;
     private List<AnimationGson> animationGsons;
 
-    public boolean leftPressed = false, rightPressed = false, upPressed = false, downPressed = false;
-    public float stateTime = 0;
+    private boolean leftPressed = false, rightPressed = false, upPressed = false, downPressed = false;
+    private float stateTime = 0;
 
     public Entity closestItem = null;
     private String itemText = null;
@@ -127,9 +126,11 @@ public class GameScreen implements Screen, InputProcessor {
         }
 
         MapBodyBuilder.buildShapes(map, world);
-        player = new PlayerEntity(parent);
         Texture spriteSheet = parent.getReadJsonGameFiles().getSpriteSheetGsons().get(parent.getReadJsonGameFiles().getGameDataGson().getMainSpriteSheet()).getSpriteSheet();
         MobBuilder.buildObjects(map, spriteSheet, parent.getReadJsonGameFiles(), world, engine, rayHandler);
+
+
+        player = new PlayerEntity(parent);
 
         /*
          * Should go into some sort of music manager class
@@ -160,11 +161,6 @@ public class GameScreen implements Screen, InputProcessor {
                 music[new Random().nextInt(Constants.AMOUNT_MUSIC_FILES)].play();
             }
         });
-
-        downAnimation = new Animation<TextureRegion>(0.2F, parent.getReadJsonGameFiles().getAnimationTextures(Constants.ANIMATION_PLAYER_DOWN));
-        upAnimation = new Animation<TextureRegion>(0.2F, parent.getReadJsonGameFiles().getAnimationTextures(Constants.ANIMATION_PLAYER_UP));
-        leftRightAnimation = new Animation<TextureRegion>(0.2F, parent.getReadJsonGameFiles().getAnimationTextures(Constants.ANIMATION_PLAYER_LEFTRIGHT));
-
     }
 
     /**
@@ -209,20 +205,11 @@ public class GameScreen implements Screen, InputProcessor {
         tiledMapRenderer.setView(camera);
         tiledMapRenderer.render(new int[]{Constants.BACKGROUND_LAYER});
 
-        TextureRegion currentFrame;
-        stateTime += delta;
-        if (upPressed) {
-            currentFrame = (TextureRegion) upAnimation.getKeyFrame(stateTime, true);
-        }else if (downPressed) {
-            currentFrame = (TextureRegion) downAnimation.getKeyFrame(stateTime, true);
-        }else {
-            currentFrame = (TextureRegion) leftRightAnimation.getKeyFrame(stateTime, true);
-        }
-
+        TextureRegion currentPlayerFrame = player.getPlayerAnimationComponent().getAnimation().getKeyFrame(stateTime, true);
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
         engine.update(delta);
-        batch.draw(currentFrame, bodyComp.body.getPosition().x - currentFrame.getRegionWidth() / 2, bodyComp.body.getPosition().y - currentFrame.getRegionHeight() / 2);
+        batch.draw(currentPlayerFrame, bodyComp.body.getPosition().x - currentPlayerFrame.getRegionWidth() / 2, bodyComp.body.getPosition().y - currentPlayerFrame.getRegionHeight() / 2);
         batch.end();
 
         tiledMapRenderer.render(new int[]{Constants.FOREGROUND_LAYER});
@@ -238,7 +225,7 @@ public class GameScreen implements Screen, InputProcessor {
             BitmapFont font = new BitmapFont();
             font.getData().setScale(0.7F);
 
-            String pickUpString = "Press G to pick up: " + parent.getReadJsonGameFiles().getSpriteObj(closestItem.getComponent(ItemComponent.class).id).getDescription();
+            String pickUpString = "Press G to pick up: " + parent.getReadJsonGameFiles().getSpriteGson(closestItem.getComponent(ItemComponent.class).id).getDescription();
             layout.setText(font, pickUpString);
 
             batch.begin();
@@ -433,5 +420,21 @@ public class GameScreen implements Screen, InputProcessor {
 
     public void setItemText(String itemText) {
         this.itemText = itemText;
+    }
+
+    public boolean isLeftPressed() {
+        return leftPressed;
+    }
+
+    public boolean isRightPressed(){
+        return rightPressed;
+    }
+
+    public boolean isUpPressed() {
+        return upPressed;
+    }
+
+    public boolean isDownPressed() {
+        return downPressed;
     }
 }

@@ -2,21 +2,31 @@
   {
     "id": 0,
     "description": "fire animation",
-    "spriteIds": [296, 297, 298, 299, 300, 301, 302, 303]
+    "spriteIds": [296, 297, 298, 299, 300, 301, 302, 303],
+    "timer": 0.2
   },
   {
     "id": 1,
     "description": "player walking down animation",
-    "spriteIds": [1000, 1001, 1002, 1003]
+    "spriteIds": [1000, 1001, 1002, 1003],
+    "timer": 0.3
   },
   {
     "id": 2,
     "description": "player walking up animation",
-    "spriteIds": [1004, 1005, 1006, 1007]
+    "spriteIds": [1004, 1005, 1006, 1007],
+    "timer": 0.3
   },
   {
     "id": 3,
-    "description": "player left/right animation",
-    "spriteIds": [1008, 1009, 1010, 1011]
+    "description": "player right animation",
+    "spriteIds": [1008, 1009, 1010, 1011],
+    "timer": 0.3
+  },
+  {
+    "id": 4,
+    "description": "player idle animation",
+    "spriteIds": [],
+    "timer": 0.3
   }
 ]

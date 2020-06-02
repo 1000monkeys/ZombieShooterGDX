@@ -1,12 +1,14 @@
 package com.kjellvos.aletho.zombieshooter.gdx;
 
 import com.badlogic.ashley.core.Entity;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerAnimationComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
 
@@ -16,6 +18,8 @@ public class PlayerEntity {
     private ZombieShooterGame parent;
     private Body playerBody;
     private Entity playerEntity;
+
+    private PlayerAnimationComponent playerAnimationComponent;
 
     private Inventory inventory;
     private HashMap<Integer, Ability> abilities;
@@ -39,7 +43,15 @@ public class PlayerEntity {
         fixtureDef.filter.maskBits = Constants.MASK_PLAYER;
         body.createFixture(fixtureDef).setUserData("player");
 
-        entity.add(new BodyComponent(body)).add(new PlayerSteerableComponent(50 * Constants.PPT, 50 * Constants.PPT));
+        ReadJsonGameFiles readJsonGameFiles = parent.getReadJsonGameFiles();
+
+        Animation<TextureRegion> upAnimation = new Animation<TextureRegion>(readJsonGameFiles.getAnimationGson(Constants.ANIMATION_PLAYER_UP).getTimer(), readJsonGameFiles.getAnimationTextures(Constants.ANIMATION_PLAYER_UP));
+        Animation<TextureRegion> downAnimation = new Animation<TextureRegion>(readJsonGameFiles.getAnimationGson(Constants.ANIMATION_PLAYER_DOWN).getTimer(), readJsonGameFiles.getAnimationTextures(Constants.ANIMATION_PLAYER_DOWN));
+        Animation<TextureRegion> rightAnimation = new Animation<TextureRegion>(readJsonGameFiles.getAnimationGson(Constants.ANIMATION_PLAYER_LEFTRIGHT).getTimer(), readJsonGameFiles.getAnimationTextures(Constants.ANIMATION_PLAYER_LEFTRIGHT));
+
+        playerAnimationComponent = new PlayerAnimationComponent(parent, upAnimation, downAnimation, rightAnimation);
+
+        entity.add(playerAnimationComponent).add(new BodyComponent(body)).add(new PlayerSteerableComponent(50 * Constants.PPT, 50 * Constants.PPT));
         parent.getGameScreen().getEngine().addEntity(entity);
         parent.setPlayer(entity);
 
@@ -59,5 +71,9 @@ public class PlayerEntity {
 
     public Inventory getInventory() {
         return inventory;
+    }
+
+    public PlayerAnimationComponent getPlayerAnimationComponent() {
+        return playerAnimationComponent;
     }
 }

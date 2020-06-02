@@ -5,14 +5,11 @@ import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.kjellvos.aletho.zombieshooter.gdx.components.AnimationComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.components.LightComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.components.*;
 import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
 
 public class RenderSystem extends EntitySystem {
-    private ImmutableArray<Entity> entities, lights;
+    private ImmutableArray<Entity> entities, playerAnimation, simpleAnimations;
 
     private SpriteBatch batch;
 
@@ -34,6 +31,7 @@ public class RenderSystem extends EntitySystem {
     @Override
     public void update(float deltaTime) {
         super.update(deltaTime);
+        stateTime += deltaTime;
 
         for (Entity entity : entities) {
             TextureRegion textureRegion = entity.getComponent(TextureRegionComponent.class).textureRegion;
@@ -41,12 +39,17 @@ public class RenderSystem extends EntitySystem {
 
             batch.draw(textureRegion, body.getPosition().x - textureRegion.getRegionWidth() / 2, body.getPosition().y - textureRegion.getRegionHeight() / 2);
         }
-        for (Entity entity : lights) {
-            TextureRegion currentFrame = entity.getComponent(AnimationComponent.class).fireAnimation.getKeyFrame(stateTime, true);
-
+        for (Entity entity : simpleAnimations) {
+            TextureRegion currentFrame = entity.getComponent(SimpleAnimationComponent.class).animation.getKeyFrame(stateTime, true);
             Body body = entity.getComponent(BodyComponent.class).body;
+
             batch.draw(currentFrame, body.getPosition().x - (currentFrame.getRegionWidth() / 2), body.getPosition().y  - (currentFrame.getRegionHeight() / 2));
-            stateTime += deltaTime;
+        }
+        for (Entity entity : playerAnimation) {
+            TextureRegion currentFrame = entity.getComponent(PlayerAnimationComponent.class).getAnimation().getKeyFrame(stateTime, true);
+            Body body = entity.getComponent(BodyComponent.class).body;
+
+            batch.draw(currentFrame, body.getPosition().x - (currentFrame.getRegionWidth() / 2), body.getPosition().y  - (currentFrame.getRegionHeight() / 2));
         }
     }
 
@@ -58,6 +61,7 @@ public class RenderSystem extends EntitySystem {
     public void addedToEngine(Engine engine) {
         super.addedToEngine(engine);
         entities = engine.getEntitiesFor(Family.all(TextureRegionComponent.class, BodyComponent.class).get());
-        lights = engine.getEntitiesFor(Family.all(AnimationComponent.class, BodyComponent.class, LightComponent.class).get());
+        playerAnimation = engine.getEntitiesFor(Family.all(PlayerAnimationComponent.class, BodyComponent.class).get());
+        simpleAnimations = engine.getEntitiesFor(Family.all(SimpleAnimationComponent.class).get());
     }
 }
