@@ -1,8 +1,12 @@
 package com.kjellvos.aletho.zombieshooter.gdx;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.google.gson.Gson;
+import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.AnimationNotFoundException;
+import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.SpriteNotFoundException;
+import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.SpriteSheetNotFoundException;
 import com.kjellvos.aletho.zombieshooter.gdx.gson.AnimationGson;
 import com.kjellvos.aletho.zombieshooter.gdx.gson.GameDataGson;
 import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteGson;
@@ -12,33 +16,38 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ReadJsonGameFiles {
+    private ZombieShooterGame parent;
+
     private List<SpriteSheetGson> spriteSheetGsons;
     private List<SpriteGson> sprites;
     private List<AnimationGson> animationGsons;
     private GameDataGson gameDataGson;
 
-    public ReadJsonGameFiles(String gameDataJSON, String spriteSheetsJSON, String spritesJSON, String animatonsJSON){
+    public ReadJsonGameFiles(ZombieShooterGame parent, String gameDataJSON, String spriteSheetsJSON, String spritesJSON, String animatonsJSON) {
+        this.parent = parent;
+
         Gson g = new Gson();
 
         gameDataGson = g.fromJson(gameDataJSON, GameDataGson[].class)[Constants.JSON_GAME_DATA];
-        System.out.println(gameDataGson.getPlayerSpriteId() + " : " + gameDataGson.getMainSpriteSheet() + " : " + gameDataGson.getLightOffSpriteId());
-
-        sprites = Arrays.asList(g.fromJson(spritesJSON, SpriteGson[].class));
-        System.out.println(sprites.size());
-
-        spriteSheetGsons = Arrays.asList(g.fromJson(spriteSheetsJSON, SpriteSheetGson[].class));
-        System.out.println(spriteSheetGsons.size());
-        for (int i = 0; i < spriteSheetGsons.size(); i++) {
-            System.out.println(spriteSheetGsons.get(i).getSpriteSheetName());
+        if (Constants.DEBUG) {
+            System.out.println("Main sprite sheet id: " + gameDataGson.getMainSpriteSheet());
+            System.out.println("Light off sprite id: " + gameDataGson.getLightOffSpriteId());
         }
 
-        for (int i = 0; i < sprites.size(); i++){
-            sprites.get(i).setSprite(spriteSheetGsons.get(sprites.get(i).getSpriteData().getSpriteSheetId()).getSprite(sprites.get(i)));
-            System.out.println("SETUP SPRITE: " + sprites.get(i).getDescription());
+        sprites = Arrays.asList(g.fromJson(spritesJSON, SpriteGson[].class));
+        if (Constants.DEBUG) {
+            System.out.println("Sprites array size is: " + sprites.size());
+        }
+
+        spriteSheetGsons = Arrays.asList(g.fromJson(spriteSheetsJSON, SpriteSheetGson[].class));
+        if (Constants.DEBUG) {
+            System.out.println(spriteSheetGsons.size());
         }
 
         animationGsons = Arrays.asList(g.fromJson(animatonsJSON, AnimationGson[].class));
-        System.out.println(animationGsons.size());
+        if (Constants.DEBUG) {
+            System.out.println("Animations array size is: " + animationGsons.size());
+        }
     }
 
     public List<SpriteSheetGson> getSpriteSheetGsons() {
@@ -59,7 +68,15 @@ public class ReadJsonGameFiles {
                 return sprites.get(i);
             }
         }
-        return null; //TODO
+
+        if (Constants.DEBUG) {
+            try {
+                throw new SpriteNotFoundException("Sprite with id: " + id + " not found.");
+            } catch (Exception e) {
+                    e.printStackTrace();
+            }
+        }
+        return null;
     }
 
     public AnimationGson getAnimationGson(int id){
@@ -68,7 +85,14 @@ public class ReadJsonGameFiles {
                 return animationGsons.get(i);
             }
         }
-        return null; //TODO
+        if (Constants.DEBUG) {
+            try {
+                throw new AnimationNotFoundException("Animation with id: " + id + "' not found.");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 
     public SpriteGson[] getAnimationSpriteGson(int id){
@@ -84,9 +108,11 @@ public class ReadJsonGameFiles {
     public TextureRegion[] getAnimationTextures(int id) {
         SpriteGson[] spriteGsons = getAnimationSpriteGson(id);
         TextureRegion[] textureRegions = new TextureRegion[spriteGsons.length];
-        System.out.println(id + " ANIMATION ID ");
         for (int i = 0; i < spriteGsons.length; i++){
-            System.out.println(i + " + GOT HERE + ");
+            if (Constants.DEBUG) {
+                System.out.println("Animation id: " + id + " & Sprite Id: " + i);
+            }
+
             textureRegions[i] = spriteGsons[i].getSprite();
         }
         return textureRegions;
@@ -94,5 +120,37 @@ public class ReadJsonGameFiles {
 
     public GameDataGson getGameDataGson() {
         return gameDataGson;
+    }
+
+    public void setupWithAssets() {
+        for (int i = 0; i < spriteSheetGsons.size(); i++) {
+            if (Constants.DEBUG) {
+                System.out.println("Setting up spritesheet for: " + "[" + spriteSheetGsons.get(i).getSpriteSheetId() + "]" + spriteSheetGsons.get(i).getSpriteSheetName());
+            }
+
+            if (parent.getAssetManager().getAssetManager().contains(spriteSheetGsons.get(i).getSpriteSheetName())) {
+                spriteSheetGsons.get(i).setSpriteSheet(parent.getAssetManager().getAssetManager().get(spriteSheetGsons.get(i).getSpriteSheetName(), Texture.class));
+            } else {
+                try {
+                    throw new SpriteSheetNotFoundException("Spritesheet '" + spriteSheetGsons.get(i).getSpriteSheetName() + "' not found.");
+                } catch (Exception e) {
+                    if (Constants.DEBUG) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            if (Constants.DEBUG) {
+                System.out.println("Loaded sprite sheet: " + spriteSheetGsons.get(i).getSpriteSheetName());
+            }
+        }
+
+        for (int i = 0; i < sprites.size(); i++) {
+            sprites.get(i).setSprite(spriteSheetGsons.get(sprites.get(i).getSpriteData().getSpriteSheetId()).getSprite(sprites.get(i)));
+
+            if (Constants.DEBUG) {
+                System.out.println("Setup sprite: [" + sprites.get(i).getId() +"]" + sprites.get(i).getDescription());
+            }
+        }
     }
 }

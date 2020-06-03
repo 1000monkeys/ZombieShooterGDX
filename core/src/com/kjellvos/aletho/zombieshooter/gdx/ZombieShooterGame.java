@@ -71,17 +71,14 @@ public class ZombieShooterGame extends Game{
 		assetManager = new B2dAssetManager(this);
 		assetManager.load();
 		assetManager.getAssetManager().finishLoading();
-
-		String gameDataJSON = Gdx.files.internal(Constants.GAMEDATA_JSON).readString();
-		String spriteSheetsJSON = Gdx.files.internal(Constants.SPRITESHEET_JSON).readString();
-		String spritesJSON = Gdx.files.internal(Constants.SPRITES_JSON).readString();
-		String animationsJSON = Gdx.files.internal(Constants.ANIMATIONS_JSON).readString();
-
-		readJsonGameFiles = new ReadJsonGameFiles(gameDataJSON, spriteSheetsJSON, spritesJSON, animationsJSON);
 	}
 
 	public ReadJsonGameFiles getReadJsonGameFiles() {
 		return readJsonGameFiles;
+	}
+
+	public void setReadJsonGameFiles(ReadJsonGameFiles readJsonGameFiles) {
+		this.readJsonGameFiles = readJsonGameFiles;
 	}
 
 	/**

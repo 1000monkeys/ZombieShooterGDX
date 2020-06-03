@@ -43,10 +43,6 @@ public class SpriteGson {
         this.sprite = sprite;
     }
 
-    public void setSpriteSheetGson(SpriteSheetGson spriteSheetGson) {
-        this.spriteSheetGson = spriteSheetGson;
-    }
-
     public TextureRegion getSprite() {
         return sprite;
     }

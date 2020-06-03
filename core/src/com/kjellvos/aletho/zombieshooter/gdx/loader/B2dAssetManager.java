@@ -1,5 +1,6 @@
 package com.kjellvos.aletho.zombieshooter.gdx.loader;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.audio.Music;
@@ -7,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
+import com.kjellvos.aletho.zombieshooter.gdx.ReadJsonGameFiles;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
 
@@ -17,6 +19,8 @@ public class B2dAssetManager {
     private ZombieShooterGame parent;
 
     private AssetManager assetManager;
+    private ReadJsonGameFiles readJsonGameFiles;
+    private String gameDataJSON = null, spriteSheetsJSON = null, spritesJSON = null, animationsJSON = null;
 
     public B2dAssetManager(ZombieShooterGame zombieShooterGame){
         parent = zombieShooterGame;
@@ -35,15 +39,44 @@ public class B2dAssetManager {
      * function containing all the assets to be loaded.
      */
     public void load(){
+        gameDataJSON = Gdx.files.internal(Constants.GAMEDATA_JSON).readString();
+        spriteSheetsJSON = Gdx.files.internal(Constants.SPRITESHEET_JSON).readString();
+        spritesJSON = Gdx.files.internal(Constants.SPRITES_JSON).readString();
+        animationsJSON = Gdx.files.internal(Constants.ANIMATIONS_JSON).readString();
+        readJsonGameFiles = new ReadJsonGameFiles(parent, gameDataJSON, spriteSheetsJSON, spritesJSON, animationsJSON);
+        parent.setReadJsonGameFiles(readJsonGameFiles);
+
         assetManager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
         assetManager.load("testmap.tmx", TiledMap.class);
 
-        assetManager.load("0x72_16x16DungeonTilesetTogether.png", Texture.class);
-
+        for (int i = 0; i < readJsonGameFiles.getSpriteSheetGsons().size(); i++){
+            assetManager.load(readJsonGameFiles.getSpriteSheetGsons().get(i).getSpriteSheetName(), Texture.class);
+        }
 
         assetManager.load("music_scott_lawlor_strange_lullaby.mp3", Music.class);
         assetManager.load("music_zapsplat_hallowdream.mp3", Music.class);
         assetManager.load("music_zapsplat_night_stalker.mp3", Music.class);
         assetManager.finishLoading();
+
+        readJsonGameFiles.setupWithAssets();
+    }
+
+    public String getGameDataJSON() {
+        if (gameDataJSON == null) {
+
+        }
+        return gameDataJSON;
+    }
+
+    public String getSpriteSheetsJSON() {
+        return spriteSheetsJSON;
+    }
+
+    public String getSpritesJSON() {
+        return spritesJSON;
+    }
+
+    public String getAnimationsJSON() {
+        return animationsJSON;
     }
 }

@@ -3,6 +3,7 @@ package com.kjellvos.aletho.zombieshooter.gdx.gson;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.SpriteSheetNotFoundException;
 
 public class SpriteSheetGson {
     private String spriteSheetName;
@@ -19,7 +20,11 @@ public class SpriteSheetGson {
 
     public TextureRegion getSprite(SpriteGson spriteGson) {
         if (spriteSheet == null) {
-            spriteSheet = new Texture(Gdx.files.internal(spriteSheetName));
+            try {
+                throw new SpriteSheetNotFoundException("Spritesheet '" + spriteGson.getSpriteSheetGson().getSpriteSheetName() + "' not found.");
+            } catch (SpriteSheetNotFoundException e) {
+                e.printStackTrace();
+            }
         }
 
         return new TextureRegion(spriteSheet,
@@ -43,5 +48,9 @@ public class SpriteSheetGson {
 
     public String getSpriteSheetName() {
         return spriteSheetName;
+    }
+
+    public void setSpriteSheet(Texture spriteSheet) {
+        this.spriteSheet = spriteSheet;
     }
 }

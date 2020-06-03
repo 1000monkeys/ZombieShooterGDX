@@ -20,9 +20,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dae99bb-f850-4e65-96fa-f780e7f4f2c0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/errorhandling/AnimationNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/errorhandling/JSONNotLoadedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/errorhandling/SpriteNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/errorhandling/SpriteSheetNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ReadJsonGameFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ReadJsonGameFiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ZombieShooterGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ZombieShooterGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/gson/SpriteGson.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/gson/SpriteGson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/gson/SpriteSheetGson.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/gson/SpriteSheetGson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/loader/B2dAssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/loader/B2dAssetManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +153,8 @@
       <workItem from="1591095837763" duration="4097000" />
       <workItem from="1591100731943" duration="4735000" />
       <workItem from="1591120761998" duration="8885000" />
-      <workItem from="1591131895130" duration="863000" />
+      <workItem from="1591131895130" duration="1805000" />
+      <workItem from="1591182772599" duration="3120000" />
     </task>
     <servers />
   </component>
@@ -227,30 +245,26 @@
     </state>
     <state x="420" y="432" width="723" height="333" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1590862027348" />
     <state x="630" y="648" key="FileChooserDialogImpl/0.0.3840.2098@0.0.3840.2098" timestamp="1584288024060" />
-    <state width="1236" height="229" key="GridCell.Tab.0.bottom" timestamp="1591132820609">
+    <state width="2517" height="498" key="GridCell.Tab.0.bottom" timestamp="1591185886937">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1236" height="229" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1591132820609" />
+    <state width="2517" height="498" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1591185886937" />
     <state width="2981" height="431" key="GridCell.Tab.0.bottom/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707816" />
-    <state width="914" height="217" key="GridCell.Tab.0.bottom/0.25.1920.1055@0.25.1920.1055" timestamp="1582493069061" />
-    <state width="1236" height="229" key="GridCell.Tab.0.center" timestamp="1591132820609">
+    <state width="2517" height="498" key="GridCell.Tab.0.center" timestamp="1591185886937">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1236" height="229" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1591132820609" />
+    <state width="2517" height="498" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1591185886937" />
     <state width="2981" height="431" key="GridCell.Tab.0.center/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
-    <state width="914" height="217" key="GridCell.Tab.0.center/0.25.1920.1055@0.25.1920.1055" timestamp="1582493069061" />
-    <state width="1236" height="229" key="GridCell.Tab.0.left" timestamp="1591132820609">
+    <state width="2517" height="498" key="GridCell.Tab.0.left" timestamp="1591185886937">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1236" height="229" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1591132820609" />
+    <state width="2517" height="498" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1591185886937" />
     <state width="2981" height="431" key="GridCell.Tab.0.left/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
-    <state width="914" height="217" key="GridCell.Tab.0.left/0.25.1920.1055@0.25.1920.1055" timestamp="1582493069061" />
-    <state width="1236" height="229" key="GridCell.Tab.0.right" timestamp="1591132820609">
+    <state width="2517" height="498" key="GridCell.Tab.0.right" timestamp="1591185886937">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1236" height="229" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1591132820609" />
+    <state width="2517" height="498" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1591185886937" />
     <state width="2981" height="431" key="GridCell.Tab.0.right/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
-    <state width="914" height="217" key="GridCell.Tab.0.right/0.25.1920.1055@0.25.1920.1055" timestamp="1582493069061" />
     <state width="2517" height="492" key="GridCell.Tab.1.bottom" timestamp="1591125172054">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -282,16 +296,15 @@
     <state x="514" y="802" key="com.intellij.ide.util.TipDialog" timestamp="1584537556274">
       <screen x="0" y="0" width="3840" height="2098" />
     </state>
-    <state x="257" y="391" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582499764326" />
     <state x="514" y="802" key="com.intellij.ide.util.TipDialog/0.0.3840.2098@0.0.3840.2098" timestamp="1584537556274" />
     <state x="943" y="317" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1590941169819">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="943" y="317" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1590941169819" />
-    <state x="1427" y="0" width="930" height="1120" key="dock-window-1" timestamp="1591128942989">
+    <state x="1273" y="0" width="1293" height="1407" key="dock-window-1" timestamp="1591185761255">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1427" y="0" width="930" height="1120" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" timestamp="1591128942989" />
+    <state x="1273" y="0" width="1293" height="1407" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" timestamp="1591185761255" />
     <state x="1920" y="0" width="1920" height="2098" key="dock-window-1/0.0.3840.2098@0.0.3840.2098" timestamp="1583331947777" />
     <state x="1273" y="0" width="1293" height="1407" key="dock-window-2" timestamp="1591129070865">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -301,10 +314,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1273" y="0" width="1293" height="1407" key="dock-window-3/0.0.2560.1400@0.0.2560.1400" timestamp="1590791034441" />
-    <state x="335" y="301" width="609" height="804" key="find.popup" timestamp="1591129747440">
+    <state x="335" y="301" width="609" height="804" key="find.popup" timestamp="1591184763563">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="335" y="301" width="609" height="804" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1591129747440" />
+    <state x="335" y="301" width="609" height="804" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1591184763563" />
     <state x="503" y="451" width="993" height="1205" key="find.popup/0.0.3840.2098@0.0.3840.2098" timestamp="1582919993374" />
     <state x="90" y="324" key="new project wizard" timestamp="1591096623742">
       <screen x="0" y="0" width="2560" height="1400" />
