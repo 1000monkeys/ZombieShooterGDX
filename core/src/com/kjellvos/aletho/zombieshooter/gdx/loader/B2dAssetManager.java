@@ -10,6 +10,10 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 import com.kjellvos.aletho.zombieshooter.gdx.ReadJsonGameFiles;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
+import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.AnimationNotFoundException;
+import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.GameDataNotFoundException;
+import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.SpriteNotFoundException;
+import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.SpriteSheetNotFoundException;
 import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
 
 public class B2dAssetManager {
@@ -63,20 +67,49 @@ public class B2dAssetManager {
 
     public String getGameDataJSON() {
         if (gameDataJSON == null) {
-
+            try {
+                throw new GameDataNotFoundException("The gamedata JSON file was null.");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
+
         return gameDataJSON;
     }
 
     public String getSpriteSheetsJSON() {
+        if (spriteSheetsJSON == null) {
+            try {
+                throw new SpriteSheetNotFoundException("The sprite sheet JSON file was null.");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
         return spriteSheetsJSON;
     }
 
     public String getSpritesJSON() {
+        if (spritesJSON == null) {
+            try {
+                throw new SpriteNotFoundException("The sprite JSON file was null.");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
         return spritesJSON;
     }
 
     public String getAnimationsJSON() {
+        if (animationsJSON == null) {
+            try {
+                throw new AnimationNotFoundException("The animation JSON file was null.");
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
         return animationsJSON;
     }
 }

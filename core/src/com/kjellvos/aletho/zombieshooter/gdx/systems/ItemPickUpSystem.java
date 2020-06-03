@@ -65,8 +65,7 @@ public class ItemPickUpSystem extends EntitySystem {
                     parent.getGameScreen().getEngine().removeEntity(entities.get(i));
 
                     if (Constants.DEBUG) {
-                        System.out.println("Picking up item: ");
-                        System.out.println(id);
+                        System.out.println("Picking up item: " + id);
                     }
                 }
             }

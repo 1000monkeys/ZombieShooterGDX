@@ -27,7 +27,10 @@ public class Inventory {
                 if (entities.get(i).getItemComponent().id == newItem.id && entities.get(i).getCount() < Constants.STACK_SIZE_LIMIT) {
                     entities.get(i).addToCount(1);
                     added = true;
-                    System.out.println("TEST 123");
+
+                    if (Constants.DEBUG) {
+                        System.out.println("Picked up item: " + newItem.id);
+                    }
                 }
             }
             if (!added) {

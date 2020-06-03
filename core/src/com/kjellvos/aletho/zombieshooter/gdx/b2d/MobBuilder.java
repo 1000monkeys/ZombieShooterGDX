@@ -28,26 +28,7 @@ public class MobBuilder {
             if (id == readJsonGameFiles.getGameDataGson().getLightOffSpriteId()) {
                 buildLight(object, readJsonGameFiles, tileset, world, engine, rayHandler);
             }else if(readJsonGameFiles.getSpriteGson(id).isItem()) {
-                Entity item = new Entity();
-
-                TextureRegion textureRegion = readJsonGameFiles.getSpriteGson(id).getSprite();
-
-                BodyDef bodyDef = new BodyDef();
-                bodyDef.type = BodyDef.BodyType.DynamicBody;
-                bodyDef.position.set(Float.parseFloat(object.getProperties().get("x").toString()), Float.parseFloat(object.getProperties().get("y").toString()));
-
-                Body body = world.createBody(bodyDef);
-                body.setLinearDamping(5);
-                PolygonShape shape = new PolygonShape();
-                shape.setAsBox(textureRegion.getRegionWidth() / 2F, textureRegion.getRegionHeight() / 2F);
-                FixtureDef fixtureDef = new FixtureDef();
-                fixtureDef.shape = shape;
-                fixtureDef.filter.categoryBits = Constants.CATEGORY_ITEM;
-                fixtureDef.filter.maskBits = Constants.MASK_ITEM;
-                body.createFixture(fixtureDef).setUserData("item");
-
-                item.add(new BodyComponent(body)).add(new TextureRegionComponent(textureRegion)).add(new ItemComponent(id, textureRegion));
-                engine.addEntity(item);
+                buildItem(object, readJsonGameFiles, world, engine);
             }else {
                 Entity mob = new Entity();
 
@@ -71,6 +52,29 @@ public class MobBuilder {
                 engine.addEntity(mob);
             }
         }
+    }
+
+    public static void buildItem(MapObject object, ReadJsonGameFiles readJsonGameFiles, World world, Engine engine){
+        Entity item = new Entity();
+
+        TextureRegion textureRegion = readJsonGameFiles.getSpriteGson(id).getSprite();
+
+        BodyDef bodyDef = new BodyDef();
+        bodyDef.type = BodyDef.BodyType.DynamicBody;
+        bodyDef.position.set(Float.parseFloat(object.getProperties().get("x").toString()), Float.parseFloat(object.getProperties().get("y").toString()));
+
+        Body body = world.createBody(bodyDef);
+        body.setLinearDamping(5);
+        PolygonShape shape = new PolygonShape();
+        shape.setAsBox(textureRegion.getRegionWidth() / 2F, textureRegion.getRegionHeight() / 2F);
+        FixtureDef fixtureDef = new FixtureDef();
+        fixtureDef.shape = shape;
+        fixtureDef.filter.categoryBits = Constants.CATEGORY_ITEM;
+        fixtureDef.filter.maskBits = Constants.MASK_ITEM;
+        body.createFixture(fixtureDef).setUserData("item");
+
+        item.add(new BodyComponent(body)).add(new TextureRegionComponent(textureRegion)).add(new ItemComponent(id, textureRegion));
+        engine.addEntity(item);
     }
 
     /**
