@@ -5,6 +5,7 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.utils.ImmutableArray;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
@@ -15,6 +16,9 @@ import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent
 public class ItemPickUpSystem extends EntitySystem {
     private ZombieShooterGame parent;
     private ImmutableArray<Entity> entities, player;
+
+    private Entity closestItem = null;
+    private String itemText = null;
 
     /**
      * Pass the parent for use in this class
@@ -55,9 +59,7 @@ public class ItemPickUpSystem extends EntitySystem {
 
                 ItemComponent itemComponent = entities.get(i).getComponent(ItemComponent.class);
                 if (parent.getReadJsonGameFiles().getSpriteGson(id).getItemData().hasPickUpText()) {
-                    parent.getGameScreen().setClosestItem(entities.get(i));
-
-                    parent.getGameScreen().setItemText(parent.getReadJsonGameFiles().getSpriteGson(id).getDescription() + "[Press G to Pickup.]");
+                    parent.getGameScreen().getPlayer().getInventory().setClosestItem(entities.get(i));
                 } else {
                     parent.getGameScreen().getPlayer().getInventory().addItem(itemComponent);
 

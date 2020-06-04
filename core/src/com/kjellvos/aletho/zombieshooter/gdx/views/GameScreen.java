@@ -63,9 +63,6 @@ public class GameScreen implements Screen, InputProcessor {
     private boolean leftPressed = false, rightPressed = false, upPressed = false, downPressed = false;
     private float stateTime = 0;
 
-    public Entity closestItem = null;
-    private String itemText = null;
-
     /**
      * The constructor of this class, Passes the main parent as a argument.
      * @param zombieShooterGame {@link ZombieShooterGame}
@@ -214,21 +211,20 @@ public class GameScreen implements Screen, InputProcessor {
         rayHandler.setCombinedMatrix(camera);
         rayHandler.updateAndRender();
 
-        if (Constants.DEBUG) {
-            debugRenderer.render(world, camera.combined);
-        }
-
-        if (itemText != null && (parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().x + 64) > closestItem.getComponent(BodyComponent.class).body.getPosition().x && (parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().x - 64) < closestItem.getComponent(BodyComponent.class).body.getPosition().x &&
-                                (parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().y + 64) > closestItem.getComponent(BodyComponent.class).body.getPosition().y && (parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().y - 64) < closestItem.getComponent(BodyComponent.class).body.getPosition().y) {
+        if (player.getInventory().itemToPickUp()){
             BitmapFont font = new BitmapFont();
-            font.getData().setScale(0.7F);
+            font.getData().setScale(0.5F);
 
-            String pickUpString = "Press G to pick up: " + parent.getReadJsonGameFiles().getSpriteGson(closestItem.getComponent(ItemComponent.class).id).getDescription();
+            String pickUpString = player.getInventory().getPickUpString();
             layout.setText(font, pickUpString);
 
             batch.begin();
             font.draw(batch, pickUpString, parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().x - layout.width / 2, parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().y - 20);
             batch.end();
+        }
+
+        if (Constants.DEBUG) {
+            debugRenderer.render(world, camera.combined);
         }
 
         if (music != null) {
@@ -368,15 +364,7 @@ public class GameScreen implements Screen, InputProcessor {
             case Input.Keys.G:
                 keyPressed = true;
 
-                if (closestItem != null) {
-                    parent.getGameScreen().getPlayer().getInventory().addItem(closestItem.getComponent(ItemComponent.class));
-
-                    parent.getGameScreen().getWorld().destroyBody(closestItem.getComponent(BodyComponent.class).body);
-                    parent.getGameScreen().getEngine().removeEntity(closestItem);
-
-                    closestItem = null;
-                    itemText = null;
-                }
+                player.getInventory().pickUpClosestItem();
                 break;
         }
         return keyPressed;
@@ -410,14 +398,6 @@ public class GameScreen implements Screen, InputProcessor {
     @Override
     public boolean scrolled(int amount) {
         return false;
-    }
-
-    public void setClosestItem(Entity closestItem) {
-        this.closestItem = closestItem;
-    }
-
-    public void setItemText(String itemText) {
-        this.itemText = itemText;
     }
 
     public boolean isLeftPressed() {

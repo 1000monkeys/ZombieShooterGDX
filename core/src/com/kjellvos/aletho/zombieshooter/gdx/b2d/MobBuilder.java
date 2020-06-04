@@ -28,7 +28,7 @@ public class MobBuilder {
             if (id == readJsonGameFiles.getGameDataGson().getLightOffSpriteId()) {
                 buildLight(object, readJsonGameFiles, tileset, world, engine, rayHandler);
             }else if(readJsonGameFiles.getSpriteGson(id).isItem()) {
-                buildItem(object, readJsonGameFiles, world, engine);
+                buildItem(id, object, readJsonGameFiles, world, engine);
             }else {
                 Entity mob = new Entity();
 
@@ -54,7 +54,7 @@ public class MobBuilder {
         }
     }
 
-    public static void buildItem(MapObject object, ReadJsonGameFiles readJsonGameFiles, World world, Engine engine){
+    public static void buildItem(int id, MapObject object, ReadJsonGameFiles readJsonGameFiles, World world, Engine engine){
         Entity item = new Entity();
 
         TextureRegion textureRegion = readJsonGameFiles.getSpriteGson(id).getSprite();
