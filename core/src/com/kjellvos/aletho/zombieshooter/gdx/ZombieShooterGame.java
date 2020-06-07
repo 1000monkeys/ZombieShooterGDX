@@ -58,6 +58,8 @@ public class ZombieShooterGame extends Game{
 	 */
 	private ReadJsonGameFiles readJsonGameFiles;
 
+	private String gameDataJSON = null, spriteSheetsJSON = null, spritesJSON = null, animationsJSON = null;
+
 	/**
 	 * This is the method that runs once them game starts, Shows splashes and loads assets.
 	 */
@@ -68,17 +70,22 @@ public class ZombieShooterGame extends Game{
 
 		appPreferences = new AppPreferences();
 
+		gameDataJSON = Gdx.files.internal(Constants.GAMEDATA_JSON).readString();
+		spriteSheetsJSON = Gdx.files.internal(Constants.SPRITESHEET_JSON).readString();
+		spritesJSON = Gdx.files.internal(Constants.SPRITES_JSON).readString();
+		animationsJSON = Gdx.files.internal(Constants.ANIMATIONS_JSON).readString();
+
+		readJsonGameFiles = new ReadJsonGameFiles(this, gameDataJSON, spriteSheetsJSON, spritesJSON, animationsJSON);
+
 		assetManager = new B2dAssetManager(this);
 		assetManager.load();
 		assetManager.getAssetManager().finishLoading();
+
+		readJsonGameFiles.setupWithAssets();
 	}
 
 	public ReadJsonGameFiles getReadJsonGameFiles() {
 		return readJsonGameFiles;
-	}
-
-	public void setReadJsonGameFiles(ReadJsonGameFiles readJsonGameFiles) {
-		this.readJsonGameFiles = readJsonGameFiles;
 	}
 
 	/**

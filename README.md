@@ -104,6 +104,8 @@ The game, less barebones. But no gameplay yet.
 
 ## **TODO**:
 
+TODO: movement of enemy npc's
+
 - Inventory system
 - Loot
 - Doors

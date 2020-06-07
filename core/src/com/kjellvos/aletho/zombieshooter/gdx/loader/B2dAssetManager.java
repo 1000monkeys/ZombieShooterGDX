@@ -23,8 +23,6 @@ public class B2dAssetManager {
     private ZombieShooterGame parent;
 
     private AssetManager assetManager;
-    private ReadJsonGameFiles readJsonGameFiles;
-    private String gameDataJSON = null, spriteSheetsJSON = null, spritesJSON = null, animationsJSON = null;
 
     public B2dAssetManager(ZombieShooterGame zombieShooterGame){
         parent = zombieShooterGame;
@@ -43,73 +41,15 @@ public class B2dAssetManager {
      * function containing all the assets to be loaded.
      */
     public void load(){
-        gameDataJSON = Gdx.files.internal(Constants.GAMEDATA_JSON).readString();
-        spriteSheetsJSON = Gdx.files.internal(Constants.SPRITESHEET_JSON).readString();
-        spritesJSON = Gdx.files.internal(Constants.SPRITES_JSON).readString();
-        animationsJSON = Gdx.files.internal(Constants.ANIMATIONS_JSON).readString();
-        readJsonGameFiles = new ReadJsonGameFiles(parent, gameDataJSON, spriteSheetsJSON, spritesJSON, animationsJSON);
-        parent.setReadJsonGameFiles(readJsonGameFiles);
-
         assetManager.setLoader(TiledMap.class, new TmxMapLoader(new InternalFileHandleResolver()));
         assetManager.load("testmap.tmx", TiledMap.class);
 
-        for (int i = 0; i < readJsonGameFiles.getSpriteSheetGsons().size(); i++){
-            assetManager.load(readJsonGameFiles.getSpriteSheetGsons().get(i).getSpriteSheetName(), Texture.class);
+        for (int i = 0; i < parent.getReadJsonGameFiles().getSpriteSheetGsons().size(); i++){
+            assetManager.load(parent.getReadJsonGameFiles().getSpriteSheetGsons().get(i).getSpriteSheetName(), Texture.class);
         }
 
         assetManager.load("music_scott_lawlor_strange_lullaby.mp3", Music.class);
         assetManager.load("music_zapsplat_hallowdream.mp3", Music.class);
         assetManager.load("music_zapsplat_night_stalker.mp3", Music.class);
-        assetManager.finishLoading();
-
-        readJsonGameFiles.setupWithAssets();
-    }
-
-    public String getGameDataJSON() {
-        if (gameDataJSON == null) {
-            try {
-                throw new GameDataNotFoundException("The gamedata JSON file was null.");
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-
-        return gameDataJSON;
-    }
-
-    public String getSpriteSheetsJSON() {
-        if (spriteSheetsJSON == null) {
-            try {
-                throw new SpriteSheetNotFoundException("The sprite sheet JSON file was null.");
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-
-        return spriteSheetsJSON;
-    }
-
-    public String getSpritesJSON() {
-        if (spritesJSON == null) {
-            try {
-                throw new SpriteNotFoundException("The sprite JSON file was null.");
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-
-        return spritesJSON;
-    }
-
-    public String getAnimationsJSON() {
-        if (animationsJSON == null) {
-            try {
-                throw new AnimationNotFoundException("The animation JSON file was null.");
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-
-        return animationsJSON;
     }
 }

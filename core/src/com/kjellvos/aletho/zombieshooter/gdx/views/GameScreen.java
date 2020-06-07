@@ -2,7 +2,6 @@ package com.kjellvos.aletho.zombieshooter.gdx.views;
 
 import box2dLight.RayHandler;
 import com.badlogic.ashley.core.Engine;
-import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
@@ -11,26 +10,27 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.*;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.physics.box2d.Box2D;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.kjellvos.aletho.zombieshooter.gdx.*;
+import com.kjellvos.aletho.zombieshooter.gdx.Constants;
+import com.kjellvos.aletho.zombieshooter.gdx.PlayerEntity;
+import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.MapBodyBuilder;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.MobBuilder;
-import com.kjellvos.aletho.zombieshooter.gdx.components.*;
-import com.kjellvos.aletho.zombieshooter.gdx.gson.AnimationGson;
-import com.kjellvos.aletho.zombieshooter.gdx.gson.GameDataGson;
-import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteGson;
-import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteSheetGson;
+import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.systems.ItemPickUpSystem;
 import com.kjellvos.aletho.zombieshooter.gdx.systems.PlayerMovementSystem;
 import com.kjellvos.aletho.zombieshooter.gdx.systems.RenderSystem;
 
-import java.util.List;
 import java.util.Random;
 
 public class GameScreen implements Screen, InputProcessor {
@@ -55,11 +55,6 @@ public class GameScreen implements Screen, InputProcessor {
     private TiledMap map;
     private PlayerEntity player;
 
-    private GameDataGson gameDataGson;
-    private List<SpriteSheetGson> spriteSheetGsons;
-    private List<SpriteGson> spriteGsons;
-    private List<AnimationGson> animationGsons;
-
     private boolean leftPressed = false, rightPressed = false, upPressed = false, downPressed = false;
     private float stateTime = 0;
 
@@ -80,14 +75,6 @@ public class GameScreen implements Screen, InputProcessor {
 
         parent.getAssetManager().getAssetManager().finishLoading();
         map = parent.getAssetManager().getAssetManager().get("testmap.tmx", TiledMap.class);
-
-        gameDataGson = parent.getReadJsonGameFiles().getGameDataGson();
-        spriteSheetGsons = parent.getReadJsonGameFiles().getSpriteSheetGsons();
-        spriteGsons = parent.getReadJsonGameFiles().getSprites();
-
-
-
-        animationGsons = parent.getReadJsonGameFiles().getAnimationGsons();
 
         tiledMapRenderer = new OrthogonalTiledMapRenderer(map);
 

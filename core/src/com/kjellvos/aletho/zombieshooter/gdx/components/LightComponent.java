@@ -5,7 +5,6 @@ import com.badlogic.ashley.core.Component;
 
 public class LightComponent implements Component{
     public PointLight pointLight;
-    public int animationCycleCount = 1;
 
     public LightComponent(PointLight pointLight) {
         this.pointLight = pointLight;

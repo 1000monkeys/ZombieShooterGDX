@@ -41,7 +41,7 @@ public class ReadJsonGameFiles {
 
         spriteSheetGsons = Arrays.asList(g.fromJson(spriteSheetsJSON, SpriteSheetGson[].class));
         if (Constants.DEBUG) {
-            System.out.println(spriteSheetGsons.size());
+            System.out.println("Spritesheet array size is:" + spriteSheetGsons.size());
         }
 
         animationGsons = Arrays.asList(g.fromJson(animatonsJSON, AnimationGson[].class));

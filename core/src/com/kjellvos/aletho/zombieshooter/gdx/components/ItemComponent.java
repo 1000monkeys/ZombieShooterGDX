@@ -5,10 +5,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class ItemComponent implements Component {
     public int id;
-    public TextureRegion itemTextureRegion;
 
-    public ItemComponent(int id, TextureRegion itemTextureRegion) {
+    public ItemComponent(int id) {
         this.id = id;
-        this.itemTextureRegion = itemTextureRegion;
     }
 }

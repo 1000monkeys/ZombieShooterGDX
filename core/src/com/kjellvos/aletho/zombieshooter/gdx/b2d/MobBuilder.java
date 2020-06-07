@@ -73,7 +73,7 @@ public class MobBuilder {
         fixtureDef.filter.maskBits = Constants.MASK_ITEM;
         body.createFixture(fixtureDef).setUserData("item");
 
-        item.add(new BodyComponent(body)).add(new TextureRegionComponent(textureRegion)).add(new ItemComponent(id, textureRegion));
+        item.add(new BodyComponent(body)).add(new TextureRegionComponent(textureRegion)).add(new ItemComponent(id));
         engine.addEntity(item);
     }
 
