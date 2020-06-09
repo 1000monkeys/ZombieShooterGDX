@@ -1,35 +1,32 @@
-package com.kjellvos.aletho.zombieshooter.gdx.components;
+package com.kjellvos.aletho.zombieshooter.gdx;
 
-import com.badlogic.ashley.core.Component;
 import com.badlogic.gdx.ai.steer.Steerable;
 import com.badlogic.gdx.ai.utils.Location;
 import com.badlogic.gdx.math.Vector2;
 
-public class PlayerSteerableComponent implements Component, Steerable<Vector2> {
-    public Vector2 linearVelocity = new Vector2(0, 0);
-    public float orientation;
-    public float angularVelocity;
-    public float maxLinearSpeed = 1;
-    public float zeroLinearSpeedThreshold = 0.001f;
-    public float maxLinearAcceleration = 3;
-    public float maxAngularSpeed = 1;
-    public float maxAngularAcceleration = 1;
-   // public boolean independentFacing = true;
-    public float x = 0.0f;
-    public float y = 0.0f;
+public class SeekablePoint implements Steerable<Vector2>{
+    private Vector2 position;
+    private Vector2 linearVelocity = new Vector2(0, 0);
+    private float orientation;
+    private float zeroLinearSpeedThreshold = 0.001F;
+    private float angularVelocity = 0;
+    private float maxLinearSpeed = 0;
+    private float maxLinearAcceleration = 0;
+    private float maxAngularSpeed = 0;
+    private float maxAngularAcceleration = 0;
 
-    public PlayerSteerableComponent(float x, float y){
-        this.x = x;
-        this.y = y;
+    public SeekablePoint(float x, float y){
+        this.position = new Vector2(x, y);
     }
 
-    public float getZeroLinearSpeedThreshold () {
+    @Override
+    public float getZeroLinearSpeedThreshold() {
         return zeroLinearSpeedThreshold;
     }
 
     @Override
-    public void setZeroLinearSpeedThreshold(float zeroLinearSpeedThreshold) {
-        this.zeroLinearSpeedThreshold = zeroLinearSpeedThreshold;
+    public void setZeroLinearSpeedThreshold(float value) {
+        this.zeroLinearSpeedThreshold = value;
     }
 
     @Override
@@ -37,7 +34,6 @@ public class PlayerSteerableComponent implements Component, Steerable<Vector2> {
         return maxLinearSpeed;
     }
 
-    @Override
     public void setMaxLinearSpeed(float maxLinearSpeed) {
         this.maxLinearSpeed = maxLinearSpeed;
     }
@@ -74,7 +70,7 @@ public class PlayerSteerableComponent implements Component, Steerable<Vector2> {
 
     @Override
     public Vector2 getPosition() {
-        return new Vector2(x, y);
+        return position;
     }
 
     @Override
@@ -84,7 +80,7 @@ public class PlayerSteerableComponent implements Component, Steerable<Vector2> {
 
     @Override
     public void setOrientation(float orientation) {
-        this.orientation = orientation;
+
     }
 
     @Override

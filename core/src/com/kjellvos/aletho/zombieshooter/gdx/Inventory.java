@@ -1,12 +1,14 @@
 package com.kjellvos.aletho.zombieshooter.gdx;
 
 import com.badlogic.ashley.core.Entity;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.components.ItemComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteGson;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.Mapper;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.BodyComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.ItemComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.loader.gson.SpriteGson;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Inventory {
     private ZombieShooterGame parent;
@@ -70,8 +72,14 @@ public class Inventory {
     }
 
     public boolean itemToPickUp(){
-        if (closestItem != null &&  (parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().x + 64) > closestItem.getComponent(BodyComponent.class).body.getPosition().x && (parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().x - 64) < closestItem.getComponent(BodyComponent.class).body.getPosition().x &&
-                                    (parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().y + 64) > closestItem.getComponent(BodyComponent.class).body.getPosition().y && (parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().y - 64) < closestItem.getComponent(BodyComponent.class).body.getPosition().y) {
+        if (closestItem == null){
+            return false;
+        }
+
+        Body closestItemBody = Mapper.bodyCom.get(closestItem).body;
+        Body playerBody = Mapper.bodyCom.get(parent.getGameScreen().getPlayer()).body;
+        if (        playerBody.getPosition().x + 64 > closestItemBody.getPosition().x && playerBody.getPosition().x - 64 < closestItemBody.getPosition().x &&
+                    playerBody.getPosition().y + 64 > closestItemBody.getPosition().y && playerBody.getPosition().y - 64 < closestItemBody.getPosition().y) {
             pickUpString = "Press G to pick up: " + parent.getReadJsonGameFiles().getSpriteGson(closestItem.getComponent(ItemComponent.class).id).getDescription();
 
             return true;

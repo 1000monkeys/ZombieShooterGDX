@@ -20,6 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dae99bb-f850-4e65-96fa-f780e7f4f2c0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/SeekablePoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/SteeringPresets.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/Mapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/InventoryComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/entities/MonsterEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/systems/SteeringSystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/b2d/Box2dLocation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -31,16 +38,69 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/assets/json/sprites.json" beforeDir="false" afterPath="$PROJECT_DIR$/core/assets/json/sprites.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/assets/testmap.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/core/assets/testmap.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/allclasses-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/allclasses-noframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/allclasses-noframe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/components/AnimationComponent.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/components/AnimationComponent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/components/BodyComponent.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/components/BodyComponent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/components/LightComponent.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/components/LightComponent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/components/PlayerSteerableComponent.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/components/PlayerSteerableComponent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/components/TextureRegionComponent.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/components/TextureRegionComponent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/components/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/components/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/components/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/components/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/components/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/components/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/loader/B2dAssetManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/loader/B2dAssetManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/systems/PlayerMovementSystem.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/systems/PlayerMovementSystem.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/systems/RenderSystem.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/systems/RenderSystem.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/systems/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/systems/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/systems/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/systems/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/systems/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com/kjellvos/aletho/zombieshooter/gdx/systems/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-15.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-16.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-16.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-17.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-17.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-18.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-18.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-19.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-19.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-20.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-20.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-22.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-22.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-23.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-23.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-24.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-24.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/overview-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/overview-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/overview-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JavaDoc/package-list" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/package-list" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/InventoryItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/InventoryItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/PlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/entities/PlayerEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ReadJsonGameFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ReadJsonGameFiles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ZombieShooterGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ZombieShooterGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/b2d/MobBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/b2d/MobBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/components/AnimationInfoComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/components/ItemComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/components/ItemComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/components/LightComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/components/LightComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/loader/B2dAssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/loader/B2dAssetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/components/BodyComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/BodyComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/components/ItemComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/ItemComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/components/LightComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/LightComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/components/PlayerAnimationComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/ManyAnimationComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/components/PlayerSteerableComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/SteeringComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/components/SimpleAnimationComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/SimpleAnimationComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/components/TextureRegionComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/TextureRegionComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/gson/AnimationGson.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/loader/gson/AnimationGson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/gson/GameDataGson.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/loader/gson/GameDataGson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/gson/NestedItemData.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/loader/gson/NestedItemData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/gson/NestedSpriteData.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/loader/gson/NestedSpriteData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/gson/SpriteGson.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/loader/gson/SpriteGson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/gson/SpriteSheetGson.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/loader/gson/SpriteSheetGson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/loader/B2dAssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/loader/AssetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/systems/ItemPickUpSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/systems/ItemPickUpSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/systems/PlayerMovementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/systems/PlayerMovementSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/systems/RenderSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/systems/RenderSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/views/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/views/GameScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,8 +160,12 @@
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\kjell\IdeaProjects\ZombieShooterGDX\core\assets\json" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.kjellvos.aletho.zombieshooter.gdx.b2d" />
+      <recent name="com.kjellvos.aletho.zombieshooter.gdx" />
+      <recent name="com.kjellvos.aletho.zombieshooter.gdx.gson" />
+      <recent name="com.kjellvos.aletho.zombieshooter.gdx.entities" />
+      <recent name="com.kjellvos.aletho.zombieshooter.gdx.systems" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.kjellvos.aletho.zombieshooter.gdx.enums" />
@@ -109,12 +173,8 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.kjellvos.aletho.zombieshooter.gdx.gson" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.kjellvos.aletho.zombieshooter.gdx" />
-      <recent name="com.kjellvos.aletho.zombieshooter.gdx.gson" />
-      <recent name="com.kjellvos.aletho.zombieshooter.gdx.entities" />
-      <recent name="com.kjellvos.aletho.zombieshooter.gdx.systems" />
-      <recent name="com.kjellvos.aletho.zombieshooter.gdx.b2d" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kjell\IdeaProjects\ZombieShooterGDX\core\assets\json" />
     </key>
   </component>
   <component name="RunManager">
@@ -160,7 +220,9 @@
       <workItem from="1591269847455" duration="3952000" />
       <workItem from="1591346981315" duration="717000" />
       <workItem from="1591541814579" duration="1079000" />
-      <workItem from="1591552181351" duration="1146000" />
+      <workItem from="1591552181351" duration="2454000" />
+      <workItem from="1591701739943" duration="7925000" />
+      <workItem from="1591726209680" duration="4526000" />
     </task>
     <servers />
   </component>
@@ -199,10 +261,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1101" y="583" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1591124324368" />
-    <state x="445" y="414" key="#com.intellij.ide.util.MemberChooser" timestamp="1590864556465">
+    <state x="445" y="414" key="#com.intellij.ide.util.MemberChooser" timestamp="1591727018659">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="445" y="414" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1590864556465" />
+    <state x="445" y="414" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1591727018659" />
     <state x="371" y="480" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1590862461259">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -225,18 +287,22 @@
     </state>
     <state x="390" y="488" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1588773350949" />
     <state x="585" y="731" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.3840.2098@0.0.3840.2098" timestamp="1584213145359" />
+    <state x="461" y="628" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1591727365709">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="461" y="628" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591727365709" />
     <state x="408" y="564" width="492" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1591122996687">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="408" y="564" width="492" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.2560.1400@0.0.2560.1400" timestamp="1591122996687" />
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591101933885">
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591727538088">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591101933885" />
-    <state x="370" y="452" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591186131190">
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591727538088" />
+    <state x="370" y="452" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591727498376">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="370" y="452" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591186131190" />
+    <state x="370" y="452" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591727498376" />
     <state x="555" y="677" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.3840.2098@0.0.3840.2098" timestamp="1584286121985" />
     <state x="795" y="504" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1590863362435">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -251,50 +317,54 @@
     </state>
     <state x="420" y="432" width="723" height="333" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1590862027348" />
     <state x="630" y="648" key="FileChooserDialogImpl/0.0.3840.2098@0.0.3840.2098" timestamp="1584288024060" />
-    <state width="1249" height="498" key="GridCell.Tab.0.bottom" timestamp="1591553162567">
+    <state width="1235" height="232" key="GridCell.Tab.0.bottom" timestamp="1591730718681">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1249" height="498" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1591553162567" />
+    <state width="1235" height="232" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1591730718681" />
     <state width="2981" height="431" key="GridCell.Tab.0.bottom/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707816" />
-    <state width="1249" height="498" key="GridCell.Tab.0.center" timestamp="1591553162567">
+    <state width="1235" height="232" key="GridCell.Tab.0.center" timestamp="1591730718681">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1249" height="498" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1591553162567" />
+    <state width="1235" height="232" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1591730718681" />
     <state width="2981" height="431" key="GridCell.Tab.0.center/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
-    <state width="1249" height="498" key="GridCell.Tab.0.left" timestamp="1591553162567">
+    <state width="1235" height="232" key="GridCell.Tab.0.left" timestamp="1591730718681">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1249" height="498" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1591553162567" />
+    <state width="1235" height="232" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1591730718681" />
     <state width="2981" height="431" key="GridCell.Tab.0.left/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
-    <state width="1249" height="498" key="GridCell.Tab.0.right" timestamp="1591553162567">
+    <state width="1235" height="232" key="GridCell.Tab.0.right" timestamp="1591730718681">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1249" height="498" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1591553162567" />
+    <state width="1235" height="232" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1591730718681" />
     <state width="2981" height="431" key="GridCell.Tab.0.right/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
-    <state width="2517" height="492" key="GridCell.Tab.1.bottom" timestamp="1591277968128">
+    <state width="2517" height="492" key="GridCell.Tab.1.bottom" timestamp="1591728064755">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1591277968128" />
+    <state width="2517" height="492" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1591728064755" />
     <state width="3760" height="709" key="GridCell.Tab.1.bottom/0.0.3840.2098@0.0.3840.2098" timestamp="1584213926176" />
-    <state width="2517" height="492" key="GridCell.Tab.1.center" timestamp="1591277968128">
+    <state width="2517" height="492" key="GridCell.Tab.1.center" timestamp="1591728064755">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1591277968128" />
+    <state width="2517" height="492" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1591728064755" />
     <state width="3760" height="709" key="GridCell.Tab.1.center/0.0.3840.2098@0.0.3840.2098" timestamp="1584213926176" />
-    <state width="2517" height="492" key="GridCell.Tab.1.left" timestamp="1591277968128">
+    <state width="2517" height="492" key="GridCell.Tab.1.left" timestamp="1591728064755">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1591277968128" />
+    <state width="2517" height="492" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1591728064755" />
     <state width="3760" height="709" key="GridCell.Tab.1.left/0.0.3840.2098@0.0.3840.2098" timestamp="1584213926176" />
-    <state width="2517" height="492" key="GridCell.Tab.1.right" timestamp="1591277968128">
+    <state width="2517" height="492" key="GridCell.Tab.1.right" timestamp="1591728064755">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="492" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1591277968128" />
+    <state width="2517" height="492" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1591728064755" />
     <state width="3760" height="709" key="GridCell.Tab.1.right/0.0.3840.2098@0.0.3840.2098" timestamp="1584213926176" />
     <state x="343" y="324" width="1442" height="850" key="SettingsEditor" timestamp="1591130668852">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="343" y="324" width="1442" height="850" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1591130668852" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1591703883081">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.2560.1400@0.0.2560.1400" timestamp="1591703883081" />
     <state x="451" y="482" key="chooseDestDirectoryDialog" timestamp="1590862458010">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -320,25 +390,27 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1273" y="0" width="1293" height="1407" key="dock-window-3/0.0.2560.1400@0.0.2560.1400" timestamp="1590791034441" />
-    <state x="775" y="399" width="628" height="804" key="find.popup" timestamp="1591552853386">
+    <state x="775" y="399" width="628" height="804" key="find.popup" timestamp="1591728665934">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="775" y="399" width="628" height="804" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1591552853386" />
-    <state x="503" y="451" width="993" height="1205" key="find.popup/0.0.3840.2098@0.0.3840.2098" timestamp="1582919993374" />
+    <state x="775" y="399" width="628" height="804" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1591728665934" />
     <state x="90" y="324" key="new project wizard" timestamp="1591096623742">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="90" y="324" key="new project wizard/0.0.2560.1400@0.0.2560.1400" timestamp="1591096623742" />
-    <state x="1583" y="333" key="run.anything.popup" timestamp="1591129639825">
+    <state x="483" y="461" key="refactoring.ChangeSignatureDialog" timestamp="1591728008209">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1583" y="333" key="run.anything.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1591129639825" />
+    <state x="483" y="461" key="refactoring.ChangeSignatureDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591728008209" />
+    <state x="1583" y="333" key="run.anything.popup" timestamp="1591702673964">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1583" y="333" key="run.anything.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1591702673964" />
     <state x="2375" y="499" key="run.anything.popup/0.0.3840.2098@0.0.3840.2098" timestamp="1583330607208" />
-    <state x="303" y="320" width="673" height="679" key="search.everywhere.popup" timestamp="1591122718763">
+    <state x="303" y="320" width="673" height="679" key="search.everywhere.popup" timestamp="1591705632131">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="303" y="320" width="673" height="679" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1591122718763" />
-    <state x="455" y="480" width="1009" height="1017" key="search.everywhere.popup/0.0.3840.2098@0.0.3840.2098" timestamp="1582920613838" />
+    <state x="303" y="320" width="673" height="679" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1591705632131" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ZombieShooterGDX$DesktopLauncher.ic" NAME="DesktopLauncher Coverage Results" MODIFIED="1590940781728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -17,19 +17,22 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
-import com.kjellvos.aletho.zombieshooter.gdx.PlayerEntity;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.Mapper;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.entities.PlayerEntity;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.systems.SteeringSystem;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.MapBodyBuilder;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.MobBuilder;
-import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.systems.ItemPickUpSystem;
-import com.kjellvos.aletho.zombieshooter.gdx.systems.PlayerMovementSystem;
-import com.kjellvos.aletho.zombieshooter.gdx.systems.RenderSystem;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.BodyComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.systems.ItemPickUpSystem;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.systems.PlayerMovementSystem;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.systems.RenderSystem;
 
 import java.util.Random;
 
@@ -98,20 +101,20 @@ public class GameScreen implements Screen, InputProcessor {
 
         batch = new SpriteBatch();
 
-        engine = new Engine();
-        engine.addSystem(new RenderSystem(batch));
-        engine.addSystem(new PlayerMovementSystem(this));
-        engine.addSystem(new ItemPickUpSystem(parent));
-
-        Gdx.input.setInputProcessor(this);
-
         if (Constants.DEBUG) {
             debugRenderer = new Box2DDebugRenderer();
         }
 
+        engine = new Engine();
         MapBodyBuilder.buildShapes(map, world);
         Texture spriteSheet = parent.getReadJsonGameFiles().getSpriteSheetGsons().get(parent.getReadJsonGameFiles().getGameDataGson().getMainSpriteSheet()).getSpriteSheet();
-        MobBuilder.buildObjects(map, spriteSheet, parent.getReadJsonGameFiles(), world, engine, rayHandler);
+        MobBuilder.buildObjects(parent, map, spriteSheet, parent.getReadJsonGameFiles(), world, engine, rayHandler);
+        engine.addSystem(new RenderSystem(batch));
+        engine.addSystem(new PlayerMovementSystem(this));
+        engine.addSystem(new ItemPickUpSystem(parent));
+        engine.addSystem(new SteeringSystem(parent));
+
+        Gdx.input.setInputProcessor(this);
 
 
         player = new PlayerEntity(parent);
@@ -180,7 +183,7 @@ public class GameScreen implements Screen, InputProcessor {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        BodyComponent bodyComp = parent.getPlayer().getComponent(BodyComponent.class);
+        BodyComponent bodyComp = Mapper.bodyCom.get(parent.getGameScreen().getPlayer());
 
         world.step(1f / 30f, 3, 3);
         camera.position.set(bodyComp.body.getPosition().x, bodyComp.body.getPosition().y, 0);
@@ -205,8 +208,10 @@ public class GameScreen implements Screen, InputProcessor {
             String pickUpString = player.getInventory().getPickUpString();
             layout.setText(font, pickUpString);
 
+            Body body = Mapper.bodyCom.get(player).body;
+
             batch.begin();
-            font.draw(batch, pickUpString, parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().x - layout.width / 2, parent.getPlayer().getComponent(BodyComponent.class).body.getPosition().y - 20);
+            font.draw(batch, pickUpString, body.getPosition().x - layout.width / 2, body.getPosition().y - 20);
             batch.end();
         }
 

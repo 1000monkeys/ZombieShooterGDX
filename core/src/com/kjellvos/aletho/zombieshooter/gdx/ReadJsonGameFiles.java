@@ -1,16 +1,15 @@
 package com.kjellvos.aletho.zombieshooter.gdx;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.google.gson.Gson;
 import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.AnimationNotFoundException;
 import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.SpriteNotFoundException;
 import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.SpriteSheetNotFoundException;
-import com.kjellvos.aletho.zombieshooter.gdx.gson.AnimationGson;
-import com.kjellvos.aletho.zombieshooter.gdx.gson.GameDataGson;
-import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteGson;
-import com.kjellvos.aletho.zombieshooter.gdx.gson.SpriteSheetGson;
+import com.kjellvos.aletho.zombieshooter.gdx.loader.gson.AnimationGson;
+import com.kjellvos.aletho.zombieshooter.gdx.loader.gson.GameDataGson;
+import com.kjellvos.aletho.zombieshooter.gdx.loader.gson.SpriteGson;
+import com.kjellvos.aletho.zombieshooter.gdx.loader.gson.SpriteSheetGson;
 
 import java.util.Arrays;
 import java.util.List;

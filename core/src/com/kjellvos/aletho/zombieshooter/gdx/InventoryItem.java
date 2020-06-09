@@ -1,6 +1,6 @@
 package com.kjellvos.aletho.zombieshooter.gdx;
 
-import com.kjellvos.aletho.zombieshooter.gdx.components.ItemComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.ItemComponent;
 
 public class InventoryItem {
     private ItemComponent itemComponent;

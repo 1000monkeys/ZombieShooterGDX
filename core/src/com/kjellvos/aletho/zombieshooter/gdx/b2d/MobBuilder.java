@@ -14,11 +14,13 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.physics.box2d.*;
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 import com.kjellvos.aletho.zombieshooter.gdx.ReadJsonGameFiles;
-import com.kjellvos.aletho.zombieshooter.gdx.components.*;
+import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.*;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.entities.MonsterEntity;
 
 public class MobBuilder {
 
-    public static void buildObjects(TiledMap map, Texture tileset, ReadJsonGameFiles readJsonGameFiles, World world, Engine engine, RayHandler rayHandler) {
+    public static void buildObjects(ZombieShooterGame parent, TiledMap map, Texture tileset, ReadJsonGameFiles readJsonGameFiles, World world, Engine engine, RayHandler rayHandler) {
         MapObjects objects = map.getLayers().get("Mobs").getObjects();
 
         for(MapObject object : objects) {
@@ -27,16 +29,24 @@ public class MobBuilder {
 
             if (id == readJsonGameFiles.getGameDataGson().getLightOffSpriteId()) {
                 buildLight(object, readJsonGameFiles, tileset, world, engine, rayHandler);
-            }else if(readJsonGameFiles.getSpriteGson(id).isItem()) {
+            } else if (readJsonGameFiles.getSpriteGson(id).isItem()) {
                 buildItem(id, object, readJsonGameFiles, world, engine);
-            }else {
+            } else if (id == 293) {
+                float x = Float.parseFloat(object.getProperties().get("x").toString());
+                float y = Float.parseFloat(object.getProperties().get("y").toString());
+                new MonsterEntity(parent, x, y);
+            }/*else{
                 Entity mob = new Entity();
 
                 TextureRegion textureRegion = readJsonGameFiles.getSpriteGson(id).getSprite();
 
+
+                float x = Float.parseFloat(object.getProperties().get("x").toString());
+                float y = Float.parseFloat(object.getProperties().get("y").toString());
+
                 BodyDef bodyDef = new BodyDef();
                 bodyDef.type = BodyDef.BodyType.DynamicBody;
-                bodyDef.position.set(Float.parseFloat(object.getProperties().get("x").toString()), Float.parseFloat(object.getProperties().get("y").toString()));
+                bodyDef.position.set(x, y);
 
                 Body body = world.createBody(bodyDef);
                 body.setLinearDamping(5);
@@ -48,9 +58,9 @@ public class MobBuilder {
                 fixtureDef.filter.maskBits = Constants.MASK_MOB;
                 body.createFixture(fixtureDef).setUserData("mob");
 
-                mob.add(new BodyComponent(body)).add(new TextureRegionComponent(textureRegion));
+                mob.add(new BodyComponent(body)).add(new TextureRegionComponent(textureRegion)).add(new PathingComponent(x, y));
                 engine.addEntity(mob);
-            }
+            }*/
         }
     }
 

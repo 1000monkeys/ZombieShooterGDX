@@ -4,7 +4,7 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.kjellvos.aletho.zombieshooter.gdx.enums.ScreenEnum;
-import com.kjellvos.aletho.zombieshooter.gdx.loader.B2dAssetManager;
+import com.kjellvos.aletho.zombieshooter.gdx.loader.AssetManager;
 import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
 import com.kjellvos.aletho.zombieshooter.gdx.views.MainMenu;
 import com.kjellvos.aletho.zombieshooter.gdx.views.PreferencesMenu;
@@ -46,12 +46,7 @@ public class ZombieShooterGame extends Game{
 	/**
 	 * Assetmanager used for loading asset
 	 */
-	private B2dAssetManager assetManager;
-
-	/**
-	 * The player entity used in the Ashley entity system.
-	 */
-	private Entity player;
+	private AssetManager assetManager;
 
 	/**
 	 * The JSON parser
@@ -77,7 +72,7 @@ public class ZombieShooterGame extends Game{
 
 		readJsonGameFiles = new ReadJsonGameFiles(this, gameDataJSON, spriteSheetsJSON, spritesJSON, animationsJSON);
 
-		assetManager = new B2dAssetManager(this);
+		assetManager = new AssetManager(this);
 		assetManager.load();
 		assetManager.getAssetManager().finishLoading();
 
@@ -89,26 +84,10 @@ public class ZombieShooterGame extends Game{
 	}
 
 	/**
-	 * This is a function used to set the player variable. Is set in the GameScreen class.
-	 * @param player PlayerEntity for updating inventory etc.
-	 */
-	public void setPlayer(Entity player) {
-		this.player = player;
-	}
-
-	/**
-	 * This is a function to get the player entity. Might be null if used before GameScreen class is started.
-	 * @return PlayerEntity, For adding to inventory/updating
-	 */
-	public Entity getPlayer(){
-		return player;
-	}
-
-	/**
 	 * A getter for the asset manager variable used to load the game assets.
 	 * @return B2dAssetManager containing the loaded assets.
 	 */
-	public B2dAssetManager getAssetManager(){
+	public AssetManager getAssetManager(){
 		return assetManager;
 	}
 
