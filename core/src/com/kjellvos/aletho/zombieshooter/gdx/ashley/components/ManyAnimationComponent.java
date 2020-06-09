@@ -1,15 +1,15 @@
-package com.kjellvos.aletho.zombieshooter.gdx.components;
+package com.kjellvos.aletho.zombieshooter.gdx.ashley.components;
 
 import com.badlogic.ashley.core.Component;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 
-public class PlayerAnimationComponent implements Component {
+public class ManyAnimationComponent implements Component {
     private ZombieShooterGame parent;
     public Animation<TextureRegion> upAnimation, downAnimation, rightAnimation, leftAnimation, idleAnimation;
 
-    public PlayerAnimationComponent(ZombieShooterGame parent, Animation<TextureRegion> upAnimation, Animation<TextureRegion> downAnimation, Animation<TextureRegion> rightAnimation, Animation<TextureRegion> leftAnimation, Animation<TextureRegion> idleAnimation) {
+    public ManyAnimationComponent(ZombieShooterGame parent, Animation<TextureRegion> upAnimation, Animation<TextureRegion> downAnimation, Animation<TextureRegion> rightAnimation, Animation<TextureRegion> leftAnimation, Animation<TextureRegion> idleAnimation) {
         this.parent = parent;
 
         this.upAnimation = upAnimation;

@@ -1,11 +1,11 @@
-package com.kjellvos.aletho.zombieshooter.gdx.systems;
+package com.kjellvos.aletho.zombieshooter.gdx.ashley.systems;
 
 import com.badlogic.ashley.core.*;
 import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.kjellvos.aletho.zombieshooter.gdx.components.*;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.*;
 import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
 
 public class RenderSystem extends EntitySystem {
@@ -46,7 +46,7 @@ public class RenderSystem extends EntitySystem {
             batch.draw(currentFrame, body.getPosition().x - (currentFrame.getRegionWidth() / 2), body.getPosition().y  - (currentFrame.getRegionHeight() / 2));
         }
         for (Entity entity : playerAnimation) {
-            TextureRegion currentFrame = entity.getComponent(PlayerAnimationComponent.class).getAnimation().getKeyFrame(stateTime, true);
+            TextureRegion currentFrame = entity.getComponent(ManyAnimationComponent.class).getAnimation().getKeyFrame(stateTime, true);
             Body body = entity.getComponent(BodyComponent.class).body;
 
             batch.draw(currentFrame, body.getPosition().x - (currentFrame.getRegionWidth() / 2), body.getPosition().y  - (currentFrame.getRegionHeight() / 2));
@@ -61,7 +61,7 @@ public class RenderSystem extends EntitySystem {
     public void addedToEngine(Engine engine) {
         super.addedToEngine(engine);
         entities = engine.getEntitiesFor(Family.all(TextureRegionComponent.class, BodyComponent.class).get());
-        playerAnimation = engine.getEntitiesFor(Family.all(PlayerAnimationComponent.class, BodyComponent.class).get());
+        playerAnimation = engine.getEntitiesFor(Family.all(ManyAnimationComponent.class, BodyComponent.class).get());
         simpleAnimations = engine.getEntitiesFor(Family.all(SimpleAnimationComponent.class).get());
     }
 }

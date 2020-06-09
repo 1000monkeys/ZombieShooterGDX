@@ -1,17 +1,16 @@
-package com.kjellvos.aletho.zombieshooter.gdx.systems;
+package com.kjellvos.aletho.zombieshooter.gdx.ashley.systems;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.EntitySystem;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.utils.ImmutableArray;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
-import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.components.ItemComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.BodyComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.ItemComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.SteeringComponent;
 
 public class ItemPickUpSystem extends EntitySystem {
     private ZombieShooterGame parent;
@@ -35,7 +34,7 @@ public class ItemPickUpSystem extends EntitySystem {
     public void addedToEngine(Engine engine) {
         super.addedToEngine(engine);
         entities = engine.getEntitiesFor(Family.all(ItemComponent.class, BodyComponent.class).get());
-        player = engine.getEntitiesFor(Family.all(PlayerSteerableComponent.class, BodyComponent.class).get());
+        player = engine.getEntitiesFor(Family.all(SteeringComponent.class, BodyComponent.class).get());
     }
 
     /**

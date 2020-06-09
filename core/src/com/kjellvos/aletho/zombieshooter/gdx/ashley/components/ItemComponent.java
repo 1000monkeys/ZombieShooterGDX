@@ -1,7 +1,6 @@
-package com.kjellvos.aletho.zombieshooter.gdx.components;
+package com.kjellvos.aletho.zombieshooter.gdx.ashley.components;
 
 import com.badlogic.ashley.core.Component;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class ItemComponent implements Component {
     public int id;

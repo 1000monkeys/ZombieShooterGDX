@@ -1,6 +1,5 @@
-package com.kjellvos.aletho.zombieshooter.gdx.gson;
+package com.kjellvos.aletho.zombieshooter.gdx.loader.gson;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.SpriteSheetNotFoundException;

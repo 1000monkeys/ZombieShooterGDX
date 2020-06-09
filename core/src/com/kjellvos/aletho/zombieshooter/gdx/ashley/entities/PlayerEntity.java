@@ -1,5 +1,6 @@
-package com.kjellvos.aletho.zombieshooter.gdx.entities;
+package com.kjellvos.aletho.zombieshooter.gdx.ashley.entities;
 
+import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -8,16 +9,16 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.kjellvos.aletho.zombieshooter.gdx.*;
-import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerAnimationComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.BodyComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.ManyAnimationComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.SteeringComponent;
 
 import java.util.HashMap;
 
 public class PlayerEntity extends Entity{
     private ZombieShooterGame parent;
 
-    private PlayerAnimationComponent playerAnimationComponent;
+    private ManyAnimationComponent manyAnimationComponent;
 
     private Inventory inventory;
     private HashMap<Integer, Ability> abilities;
@@ -46,15 +47,15 @@ public class PlayerEntity extends Entity{
         Animation<TextureRegion> leftAnimation = new Animation<TextureRegion>(readJsonGameFiles.getAnimationGson(Constants.ANIMATION_PLAYER_LEFT).getTimer(), readJsonGameFiles.getAnimationTextures(Constants.ANIMATION_PLAYER_LEFT));
         Animation<TextureRegion> idleAnimation = new Animation<TextureRegion>(readJsonGameFiles.getAnimationGson(Constants.ANIMATION_PLAYER_IDLE).getTimer(), readJsonGameFiles.getAnimationTextures(Constants.ANIMATION_PLAYER_IDLE));
 
-        playerAnimationComponent = new PlayerAnimationComponent(parent, upAnimation, downAnimation, rightAnimation, leftAnimation, idleAnimation);
+        manyAnimationComponent = new ManyAnimationComponent(parent, upAnimation, downAnimation, rightAnimation, leftAnimation, idleAnimation);
 
-        this.add(playerAnimationComponent).add(new BodyComponent(body)).add(new PlayerSteerableComponent(50 * Constants.PPT, 50 * Constants.PPT));
+        this.add(manyAnimationComponent).add(new BodyComponent(body)).add(new SteeringComponent(body));
         parent.getGameScreen().getEngine().addEntity(this);
-        parent.setPlayer(this);
 
         inventory = new Inventory(parent);
         abilities = new HashMap<Integer, Ability>();
     }
+
 
     public Inventory getInventory() {
         return inventory;

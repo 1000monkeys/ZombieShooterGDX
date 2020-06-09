@@ -1,11 +1,10 @@
-package com.kjellvos.aletho.zombieshooter.gdx.systems;
+package com.kjellvos.aletho.zombieshooter.gdx.ashley.systems;
 
 import com.badlogic.ashley.core.*;
 import com.badlogic.ashley.utils.ImmutableArray;
-import com.kjellvos.aletho.zombieshooter.gdx.Constants;
-import com.kjellvos.aletho.zombieshooter.gdx.components.BodyComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.components.PlayerSteerableComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.components.TextureRegionComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.BodyComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.ManyAnimationComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.SteeringComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
 
 public class PlayerMovementSystem extends EntitySystem {
@@ -13,7 +12,7 @@ public class PlayerMovementSystem extends EntitySystem {
 
     private ImmutableArray<Entity> entities;
 
-    private ComponentMapper<PlayerSteerableComponent> ComMapPlayerSteerableComponent = ComponentMapper.getFor(PlayerSteerableComponent.class);
+    private ComponentMapper<SteeringComponent> ComMapPlayerSteerableComponent = ComponentMapper.getFor(SteeringComponent.class);
     private ComponentMapper<BodyComponent> ComMapBodyComponent = ComponentMapper.getFor(BodyComponent.class);
 
     public PlayerMovementSystem(GameScreen gameScreen) {
@@ -27,7 +26,7 @@ public class PlayerMovementSystem extends EntitySystem {
     public void addedToEngine(Engine engine) {
         super.addedToEngine(engine);
         //TODO add animation component ot player
-        entities = engine.getEntitiesFor(Family.all(PlayerSteerableComponent.class, BodyComponent.class).get());
+        entities = engine.getEntitiesFor(Family.all(SteeringComponent.class, BodyComponent.class, ManyAnimationComponent.class).get());
     }
 
     /**
@@ -40,7 +39,7 @@ public class PlayerMovementSystem extends EntitySystem {
         for (int i = 0; i < entities.size(); i++) {
             Entity entity = entities.get(i);
 
-            PlayerSteerableComponent playerSteerComp = ComMapPlayerSteerableComponent.get(entity);
+            SteeringComponent playerSteerComp = ComMapPlayerSteerableComponent.get(entity);
             BodyComponent bodyComp = ComMapBodyComponent.get(entity);
 
             int horizontalForce = 0, verticalForce = 0;
@@ -58,8 +57,8 @@ public class PlayerMovementSystem extends EntitySystem {
             }
 
             bodyComp.body.setLinearVelocity(horizontalForce, verticalForce);
-            playerSteerComp.x = bodyComp.body.getPosition().x;
-            playerSteerComp.y = bodyComp.body.getPosition().y;
+            playerSteerComp.getPosition().x = bodyComp.body.getPosition().x;
+            playerSteerComp.getPosition().y = bodyComp.body.getPosition().y;
         }
     }
 }

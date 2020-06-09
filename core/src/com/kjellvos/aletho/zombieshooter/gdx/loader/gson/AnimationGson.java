@@ -1,4 +1,4 @@
-package com.kjellvos.aletho.zombieshooter.gdx.gson;
+package com.kjellvos.aletho.zombieshooter.gdx.loader.gson;
 
 public class AnimationGson {
     private int id;

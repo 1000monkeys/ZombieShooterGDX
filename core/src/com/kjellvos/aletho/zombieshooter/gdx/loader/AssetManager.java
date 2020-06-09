@@ -1,39 +1,31 @@
 package com.kjellvos.aletho.zombieshooter.gdx.loader;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.kjellvos.aletho.zombieshooter.gdx.Constants;
-import com.kjellvos.aletho.zombieshooter.gdx.ReadJsonGameFiles;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
-import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.AnimationNotFoundException;
-import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.GameDataNotFoundException;
-import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.SpriteNotFoundException;
-import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.SpriteSheetNotFoundException;
 import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
 
-public class B2dAssetManager {
+public class AssetManager {
     /**
      * See {@link GameScreen#parent}
      */
     private ZombieShooterGame parent;
 
-    private AssetManager assetManager;
+    private com.badlogic.gdx.assets.AssetManager assetManager;
 
-    public B2dAssetManager(ZombieShooterGame zombieShooterGame){
+    public AssetManager(ZombieShooterGame zombieShooterGame){
         parent = zombieShooterGame;
-        assetManager = new AssetManager();
+        assetManager = new com.badlogic.gdx.assets.AssetManager();
     }
 
     /**
      * returns the assetmanager, for getting the assets.
      * @return AssetManager containing the loaded/loading assets.
      */
-    public AssetManager getAssetManager() {
+    public com.badlogic.gdx.assets.AssetManager getAssetManager() {
         return assetManager;
     }
 

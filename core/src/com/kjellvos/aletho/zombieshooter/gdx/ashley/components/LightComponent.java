@@ -1,4 +1,4 @@
-package com.kjellvos.aletho.zombieshooter.gdx.components;
+package com.kjellvos.aletho.zombieshooter.gdx.ashley.components;
 
 import box2dLight.PointLight;
 import com.badlogic.ashley.core.Component;

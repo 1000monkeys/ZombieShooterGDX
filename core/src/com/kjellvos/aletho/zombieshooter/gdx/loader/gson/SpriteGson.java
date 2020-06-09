@@ -1,4 +1,4 @@
-package com.kjellvos.aletho.zombieshooter.gdx.gson;
+package com.kjellvos.aletho.zombieshooter.gdx.loader.gson;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 

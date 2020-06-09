@@ -1,4 +1,4 @@
-package com.kjellvos.aletho.zombieshooter.gdx.components;
+package com.kjellvos.aletho.zombieshooter.gdx.ashley.components;
 
 import com.badlogic.ashley.core.Component;
 import com.badlogic.gdx.physics.box2d.Body;
