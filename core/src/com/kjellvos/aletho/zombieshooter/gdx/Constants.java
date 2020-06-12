@@ -7,6 +7,8 @@ public class Constants {
      */
     public static boolean DEBUG = true;
 
+    public static int WALKABLE_ID = 98;
+
     /**
      *
      * JSON PLACEMENT CONSTANTS!
