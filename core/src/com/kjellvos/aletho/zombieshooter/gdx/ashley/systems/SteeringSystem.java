@@ -4,20 +4,34 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.ai.GdxAI;
+import com.badlogic.gdx.ai.steer.utils.Path;
+import com.badlogic.gdx.ai.steer.utils.paths.LinePath;
+import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.utils.Array;
+import com.kjellvos.aletho.zombieshooter.gdx.SeekablePoint;
 import com.kjellvos.aletho.zombieshooter.gdx.SteeringPresets;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.Mapper;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.BodyComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.SimpleAnimationComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.SteeringComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.TextureRegionComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.entities.PlayerEntity;
+import com.kjellvos.aletho.zombieshooter.gdx.pathfinding.MandattanDistance;
+import com.kjellvos.aletho.zombieshooter.gdx.pathfinding.Tile;
+import com.kjellvos.aletho.zombieshooter.gdx.pathfinding.TilePath;
 import org.omg.CORBA.MARSHAL;
 
+import static com.badlogic.gdx.math.MathUtils.floor;
+
 public class SteeringSystem extends IteratingSystem {
-    ZombieShooterGame parent;
+    private ZombieShooterGame parent;
+    private Array<Vector2> route = null;
 
     public SteeringSystem(ZombieShooterGame parent) {
-        super(Family.all(SteeringComponent.class).get());
+        super(Family.all(SteeringComponent.class, BodyComponent.class, TextureRegionComponent.class).get());
         this.parent = parent;
     }
 
@@ -38,12 +52,29 @@ public class SteeringSystem extends IteratingSystem {
         Body playerBody = Mapper.bodyCom.get(entity).body;
 
 
-        if ((playerBody.getPosition().x + 640) > monsterBody.getPosition().x && (playerBody.getPosition().x - 640) < monsterBody.getPosition().x &&
-                (playerBody.getPosition().y + 640) > monsterBody.getPosition().y && (playerBody.getPosition().y - 640) < monsterBody.getPosition().y ) {
-            SteeringComponent playerSteer = Mapper.steerCom.get(playerEntity);
-            steer.steeringBehavior = SteeringPresets.getArrive(steer, playerSteer);
+        if (route == null) {
+            //System.out.println(monsterBody.getPosition().x + ":X_MONSTERBODY_Y:" + monsterBody.getPosition().y);
+            Tile startNode = parent.getGameScreen().getTile(floor(monsterBody.getPosition().x / 16) , floor(monsterBody.getPosition().y / 16));
+            Tile endNode = parent.getGameScreen().getTile(3, 3);
+
+            TilePath path = new TilePath();
+            parent.getGameScreen().getPathFinder().searchConnectionPath(startNode, endNode, new MandattanDistance(), path);
+            System.out.println(path.getCount());
+
+            route = new Array<>(path.getCount());
+            for (int i = 0; i < path.getCount(); i++){
+                route.add(new Vector2(path.get(i).getToNode().getX() * 16 + 8, path.get(i).getToNode().getY() * 16 + 8));
+                System.out.println("Added to path: " + i + " X:" + (path.get(i).getToNode().getX() * 16 + 8) + " Y:" + (path.get(i).getToNode().getY() * 16 + 8));
+            }
+
+            if (path.getCount() > 1) {
+                LinePath<Vector2> linePath = new LinePath<Vector2>(route);
+                steer.steeringBehavior = SteeringPresets.getFollowPath(steer, linePath);
+                System.out.println("APPLIED STEERING");
+            }
         }
 
+        System.out.println(monsterBody.getPosition().x + ":X_MONSTERBODY_Y:" + monsterBody.getPosition().y);
         steer.update(deltaTime);
     }
 }

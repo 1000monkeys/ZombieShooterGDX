@@ -6,6 +6,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ai.pfa.Connection;
+import com.badlogic.gdx.ai.pfa.indexed.IndexedAStarPathFinder;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -15,24 +17,28 @@ import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2D;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.Mapper;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.entities.PlayerEntity;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.systems.SteeringSystem;
+import com.kjellvos.aletho.zombieshooter.gdx.b2d.Box2dLocation;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.MapBodyBuilder;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.MobBuilder;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.systems.ItemPickUpSystem;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.systems.PlayerMovementSystem;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.systems.RenderSystem;
+import com.kjellvos.aletho.zombieshooter.gdx.pathfinding.*;
 
 import java.util.Random;
 
@@ -54,6 +60,12 @@ public class GameScreen implements Screen, InputProcessor {
     private RayHandler rayHandler;
     private Music[] music;
     private GlyphLayout layout;
+
+    private TileWorld tileWorld;
+    private TilePath tilePath;
+    private IndexedAStarPathFinder<Tile> pathFinder;
+    private Array<Tile> tiles;
+    private int mapWidth, mapHeight;
 
     private TiledMap map;
     private PlayerEntity player;
@@ -78,6 +90,55 @@ public class GameScreen implements Screen, InputProcessor {
 
         parent.getAssetManager().getAssetManager().finishLoading();
         map = parent.getAssetManager().getAssetManager().get("testmap.tmx", TiledMap.class);
+
+
+        mapWidth = map.getProperties().get("width", Integer.class);
+        mapHeight = map.getProperties().get("height", Integer.class);
+        tiles = new Array<>(mapWidth * mapHeight);
+        TiledMapTileLayer currLayer = (TiledMapTileLayer) map.getLayers().get("Background");
+
+        for (int x = 0; x < mapWidth; x++){
+            for (int y = 0; y < mapHeight; y++) {
+                int id = currLayer.getCell(x, y).getTile().getId() - 1;
+                boolean walkable = false;
+                if (id == 98) {
+                    walkable = true;
+                }
+
+                tiles.add(new Tile(x, y, walkable, x * mapWidth + y));
+            }
+        }
+
+        for (int x = 0; x < mapWidth; x++) {
+            for (int y = 0; y < mapHeight; y++) {
+                Array<Connection<Tile>> connections = new Array<Connection<Tile>>(4);
+
+                if (x > 0 && tiles.get((x - 1) * mapWidth + y).isWalkable()) connections.add(new TileConnection(tiles.get(x * mapWidth + y), tiles.get((x - 1) * mapWidth + y))); //-1, 0
+                if (y > 0 && tiles.get(x * mapWidth + (y - 1)).isWalkable()) connections.add(new TileConnection(tiles.get(x * mapWidth + y), tiles.get(x * mapWidth + (y - 1)))); //0, -1
+                if (x < mapWidth - 1 && tiles.get((x  + 1) * mapWidth + y).isWalkable()) connections.add(new TileConnection(tiles.get(x * mapWidth + y), tiles.get((x + 1) * mapWidth + y))); //1, 0
+                if (y < mapHeight - 1 && tiles.get(x * mapWidth + (y + 1)).isWalkable()) connections.add(new TileConnection(tiles.get(x * mapWidth + y), tiles.get(x * mapWidth + (y + 1)))); //0, 1
+
+                tiles.get(x * mapWidth + y).setConnections(connections);
+            }
+        }
+
+        for (int x = 0; x < mapWidth; x++) {
+            for (int y = 0; y < mapHeight; y++) {
+                Tile tile = tiles.get(x * mapWidth + y);
+                String kloptfniet = "NEE KLOPT NIET!";
+                if (tile.getIndex() == x * mapWidth + y) {
+                    kloptfniet = "JA KLOPT!";
+                }
+                System.out.println(tile.getX() + ":X_&_Y:" + tile.getY() + " | " + tile.getIndex() + " " + kloptfniet);
+                System.out.println("CONNECTIONS: ");
+                for (int i = 0; i < tile.getConnections().size; i++) {
+                    System.out.println(tile.getConnections().get(i).getToNode().getX() + ":X_&_Y:" + tile.getConnections().get(i).getToNode().getY());
+                }
+            }
+        }
+
+        tileWorld = new TileWorld(tiles);
+        pathFinder = new IndexedAStarPathFinder<Tile>(tileWorld);
 
         tiledMapRenderer = new OrthogonalTiledMapRenderer(map);
 
@@ -148,6 +209,10 @@ public class GameScreen implements Screen, InputProcessor {
                 music[new Random().nextInt(Constants.AMOUNT_MUSIC_FILES)].play();
             }
         });
+    }
+
+    public IndexedAStarPathFinder<Tile> getPathFinder() {
+        return pathFinder;
     }
 
     /**
@@ -406,5 +471,9 @@ public class GameScreen implements Screen, InputProcessor {
 
     public boolean isDownPressed() {
         return downPressed;
+    }
+
+    public Tile getTile(int x, int y) {
+        return tiles.get(x * mapWidth + y);
     }
 }

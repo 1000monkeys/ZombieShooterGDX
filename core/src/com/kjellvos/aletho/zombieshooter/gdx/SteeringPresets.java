@@ -1,12 +1,13 @@
 package com.kjellvos.aletho.zombieshooter.gdx;
 
-import com.badlogic.gdx.ai.steer.behaviors.Arrive;
-import com.badlogic.gdx.ai.steer.behaviors.Flee;
-import com.badlogic.gdx.ai.steer.behaviors.Seek;
-import com.badlogic.gdx.ai.steer.behaviors.Wander;
+import com.badlogic.gdx.ai.steer.SteeringBehavior;
+import com.badlogic.gdx.ai.steer.behaviors.*;
+import com.badlogic.gdx.ai.steer.utils.Path;
+import com.badlogic.gdx.ai.steer.utils.paths.LinePath;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.SteeringComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.pathfinding.TilePath;
 
 public class SteeringPresets {
 
@@ -25,6 +26,11 @@ public class SteeringPresets {
         return seek;
     }
 
+    public static Seek<Vector2> getSeek(SteeringComponent seeker, SeekablePoint target){
+        Seek<Vector2> seek = new Seek<Vector2>(seeker,target);
+        return seek;
+    }
+
     public static Flee<Vector2> getFlee(SteeringComponent runner, SteeringComponent fleeingFrom){
         Flee<Vector2> seek = new Flee<Vector2>(runner,fleeingFrom);
         return seek;
@@ -37,5 +43,13 @@ public class SteeringPresets {
                 .setDecelerationRadius(1F);
 
         return arrive;
+    }
+
+    public static FollowPath<Vector2, LinePath.LinePathParam> getFollowPath(SteeringComponent steer, Path<Vector2, LinePath.LinePathParam> path ) {
+        FollowPath<Vector2, LinePath.LinePathParam> followPath = new FollowPath<Vector2, LinePath.LinePathParam>(steer, path)
+                .setDecelerationRadius(1F)
+                .setArriveEnabled(true);
+
+        return followPath;
     }
 }

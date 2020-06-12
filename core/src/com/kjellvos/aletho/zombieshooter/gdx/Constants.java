@@ -8,6 +8,7 @@ public class Constants {
     public static boolean DEBUG = true;
 
     public static int WALKABLE_ID = 98;
+    public static float NON_DIAGONAL_COST = (float)Math.sqrt(2);
 
     /**
      *
