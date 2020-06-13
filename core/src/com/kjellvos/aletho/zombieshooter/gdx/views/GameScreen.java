@@ -7,6 +7,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.ai.pfa.Connection;
+import com.badlogic.gdx.ai.pfa.PathSmoother;
 import com.badlogic.gdx.ai.pfa.indexed.IndexedAStarPathFinder;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
@@ -62,7 +63,6 @@ public class GameScreen implements Screen, InputProcessor {
     private GlyphLayout layout;
 
     private TileWorld tileWorld;
-    private TilePath tilePath;
     private IndexedAStarPathFinder<Tile> pathFinder;
     private Array<Tile> tiles;
     private int mapWidth, mapHeight;
@@ -137,7 +137,7 @@ public class GameScreen implements Screen, InputProcessor {
             }
         }
 
-        tileWorld = new TileWorld(tiles);
+        tileWorld = new TileWorld(tiles, mapWidth, mapHeight);
         pathFinder = new IndexedAStarPathFinder<Tile>(tileWorld);
 
         tiledMapRenderer = new OrthogonalTiledMapRenderer(map);

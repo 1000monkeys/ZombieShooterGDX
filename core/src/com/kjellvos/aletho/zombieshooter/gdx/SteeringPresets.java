@@ -45,6 +45,15 @@ public class SteeringPresets {
         return arrive;
     }
 
+    public static Arrive<Vector2> getArrive(SteeringComponent runner, SeekablePoint target){
+        Arrive<Vector2> arrive = new Arrive<Vector2>(runner, target)
+                .setTimeToTarget(0.1F) // default 0.1f
+                .setArrivalTolerance(0.0001F) //
+                .setDecelerationRadius(2F);
+
+        return arrive;
+    }
+
     public static FollowPath<Vector2, LinePath.LinePathParam> getFollowPath(SteeringComponent steer, Path<Vector2, LinePath.LinePathParam> path ) {
         FollowPath<Vector2, LinePath.LinePathParam> followPath = new FollowPath<Vector2, LinePath.LinePathParam>(steer, path)
                 .setDecelerationRadius(1F)
