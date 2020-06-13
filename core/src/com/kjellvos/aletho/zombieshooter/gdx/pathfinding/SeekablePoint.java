@@ -1,4 +1,4 @@
-package com.kjellvos.aletho.zombieshooter.gdx;
+package com.kjellvos.aletho.zombieshooter.gdx.pathfinding;
 
 import com.badlogic.gdx.ai.steer.Steerable;
 import com.badlogic.gdx.ai.utils.Location;

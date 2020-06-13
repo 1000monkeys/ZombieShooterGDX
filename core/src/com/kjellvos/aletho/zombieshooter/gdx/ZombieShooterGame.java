@@ -5,6 +5,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.kjellvos.aletho.zombieshooter.gdx.enums.ScreenEnum;
 import com.kjellvos.aletho.zombieshooter.gdx.loader.AssetManager;
+import com.kjellvos.aletho.zombieshooter.gdx.loader.ReadJsonGameFiles;
 import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
 import com.kjellvos.aletho.zombieshooter.gdx.views.MainMenu;
 import com.kjellvos.aletho.zombieshooter.gdx.views.PreferencesMenu;

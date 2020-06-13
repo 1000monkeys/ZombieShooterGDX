@@ -1,13 +1,11 @@
-package com.kjellvos.aletho.zombieshooter.gdx;
+package com.kjellvos.aletho.zombieshooter.gdx.pathfinding;
 
-import com.badlogic.gdx.ai.steer.SteeringBehavior;
 import com.badlogic.gdx.ai.steer.behaviors.*;
 import com.badlogic.gdx.ai.steer.utils.Path;
 import com.badlogic.gdx.ai.steer.utils.paths.LinePath;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.SteeringComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.pathfinding.TilePath;
 
 public class SteeringPresets {
 

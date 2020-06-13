@@ -1,8 +1,10 @@
-package com.kjellvos.aletho.zombieshooter.gdx;
+package com.kjellvos.aletho.zombieshooter.gdx.loader;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.google.gson.Gson;
+import com.kjellvos.aletho.zombieshooter.gdx.Constants;
+import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.AnimationNotFoundException;
 import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.SpriteNotFoundException;
 import com.kjellvos.aletho.zombieshooter.gdx.errorhandling.SpriteSheetNotFoundException;

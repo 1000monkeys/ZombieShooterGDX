@@ -12,6 +12,7 @@ import com.kjellvos.aletho.zombieshooter.gdx.*;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.ManyAnimationComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.SteeringComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.loader.ReadJsonGameFiles;
 
 import java.util.HashMap;
 

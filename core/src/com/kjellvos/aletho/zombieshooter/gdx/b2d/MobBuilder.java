@@ -13,10 +13,10 @@ import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.physics.box2d.*;
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
-import com.kjellvos.aletho.zombieshooter.gdx.ReadJsonGameFiles;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.*;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.entities.MonsterEntity;
+import com.kjellvos.aletho.zombieshooter.gdx.loader.ReadJsonGameFiles;
 
 public class MobBuilder {
 

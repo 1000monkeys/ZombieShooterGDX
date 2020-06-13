@@ -35,32 +35,29 @@ public class PlayerMovementSystem extends EntitySystem {
      */
     @Override
     public void update(float deltaTime) {
-        super.update(deltaTime);
-        for (int i = 0; i < entities.size(); i++) {
-            Entity entity = entities.get(i);
+        Entity player = gameScreen.getPlayer();
 
-            SteeringComponent playerSteerComp = ComMapPlayerSteerableComponent.get(entity);
-            BodyComponent bodyComp = ComMapBodyComponent.get(entity);
+        SteeringComponent playerSteerComp = ComMapPlayerSteerableComponent.get(player);
+        BodyComponent bodyComp = ComMapBodyComponent.get(player);
 
-            int horizontalForce = 0, verticalForce = 0;
-            if (gameScreen.isLeftPressed()) {
-                horizontalForce -= 64;
-            }
-            if (gameScreen.isRightPressed()) {
-                horizontalForce += 64;
-            }
-            if (gameScreen.isUpPressed()) {
-                verticalForce += 64;
-            }
-            if (gameScreen.isDownPressed()) {
-                verticalForce -= 64;
-            }
-
-            bodyComp.body.setLinearVelocity(horizontalForce, verticalForce);
-            playerSteerComp.getPosition().x = bodyComp.body.getPosition().x;
-            playerSteerComp.getPosition().y = bodyComp.body.getPosition().y;
-
-            System.out.println("PLAYER POSITION:" + playerSteerComp.getPosition().x + ":X_Y:" + playerSteerComp.getPosition().y);
+        int horizontalForce = 0, verticalForce = 0;
+        if (gameScreen.isLeftPressed()) {
+            horizontalForce -= 64;
         }
+        if (gameScreen.isRightPressed()) {
+            horizontalForce += 64;
+        }
+        if (gameScreen.isUpPressed()) {
+            verticalForce += 64;
+        }
+        if (gameScreen.isDownPressed()) {
+            verticalForce -= 64;
+        }
+
+        bodyComp.body.setLinearVelocity(horizontalForce, verticalForce);
+        playerSteerComp.getPosition().x = bodyComp.body.getPosition().x;
+        playerSteerComp.getPosition().y = bodyComp.body.getPosition().y;
+
+        System.out.println("PLAYER POSITION:" + playerSteerComp.getPosition().x + ":X_Y:" + playerSteerComp.getPosition().y);
     }
 }
