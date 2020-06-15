@@ -5,11 +5,11 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 
-public class ManyAnimationComponent implements Component {
+public class DirectionalWalkingAnimationComponent implements Component {
     private ZombieShooterGame parent;
     public Animation<TextureRegion> upAnimation, downAnimation, rightAnimation, leftAnimation, idleAnimation;
 
-    public ManyAnimationComponent(ZombieShooterGame parent, Animation<TextureRegion> upAnimation, Animation<TextureRegion> downAnimation, Animation<TextureRegion> rightAnimation, Animation<TextureRegion> leftAnimation, Animation<TextureRegion> idleAnimation) {
+    public DirectionalWalkingAnimationComponent(ZombieShooterGame parent, Animation<TextureRegion> upAnimation, Animation<TextureRegion> downAnimation, Animation<TextureRegion> rightAnimation, Animation<TextureRegion> leftAnimation, Animation<TextureRegion> idleAnimation) {
         this.parent = parent;
 
         this.upAnimation = upAnimation;

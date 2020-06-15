@@ -1,4 +1,6 @@
 package com.kjellvos.aletho.zombieshooter.gdx.ashley.systems;
 
-public class HealthSystem {
+import com.badlogic.ashley.core.EntitySystem;
+
+public class HealthSystem extends EntitySystem {
 }
