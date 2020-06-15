@@ -60,7 +60,7 @@ public class SteeringSystem extends IteratingSystem {
 
             route = new Array<>(path.getCount());
             for (int i = 0; i < path.getCount(); i++) {
-                route.add(new Vector2(path.get(i).getFromNode().getX() * 16 + 8, path.get(i).getFromNode().getY() * 16 + 8));
+                route.add(new Vector2(path.get(i).getToNode().getX() * 16 + 8, path.get(i).getToNode().getY() * 16 + 8));
                 System.out.println("Added to path: " + i + " X:" + (path.get(i).getToNode().getX() * 16 + 8) + " Y:" + (path.get(i).getToNode().getY() * 16 + 8));
             }
 
@@ -68,19 +68,19 @@ public class SteeringSystem extends IteratingSystem {
                 LinePath<Vector2> linePath = new LinePath<Vector2>(route);
                 //steer.steeringBehavior = SteeringPresets.getFollowPath(steer, linePath);
                 steer.currentMode = SteeringComponent.SteeringState.ARRIVE;
-                steer.steeringBehavior = SteeringPresets.getArrive(steer, new SeekablePoint(route.get(count).x, route.get(count).y));
+                steer.steeringBehavior = SteeringPresets.getSeek(steer, new SeekablePoint(route.get(count).x, route.get(count).y));
                 System.out.println("APPLIED STEERING");
             }
         }else{
             if (    route.size - 1 > count &&
-                    route.get(count).x + 8 > monsterBody.getPosition().x && monsterBody.getPosition().x > route.get(count).x - 8 &&
-                    route.get(count).y + 8 > monsterBody.getPosition().y && monsterBody.getPosition().y > route.get(count).y - 8
+                    route.get(count).x + 8 > monsterBody.getPosition().x - 4 && monsterBody.getPosition().x + 4 > route.get(count).x - 8 &&
+                    route.get(count).y + 8 > monsterBody.getPosition().y - 4 && monsterBody.getPosition().y + 4 > route.get(count).y - 8
             ){
                 count++;
-                //steer.body.setLinearVelocity(new Vector2(0, 0));
-                //steer.body.setAngularVelocity(0F);
+                steer.body.setLinearVelocity(new Vector2(0, 0));
+                steer.body.setAngularVelocity(0F);
                 steer.currentMode = SteeringComponent.SteeringState.ARRIVE;
-                steer.steeringBehavior = SteeringPresets.getArrive(steer, new SeekablePoint(route.get(count).x, route.get(count).y));
+                steer.steeringBehavior = SteeringPresets.getSeek(steer, new SeekablePoint(route.get(count).x, route.get(count).y));
             }
         }
 

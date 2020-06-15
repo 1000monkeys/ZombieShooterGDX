@@ -20,7 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dae99bb-f850-4e65-96fa-f780e7f4f2c0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/HealthComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/HealthComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/SteeringComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/SteeringComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/systems/SteeringSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/systems/SteeringSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +151,8 @@
       <workItem from="1591988853614" duration="6779000" />
       <workItem from="1591995860626" duration="204000" />
       <workItem from="1592049860073" duration="4292000" />
-      <workItem from="1592087251642" duration="7217000" />
+      <workItem from="1592087251642" duration="7253000" />
+      <workItem from="1592258441336" duration="1529000" />
     </task>
     <servers />
   </component>
@@ -243,45 +247,45 @@
     </state>
     <state x="420" y="432" width="723" height="333" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1590862027348" />
     <state x="630" y="648" key="FileChooserDialogImpl/0.0.3840.2098@0.0.3840.2098" timestamp="1584288024060" />
-    <state width="1235" height="241" key="GridCell.Tab.0.bottom" timestamp="1592257095439">
+    <state width="2517" height="242" key="GridCell.Tab.0.bottom" timestamp="1592259357481">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1235" height="241" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1592257095439" />
+    <state width="2517" height="242" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1592259357481" />
     <state width="2981" height="431" key="GridCell.Tab.0.bottom/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707816" />
-    <state width="1235" height="241" key="GridCell.Tab.0.center" timestamp="1592257095439">
+    <state width="2517" height="242" key="GridCell.Tab.0.center" timestamp="1592259357481">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1235" height="241" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1592257095439" />
+    <state width="2517" height="242" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1592259357481" />
     <state width="2981" height="431" key="GridCell.Tab.0.center/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
-    <state width="1235" height="241" key="GridCell.Tab.0.left" timestamp="1592257095439">
+    <state width="2517" height="242" key="GridCell.Tab.0.left" timestamp="1592259357481">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1235" height="241" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1592257095439" />
+    <state width="2517" height="242" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1592259357481" />
     <state width="2981" height="431" key="GridCell.Tab.0.left/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
-    <state width="1235" height="241" key="GridCell.Tab.0.right" timestamp="1592257095439">
+    <state width="2517" height="242" key="GridCell.Tab.0.right" timestamp="1592259357481">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1235" height="241" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1592257095439" />
+    <state width="2517" height="242" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1592259357481" />
     <state width="2981" height="431" key="GridCell.Tab.0.right/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
-    <state width="1873" height="490" key="GridCell.Tab.1.bottom" timestamp="1591995647310">
+    <state width="2517" height="490" key="GridCell.Tab.1.bottom" timestamp="1592259308418">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1873" height="490" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1591995647310" />
+    <state width="2517" height="490" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1592259308418" />
     <state width="3760" height="709" key="GridCell.Tab.1.bottom/0.0.3840.2098@0.0.3840.2098" timestamp="1584213926176" />
-    <state width="1873" height="490" key="GridCell.Tab.1.center" timestamp="1591995647310">
+    <state width="2517" height="490" key="GridCell.Tab.1.center" timestamp="1592259308418">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1873" height="490" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1591995647310" />
+    <state width="2517" height="490" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1592259308418" />
     <state width="3760" height="709" key="GridCell.Tab.1.center/0.0.3840.2098@0.0.3840.2098" timestamp="1584213926176" />
-    <state width="1873" height="490" key="GridCell.Tab.1.left" timestamp="1591995647310">
+    <state width="2517" height="490" key="GridCell.Tab.1.left" timestamp="1592259308418">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1873" height="490" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1591995647310" />
+    <state width="2517" height="490" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1592259308418" />
     <state width="3760" height="709" key="GridCell.Tab.1.left/0.0.3840.2098@0.0.3840.2098" timestamp="1584213926176" />
-    <state width="1873" height="490" key="GridCell.Tab.1.right" timestamp="1591995647310">
+    <state width="2517" height="490" key="GridCell.Tab.1.right" timestamp="1592259308418">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1873" height="490" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1591995647310" />
+    <state width="2517" height="490" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1592259308418" />
     <state width="3760" height="709" key="GridCell.Tab.1.right/0.0.3840.2098@0.0.3840.2098" timestamp="1584213926176" />
     <state x="343" y="324" width="1442" height="850" key="SettingsEditor" timestamp="1591989400472">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -319,10 +323,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1273" y="0" width="1293" height="1407" key="dock-window-3/0.0.2560.1400@0.0.2560.1400" timestamp="1590791034441" />
-    <state x="775" y="399" width="628" height="804" key="find.popup" timestamp="1592253418026">
+    <state x="775" y="399" width="628" height="804" key="find.popup" timestamp="1592259269141">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="775" y="399" width="628" height="804" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1592253418026" />
+    <state x="775" y="399" width="628" height="804" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1592259269141" />
     <state x="90" y="324" key="new project wizard" timestamp="1591096623742">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
