@@ -20,30 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dae99bb-f850-4e65-96fa-f780e7f4f2c0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/HealthComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/Ability.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ZombieShooterGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ZombieShooterGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/DropComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/DropComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/entities/MonsterEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/entities/MonsterEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/entities/PlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/entities/PlayerEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/systems/HealthSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/systems/HealthSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/systems/ItemPickUpSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/systems/ItemPickUpSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/pathfinding/SteeringPresets.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/pathfinding/SteeringPresets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/views/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/views/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/HealthComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/HealthComponent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +148,7 @@
       <workItem from="1591988853614" duration="6779000" />
       <workItem from="1591995860626" duration="204000" />
       <workItem from="1592049860073" duration="4292000" />
-      <workItem from="1592087251642" duration="6858000" />
+      <workItem from="1592087251642" duration="7217000" />
     </task>
     <servers />
   </component>
@@ -266,25 +243,25 @@
     </state>
     <state x="420" y="432" width="723" height="333" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1590862027348" />
     <state x="630" y="648" key="FileChooserDialogImpl/0.0.3840.2098@0.0.3840.2098" timestamp="1584288024060" />
-    <state width="1235" height="241" key="GridCell.Tab.0.bottom" timestamp="1592257011903">
+    <state width="1235" height="241" key="GridCell.Tab.0.bottom" timestamp="1592257095439">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1235" height="241" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1592257011903" />
+    <state width="1235" height="241" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1592257095439" />
     <state width="2981" height="431" key="GridCell.Tab.0.bottom/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707816" />
-    <state width="1235" height="241" key="GridCell.Tab.0.center" timestamp="1592257011903">
+    <state width="1235" height="241" key="GridCell.Tab.0.center" timestamp="1592257095439">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1235" height="241" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1592257011903" />
+    <state width="1235" height="241" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1592257095439" />
     <state width="2981" height="431" key="GridCell.Tab.0.center/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
-    <state width="1235" height="241" key="GridCell.Tab.0.left" timestamp="1592257011902">
+    <state width="1235" height="241" key="GridCell.Tab.0.left" timestamp="1592257095439">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1235" height="241" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1592257011902" />
+    <state width="1235" height="241" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1592257095439" />
     <state width="2981" height="431" key="GridCell.Tab.0.left/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
-    <state width="1235" height="241" key="GridCell.Tab.0.right" timestamp="1592257011903">
+    <state width="1235" height="241" key="GridCell.Tab.0.right" timestamp="1592257095439">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1235" height="241" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1592257011903" />
+    <state width="1235" height="241" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1592257095439" />
     <state width="2981" height="431" key="GridCell.Tab.0.right/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
     <state width="1873" height="490" key="GridCell.Tab.1.bottom" timestamp="1591995647310">
       <screen x="0" y="0" width="2560" height="1400" />
