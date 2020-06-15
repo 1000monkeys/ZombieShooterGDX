@@ -1,4 +1,7 @@
 package com.kjellvos.aletho.zombieshooter.gdx.ashley.components;
 
-public class HealthComponent {
+import com.badlogic.ashley.core.Component;
+
+public class HealthComponent implements Component {
+    public int health = 100;
 }

@@ -7,7 +7,9 @@ public class Constants {
      */
     public static boolean DEBUG = true;
 
-    public static int WALKABLE_ID = 98;
+    /**
+     * Non diagonal movement cost(diagonal being 1)
+     */
     public static float NON_DIAGONAL_COST = (float)Math.sqrt(2);
 
     /**
@@ -34,6 +36,9 @@ public class Constants {
     public static final String GAMEDATA_JSON = "json/gamedata.json";
 
 
+    /**
+     * Animation ID's, Could be moved to gamedata JSON
+     */
     public static final int ANIMATION_PLAYER_DOWN = 4;
     public static final int ANIMATION_PLAYER_UP = 5;
     public static final int ANIMATION_PLAYER_RIGHT = 6;

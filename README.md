@@ -103,7 +103,8 @@ The game, less barebones. But no gameplay yet.
 
 
 ## **TODO**:
-
+TODO-2: Create real paper documentation for project
+TODO-1: Create documentation for new code
 TODO: inventory, shop/player and item drop monsters
 TODO2: create resources to mine
 TODO3: create screen for creating towers and such

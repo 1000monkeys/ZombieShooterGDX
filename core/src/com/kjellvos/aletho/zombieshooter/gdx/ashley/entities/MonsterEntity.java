@@ -6,12 +6,10 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.*;
 import com.kjellvos.aletho.zombieshooter.gdx.loader.ReadJsonGameFiles;
 import com.kjellvos.aletho.zombieshooter.gdx.pathfinding.SteeringPresets;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
-import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.BodyComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.SteeringComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.TextureRegionComponent;
 
 
 public class MonsterEntity extends Entity {
@@ -38,11 +36,13 @@ public class MonsterEntity extends Entity {
 
         TextureRegionComponent textureRegionComponent = new TextureRegionComponent(readJsonGameFiles.getSpriteGson(293).getSprite());
 
-        SteeringComponent sc = new SteeringComponent(body);
-        sc.steeringBehavior = SteeringPresets.getWander(sc);
-        sc.currentMode = SteeringComponent.SteeringState.WANDER;
+        SteeringComponent steeringComponent = new SteeringComponent(body);
+        steeringComponent.steeringBehavior = SteeringPresets.getWander(steeringComponent);
+        steeringComponent.currentMode = SteeringComponent.SteeringState.WANDER;
 
-        this.add(textureRegionComponent).add(new BodyComponent(body)).add(sc);
+        DropComponent dropComponent = new DropComponent();
+
+        this.add(textureRegionComponent).add(new BodyComponent(body)).add(steeringComponent).add(dropComponent).add(new HealthComponent());
         parent.getGameScreen().getEngine().addEntity(this);
     }
 }

@@ -1,4 +1,6 @@
 package com.kjellvos.aletho.zombieshooter.gdx.ashley.components;
 
-public class DropComponent {
+import com.badlogic.ashley.core.Component;
+
+public class DropComponent implements Component {
 }

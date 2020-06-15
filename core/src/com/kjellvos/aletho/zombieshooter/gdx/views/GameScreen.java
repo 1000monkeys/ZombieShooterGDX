@@ -31,14 +31,11 @@ import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.Mapper;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.entities.PlayerEntity;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
-import com.kjellvos.aletho.zombieshooter.gdx.ashley.systems.SteeringSystem;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.systems.*;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.Box2dLocation;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.MapBodyBuilder;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.MobBuilder;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.BodyComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.ashley.systems.ItemPickUpSystem;
-import com.kjellvos.aletho.zombieshooter.gdx.ashley.systems.PlayerMovementSystem;
-import com.kjellvos.aletho.zombieshooter.gdx.ashley.systems.RenderSystem;
 import com.kjellvos.aletho.zombieshooter.gdx.pathfinding.*;
 
 import java.util.Random;
@@ -174,6 +171,7 @@ public class GameScreen implements Screen, InputProcessor {
         engine.addSystem(new PlayerMovementSystem(this));
         engine.addSystem(new ItemPickUpSystem(parent));
         engine.addSystem(new SteeringSystem(parent));
+        engine.addSystem(new HealthSystem(parent));
 
         Gdx.input.setInputProcessor(this);
 

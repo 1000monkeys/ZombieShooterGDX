@@ -15,7 +15,7 @@ import com.kjellvos.aletho.zombieshooter.gdx.views.Splashes;
  * This program is built with the LibGDX library, The idea is to combine a tower defense and RPG.
  *
  * @author Kjell Vos
- * @version 0.1
+ * @version 0.1.5
  * @since 2020-02-28
  */
 public class ZombieShooterGame extends Game{

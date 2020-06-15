@@ -22,7 +22,6 @@ public class PlayerEntity extends Entity{
     private DirectionalWalkingAnimationComponent directionalWalkingAnimationComponent;
 
     private PlayerInventoryComponent inventory;
-    private HashMap<Integer, Ability> abilities;
 
     public PlayerEntity(ZombieShooterGame parent) {
         this.parent = parent;
@@ -58,8 +57,6 @@ public class PlayerEntity extends Entity{
                 .add(new SteeringComponent(body))
                 .add(inventory);
         parent.getGameScreen().getEngine().addEntity(this);
-
-        abilities = new HashMap<Integer, Ability>();
     }
 
 

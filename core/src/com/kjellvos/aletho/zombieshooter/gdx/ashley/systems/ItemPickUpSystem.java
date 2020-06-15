@@ -10,6 +10,7 @@ import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.ItemComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.PlayerInventoryComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.SteeringComponent;
 
 public class ItemPickUpSystem extends EntitySystem {
@@ -34,7 +35,7 @@ public class ItemPickUpSystem extends EntitySystem {
     public void addedToEngine(Engine engine) {
         super.addedToEngine(engine);
         entities = engine.getEntitiesFor(Family.all(ItemComponent.class, BodyComponent.class).get());
-        player = engine.getEntitiesFor(Family.all(SteeringComponent.class, BodyComponent.class).get());
+        player = engine.getEntitiesFor(Family.all(SteeringComponent.class, BodyComponent.class, PlayerInventoryComponent.class).get());
     }
 
     /**
