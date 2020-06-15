@@ -17,10 +17,10 @@ public class SteeringComponent implements Steerable<Vector2>, Component, Pool.Po
     public Body body;	// stores a reference to our Box2D body
 
     // Steering data
-    float maxLinearSpeed = 45f;	// stores the max speed the entity can go
-    float maxLinearAcceleration = 15f;	// stores the max acceleration
+    float maxLinearSpeed = 64f;	// stores the max speed the entity can go
+    float maxLinearAcceleration = 64f;	// stores the max acceleration
     float maxAngularSpeed = 45f;		// the max turning speed
-    float maxAngularAcceleration = 15f;// the max turning acceleration
+    float maxAngularAcceleration = 45f;// the max turning acceleration
     float zeroThreshold = 0.1f;	// how accurate should checks be (0.0000001f will mean the entity must get within 0.0000001f of
     // target location. This will cause problems as our entities travel pretty fast and can easily over or undershoot this.)
     public SteeringBehavior<Vector2> steeringBehavior; // stors the action behaviour

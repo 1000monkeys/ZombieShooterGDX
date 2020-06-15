@@ -1,6 +1,5 @@
 package com.kjellvos.aletho.zombieshooter.gdx.ashley.entities;
 
-import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -10,7 +9,8 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.kjellvos.aletho.zombieshooter.gdx.*;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.BodyComponent;
-import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.ManyAnimationComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.DirectionalWalkingAnimationComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.PlayerInventoryComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.SteeringComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.loader.ReadJsonGameFiles;
 
@@ -19,9 +19,9 @@ import java.util.HashMap;
 public class PlayerEntity extends Entity{
     private ZombieShooterGame parent;
 
-    private ManyAnimationComponent manyAnimationComponent;
+    private DirectionalWalkingAnimationComponent directionalWalkingAnimationComponent;
 
-    private Inventory inventory;
+    private PlayerInventoryComponent inventory;
     private HashMap<Integer, Ability> abilities;
 
     public PlayerEntity(ZombieShooterGame parent) {
@@ -48,17 +48,22 @@ public class PlayerEntity extends Entity{
         Animation<TextureRegion> leftAnimation = new Animation<TextureRegion>(readJsonGameFiles.getAnimationGson(Constants.ANIMATION_PLAYER_LEFT).getTimer(), readJsonGameFiles.getAnimationTextures(Constants.ANIMATION_PLAYER_LEFT));
         Animation<TextureRegion> idleAnimation = new Animation<TextureRegion>(readJsonGameFiles.getAnimationGson(Constants.ANIMATION_PLAYER_IDLE).getTimer(), readJsonGameFiles.getAnimationTextures(Constants.ANIMATION_PLAYER_IDLE));
 
-        manyAnimationComponent = new ManyAnimationComponent(parent, upAnimation, downAnimation, rightAnimation, leftAnimation, idleAnimation);
+        directionalWalkingAnimationComponent = new DirectionalWalkingAnimationComponent(parent, upAnimation, downAnimation, rightAnimation, leftAnimation, idleAnimation);
 
-        this.add(manyAnimationComponent).add(new BodyComponent(body)).add(new SteeringComponent(body));
+        inventory = new PlayerInventoryComponent(parent);
+
+        this
+                .add(directionalWalkingAnimationComponent)
+                .add(new BodyComponent(body))
+                .add(new SteeringComponent(body))
+                .add(inventory);
         parent.getGameScreen().getEngine().addEntity(this);
 
-        inventory = new Inventory(parent);
         abilities = new HashMap<Integer, Ability>();
     }
 
 
-    public Inventory getInventory() {
+    public PlayerInventoryComponent getInventory() {
         return inventory;
     }
 }

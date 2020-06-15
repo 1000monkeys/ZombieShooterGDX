@@ -29,8 +29,8 @@ public class MonsterEntity extends Entity {
         PolygonShape shape = new PolygonShape();
         shape.setAsBox(8 / 2F, 8 / 2F);
         fixtureDef.shape = shape;
-        fixtureDef.filter.categoryBits = Constants.CATEGORY_PLAYER;
-        fixtureDef.filter.maskBits = Constants.MASK_PLAYER;
+        fixtureDef.filter.categoryBits = Constants.CATEGORY_MOB;
+        fixtureDef.filter.maskBits = Constants.MASK_MOB;
         body.createFixture(fixtureDef).setUserData("player");
 
         ReadJsonGameFiles readJsonGameFiles = parent.getReadJsonGameFiles();
@@ -40,7 +40,7 @@ public class MonsterEntity extends Entity {
 
         SteeringComponent sc = new SteeringComponent(body);
         sc.steeringBehavior = SteeringPresets.getWander(sc);
-        sc.currentMode = SteeringComponent.SteeringState.ARRIVE;
+        sc.currentMode = SteeringComponent.SteeringState.WANDER;
 
         this.add(textureRegionComponent).add(new BodyComponent(body)).add(sc);
         parent.getGameScreen().getEngine().addEntity(this);

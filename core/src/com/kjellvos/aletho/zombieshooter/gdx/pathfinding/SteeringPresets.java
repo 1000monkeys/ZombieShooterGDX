@@ -45,9 +45,10 @@ public class SteeringPresets {
 
     public static Arrive<Vector2> getArrive(SteeringComponent runner, SeekablePoint target){
         Arrive<Vector2> arrive = new Arrive<Vector2>(runner, target)
-                .setTimeToTarget(0.1F) // default 0.1f
-                .setArrivalTolerance(0.0001F) //
-                .setDecelerationRadius(2F);
+                .setTimeToTarget(1F) // default 0.1f
+                .setArrivalTolerance(0.01F) //
+                .setDecelerationRadius(0.5F);
+
 
         return arrive;
     }

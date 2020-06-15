@@ -67,17 +67,19 @@ public class SteeringSystem extends IteratingSystem {
             if (path.getCount() > 1) {
                 LinePath<Vector2> linePath = new LinePath<Vector2>(route);
                 //steer.steeringBehavior = SteeringPresets.getFollowPath(steer, linePath);
+                steer.currentMode = SteeringComponent.SteeringState.ARRIVE;
                 steer.steeringBehavior = SteeringPresets.getArrive(steer, new SeekablePoint(route.get(count).x, route.get(count).y));
                 System.out.println("APPLIED STEERING");
             }
         }else{
-            if (
-                    route.get(count).x + 4 > monsterBody.getPosition().x && monsterBody.getPosition().x > route.get(count).x - 4 &&
-                    route.get(count).y + 4 > monsterBody.getPosition().y && monsterBody.getPosition().y > route.get(count).y - 4
+            if (    route.size - 1 > count &&
+                    route.get(count).x + 8 > monsterBody.getPosition().x && monsterBody.getPosition().x > route.get(count).x - 8 &&
+                    route.get(count).y + 8 > monsterBody.getPosition().y && monsterBody.getPosition().y > route.get(count).y - 8
             ){
                 count++;
-                steer.body.setLinearVelocity(new Vector2(0, 0));
-                steer.body.setAngularVelocity(0F);
+                //steer.body.setLinearVelocity(new Vector2(0, 0));
+                //steer.body.setAngularVelocity(0F);
+                steer.currentMode = SteeringComponent.SteeringState.ARRIVE;
                 steer.steeringBehavior = SteeringPresets.getArrive(steer, new SeekablePoint(route.get(count).x, route.get(count).y));
             }
         }

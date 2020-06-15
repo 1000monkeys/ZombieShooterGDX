@@ -104,7 +104,10 @@ The game, less barebones. But no gameplay yet.
 
 ## **TODO**:
 
-TODO: movement of enemy npc's
+TODO: inventory, shop/player and item drop monsters
+TODO2: create resources to mine
+TODO3: create screen for creating towers and such
+TODO4: create world presence for these towers and link them up with creation of towers
 
 - Inventory system
 - Loot

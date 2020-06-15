@@ -46,7 +46,7 @@ public class RenderSystem extends EntitySystem {
             batch.draw(currentFrame, body.getPosition().x - (currentFrame.getRegionWidth() / 2), body.getPosition().y  - (currentFrame.getRegionHeight() / 2));
         }
         for (Entity entity : playerAnimation) {
-            TextureRegion currentFrame = entity.getComponent(ManyAnimationComponent.class).getAnimation().getKeyFrame(stateTime, true);
+            TextureRegion currentFrame = entity.getComponent(DirectionalWalkingAnimationComponent.class).getAnimation().getKeyFrame(stateTime, true);
             Body body = entity.getComponent(BodyComponent.class).body;
 
             batch.draw(currentFrame, body.getPosition().x - (currentFrame.getRegionWidth() / 2), body.getPosition().y  - (currentFrame.getRegionHeight() / 2));
@@ -61,7 +61,7 @@ public class RenderSystem extends EntitySystem {
     public void addedToEngine(Engine engine) {
         super.addedToEngine(engine);
         entities = engine.getEntitiesFor(Family.all(TextureRegionComponent.class, BodyComponent.class).get());
-        playerAnimation = engine.getEntitiesFor(Family.all(ManyAnimationComponent.class, BodyComponent.class).get());
+        playerAnimation = engine.getEntitiesFor(Family.all(DirectionalWalkingAnimationComponent.class, BodyComponent.class).get());
         simpleAnimations = engine.getEntitiesFor(Family.all(SimpleAnimationComponent.class).get());
     }
 }

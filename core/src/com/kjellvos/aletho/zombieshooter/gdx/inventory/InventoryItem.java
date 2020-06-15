@@ -1,4 +1,4 @@
-package com.kjellvos.aletho.zombieshooter.gdx;
+package com.kjellvos.aletho.zombieshooter.gdx.inventory;
 
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.ItemComponent;
 
