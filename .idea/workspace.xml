@@ -20,10 +20,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dae99bb-f850-4e65-96fa-f780e7f4f2c0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/assets/testmap.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/core/assets/testmap.tmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/SteeringComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/components/SteeringComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/entities/PlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/entities/PlayerEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/systems/PlayerMovementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/systems/PlayerMovementSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/systems/SteeringSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/systems/SteeringSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/b2d/MobBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/b2d/MobBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/pathfinding/SteeringPresets.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/pathfinding/SteeringPresets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/views/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/views/GameScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,12 +98,8 @@
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.kjellvos.aletho.zombieshooter.gdx.b2d" />
-      <recent name="com.kjellvos.aletho.zombieshooter.gdx" />
-      <recent name="com.kjellvos.aletho.zombieshooter.gdx.gson" />
-      <recent name="com.kjellvos.aletho.zombieshooter.gdx.entities" />
-      <recent name="com.kjellvos.aletho.zombieshooter.gdx.systems" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kjell\IdeaProjects\ZombieShooterGDX\core\assets\json" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.kjellvos.aletho.zombieshooter.gdx.enums" />
@@ -96,8 +108,12 @@
       <recent name="com.kjellvos.aletho.zombieshooter.gdx.loader" />
       <recent name="com.kjellvos.aletho.zombieshooter.gdx.gson" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\kjell\IdeaProjects\ZombieShooterGDX\core\assets\json" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.kjellvos.aletho.zombieshooter.gdx.b2d" />
+      <recent name="com.kjellvos.aletho.zombieshooter.gdx" />
+      <recent name="com.kjellvos.aletho.zombieshooter.gdx.gson" />
+      <recent name="com.kjellvos.aletho.zombieshooter.gdx.entities" />
+      <recent name="com.kjellvos.aletho.zombieshooter.gdx.systems" />
     </key>
   </component>
   <component name="RunManager">
@@ -152,7 +168,9 @@
       <workItem from="1591995860626" duration="204000" />
       <workItem from="1592049860073" duration="4292000" />
       <workItem from="1592087251642" duration="7253000" />
-      <workItem from="1592258441336" duration="1529000" />
+      <workItem from="1592258441336" duration="4961000" />
+      <workItem from="1592391795295" duration="3674000" />
+      <workItem from="1592852768243" duration="8337000" />
     </task>
     <servers />
   </component>
@@ -207,7 +225,6 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="709" y="260" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591100667438" />
-    <state x="1064" y="390" width="923" height="814" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.3840.2098@0.0.3840.2098" timestamp="1584211860915" />
     <state x="895" y="460" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1590863508904">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -221,10 +238,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="461" y="628" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1591727365709" />
-    <state x="408" y="564" width="535" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1592257080044">
+    <state x="408" y="564" width="535" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1592312029357">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="408" y="564" width="535" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.2560.1400@0.0.2560.1400" timestamp="1592257080044" />
+    <state x="408" y="564" width="535" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.2560.1400@0.0.2560.1400" timestamp="1592312029357" />
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592252153435">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -247,45 +264,45 @@
     </state>
     <state x="420" y="432" width="723" height="333" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1590862027348" />
     <state x="630" y="648" key="FileChooserDialogImpl/0.0.3840.2098@0.0.3840.2098" timestamp="1584288024060" />
-    <state width="2517" height="242" key="GridCell.Tab.0.bottom" timestamp="1592259357481">
+    <state width="2517" height="589" key="GridCell.Tab.0.bottom" timestamp="1592861046576">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="242" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1592259357481" />
+    <state width="2517" height="589" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1592861046576" />
     <state width="2981" height="431" key="GridCell.Tab.0.bottom/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707816" />
-    <state width="2517" height="242" key="GridCell.Tab.0.center" timestamp="1592259357481">
+    <state width="2517" height="589" key="GridCell.Tab.0.center" timestamp="1592861046576">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="242" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1592259357481" />
+    <state width="2517" height="589" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1592861046576" />
     <state width="2981" height="431" key="GridCell.Tab.0.center/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
-    <state width="2517" height="242" key="GridCell.Tab.0.left" timestamp="1592259357481">
+    <state width="2517" height="589" key="GridCell.Tab.0.left" timestamp="1592861046576">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="242" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1592259357481" />
+    <state width="2517" height="589" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1592861046576" />
     <state width="2981" height="431" key="GridCell.Tab.0.left/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
-    <state width="2517" height="242" key="GridCell.Tab.0.right" timestamp="1592259357481">
+    <state width="2517" height="589" key="GridCell.Tab.0.right" timestamp="1592861046576">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="242" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1592259357481" />
+    <state width="2517" height="589" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1592861046576" />
     <state width="2981" height="431" key="GridCell.Tab.0.right/0.0.3840.2098@0.0.3840.2098" timestamp="1584548707815" />
-    <state width="2517" height="490" key="GridCell.Tab.1.bottom" timestamp="1592259308418">
+    <state width="1235" height="489" key="GridCell.Tab.1.bottom" timestamp="1592859335465">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="490" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1592259308418" />
+    <state width="1235" height="489" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1592859335465" />
     <state width="3760" height="709" key="GridCell.Tab.1.bottom/0.0.3840.2098@0.0.3840.2098" timestamp="1584213926176" />
-    <state width="2517" height="490" key="GridCell.Tab.1.center" timestamp="1592259308418">
+    <state width="1235" height="489" key="GridCell.Tab.1.center" timestamp="1592859335465">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="490" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1592259308418" />
+    <state width="1235" height="489" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1592859335465" />
     <state width="3760" height="709" key="GridCell.Tab.1.center/0.0.3840.2098@0.0.3840.2098" timestamp="1584213926176" />
-    <state width="2517" height="490" key="GridCell.Tab.1.left" timestamp="1592259308418">
+    <state width="1235" height="489" key="GridCell.Tab.1.left" timestamp="1592859335465">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="490" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1592259308418" />
+    <state width="1235" height="489" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1592859335465" />
     <state width="3760" height="709" key="GridCell.Tab.1.left/0.0.3840.2098@0.0.3840.2098" timestamp="1584213926176" />
-    <state width="2517" height="490" key="GridCell.Tab.1.right" timestamp="1592259308418">
+    <state width="1235" height="489" key="GridCell.Tab.1.right" timestamp="1592859335465">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="490" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1592259308418" />
+    <state width="1235" height="489" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1592859335465" />
     <state width="3760" height="709" key="GridCell.Tab.1.right/0.0.3840.2098@0.0.3840.2098" timestamp="1584213926176" />
     <state x="343" y="324" width="1442" height="850" key="SettingsEditor" timestamp="1591989400472">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -323,10 +340,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1273" y="0" width="1293" height="1407" key="dock-window-3/0.0.2560.1400@0.0.2560.1400" timestamp="1590791034441" />
-    <state x="775" y="399" width="628" height="804" key="find.popup" timestamp="1592259269141">
+    <state x="775" y="399" width="628" height="804" key="find.popup" timestamp="1592854122052">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="775" y="399" width="628" height="804" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1592259269141" />
+    <state x="775" y="399" width="628" height="804" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1592854122052" />
     <state x="90" y="324" key="new project wizard" timestamp="1591096623742">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -339,10 +356,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1583" y="333" key="run.anything.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1592060740452" />
-    <state x="303" y="320" width="673" height="679" key="search.everywhere.popup" timestamp="1592252088859">
+    <state x="303" y="320" width="673" height="679" key="search.everywhere.popup" timestamp="1592856768686">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="303" y="320" width="673" height="679" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1592252088859" />
+    <state x="303" y="320" width="673" height="679" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1592856768686" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ZombieShooterGDX$DesktopLauncher.ic" NAME="DesktopLauncher Coverage Results" MODIFIED="1590940781728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -33,7 +33,7 @@ public class PlayerEntity extends Entity{
 
         Body body = parent.getGameScreen().getWorld().createBody(bodyDef);
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(16 / 2F, 16 / 2F);
+        shape.setAsBox(16 / 4F, 16 / 4F);
         fixtureDef.shape = shape;
         fixtureDef.filter.categoryBits = Constants.CATEGORY_PLAYER;
         fixtureDef.filter.maskBits = Constants.MASK_PLAYER;

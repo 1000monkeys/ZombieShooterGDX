@@ -108,12 +108,33 @@ public class GameScreen implements Screen, InputProcessor {
 
         for (int x = 0; x < mapWidth; x++) {
             for (int y = 0; y < mapHeight; y++) {
-                Array<Connection<Tile>> connections = new Array<Connection<Tile>>(4);
+                Array<Connection<Tile>> connections = new Array<Connection<Tile>>(8);
 
-                if (x > 0 && tiles.get((x - 1) * mapWidth + y).isWalkable()) connections.add(new TileConnection(tiles.get(x * mapWidth + y), tiles.get((x - 1) * mapWidth + y))); //-1, 0
-                if (y > 0 && tiles.get(x * mapWidth + (y - 1)).isWalkable()) connections.add(new TileConnection(tiles.get(x * mapWidth + y), tiles.get(x * mapWidth + (y - 1)))); //0, -1
-                if (x < mapWidth - 1 && tiles.get((x  + 1) * mapWidth + y).isWalkable()) connections.add(new TileConnection(tiles.get(x * mapWidth + y), tiles.get((x + 1) * mapWidth + y))); //1, 0
-                if (y < mapHeight - 1 && tiles.get(x * mapWidth + (y + 1)).isWalkable()) connections.add(new TileConnection(tiles.get(x * mapWidth + y), tiles.get(x * mapWidth + (y + 1)))); //0, 1
+                if (x > 0 && tiles.get((x - 1) * mapWidth + y).isWalkable()){
+                    connections.add(new TileConnection(tiles.get(x * mapWidth + y), tiles.get((x - 1) * mapWidth + y))); //-1, 0
+                }
+                if (y > 0 && tiles.get(x * mapWidth + (y - 1)).isWalkable()){
+                    connections.add(new TileConnection(tiles.get(x * mapWidth + y), tiles.get(x * mapWidth + (y - 1)))); //0, -1
+                }
+                if (x < mapWidth - 1 && tiles.get((x  + 1) * mapWidth + y).isWalkable()){
+                    connections.add(new TileConnection(tiles.get(x * mapWidth + y), tiles.get((x + 1) * mapWidth + y))); //1, 0
+                }
+                if (y < mapHeight - 1 && tiles.get(x * mapWidth + (y + 1)).isWalkable()){
+                    connections.add(new TileConnection(tiles.get(x * mapWidth + y), tiles.get(x * mapWidth + (y + 1)))); //0, 1
+                }
+
+                if ((x + 1) < mapHeight && (y + 1) < mapWidth && tiles.get((x + 1) * mapWidth + y + 1).isWalkable()){
+                    connections.add(new TileConnection(tiles.get(x * mapWidth + y), tiles.get((x + 1) * mapWidth + y + 1))); //1, 1
+                }
+                if ((x + 1) < mapHeight && (y - 1) > 0 && tiles.get((x + 1) * mapWidth + y - 1).isWalkable()){
+                    connections.add(new TileConnection(tiles.get(x * mapWidth + y), tiles.get((x + 1) * mapWidth + y - 1))); //1, -1
+                }
+                if ((x - 1) > 0 && (y - 1) > 0 && tiles.get((x - 1) * mapWidth + y - 1).isWalkable()){
+                    connections.add(new TileConnection(tiles.get(x * mapWidth + y), tiles.get((x - 1) * mapWidth + y - 1))); //-1, -1
+                }
+                if ((x - 1) > 0 && y + 1 < mapWidth && tiles.get((x - 1) * mapWidth + y + 1).isWalkable()){
+                    connections.add(new TileConnection(tiles.get(x * mapWidth + y), tiles.get((x - 1) * mapWidth + y + 1))); //-1, -1
+                }
 
                 tiles.get(x * mapWidth + y).setConnections(connections);
             }

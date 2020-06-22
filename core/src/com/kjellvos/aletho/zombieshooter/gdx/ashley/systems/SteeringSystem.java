@@ -46,45 +46,74 @@ public class SteeringSystem extends IteratingSystem {
         Body monsterBody = Mapper.bodyCom.get(entity).body;
 
         PlayerEntity playerEntity = parent.getGameScreen().getPlayer();
-        Body playerBody = Mapper.bodyCom.get(entity).body;
+        Body playerBody = Mapper.bodyCom.get(playerEntity).body;
 
-
-        if (route == null) {
+        if (route == null &&
+                monsterBody.getPosition().x + 80 > playerBody.getPosition().x && playerBody.getPosition().x > monsterBody.getPosition().x - 80 &&
+                monsterBody.getPosition().y + 80 > playerBody.getPosition().y && playerBody.getPosition().y > monsterBody.getPosition().y - 80
+        ) {
             //System.out.println(monsterBody.getPosition().x + ":X_MONSTERBODY_Y:" + monsterBody.getPosition().y);
-            Tile startNode = parent.getGameScreen().getTile(floor(monsterBody.getPosition().x / 16), floor(monsterBody.getPosition().y / 16));
-            Tile endNode = parent.getGameScreen().getTile(3, 3);
+            Tile startNode = parent.getGameScreen().getTile(Math.round(monsterBody.getPosition().x / 16), Math.round(monsterBody.getPosition().y / 16));
+            Tile endNode = parent.getGameScreen().getTile(Math.round(playerBody.getPosition().x / 16), Math.round(playerBody.getPosition().y / 16));
 
             TilePath path = new TilePath();
-            parent.getGameScreen().getPathFinder().searchConnectionPath(startNode, endNode, new MandattanDistance(), path);
-            System.out.println(path.getCount());
+            if (parent.getGameScreen().getPathFinder().searchConnectionPath(startNode, endNode, new MandattanDistance(), path)) {
+                System.out.println(path.getCount());
 
-            route = new Array<>(path.getCount());
-            for (int i = 0; i < path.getCount(); i++) {
-                route.add(new Vector2(path.get(i).getToNode().getX() * 16 + 8, path.get(i).getToNode().getY() * 16 + 8));
-                System.out.println("Added to path: " + i + " X:" + (path.get(i).getToNode().getX() * 16 + 8) + " Y:" + (path.get(i).getToNode().getY() * 16 + 8));
-            }
+                if (path.getCount() > 1) {
+                    route = new Array<>(path.getCount());
+                    for (int i = 0; i < path.getCount(); i++) {
+                        route.add(new Vector2(path.get(i).getToNode().getX() * 16 + 8, path.get(i).getToNode().getY() * 16 + 8));
+                        System.out.println("Added to path: " + i + " X:" + (path.get(i).getToNode().getX() * 16 - 12) + " Y:" + (path.get(i).getToNode().getY() * 16 - 12));
+                    }
 
-            if (path.getCount() > 1) {
-                LinePath<Vector2> linePath = new LinePath<Vector2>(route);
-                //steer.steeringBehavior = SteeringPresets.getFollowPath(steer, linePath);
-                steer.currentMode = SteeringComponent.SteeringState.ARRIVE;
-                steer.steeringBehavior = SteeringPresets.getSeek(steer, new SeekablePoint(route.get(count).x, route.get(count).y));
-                System.out.println("APPLIED STEERING");
+                    LinePath<Vector2> linePath = new LinePath<Vector2>(route);
+                    //steer.steeringBehavior = SteeringPresets.getFollowPath(steer, linePath);
+                    steer.currentMode = SteeringComponent.SteeringState.SEEK;
+                    steer.steeringBehavior = SteeringPresets.getSeek(steer, new SeekablePoint(route.get(count).x, route.get(count).y));
+                    System.out.println("APPLIED STEERING");
+                } else {
+                    route = null;
+                    count = 0;
+                    steer.homeX = Math.round(monsterBody.getPosition().x);
+                    steer.homeY = Math.round(monsterBody.getPosition().y);
+                }
             }
-        }else{
+        }else if(route != null){
             if (    route.size - 1 > count &&
                     route.get(count).x + 8 > monsterBody.getPosition().x - 4 && monsterBody.getPosition().x + 4 > route.get(count).x - 8 &&
                     route.get(count).y + 8 > monsterBody.getPosition().y - 4 && monsterBody.getPosition().y + 4 > route.get(count).y - 8
             ){
                 count++;
-                steer.body.setLinearVelocity(new Vector2(0, 0));
-                steer.body.setAngularVelocity(0F);
-                steer.currentMode = SteeringComponent.SteeringState.ARRIVE;
+                //steer.body.setLinearVelocity(new Vector2(0, 0));
+                //steer.body.setAngularVelocity(0F);
+                steer.currentMode = SteeringComponent.SteeringState.SEEK;
                 steer.steeringBehavior = SteeringPresets.getSeek(steer, new SeekablePoint(route.get(count).x, route.get(count).y));
+            }
+            if (count == route.size - 1) {
+                SteeringComponent playerSteer = Mapper.steerCom.get(playerEntity);
+
+                steer.currentMode = SteeringComponent.SteeringState.SEEK;
+                steer.steeringBehavior = SteeringPresets.getSeek(steer, playerSteer);
+                route = null;
+                count = 0;
+                steer.homeX = Math.round(monsterBody.getPosition().x);
+                steer.homeY = Math.round(monsterBody.getPosition().y);
+            }
+        }else {
+            if (
+                    !(steer.getPosition().x < steer.homeX + 40 && steer.getPosition().x > steer.homeX - 40 &&
+                    steer.getPosition().y < steer.homeY + 40 && steer.getPosition().y > steer.homeY - 40)
+            ) {
+                steer.currentMode = SteeringComponent.SteeringState.SEEK;
+                steer.steeringBehavior = SteeringPresets.getSeek(steer, new SeekablePoint(steer.homeX, steer.homeY));
+            }else if (steer.currentMode != SteeringComponent.SteeringState.WANDER) {
+                steer.currentMode = SteeringComponent.SteeringState.WANDER;
+                steer.steeringBehavior = SteeringPresets.getWander(steer);
             }
         }
 
-        System.out.println(monsterBody.getPosition().x + ":X_MONSTERBODY_Y:" + monsterBody.getPosition().y);
+        //System.out.println(monsterBody.getPosition().x + ":X_MONSTERBODY_Y:" + monsterBody.getPosition().y);
         steer.update(deltaTime);
     }
 }

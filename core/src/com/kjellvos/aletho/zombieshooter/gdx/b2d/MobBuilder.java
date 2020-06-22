@@ -104,11 +104,11 @@ public class MobBuilder {
         bodyDef.type = BodyDef.BodyType.StaticBody;
         float x = Float.parseFloat(object.getProperties().get("x").toString());
         float y = Float.parseFloat(object.getProperties().get("y").toString());
-        bodyDef.position.set(x, y);
+        bodyDef.position.set(x + 8, y + 8);
 
         Body body = world.createBody(bodyDef);
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox( textureRegions[0].getRegionWidth() / 2F, textureRegions[0].getRegionHeight() / 2F);
+        shape.setAsBox( textureRegions[0].getRegionWidth() / 4F, textureRegions[0].getRegionHeight() / 4F);
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
         fixtureDef.filter.categoryBits = Constants.CATEGORY_BUILDING;

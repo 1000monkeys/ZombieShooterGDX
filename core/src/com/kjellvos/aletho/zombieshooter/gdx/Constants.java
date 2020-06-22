@@ -52,7 +52,7 @@ public class Constants {
     /**
      * The width/height in tiles, To get the real width/height multiply with PPT.
      */
-    public static final int viewWidthInTiles = 20, viewHeightInTiles = 16;
+    public static final int viewWidthInTiles = 20, viewHeightInTiles = 16; // 20, 16
 
     /**
      * The distance light travels.
@@ -61,7 +61,7 @@ public class Constants {
     /**
      * The amount of rays used per light, More is smoother shadows but slower performance.
      */
-    public static final int LIGHT_NUM_RAYS = 64;
+    public static final int LIGHT_NUM_RAYS = 640;
     /**
      * The distance from which lights go from lighting to darkness.
      */

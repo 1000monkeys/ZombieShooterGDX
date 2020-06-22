@@ -11,14 +11,14 @@ import com.badlogic.gdx.utils.Pool;
 import com.kjellvos.aletho.zombieshooter.gdx.b2d.Box2dLocation;
 
 public class SteeringComponent implements Steerable<Vector2>, Component, Pool.Poolable {
-
+    public int homeX, homeY;
     public static enum SteeringState {WANDER,SEEK,FLEE,ARRIVE,NONE} 	// a list of possible behaviours
     public SteeringState currentMode = SteeringState.WANDER; 	// stores which state the entity is currently in
     public Body body;	// stores a reference to our Box2D body
 
     // Steering data
-    float maxLinearSpeed = 64f;	// stores the max speed the entity can go
-    float maxLinearAcceleration = 640f;	// stores the max acceleration
+    float maxLinearSpeed = 45f;	// stores the max speed the entity can go
+    float maxLinearAcceleration = 300f;	// stores the max acceleration
     float maxAngularSpeed = 45f;		// the max turning speed
     float maxAngularAcceleration = 45f;// the max turning acceleration
     float zeroThreshold = 0.1f;	// how accurate should checks be (0.0000001f will mean the entity must get within 0.0000001f of
@@ -31,6 +31,13 @@ public class SteeringComponent implements Steerable<Vector2>, Component, Pool.Po
 
     public SteeringComponent(Body body){
         this.body = body;
+        homeX = Math.round(body.getPosition().x);
+        homeY = Math.round(body.getPosition().y);
+    }
+
+    public void setHome(int homeX, int homeY) {
+        this.homeX = homeX;
+        this.homeY = homeY;
     }
 
     @Override
