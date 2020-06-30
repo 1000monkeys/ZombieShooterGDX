@@ -24,6 +24,14 @@ public class ReadJsonGameFiles {
     private List<AnimationGson> animationGsons;
     private GameDataGson gameDataGson;
 
+    /**
+     * Constructor of this class
+     * @param parent the parent class(ZombieShooterGame)
+     * @param gameDataJSON the JSON string of the gamedata.json file
+     * @param spriteSheetsJSON the JSON string of the spritesheets.json file
+     * @param spritesJSON the JSON string ot the sprites.json file
+     * @param animatonsJSON the JSON string of the animations.json file
+     */
     public ReadJsonGameFiles(ZombieShooterGame parent, String gameDataJSON, String spriteSheetsJSON, String spritesJSON, String animatonsJSON) {
         this.parent = parent;
 
@@ -51,18 +59,35 @@ public class ReadJsonGameFiles {
         }
     }
 
+    /**
+     * Gets the GSON spritesheet list
+     * @return the list containing all spritesheets as a GSON object
+     */
     public List<SpriteSheetGson> getSpriteSheetGsons() {
         return spriteSheetGsons;
     }
 
+    /**
+     * Gets the GSON animation list
+     * @return the list containing all the animation data as a GSON object
+     */
     public List<AnimationGson> getAnimationGsons() {
         return animationGsons;
     }
 
+    /**
+     * Gets the GSON sprites list
+     * @return the list containing all the sprites as a GSON object
+     */
     public List<SpriteGson> getSprites() {
         return sprites;
     }
 
+    /**
+     * Gets a specific sprite object(GSON)
+     * @param id the id of the specific spriteGson you want to get
+     * @return the sprite that belongs the the id or throws a new exception
+     */
     public SpriteGson getSpriteGson(int id){
         for(int i = 0; i < sprites.size(); i++){
             if (sprites.get(i).getId() == id) {
@@ -74,12 +99,17 @@ public class ReadJsonGameFiles {
             try {
                 throw new SpriteNotFoundException("Sprite with id: " + id + " not found.");
             } catch (Exception e) {
-                    e.printStackTrace();
+                e.printStackTrace();
             }
         }
         return null;
     }
 
+    /**
+     * Gets a specific animation object(GSON)
+     * @param id the id of the specific animationGson you want to get
+     * @return the animation that belongs the the id or throws a new exception
+     */
     public AnimationGson getAnimationGson(int id){
         for(int i = 0; i < animationGsons.size(); i++){
             if (animationGsons.get(i).getId() == id) {
@@ -96,6 +126,11 @@ public class ReadJsonGameFiles {
         return null;
     }
 
+    /**
+     * Gets a spriteGson array used for animation
+     * @param id the animation id to get spriteGsons for
+     * @return a spriteGson array
+     */
     public SpriteGson[] getAnimationSpriteGson(int id){
         int[] spriteIds = animationGsons.get(id).getSpriteIds();
         SpriteGson[] spriteGsons = new SpriteGson[spriteIds.length];
@@ -106,6 +141,11 @@ public class ReadJsonGameFiles {
         return spriteGsons;
     }
 
+    /**
+     * Gets a TextureRegion array for the passed animation id
+     * @param id the animation id to get the textures for
+     * @return texture region array for use in animation
+     */
     public TextureRegion[] getAnimationTextures(int id) {
         SpriteGson[] spriteGsons = getAnimationSpriteGson(id);
         TextureRegion[] textureRegions = new TextureRegion[spriteGsons.length];
@@ -119,10 +159,17 @@ public class ReadJsonGameFiles {
         return textureRegions;
     }
 
+    /**
+     * Gets the gamedata Gson
+     * @return the gamedata Gson
+     */
     public GameDataGson getGameDataGson() {
         return gameDataGson;
     }
 
+    /**
+     * Sets the on the spritesheet gson and sets the sprites from the spritesheets
+     */
     public void setupWithAssets() {
         for (int i = 0; i < spriteSheetGsons.size(); i++) {
             if (Constants.DEBUG) {

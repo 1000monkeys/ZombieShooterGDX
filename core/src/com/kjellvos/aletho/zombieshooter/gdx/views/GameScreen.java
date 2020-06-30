@@ -140,6 +140,7 @@ public class GameScreen implements Screen, InputProcessor {
             }
         }
 
+        /*
         for (int x = 0; x < mapWidth; x++) {
             for (int y = 0; y < mapHeight; y++) {
                 Tile tile = tiles.get(x * mapWidth + y);
@@ -154,6 +155,7 @@ public class GameScreen implements Screen, InputProcessor {
                 }
             }
         }
+        */
 
         tileWorld = new TileWorld(tiles, mapWidth, mapHeight);
         pathFinder = new IndexedAStarPathFinder<Tile>(tileWorld);
@@ -174,7 +176,8 @@ public class GameScreen implements Screen, InputProcessor {
         RayHandler.setGammaCorrection(true);
         RayHandler.useDiffuseLight(true);
         rayHandler = new RayHandler(world);
-        rayHandler.setAmbientLight(0.5F, 0.5F, 0.5F, 0.75F);
+        //rayHandler.setAmbientLight(0.5F, 0.5F, 0.5F, 0.75F);
+        rayHandler.setAmbientLight(255F, 255F, 255F, 255f);
         rayHandler.setBlurNum(16);
         rayHandler.setCulling(true);
 

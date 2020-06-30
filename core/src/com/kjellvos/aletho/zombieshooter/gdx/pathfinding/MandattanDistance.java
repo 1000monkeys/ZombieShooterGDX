@@ -3,8 +3,15 @@ package com.kjellvos.aletho.zombieshooter.gdx.pathfinding;
 import com.badlogic.gdx.ai.pfa.Heuristic;
 
 public class MandattanDistance implements Heuristic<Tile> {
+
+    /**
+     * Calculates the manhattan distance between two tiles
+     * @param fromTile tile to move from
+     * @param toTile tile to move towards
+     * @return
+     */
     @Override
-    public float estimate(Tile node, Tile endNode) {
-        return  Math.abs(endNode.getX() - node.getX()) + Math.abs(endNode.getY() - node.getY());
+    public float estimate(Tile fromTile, Tile toTile) {
+        return  Math.abs(fromTile.getX() - fromTile.getX()) + Math.abs(toTile.getY() - toTile.getY());
     }
 }

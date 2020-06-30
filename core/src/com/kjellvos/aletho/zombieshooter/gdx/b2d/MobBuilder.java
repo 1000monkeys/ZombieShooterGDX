@@ -35,32 +35,7 @@ public class MobBuilder {
                 float x = Float.parseFloat(object.getProperties().get("x").toString());
                 float y = Float.parseFloat(object.getProperties().get("y").toString());
                 new MonsterEntity(parent, x, y);
-            }/*else{
-                Entity mob = new Entity();
-
-                TextureRegion textureRegion = readJsonGameFiles.getSpriteGson(id).getSprite();
-
-
-                float x = Float.parseFloat(object.getProperties().get("x").toString());
-                float y = Float.parseFloat(object.getProperties().get("y").toString());
-
-                BodyDef bodyDef = new BodyDef();
-                bodyDef.type = BodyDef.BodyType.DynamicBody;
-                bodyDef.position.set(x, y);
-
-                Body body = world.createBody(bodyDef);
-                body.setLinearDamping(5);
-                PolygonShape shape = new PolygonShape();
-                shape.setAsBox(textureRegion.getRegionWidth() / 2F, textureRegion.getRegionHeight() / 2F);
-                FixtureDef fixtureDef = new FixtureDef();
-                fixtureDef.shape = shape;
-                fixtureDef.filter.categoryBits = Constants.CATEGORY_MOB;
-                fixtureDef.filter.maskBits = Constants.MASK_MOB;
-                body.createFixture(fixtureDef).setUserData("mob");
-
-                mob.add(new BodyComponent(body)).add(new TextureRegionComponent(textureRegion)).add(new PathingComponent(x, y));
-                engine.addEntity(mob);
-            }*/
+            }
         }
     }
 

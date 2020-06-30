@@ -1,9 +1,15 @@
 com.kjellvos.aletho.zombieshooter.gdx
-com.kjellvos.aletho.zombieshooter.gdx.b2d
+com.kjellvos.aletho.zombieshooter.gdx.ashley
 com.kjellvos.aletho.zombieshooter.gdx.ashley.components
+com.kjellvos.aletho.zombieshooter.gdx.ashley.entities
+com.kjellvos.aletho.zombieshooter.gdx.ashley.systems
+com.kjellvos.aletho.zombieshooter.gdx.b2d
 com.kjellvos.aletho.zombieshooter.gdx.desktop
 com.kjellvos.aletho.zombieshooter.gdx.enums
+com.kjellvos.aletho.zombieshooter.gdx.errorhandling
 com.kjellvos.aletho.zombieshooter.gdx.inputprocessors
+com.kjellvos.aletho.zombieshooter.gdx.inventory
 com.kjellvos.aletho.zombieshooter.gdx.loader
-com.kjellvos.aletho.zombieshooter.gdx.ashley.systems
+com.kjellvos.aletho.zombieshooter.gdx.loader.gson
+com.kjellvos.aletho.zombieshooter.gdx.pathfinding
 com.kjellvos.aletho.zombieshooter.gdx.views
