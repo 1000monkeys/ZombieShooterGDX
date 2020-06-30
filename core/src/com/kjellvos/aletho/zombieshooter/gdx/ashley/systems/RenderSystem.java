@@ -1,11 +1,17 @@
 package com.kjellvos.aletho.zombieshooter.gdx.ashley.systems;
 
-import com.badlogic.ashley.core.*;
+import com.badlogic.ashley.core.Engine;
+import com.badlogic.ashley.core.Entity;
+import com.badlogic.ashley.core.EntitySystem;
+import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.*;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.BodyComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.DirectionalWalkingAnimationComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.SimpleAnimationComponent;
+import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.TextureRegionComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
 
 public class RenderSystem extends EntitySystem {
@@ -25,8 +31,7 @@ public class RenderSystem extends EntitySystem {
     }
 
     /**
-     * The update function is used by the ashley entity system when called in the {@link GameScreen#render} method.
-     * @param deltaTime time since last time this function has ran.
+     * See {@link RenderSystem#update(float)}
      */
     @Override
     public void update(float deltaTime) {

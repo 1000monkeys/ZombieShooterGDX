@@ -1,9 +1,11 @@
 package com.kjellvos.aletho.zombieshooter.gdx.ashley;
 
-import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.*;
 
+/**
+ * Class is used for mapping components from entities
+ */
 public class Mapper {
     public static final ComponentMapper<BodyComponent> bodyCom = ComponentMapper.getFor(BodyComponent.class);
     public static final ComponentMapper<ItemComponent> itemCom = ComponentMapper.getFor(ItemComponent.class);

@@ -91,6 +91,7 @@ public class AppPreferences {
     /**
      * Gets the  preferred sound/effects volume using the  {@link String} identifier.
      * Uses {@link AppPreferences#PREF_SOUND_VOLUME}
+     * @return the desired sound volume
      */
     public float getSoundVolume() {
         return getPrefs().getFloat(PREF_SOUND_VOLUME, 0.5f);

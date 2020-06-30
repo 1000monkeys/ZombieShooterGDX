@@ -43,7 +43,7 @@ public class TileWorld implements IndexedGraph<Tile> {
 
     /**
      * Get connections(usually neighbours) of the passed tile.
-     * @param fromTile
+     * @param fromTile the tile you are moving from
      * @return The passed tile's connections
      */
     @Override

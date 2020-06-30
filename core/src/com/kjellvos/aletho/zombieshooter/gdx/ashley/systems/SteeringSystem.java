@@ -8,29 +8,30 @@ import com.badlogic.gdx.ai.steer.utils.paths.LinePath;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.utils.Array;
-import com.kjellvos.aletho.zombieshooter.gdx.pathfinding.SeekablePoint;
-import com.kjellvos.aletho.zombieshooter.gdx.pathfinding.SteeringPresets;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.Mapper;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.SteeringComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.TextureRegionComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.entities.PlayerEntity;
-import com.kjellvos.aletho.zombieshooter.gdx.pathfinding.MandattanDistance;
-import com.kjellvos.aletho.zombieshooter.gdx.pathfinding.Tile;
-import com.kjellvos.aletho.zombieshooter.gdx.pathfinding.TilePath;
-
-import static com.badlogic.gdx.math.MathUtils.floor;
+import com.kjellvos.aletho.zombieshooter.gdx.pathfinding.*;
+import com.kjellvos.aletho.zombieshooter.gdx.views.GameScreen;
 
 public class SteeringSystem extends IteratingSystem {
     private ZombieShooterGame parent;
     private Array<Vector2> route = null;
     private int count = 0;
 
+    /**
+     * The constructor of the render system, Gets called once on creation of the class,
+     * We pass the {@link GameScreen} class for use in the update function.
+     * @param parent passed for use in the update method.
+     */
     public SteeringSystem(ZombieShooterGame parent) {
         super(Family.all(SteeringComponent.class, BodyComponent.class, TextureRegionComponent.class).get());
         this.parent = parent;
     }
+
 
 
     @Override
@@ -40,6 +41,11 @@ public class SteeringSystem extends IteratingSystem {
     }
 
 
+    /**
+     * Processes the entity, creates movement and routes towards players
+     * @param entity the entity to process
+     * @param deltaTime the time since the entity was last processed
+     */
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
         SteeringComponent steer = Mapper.steerCom.get(entity);

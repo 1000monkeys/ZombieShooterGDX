@@ -20,6 +20,16 @@ import com.kjellvos.aletho.zombieshooter.gdx.loader.ReadJsonGameFiles;
 
 public class MobBuilder {
 
+    /**
+     * This function is called from somewhere else in the code during startup/loading of the worldmap
+     * @param parent the ZombieShooterGame main class
+     * @param map the tiledmap to load
+     * @param tileset the tileset to use for the sprites of items
+     * @param readJsonGameFiles the readJsonGameFiles class used as argument for private functions
+     * @param world the world to place the objects in
+     * @param engine the entity engine to add the new item to it
+     * @param rayHandler the rayhandler for lights
+     */
     public static void buildObjects(ZombieShooterGame parent, TiledMap map, Texture tileset, ReadJsonGameFiles readJsonGameFiles, World world, Engine engine, RayHandler rayHandler) {
         MapObjects objects = map.getLayers().get("Mobs").getObjects();
 
@@ -39,7 +49,15 @@ public class MobBuilder {
         }
     }
 
-    public static void buildItem(int id, MapObject object, ReadJsonGameFiles readJsonGameFiles, World world, Engine engine){
+    /**
+     * Build's the item in the world
+     * @param id ID of the item
+     * @param object the object to build the new item from
+     * @param readJsonGameFiles the readjsongamefiles class to get the item information
+     * @param world the world to place the new item in
+     * @param engine the entity engine, used for adding the new item to the engine
+     */
+    private static void buildItem(int id, MapObject object, ReadJsonGameFiles readJsonGameFiles, World world, Engine engine){
         Entity item = new Entity();
 
         TextureRegion textureRegion = readJsonGameFiles.getSpriteGson(id).getSprite();
@@ -65,12 +83,13 @@ public class MobBuilder {
     /**
      * Build's the lights in the world, Runs after/during loading the map
      * @param object the object(the light)
+     * @param readJsonGameFiles the readjsongamefiles class to get the item information
      * @param tileset the tileset used for the object
      * @param world the box2D world in which the light should be
      * @param engine the ashley entity system engine
      * @param rayHandler The ray handler, used to create the light
      */
-    public static void buildLight(MapObject object, ReadJsonGameFiles readJsonGameFiles, Texture tileset, World world, Engine engine, RayHandler rayHandler){
+    private static void buildLight(MapObject object, ReadJsonGameFiles readJsonGameFiles, Texture tileset, World world, Engine engine, RayHandler rayHandler){
         Entity light = new Entity();
 
         TextureRegion[] textureRegions = readJsonGameFiles.getAnimationTextures(0);

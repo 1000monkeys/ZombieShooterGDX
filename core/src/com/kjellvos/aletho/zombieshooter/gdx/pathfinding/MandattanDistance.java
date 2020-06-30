@@ -8,7 +8,7 @@ public class MandattanDistance implements Heuristic<Tile> {
      * Calculates the manhattan distance between two tiles
      * @param fromTile tile to move from
      * @param toTile tile to move towards
-     * @return
+     * @return the manhattan distance between fromTile and toTile
      */
     @Override
     public float estimate(Tile fromTile, Tile toTile) {

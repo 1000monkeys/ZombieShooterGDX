@@ -4,14 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.inputprocessors.SplashesInputProcessor;
-import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
 public class Splashes implements Screen {
     /**
@@ -34,9 +33,10 @@ public class Splashes implements Screen {
 
     /**
      * See {@link GameScreen#GameScreen(ZombieShooterGame)}
+     * @param parent the ZombieShooterGame main class
      */
-    public Splashes(ZombieShooterGame zombieShooterGame) {
-        this.parent = zombieShooterGame;
+    public Splashes(ZombieShooterGame parent) {
+        this.parent = parent;
     }
 
     /**

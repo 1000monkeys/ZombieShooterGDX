@@ -27,7 +27,7 @@ public class SpriteSheetGson {
     /**
      * Gets sprite by the specific SpriteGson
      * @param spriteGson the spritegson to get the texture region for
-     * @return
+     * @return the sprite texture
      */
     public TextureRegion getSprite(SpriteGson spriteGson) {
         if (spriteSheet == null) {

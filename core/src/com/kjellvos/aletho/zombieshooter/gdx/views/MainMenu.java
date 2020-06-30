@@ -12,9 +12,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.enums.ScreenEnum;
-import com.kjellvos.aletho.zombieshooter.gdx.Constants;
 
 public class MainMenu implements Screen {
     /**

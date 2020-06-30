@@ -4,9 +4,9 @@ import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
-import com.kjellvos.aletho.zombieshooter.gdx.inventory.InventoryItem;
 import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.Mapper;
+import com.kjellvos.aletho.zombieshooter.gdx.inventory.InventoryItem;
 import com.kjellvos.aletho.zombieshooter.gdx.loader.gson.SpriteGson;
 
 import java.util.ArrayList;

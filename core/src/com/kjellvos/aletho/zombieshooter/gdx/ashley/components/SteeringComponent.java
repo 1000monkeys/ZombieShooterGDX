@@ -8,7 +8,7 @@ import com.badlogic.gdx.ai.utils.Location;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.utils.Pool;
-import com.kjellvos.aletho.zombieshooter.gdx.b2d.Box2dLocation;
+import com.kjellvos.aletho.zombieshooter.gdx.pathfinding.Box2dLocation;
 
 public class SteeringComponent implements Steerable<Vector2>, Component, Pool.Poolable {
     public int homeX, homeY;

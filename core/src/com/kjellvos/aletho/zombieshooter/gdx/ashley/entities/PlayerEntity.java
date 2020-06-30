@@ -7,14 +7,13 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.kjellvos.aletho.zombieshooter.gdx.*;
+import com.kjellvos.aletho.zombieshooter.gdx.Constants;
+import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.BodyComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.DirectionalWalkingAnimationComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.PlayerInventoryComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.SteeringComponent;
 import com.kjellvos.aletho.zombieshooter.gdx.loader.ReadJsonGameFiles;
-
-import java.util.HashMap;
 
 public class PlayerEntity extends Entity{
     private ZombieShooterGame parent;
@@ -23,6 +22,10 @@ public class PlayerEntity extends Entity{
 
     private PlayerInventoryComponent inventory;
 
+    /**
+     * Initializes the class and the player animation
+     * @param parent The ZombieShooterGame Main class
+     */
     public PlayerEntity(ZombieShooterGame parent) {
         this.parent = parent;
 
@@ -59,7 +62,10 @@ public class PlayerEntity extends Entity{
         parent.getGameScreen().getEngine().addEntity(this);
     }
 
-
+    /**
+     * Gets the player inventory component
+     * @return the player inventory component
+     */
     public PlayerInventoryComponent getInventory() {
         return inventory;
     }

@@ -6,15 +6,21 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.kjellvos.aletho.zombieshooter.gdx.Constants;
+import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 import com.kjellvos.aletho.zombieshooter.gdx.ashley.components.*;
 import com.kjellvos.aletho.zombieshooter.gdx.loader.ReadJsonGameFiles;
 import com.kjellvos.aletho.zombieshooter.gdx.pathfinding.SteeringPresets;
-import com.kjellvos.aletho.zombieshooter.gdx.ZombieShooterGame;
 
 
 public class MonsterEntity extends Entity {
     private ZombieShooterGame parent;
 
+    /**
+     * Creates and initializes the monster entity
+     * @param parent the ZombieShooterGame main class
+     * @param x the x coordinate
+     * @param y the y coordinate
+     */
     public MonsterEntity(ZombieShooterGame parent, float x, float y){
         this.parent = parent;
 
