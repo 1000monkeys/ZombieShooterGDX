@@ -176,8 +176,8 @@ public class GameScreen implements Screen, InputProcessor {
         RayHandler.setGammaCorrection(true);
         RayHandler.useDiffuseLight(true);
         rayHandler = new RayHandler(world);
-        //rayHandler.setAmbientLight(0.5F, 0.5F, 0.5F, 0.75F);
-        rayHandler.setAmbientLight(255F, 255F, 255F, 255f);
+        rayHandler.setAmbientLight(0.5F, 0.5F, 0.5F, 0.75F);
+        //rayHandler.setAmbientLight(255F, 255F, 255F, 255f);
         rayHandler.setBlurNum(16);
         rayHandler.setCulling(true);
 

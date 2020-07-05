@@ -1,4 +1,4 @@
-package com.kjellvos.aletho.zombieshooter.gdx.b2d;
+package com.kjellvos.aletho.zombieshooter.gdx.pathfinding;
 
 import com.badlogic.gdx.ai.utils.Location;
 import com.badlogic.gdx.math.Vector2;
