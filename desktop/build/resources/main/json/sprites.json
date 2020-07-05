@@ -8,6 +8,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "Top of a wall."
@@ -21,6 +22,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "Top of a wall."
@@ -34,6 +36,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "Top of a waaaall."
@@ -47,6 +50,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "Top of a wall."
@@ -60,6 +64,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "Top of a wall."
@@ -76,6 +81,7 @@
       "widthInPixels": 16,
       "heightInPixels": 24
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -93,6 +99,7 @@
       "widthInPixels": 16,
       "heightInPixels": 24
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -110,6 +117,7 @@
       "widthInPixels": 16,
       "heightInPixels": 24
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -127,6 +135,7 @@
       "widthInPixels": 16,
       "heightInPixels": 24
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -144,6 +153,7 @@
       "widthInPixels": 16,
       "heightInPixels": 24
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -161,6 +171,7 @@
       "widthInPixels": 16,
       "heightInPixels": 32
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -178,6 +189,7 @@
       "widthInPixels": 16,
       "heightInPixels": 40
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -187,7 +199,34 @@
     "description": "A long iron hammer, has very good reach."
   },
 
-
+  {
+    "id": 33,
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 16,
+      "positionY": 16,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isWalkable": false,
+    "isItem": false,
+    "isMob": false,
+    "description": "A wall"
+  },
+  {
+    "id": 34,
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 16,
+      "positionY": 32,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isWalkable": false,
+    "isItem": false,
+    "isMob": false,
+    "description": "A wall"
+  },
 
   {
     "id": 71,
@@ -198,6 +237,7 @@
       "widthInPixels": 16,
       "heightInPixels": 24
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -215,6 +255,7 @@
       "widthInPixels": 16,
       "heightInPixels": 24
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -232,6 +273,7 @@
       "widthInPixels": 16,
       "heightInPixels": 24
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -249,6 +291,7 @@
       "widthInPixels": 16,
       "heightInPixels": 32
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -266,6 +309,7 @@
       "widthInPixels": 16,
       "heightInPixels": 32
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -283,6 +327,7 @@
       "widthInPixels": 16,
       "heightInPixels": 32
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -300,6 +345,7 @@
       "widthInPixels": 16,
       "heightInPixels": 32
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -317,6 +363,7 @@
       "widthInPixels": 16,
       "heightInPixels": 32
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -326,6 +373,20 @@
     "description": "The yellow sword. The very best."
   },
 
+  {
+    "id": 98,
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 48,
+      "positionY": 32,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isWalkable": true,
+    "isItem": false,
+    "isMob": false,
+    "description": "The ground."
+  },
 
   {
     "id": 111,
@@ -336,6 +397,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -355,6 +417,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": true,
     "description": "A cloaked monster, it is scary."
@@ -370,6 +433,7 @@
       "widthInPixels": 16,
       "heightInPixels": 24
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "Top of the fire."
@@ -383,6 +447,7 @@
       "widthInPixels": 16,
       "heightInPixels": 24
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "Top of the fire."
@@ -396,6 +461,7 @@
       "widthInPixels": 16,
       "heightInPixels": 24
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "Top of the fire."
@@ -409,6 +475,7 @@
       "widthInPixels": 16,
       "heightInPixels": 24
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "Top of the fire."
@@ -422,6 +489,7 @@
       "widthInPixels": 16,
       "heightInPixels": 24
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "Top of the fire."
@@ -435,6 +503,7 @@
       "widthInPixels": 16,
       "heightInPixels": 24
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "Top of the fire."
@@ -448,6 +517,7 @@
       "widthInPixels": 16,
       "heightInPixels": 24
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "Top of the fire."
@@ -461,6 +531,7 @@
       "widthInPixels": 16,
       "heightInPixels": 24
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "Top of the fire."
@@ -478,6 +549,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -497,6 +569,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -517,6 +590,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -537,6 +611,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -554,6 +629,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -571,6 +647,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -588,6 +665,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -605,6 +683,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -622,6 +701,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": true,
     "isMob": false,
     "itemData": {
@@ -641,13 +721,40 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player."
   },
 
-
-
+  {
+    "id": 550,
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 272,
+      "positionY": 96,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isWalkable": false,
+    "isItem": false,
+    "isMob": false,
+    "description": "A wall"
+  },
+  {
+    "id": 553,
+    "spriteData": {
+      "spriteSheetId": 0,
+      "positionX": 272,
+      "positionY": 144,
+      "widthInPixels": 16,
+      "heightInPixels": 16
+    },
+    "isWalkable": false,
+    "isItem": false,
+    "isMob": false,
+    "description": "A wall"
+  },
 
 
   {
@@ -659,6 +766,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": true,
     "description": "The zombie sage, down animation 1."
@@ -672,6 +780,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": true,
     "description": "The zombie sage, down animation 2."
@@ -685,6 +794,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": true,
     "description": "The zombie sage, down animation 3."
@@ -698,6 +808,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": true,
     "description": "The zombie sage, down animation 4."
@@ -713,6 +824,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": true,
     "description": "The zombie sage, up animation 1."
@@ -726,6 +838,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": true,
     "description": "The zombie sage, up animation 2."
@@ -739,6 +852,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": true,
     "description": "The zombie sage, up animation 3."
@@ -752,6 +866,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": true,
     "description": "The zombie sage, up animation 4."
@@ -767,6 +882,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": true,
     "description": "The zombie sage, left/right animation 1."
@@ -780,6 +896,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": true,
     "description": "The zombie sage, left/right animation 2."
@@ -793,6 +910,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": true,
     "description": "The zombie sage, left/right animation 3."
@@ -806,6 +924,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": true,
     "description": "The zombie sage, left/right animation 4."
@@ -820,6 +939,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, down animation 1."
@@ -833,6 +953,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, down animation 2."
@@ -846,6 +967,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, down animation 3."
@@ -859,6 +981,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, down animation 4."
@@ -872,6 +995,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, up animation 1."
@@ -885,6 +1009,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, up animation 2."
@@ -898,6 +1023,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, up animation 3."
@@ -911,6 +1037,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, up animation 4."
@@ -925,6 +1052,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, right animation 1."
@@ -938,6 +1066,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, right animation 2."
@@ -951,6 +1080,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, right animation 3."
@@ -964,6 +1094,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, right animation 4."
@@ -978,6 +1109,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, idle animation 1."
@@ -991,6 +1123,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, idle animation 2."
@@ -1006,6 +1139,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, left animation 1."
@@ -1019,6 +1153,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, left animation 2."
@@ -1032,6 +1167,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, left animation 3."
@@ -1045,6 +1181,7 @@
       "widthInPixels": 16,
       "heightInPixels": 16
     },
+    "isWalkable": false,
     "isItem": false,
     "isMob": false,
     "description": "The player, right animation 4."

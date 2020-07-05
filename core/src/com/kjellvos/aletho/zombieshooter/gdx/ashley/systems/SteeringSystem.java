@@ -59,11 +59,11 @@ public class SteeringSystem extends IteratingSystem {
                 monsterBody.getPosition().y + 80 > playerBody.getPosition().y && playerBody.getPosition().y > monsterBody.getPosition().y - 80
         ) {
             //System.out.println(monsterBody.getPosition().x + ":X_MONSTERBODY_Y:" + monsterBody.getPosition().y);
-            Tile startNode = parent.getGameScreen().getTile(Math.round(monsterBody.getPosition().x / 16), Math.round(monsterBody.getPosition().y / 16));
-            Tile endNode = parent.getGameScreen().getTile(Math.round(playerBody.getPosition().x / 16), Math.round(playerBody.getPosition().y / 16));
+            Tile startNode = parent.getGameScreen().getPathfindingClass().getTile(Math.round(monsterBody.getPosition().x / 16), Math.round(monsterBody.getPosition().y / 16));
+            Tile endNode = parent.getGameScreen().getPathfindingClass().getTile(Math.round(playerBody.getPosition().x / 16), Math.round(playerBody.getPosition().y / 16));
 
             TilePath path = new TilePath();
-            if (parent.getGameScreen().getPathFinder().searchConnectionPath(startNode, endNode, new MandattanDistance(), path)) {
+            if (parent.getGameScreen().getPathfindingClass().getPathFinder().searchConnectionPath(startNode, endNode, new MandattanDistance(), path)) {
                 System.out.println(path.getCount());
 
                 if (path.getCount() > 1) {

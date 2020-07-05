@@ -20,8 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3dae99bb-f850-4e65-96fa-f780e7f4f2c0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/pathfinding/Pathfinding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/pathfinding/Box2dLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/pathfinding/Box2dLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/assets/json/sprites.json" beforeDir="false" afterPath="$PROJECT_DIR$/core/assets/json/sprites.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/systems/SteeringSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/ashley/systems/SteeringSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/loader/ReadJsonGameFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/loader/ReadJsonGameFiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/loader/gson/SpriteGson.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/loader/gson/SpriteGson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/views/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/kjellvos/aletho/zombieshooter/gdx/views/GameScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -160,6 +173,7 @@
       <workItem from="1593537814159" duration="3182000" />
       <workItem from="1593601769405" duration="599000" />
       <workItem from="1593620656776" duration="1510000" />
+      <workItem from="1593977917881" duration="4596000" />
     </task>
     <servers />
   </component>
@@ -250,38 +264,38 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="420" y="432" width="723" height="333" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1590862027348" />
-    <state width="1249" height="138" key="GridCell.Tab.0.bottom" timestamp="1593642106820">
+    <state width="2517" height="499" key="GridCell.Tab.0.bottom" timestamp="1593983888998">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1249" height="138" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1593642106820" />
-    <state width="1249" height="138" key="GridCell.Tab.0.center" timestamp="1593642106820">
+    <state width="2517" height="499" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1593983888998" />
+    <state width="2517" height="499" key="GridCell.Tab.0.center" timestamp="1593983888997">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1249" height="138" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1593642106820" />
-    <state width="1249" height="138" key="GridCell.Tab.0.left" timestamp="1593642106820">
+    <state width="2517" height="499" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1593983888997" />
+    <state width="2517" height="499" key="GridCell.Tab.0.left" timestamp="1593983888997">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1249" height="138" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1593642106820" />
-    <state width="1249" height="138" key="GridCell.Tab.0.right" timestamp="1593642106820">
+    <state width="2517" height="499" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1593983888997" />
+    <state width="2517" height="499" key="GridCell.Tab.0.right" timestamp="1593983888998">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1249" height="138" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1593642106820" />
-    <state width="1235" height="489" key="GridCell.Tab.1.bottom" timestamp="1592863027883">
+    <state width="2517" height="499" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1593983888998" />
+    <state width="1561" height="488" key="GridCell.Tab.1.bottom" timestamp="1593983127049">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1235" height="489" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1592863027883" />
-    <state width="1235" height="489" key="GridCell.Tab.1.center" timestamp="1592863027883">
+    <state width="1561" height="488" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1593983127049" />
+    <state width="1561" height="488" key="GridCell.Tab.1.center" timestamp="1593983127049">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1235" height="489" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1592863027883" />
-    <state width="1235" height="489" key="GridCell.Tab.1.left" timestamp="1592863027883">
+    <state width="1561" height="488" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1593983127049" />
+    <state width="1561" height="488" key="GridCell.Tab.1.left" timestamp="1593983127049">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1235" height="489" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1592863027883" />
-    <state width="1235" height="489" key="GridCell.Tab.1.right" timestamp="1592863027883">
+    <state width="1561" height="488" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1593983127049" />
+    <state width="1561" height="488" key="GridCell.Tab.1.right" timestamp="1593983127049">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="1235" height="489" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1592863027883" />
+    <state width="1561" height="488" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1593983127049" />
     <state x="343" y="324" width="1442" height="850" key="SettingsEditor" timestamp="1591989400472">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -302,10 +316,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="518" y="618" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400@0.0.2560.1400" timestamp="1591994022321" />
-    <state x="1273" y="0" width="1293" height="1407" key="dock-window-1" timestamp="1591186095776">
+    <state x="1599" y="0" width="968" height="1407" key="dock-window-1" timestamp="1593981970553">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1273" y="0" width="1293" height="1407" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" timestamp="1591186095776" />
+    <state x="1599" y="0" width="968" height="1407" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" timestamp="1593981970553" />
     <state x="1273" y="0" width="1293" height="1407" key="dock-window-2" timestamp="1591129070865">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -330,10 +344,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1583" y="333" key="run.anything.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1593539758128" />
-    <state x="303" y="320" width="673" height="679" key="search.everywhere.popup" timestamp="1592856768686">
+    <state x="303" y="320" width="673" height="679" key="search.everywhere.popup" timestamp="1593980973542">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="303" y="320" width="673" height="679" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1592856768686" />
+    <state x="303" y="320" width="673" height="679" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1593980973542" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ZombieShooterGDX$DesktopLauncher.ic" NAME="DesktopLauncher Coverage Results" MODIFIED="1590940781728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

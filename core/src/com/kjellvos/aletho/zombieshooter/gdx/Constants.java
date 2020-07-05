@@ -5,7 +5,7 @@ public class Constants {
      * The debug variable, used in certain areas of the code to make debugging easier,
      * For release this variable should always be false.
      */
-    public static boolean DEBUG = false;
+    public static boolean DEBUG = true;
 
     /**
      * Non diagonal movement cost(diagonal being 1)

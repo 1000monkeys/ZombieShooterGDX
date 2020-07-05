@@ -5,7 +5,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class SpriteGson {
     private int id;
     private NestedSpriteData spriteData;
+    private boolean isWalkable;
     private boolean isItem;
+    private boolean isMob;
     private NestedItemData itemData;
     private String description;
 
@@ -20,10 +22,12 @@ public class SpriteGson {
      * @param itemData Itemdata such as stackable/pick up text
      * @param description A small string describing the object
      */
-    public SpriteGson(int id, NestedSpriteData spriteData, boolean isItem, NestedItemData itemData, String description) {
+    public SpriteGson(int id, NestedSpriteData spriteData, boolean isWalkable, boolean isItem, boolean isMob, NestedItemData itemData, String description) {
         this.id = id;
         this.spriteData = spriteData;
+        this.isWalkable = isWalkable;
         this.isItem = isItem;
+        this.isMob = isMob;
         this.itemData = itemData;
         this.description = description;
     }
@@ -35,11 +39,21 @@ public class SpriteGson {
      * @param isItem Boolean value on whether this sprite is an item or not
      * @param description A small string describing the object
      */
-    public SpriteGson(int id, NestedSpriteData spriteData, boolean isItem, String description){
+    public SpriteGson(int id, NestedSpriteData spriteData, boolean isWalkable, boolean isItem, boolean isMob, String description){
         this.id = id;
         this.spriteData = spriteData;
+        this.isWalkable = isWalkable;
         this.isItem = isItem;
+        this.isMob = isMob;
         this.description = description;
+    }
+
+    public boolean isMob() {
+        return isMob;
+    }
+
+    public boolean isWalkable() {
+        return isWalkable;
     }
 
     /**
